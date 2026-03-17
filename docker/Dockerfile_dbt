@@ -3,8 +3,12 @@
 # Base image
 FROM python:3.11-slim
 
-# Install dbt and dbt-postgres extension
+# Install dbt and dbt-postgres extension through pip
 RUN pip install dbt-core dbt-postgres
+
+# Install other dependencies
+RUN apt-get update && apt-get install -y \
+    git
 
 # Set working directory (default location opened after starting container)
 WORKDIR /home/dbt
