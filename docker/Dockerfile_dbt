@@ -1,0 +1,10 @@
+## This is the Dockerfile for the dbt image
+
+# Base image
+FROM python:3.11-slim
+
+# Install dbt and dbt-postgres extension
+RUN pip install dbt-core dbt-postgres
+
+# Set working directory (default location opened after starting container)
+WORKDIR /home/dbt

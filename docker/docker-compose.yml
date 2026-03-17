@@ -1,0 +1,13 @@
+services:
+  dbt-dev: 
+    image: dbt_image
+    container_name: dbt-container
+    network_mode: host  # needed, so host.docker.internal points to actual host IP
+                        # and not Docker subnet
+    volumes:
+      - ../src/dbt:/src/dbt          # mount project directory
+    
+    environment:
+     - DISPLAY=host.docker.internal:0.0 # set display environment to local host IP
+    stdin_open: true
+    tty: true

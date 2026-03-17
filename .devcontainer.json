@@ -1,0 +1,7 @@
+{
+    "name": "cv-devcontainer",
+    "dockerComposeFile": "./docker/docker-compose.yml",
+    "service": "dbt-dev",
+    "workspaceFolder": "/src/dbt",
+    "shutdownAction": "stopCompose"
+}
