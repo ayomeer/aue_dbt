@@ -1,0 +1,6 @@
+sources:
+  - name: quellobjekte
+    database: test-db
+    schema: dbu_aue_quellkataster
+    tables:
+      - name: src_access_objektdaten

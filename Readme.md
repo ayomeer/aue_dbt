@@ -22,7 +22,10 @@ For basic testing, the image can be run as follows:
 docker run --name postgres-container --user=postgres --network=host -e POSTGRES_PASSWORD=postgres -d postgres
 ```
 
-After running it with those flags that set up the user, commit image to the one used by vscode devcontainer setup: `postgres:dev`
+After running it with those flags that set up the user and setting up test and prod databases including target schemas, commit the container to the image used by vscode devcontainer setup: `postgres:dev`.
+
+> ℹ️ _**Note:**_ 
+For new databases created, postgis needs to be enabled: Right click on `Extensions` category in the pgAdmin browser pane.
 
 #### Using the image in development/testing
 
