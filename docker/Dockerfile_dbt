@@ -8,7 +8,8 @@ RUN pip install dbt-core dbt-postgres
 
 # Install other dependencies
 RUN apt-get update && apt-get install -y \
-    git
+    git \
+    lsof
 
 # Set working directory (default location opened after starting container)
 WORKDIR /home/dbt

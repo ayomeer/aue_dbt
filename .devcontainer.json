@@ -1,7 +1,14 @@
 {
-    "name": "cv-devcontainer",
+    "name": "dbt-devcontainer",
     "dockerComposeFile": "./docker/docker-compose.yml",
     "service": "dbt-dev",
     "workspaceFolder": "/src/dbt",
+    "customizations": {
+    "vscode": {
+      "settings": {
+        "remote.autoForwardPorts": false
+      }
+    }
+  },
     "shutdownAction": "stopCompose"
 }

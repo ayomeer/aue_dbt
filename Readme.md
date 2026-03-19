@@ -16,13 +16,22 @@ docker pull dhi.io/postgres:18-alpine3.22-dev
 docker tag dhi.io/postgres:18-alpine3.22-dev postgres
 ```
 
-Running the image:
+#### Running the image
+For basic testing, the image can be run as follows:
 ```
 docker run --name postgres-container --user=postgres --network=host -e POSTGRES_PASSWORD=postgres -d postgres
 ```
 
-> **Note**:
-The `postgres:latest` image is just the base setup. The configured test database is continually being saved to `postgres:dev`.
+After running it with those flags that set up the user, commit image to the one used by vscode devcontainer setup: `postgres:dev`
+
+#### Using the image in development/testing
+
+The image `postgres:latest` is just the base state after initial setup. The configured test database is continually being saved to `postgres:dev`.
+
+> ⚠️ _**Warning:**_ 
+Careful about using the VsCode command _'Rebuild and reopen in container'_ without first committing the changes made on the postgres container to the `postgres:dev` image.
+
+
 
 
 ### dbt Core
@@ -45,4 +54,36 @@ Open the project within the dbt devcontainer and run
 dbt init
 ```
 
-This is essentially an interactive way to create your `profiles.yml`.
+This is essentially an interactive way to create your `profiles.yml` at `~/.dbt`. For this project, it should look like this:
+```yaml
+dbt_sandbox:
+  outputs:
+    dev:
+      dbname: postgres-test
+      host: localhost
+      pass: postgress
+      port: 5432
+      schema: dbt_dev
+      threads: 1
+      type: postgres
+      user: postgres
+  target: dev
+```
+
+
+## Docs
+
+To view graphs and lineage information, use the docs:
+
+```
+dbt docs generate
+dbt docs serve --port 0
+```
+
+> ⚠️ **_Important:_** The default port, 8080, is used by vscode devcontainer!
+`--port 0` ensures, that a free port is used. 
+
+
+## TODO
+
+
