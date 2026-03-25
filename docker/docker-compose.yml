@@ -5,15 +5,10 @@ services:
     network_mode: host  
     volumes:
       - ../src/dbt:/src/dbt          
-    environment:
-     - DISPLAY=host.docker.internal:0.0 # set display environment to local host IP
+    # environment:
+    #  - DISPLAY=host.docker.internal:0.0 # set display environment to local host IP
     stdin_open: true
     tty: true
-  
-  # postgres-srv:
-  #   image: postgres:dev
-  #   container_name: postgres-container
-  #   network_mode: host
 
   postgis-srv:
     image: postgis:dev

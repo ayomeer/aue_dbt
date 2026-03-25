@@ -1,0 +1,8 @@
+models:
+  - name: stg_mgdm_data
+    description: Attributenset, welches von MGDM verlangt wird.
+    columns:
+      - name: Identifikator
+        description: Erforderlich
+      - name: Name
+        description: Erforderlich
