@@ -1,8 +1,9 @@
-{% macro post_hook_export() -%}
+{% macro post_hook_export(ili_schema, ili_table) -%}
 
-TRUNCATE TABLE ili2pg_schema.quelle;
+ALTER SEQUENCE {{ili_schema}}.t_ili2db_seq RESTART WITH 1;
 
-INSERT INTO ili2pg_schema.quelle (
+TRUNCATE TABLE {{ili_schema}}.{{ili_table}};
+INSERT INTO {{ili_schema}}.{{ili_table}} (
 	identifikator,
 	aname
 )

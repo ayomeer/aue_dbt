@@ -1,5 +1,5 @@
 {{ config(
-     post_hook="{{ post_hook_export() }}"
+     post_hook="{{ post_hook_export('ili2pg_schema', 'quelle') }}"
 )
 }}
 
