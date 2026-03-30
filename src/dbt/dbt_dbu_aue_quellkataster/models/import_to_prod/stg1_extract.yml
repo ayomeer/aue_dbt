@@ -1,0 +1,5 @@
+models:
+  - name: stg1_extract
+    columns:
+      - name: identifikator
+        data_tests: [not_null]

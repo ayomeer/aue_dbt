@@ -35,6 +35,11 @@ models:
     info:
       +materialized: view
 
+    import_to_prod:
+      +materialized: table
+
+
+    # To be removed when no longer needed for reference
     staging:
       +materialized: table
 
