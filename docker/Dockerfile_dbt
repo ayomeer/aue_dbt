@@ -3,13 +3,15 @@
 # Base image
 FROM python:3.11-slim
 
-# Install dbt and dbt-postgres extension through pip
-RUN pip install dbt-core dbt-postgres
-
 # Install other dependencies
 RUN apt-get update && apt-get install -y \
+    lsof \
     git \
-    lsof
+    build-essential libpq-dev
+
+# Install dbt and dbt-postgres extension through pip
+RUN pip install dbt-core dbt-postgres \
+    pandas psycopg2
 
 # Set working directory (default location opened after starting container)
 WORKDIR /home/dbt
