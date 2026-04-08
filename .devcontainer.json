@@ -9,7 +9,11 @@
     "vscode": {
       "settings": {
         "remote.autoForwardPorts": false
-      }
+    },
+    "extensions": [
+        "innoverio.vscode-dbt-power-user",
+        "tripleaceme.dbt-flow-lineage"
+    ]
     }
   },
     "shutdownAction": "stopCompose"
