@@ -1,0 +1,67 @@
+Info: ilivalidator-1.12.1-8d9b922cd26b01147d77a23d300d952d29359a30
+Info: ili2c-5.3.0-90a8da73b8eb7696cb50ce8ae0ee5b422d33fba7
+Info: iox-ili-1.21.13-0ca3feb59eff9c381b29139d8f808b4de2464d49
+Info: User <PeterStaub>
+Info: Start date 2022-12-15 15:40
+Info: maxMemory 4118528 KB
+Info: dataFile <ilidata:ch.admin.geo.models.kt_Auengebiete_Catalogues_V1_1_20220208>
+Info: dataFile <C:\Users\PeterStaub\Desktop\auen.xtf>
+Info: pluginFolder <C:\Program Files\ILI-Tools\ilivalidator\.\plugins>
+Info: modeldir <%ITF_DIR;http://models.interlis.ch/;%JAR_DIR/ilimodels>
+Info: search in repository <C:\Program Files\ILI-Tools\ilivalidator/> for BID <ch.admin.geo.models.kt_Auengebiete_Catalogues_V1_1_20220208>
+Info: search in repository <http://models.interlis.ch/> for BID <ch.admin.geo.models.kt_Auengebiete_Catalogues_V1_1_20220208>
+Info: search in repository <C:\Program Files\ILI-Tools\ilivalidator\./ilimodels/> for BID <ch.admin.geo.models.kt_Auengebiete_Catalogues_V1_1_20220208>
+Info: search in repository <http://models.geo.admin.ch/> for BID <ch.admin.geo.models.kt_Auengebiete_Catalogues_V1_1_20220208>
+Info: lookup model <CoordSys> 2.3 in repository <C:\Program Files\ILI-Tools\ilivalidator/>
+Info: lookup model <CoordSys> 2.3 in repository <http://models.interlis.ch/>
+Info: lookup model <Units> 2.3 in repository <C:\Program Files\ILI-Tools\ilivalidator/>
+Info: lookup model <Units> 2.3 in repository <http://models.interlis.ch/>
+Info: lookup model <LocalisationCH_V1> 2.3 in repository <C:\Program Files\ILI-Tools\ilivalidator/>
+Info: lookup model <LocalisationCH_V1> 2.3 in repository <http://models.interlis.ch/>
+Info: lookup model <LocalisationCH_V1> 2.3 in repository <C:\Program Files\ILI-Tools\ilivalidator\./ilimodels/>
+Warning: Folder C:\Program Files\ILI-Tools\ilivalidator\.\ilimodels doesn't exist; ignored
+Info: lookup model <LocalisationCH_V1> 2.3 in repository <http://models.geo.admin.ch/>
+Info: lookup model <CatalogueObjects_V1> 2.3 in repository <C:\Program Files\ILI-Tools\ilivalidator/>
+Info: lookup model <CatalogueObjects_V1> 2.3 in repository <http://models.interlis.ch/>
+Info: lookup model <CatalogueObjects_V1> 2.3 in repository <C:\Program Files\ILI-Tools\ilivalidator\./ilimodels/>
+Info: lookup model <CatalogueObjects_V1> 2.3 in repository <http://models.geo.admin.ch/>
+Info: lookup model <CHAdminCodes_V1> 2.3 in repository <C:\Program Files\ILI-Tools\ilivalidator/>
+Info: lookup model <CHAdminCodes_V1> 2.3 in repository <http://models.interlis.ch/>
+Info: lookup model <CHAdminCodes_V1> 2.3 in repository <C:\Program Files\ILI-Tools\ilivalidator\./ilimodels/>
+Info: lookup model <CHAdminCodes_V1> 2.3 in repository <http://models.geo.admin.ch/>
+Info: lookup model <GeometryCHLV95_V1> 2.3 in repository <C:\Program Files\ILI-Tools\ilivalidator/>
+Info: lookup model <GeometryCHLV95_V1> 2.3 in repository <http://models.interlis.ch/>
+Info: lookup model <GeometryCHLV95_V1> 2.3 in repository <C:\Program Files\ILI-Tools\ilivalidator\./ilimodels/>
+Info: lookup model <GeometryCHLV95_V1> 2.3 in repository <http://models.geo.admin.ch/>
+Info: lookup model <kt_Auengebiete_V1_1> 2.3 in repository <C:\Program Files\ILI-Tools\ilivalidator/>
+Info: lookup model <kt_Auengebiete_V1_1> 2.3 in repository <http://models.interlis.ch/>
+Info: lookup model <kt_Auengebiete_V1_1> 2.3 in repository <C:\Program Files\ILI-Tools\ilivalidator\./ilimodels/>
+Info: lookup model <kt_Auengebiete_V1_1> 2.3 in repository <http://models.geo.admin.ch/>
+Info: ilifile <C:\Users\PeterStaub\.ilicache\models.interlis.ch\refhb23\CoordSys-20151124.ili>
+Info: ilifile <C:\Users\PeterStaub\.ilicache\models.interlis.ch\refhb23\Units-20120220.ili>
+Info: ilifile <C:\Users\PeterStaub\.ilicache\models.geo.admin.ch\CH\CHBase_Part3_CATALOGUEOBJECTS_V1.ili>
+Info: ilifile <C:\Users\PeterStaub\.ilicache\models.geo.admin.ch\CH\CHBase_Part2_LOCALISATION_V1.ili>
+Info: ilifile <C:\Users\PeterStaub\.ilicache\models.geo.admin.ch\CH\CHBase_Part1_GEOMETRY_V1.ili>
+Info: ilifile <C:\Users\PeterStaub\.ilicache\models.geo.admin.ch\CH\CHBase_Part4_ADMINISTRATIVEUNITS_V1.ili>
+Info: ilifile <C:\Users\PeterStaub\.ilicache\models.geo.admin.ch\BAFU\kt_Auengebiete_V1_1.ili>
+Info: validate data...
+Info: first validation pass...
+Info: first validation pass...
+Info: second validation pass...
+Info: validate reference attr kt_Auengebiete_V1_1.Codelisten.Kartierungsgrundlage_CatRef.Reference...
+Info: validate reference attr kt_Auengebiete_V1_1.Codelisten.Bedeutung_CatRef.Reference...
+Info: validate multiplicity of role kt_Auengebiete_V1_1.kt_Auengebiet.Teilobjektkt_Auengebiet.kt_Auengebiet_Teilobjekt...
+Info: validate target of role kt_Auengebiete_V1_1.kt_Auengebiet.Teilobjektkt_Auengebiet.kt_Auengebiet...
+Info: validate multiplicity of role kt_Auengebiete_V1_1.kt_Auengebiet.Teilobjektkt_Auengebiet.kt_Auengebiet...
+Info: validate unique constraint Localisation_V1.MultilingualText.Constraint1...
+Info: validate mandatory constraint LocalisationCH_V1.LocalisedText.Constraint1...
+Info: object count 29 (structured elements 94)
+Info: C:\Users\PeterStaub\.ilicache\models.geo.admin.ch\BAFU\kt_Auengebiete_Catalogues_V1_1_20220208.xml: kt_Auengebiete_V1_1.Codelisten BID=ch.admin.bafu.kt_auengebiete_catalogues_v1_1
+Info:       5 objects in CLASS kt_Auengebiete_V1_1.Codelisten.AU_TYP_Catalogue
+Info:       3 objects in CLASS kt_Auengebiete_V1_1.Codelisten.Bedeutung_Catalogue
+Info:       6 objects in CLASS kt_Auengebiete_V1_1.Codelisten.Kartierungsgrundlage_Catalogue
+Info: C:\Users\PeterStaub\Desktop\auen.xtf: kt_Auengebiete_V1_1.kt_Auengebiet BID=1000
+Info:       7 objects in CLASS kt_Auengebiete_V1_1.kt_Auengebiet.kt_Auengebiet
+Info:       8 objects in CLASS kt_Auengebiete_V1_1.kt_Auengebiet.kt_Auengebiet_Teilobjekt
+Info: ...validation done
+Info: End date 2022-12-15 15:40 validation took 00h:00m:01s.0149ms

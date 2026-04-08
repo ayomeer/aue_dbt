@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- File Biotoppunkte_Catalogues_V1_1_20220208.xml VERSION="2022-02-08" (https://models.geo.admin.ch/BAFU/) -->
+<TRANSFER xmlns="http://www.interlis.ch/INTERLIS2.3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <HEADERSECTION VERSION="2.3" SENDER="BAFU">
+    <MODELS>
+      <MODEL NAME="CoordSys" URI="http://www.interlis.ch/models" VERSION="2015-11-24"/>
+      <MODEL NAME="Units" URI="http://www.interlis.ch/models" VERSION="2012-02-20"/>
+      <MODEL NAME="LocalisationCH_V1" URI="http://www.geo.admin.ch" VERSION="2011-08-30"/>
+      <MODEL NAME="CatalogueObjects_V1" URI="http://www.geo.admin.ch" VERSION="2011-08-30"/>
+      <MODEL NAME="CHAdminCodes_V1" URI="http://www.geo.admin.ch" VERSION="2018-02-19"/>
+      <MODEL NAME="GeometryCHLV95_V1" URI="http://www.geo.admin.ch" VERSION="2017-12-04"/>
+      <MODEL NAME="Biotoppunkte_V1_1" URI="https://models.geo.admin.ch/BAFU/" VERSION="2022-02-08"/>
+    </MODELS>
+  </HEADERSECTION>
+
+  <DATASECTION>
+
+    <Biotoppunkte_V1_1.Codelisten BID="ch.admin.bafu.biotoppunkte_catalogues_v1_1">
+
+      <Biotoppunkte_V1_1.Codelisten.BIO_Bedeutung_Catalogue TID="1001">
+        <Code>B1</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Regional</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Régional</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Regionale</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </Biotoppunkte_V1_1.Codelisten.BIO_Bedeutung_Catalogue>
+      <Biotoppunkte_V1_1.Codelisten.BIO_Bedeutung_Catalogue TID="1002">
+        <Code>B2</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Lokal</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Local</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Locale</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </Biotoppunkte_V1_1.Codelisten.BIO_Bedeutung_Catalogue>
+
+      <Biotoppunkte_V1_1.Codelisten.BIO_TYP_Catalogue TID="3001">
+        <Code>BIO_TYP1</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Quellfluren, Gewässer</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Sources, suintements, milieux aquatiques</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Sorgenti, risorgenze e ambienti acquatici</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </Biotoppunkte_V1_1.Codelisten.BIO_TYP_Catalogue>
+      <Biotoppunkte_V1_1.Codelisten.BIO_TYP_Catalogue TID="3002">
+        <Code>BIO_TYP2</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Uferbereiche, Verlandungsgesellschaften</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Zones riveraines, Associations d’atterissement</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Rive, zone d’interramento</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </Biotoppunkte_V1_1.Codelisten.BIO_TYP_Catalogue>
+      <Biotoppunkte_V1_1.Codelisten.BIO_TYP_Catalogue TID="3003">
+        <Code>BIO_TYP3</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Schluchtwälder, Wälder an Steilhängen und Trockenwälder </Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Forêts de ravins, de pente, thermophiles</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Boschi di gola,di pendio ripido, termofili</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </Biotoppunkte_V1_1.Codelisten.BIO_TYP_Catalogue>
+      <Biotoppunkte_V1_1.Codelisten.BIO_TYP_Catalogue TID="3004">
+        <Code>BIO_TYP4</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Saumgesellschaften, Gebüsche und Heiden</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Lisières, brousailles et landes</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Margini di bosco, radure, cespuglietti e brughiere</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </Biotoppunkte_V1_1.Codelisten.BIO_TYP_Catalogue>
+      <Biotoppunkte_V1_1.Codelisten.BIO_TYP_Catalogue TID="3005">
+        <Code>BIO_TYP5</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Fels-, Felsgrus- und Karstfluren sowie Schuttfluren</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Rochers, éboulis et lapiez</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Rocce, ghiaioni, tavolati e campi solcati</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </Biotoppunkte_V1_1.Codelisten.BIO_TYP_Catalogue>
+      <Biotoppunkte_V1_1.Codelisten.BIO_TYP_Catalogue TID="3006">
+        <Code>BIO_TYP6</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Ackerbegleitvegetation, Ruderalfluren</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Végétation ségétale et rudérale</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Vegetazione segetale e ruderale</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </Biotoppunkte_V1_1.Codelisten.BIO_TYP_Catalogue>
+      <Biotoppunkte_V1_1.Codelisten.BIO_TYP_Catalogue TID="3007">
+        <Code>BIO_TYP7</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Anderer Biotoptyp</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Autre type de biotope</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Altri biotopi</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </Biotoppunkte_V1_1.Codelisten.BIO_TYP_Catalogue>
+
+      <Biotoppunkte_V1_1.Codelisten.BIO_Kartierungsgrundlage_Catalogue TID="4001">
+        <Code>K1</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Landeskarte 1:25000</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Carte nationale 1:25’000</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Carta nazionale 1:25’000</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </Biotoppunkte_V1_1.Codelisten.BIO_Kartierungsgrundlage_Catalogue>
+      <Biotoppunkte_V1_1.Codelisten.BIO_Kartierungsgrundlage_Catalogue TID="4002">
+        <Code>K2</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Andere Landeskarte</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Autre carte nationale</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Altra carta nazionale</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </Biotoppunkte_V1_1.Codelisten.BIO_Kartierungsgrundlage_Catalogue>
+      <Biotoppunkte_V1_1.Codelisten.BIO_Kartierungsgrundlage_Catalogue TID="4003">
+        <Code>K3</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Kantonale Plangrundlage</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Base cantonale de planification</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Base cartografica cantonale</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </Biotoppunkte_V1_1.Codelisten.BIO_Kartierungsgrundlage_Catalogue>
+      <Biotoppunkte_V1_1.Codelisten.BIO_Kartierungsgrundlage_Catalogue TID="4004">
+        <Code>K4</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Luftbild, Orthophoto</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Photographie arienne, orthophoto</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Immagine aerea, orthophoto</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </Biotoppunkte_V1_1.Codelisten.BIO_Kartierungsgrundlage_Catalogue>
+      <Biotoppunkte_V1_1.Codelisten.BIO_Kartierungsgrundlage_Catalogue TID="4005">
+        <Code>K5</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Andere</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Autres</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Altri/e</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </Biotoppunkte_V1_1.Codelisten.BIO_Kartierungsgrundlage_Catalogue>
+      <Biotoppunkte_V1_1.Codelisten.BIO_Kartierungsgrundlage_Catalogue TID="4006">
+        <Code>K6</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Unbekannt</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Inconnu</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Sconosciuto</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </Biotoppunkte_V1_1.Codelisten.BIO_Kartierungsgrundlage_Catalogue>
+
+    </Biotoppunkte_V1_1.Codelisten>
+
+  </DATASECTION>
+</TRANSFER>

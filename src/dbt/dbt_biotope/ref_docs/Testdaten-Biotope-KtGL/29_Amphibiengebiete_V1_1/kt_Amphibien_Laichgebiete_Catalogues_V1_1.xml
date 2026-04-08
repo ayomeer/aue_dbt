@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- File kt_Amphibien_Laichgebiete_Catalogues_V1_1 2018-02-07 (https://models.geo.admin.ch/BAFU/) -->
+<TRANSFER xmlns="http://www.interlis.ch/INTERLIS2.3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <HEADERSECTION VERSION="2.3" SENDER="BAFU">
+    <MODELS>
+      <MODEL NAME="CoordSys" URI="http://www.interlis.ch/models" VERSION="2015-11-24"/>
+      <MODEL NAME="Units" URI="http://www.interlis.ch/models" VERSION="2012-02-20"/>
+      <MODEL NAME="LocalisationCH_V1" URI="http://www.geo.admin.ch" VERSION="2011-08-30"/>
+      <MODEL NAME="CatalogueObjects_V1" URI="http://www.geo.admin.ch" VERSION="2011-08-30"/>
+      <MODEL NAME="CHAdminCodes_V1" URI="http://www.geo.admin.ch" VERSION="2018-02-19"/>
+      <MODEL NAME="GeometryCHLV03_V1" URI="http://www.geo.admin.ch" VERSION="2017-12-04"/>
+      <MODEL NAME="GeometryCHLV95_V1" URI="http://www.geo.admin.ch" VERSION="2017-12-04"/>
+      <MODEL NAME="kt_Amphibien_Laichgebiete_Codelisten_V1_1" URI="https://models.geo.admin.ch/BAFU/" VERSION="2018-02-07"/>
+      <MODEL NAME="kt_Amphibien_Laichgebiete_LV03_V1_1" URI="https://models.geo.admin.ch/BAFU/" VERSION="2018-02-07"/>
+      <MODEL NAME="kt_Amphibien_Laichgebiete_LV95_V1_1" URI="https://models.geo.admin.ch/BAFU/" VERSION="2018-02-07"/>
+    </MODELS>
+  </HEADERSECTION>
+
+  <DATASECTION>
+
+    <kt_Amphibien_Laichgebiete_Codelisten_V1_1.Codelisten BID="ch.admin.bafu.kt_amphibien_laichgebiete_catalogues_v1_1">
+
+      <kt_Amphibien_Laichgebiete_Codelisten_V1_1.Codelisten.Bedeutung_Catalogue TID="1001">
+        <Code>B1</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>National</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>National</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Nazionale</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </kt_Amphibien_Laichgebiete_Codelisten_V1_1.Codelisten.Bedeutung_Catalogue>
+      <kt_Amphibien_Laichgebiete_Codelisten_V1_1.Codelisten.Bedeutung_Catalogue TID="1002">
+        <Code>B2</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Regional</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Régional</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Regionale</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </kt_Amphibien_Laichgebiete_Codelisten_V1_1.Codelisten.Bedeutung_Catalogue>
+      <kt_Amphibien_Laichgebiete_Codelisten_V1_1.Codelisten.Bedeutung_Catalogue TID="1003">
+        <Code>B3</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Lokal</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Local</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Locale</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </kt_Amphibien_Laichgebiete_Codelisten_V1_1.Codelisten.Bedeutung_Catalogue>
+
+      <kt_Amphibien_Laichgebiete_Codelisten_V1_1.Codelisten.AM_L_Bereich_Catalogue TID="3001">
+        <Code>A</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Bereich A (dient der Fortpflanzung der Amphibien – alle Gewässer welche sicher oder potentiell der Fortpflanzung dienen)</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Secteur A (sert à la reproduction des batraciens – tous les plans d'eau servant à la reproduction de manière effective ou potentielle)</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Settore A (funge da luogo per la riproduzione degli anfibi – tutti i corpi d’acqua dove la riproduzione è accertata o è potenziale)</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </kt_Amphibien_Laichgebiete_Codelisten_V1_1.Codelisten.AM_L_Bereich_Catalogue>
+      <kt_Amphibien_Laichgebiete_Codelisten_V1_1.Codelisten.AM_L_Bereich_Catalogue TID="3002">
+        <Code>B</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Bereich B (Nährstoffpufferzone und engerer Landlebensraum angrenzend an das Fortpflanzungsgewässer)</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Secteur B (zone tampon et habitat terrestre attenant au plan d'eau de reproduction)</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Settore B (zona cuscinetto per i nutrienti e superficie confinante con i corpi d’acqua idonei alla riproduzione)</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </kt_Amphibien_Laichgebiete_Codelisten_V1_1.Codelisten.AM_L_Bereich_Catalogue>
+
+      <kt_Amphibien_Laichgebiete_Codelisten_V1_1.Codelisten.Kartierungsgrundlage_Catalogue TID="4001">
+        <Code>K1</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Landeskarte 1:25’000</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Carte nationale 1:25’000</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Carta nazionale 1:25’000</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </kt_Amphibien_Laichgebiete_Codelisten_V1_1.Codelisten.Kartierungsgrundlage_Catalogue>
+      <kt_Amphibien_Laichgebiete_Codelisten_V1_1.Codelisten.Kartierungsgrundlage_Catalogue TID="4002">
+        <Code>K2</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Andere Landeskarte</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Autre carte nationale</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Altra carta nazionale</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </kt_Amphibien_Laichgebiete_Codelisten_V1_1.Codelisten.Kartierungsgrundlage_Catalogue>
+      <kt_Amphibien_Laichgebiete_Codelisten_V1_1.Codelisten.Kartierungsgrundlage_Catalogue TID="4003">
+        <Code>K3</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Kantonale Plangrundlage</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Base cantonale de planification</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Base cartografica cantonale</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </kt_Amphibien_Laichgebiete_Codelisten_V1_1.Codelisten.Kartierungsgrundlage_Catalogue>
+      <kt_Amphibien_Laichgebiete_Codelisten_V1_1.Codelisten.Kartierungsgrundlage_Catalogue TID="4004">
+        <Code>K4</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Luftbild</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Photographie arienne</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Immagine aerea</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </kt_Amphibien_Laichgebiete_Codelisten_V1_1.Codelisten.Kartierungsgrundlage_Catalogue>
+      <kt_Amphibien_Laichgebiete_Codelisten_V1_1.Codelisten.Kartierungsgrundlage_Catalogue TID="4005">
+        <Code>K5</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Andere</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Autres</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Altri/e</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </kt_Amphibien_Laichgebiete_Codelisten_V1_1.Codelisten.Kartierungsgrundlage_Catalogue>
+      <kt_Amphibien_Laichgebiete_Codelisten_V1_1.Codelisten.Kartierungsgrundlage_Catalogue TID="4006">
+        <Code>K6</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Unbekannt</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Inconnu</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Sconosciuto</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </kt_Amphibien_Laichgebiete_Codelisten_V1_1.Codelisten.Kartierungsgrundlage_Catalogue>
+
+    </kt_Amphibien_Laichgebiete_Codelisten_V1_1.Codelisten>
+
+  </DATASECTION>
+</TRANSFER>
