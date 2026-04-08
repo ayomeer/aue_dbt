@@ -1,6 +1,6 @@
 services:
   dbt-dev: 
-    image: dbt_image:dev
+    image: dbt_image:latest
     container_name: dbt-container
     network_mode: host  
     volumes:

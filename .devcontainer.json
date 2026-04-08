@@ -1,5 +1,7 @@
 {
     "name": "dbt-devcontainer",
+    "remoteUser": "user",
+    "updateRemoteUserUID": false,
     "dockerComposeFile": "./docker/docker-compose.yml",
     "service": "dbt-dev",
     "workspaceFolder": "/src/dbt",
