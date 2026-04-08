@@ -4,7 +4,7 @@ dbu_aue_quellkataster_profile:
     dev:
       dbname: test-db
       host: localhost
-      pass: postgres
+      pass: "{{ env_var('DB_PASSWORD') }}" # export DB_PASSWORD='...' in bashrc
       port: 5432
       schema: dbu_aue_quellkataster
       threads: 1
@@ -13,7 +13,7 @@ dbu_aue_quellkataster_profile:
     prod:
       dbname: prod-db
       host: localhost
-      pass: "{{ env_var(DB_PASSWORD) }}" # export DB_PASSWORD='...' in bashrc
+      pass: "{{ env_var('DB_PASSWORD') }}" # export DB_PASSWORD='...' in bashrc
       port: 5432
       schema: dbu_aue_quellkataster
       threads: 1
