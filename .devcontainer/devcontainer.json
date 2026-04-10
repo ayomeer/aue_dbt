@@ -2,13 +2,19 @@
     "name": "dbt-devcontainer",
     "remoteUser": "user",
     "updateRemoteUserUID": false,
-    "dockerComposeFile": "./docker/docker-compose.yml",
+    "dockerComposeFile": "docker-compose.yml",
     "service": "dbt-dev",
-    "workspaceFolder": "/src/dbt",
+    "workspaceFolder": "/src",
     "customizations": {
     "vscode": {
       "settings": {
-        "remote.autoForwardPorts": false
+        "remote.autoForwardPorts": true,
+        "files.associations": {
+                    "*.yaml": "jinja-yaml",
+                    "*.yml": "jinja-yaml",
+                    "*.sql": "jinja-sql",
+                    "*.md": "jinja-md"
+                },
     },
     "extensions": [
         "innoverio.vscode-dbt-power-user",

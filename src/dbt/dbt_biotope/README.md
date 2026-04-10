@@ -1,15 +1,29 @@
 Welcome to your new dbt project!
 
-### Using the starter project
-
-Try running the following commands:
-- dbt run
-- dbt test
+# dbt_biotope
 
 
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [chat](https://community.getdbt.com/) on Slack for live discussions and support
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+
+
+## Relation to Schemas outside of dbt Project
+
+`prod_gl_biotope` acts as the data source for this project (see sources.yaml)
+
+Data products get exported to the following schema:
+- `ch_kt_auengebiete`
+- `ch_kt_biotope_flaechen`
+- `ch_kt_biotope_linien`
+- `ch_kt_biotope_punkte`
+- `ch_kt_flachmoore`
+- `ch_kt_hochmoore`
+- `ch_kt_trockenwiesen`
+
+## TODO
+
+- Set up additional source schemas according to excel file 'Erstdatetransfer' on local DB (need either backups from viktor or permissions.. from viktor)
+  - dbu_aue_nls.biotope_national
+  - prod_gl_arten
+
+  
+**Additional nice to haves:**
+- Python script for creating sources.yml from prod schema name 

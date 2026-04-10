@@ -1,0 +1,8 @@
+sources:
+  - name: src_prod_gl_biotope
+    database: test-db
+    schema: prod_gl_biotope
+    tables:
+      - name: biotope_national
+      - name: cat_beschreibung
+      - name: cat_beschreibung_hochlagen

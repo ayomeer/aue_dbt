@@ -4,7 +4,7 @@ services:
     container_name: dbt-container
     network_mode: host  
     volumes:
-      - ../src/dbt:/src/dbt          
+      - ../src/:/src/         
     # environment:
     #  - DISPLAY=host.docker.internal:0.0 # set display environment to local host IP
     stdin_open: true

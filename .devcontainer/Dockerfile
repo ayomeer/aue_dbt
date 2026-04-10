@@ -1,4 +1,4 @@
-## This is the Dockerfile for the dbt image
+## This is the Dockerfile for the dbt devcontainer image
 
 # Base image
 FROM python:3.11-slim
@@ -38,5 +38,3 @@ USER $USERNAME
 RUN pip install dbt-core dbt-postgres \
     pandas psycopg2
 
-# Set working directory (default location opened after starting container)
-WORKDIR /home/dbt

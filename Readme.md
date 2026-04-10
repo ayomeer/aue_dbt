@@ -1,4 +1,4 @@
-# dbt_sandbox
+# dbt_aue
 
 Testing environment for dbt + PostgreSQL.
 
@@ -8,6 +8,8 @@ https://medium.com/@oyekanmiakande/building-a-modern-data-pipeline-with-dbt-post
 
 
 ### PostgreSQL
+For local testing, a local postgres DB is used which runs on a docker container.
+
 Using image pulled directly from Postgres' Docker Hub:
 
 ```
@@ -32,16 +34,17 @@ For new databases created, postgis needs to be enabled: Right click on `Extensio
 The image `postgres:latest` is just the base state after initial setup. The configured test database is continually being saved to `postgres:dev`.
 
 > ⚠️ _**Warning:**_ 
-Careful about using the VsCode command _'Rebuild and reopen in container'_ without first committing the changes made on the postgres container to the `postgres:dev` image.
+Careful about using the VsCode command _'Rebuild and reopen in container'_ without first committing the changes made on the postgres container to the `postgres:dev` image. Run the command `Reload window` from the VS Code command pallete, to get rid of the highlighted issues. 
 
 
 
 
-### dbt Core
+### dbt devcontainer
 The dbt Core image is the development environment for this project. As such, is run by VS Code when opening the directory in the configured devcontainer.
 
 The source files are mounted onto the dev container (./src/dbt).
 
+> ⚠️ _**Note:**_ If the devcontainer is opened for the first time, or rebuild, you need to set the DB connection password as an environment variable as follows: `echo 'export DB_PASSWORD="password"' >> ~/.bashrc`
 
 ## Connecting pgAdmin to postgres Server
 
