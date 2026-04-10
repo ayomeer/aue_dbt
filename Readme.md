@@ -7,22 +7,24 @@ Based on this guide:
 https://medium.com/@oyekanmiakande/building-a-modern-data-pipeline-with-dbt-postgresql-and-docker-a68fe2d19a3c
 
 
-### PostgreSQL
-For local testing, a local postgres DB is used which runs on a docker container.
+### PostGIS Container
 
-Using image pulled directly from Postgres' Docker Hub:
+Using image: `postgis/postgis:17-3.5-alpine`
+- PostgreSQL version 17: Higher than version 16 that is used in production (backwards compatible)
+- PostGIS version 3.5, same as production version 
+
+#### First Time Setup
+
+To set up the server, user and default database, the container has to be run with arguments passing configuration values as options. For convenience, this process has been packaged into shell scripts in the `.devcontainer/Scripts`. For the first time setup, enter this directory and run:
 
 ```
-docker login dhi.io
-docker pull dhi.io/postgres:18-alpine3.22-dev
-docker tag dhi.io/postgres:18-alpine3.22-dev postgres
+./run_postgis_image.sh
+./check_postgis_container_versions.sh
+docker stop postgis-container
+docker commit postgis-container postgis:dev
+docker rm postgis-container
 ```
 
-#### Running the image
-For basic testing, the image can be run as follows:
-```
-docker run --name postgres-container --user=postgres --network=host -e POSTGRES_PASSWORD=postgres -d postgres
-```
 
 After running it with those flags that set up the user and setting up test and prod databases including target schemas, commit the container to the image used by vscode devcontainer setup: `postgres:dev`.
 
@@ -88,6 +90,12 @@ dbt docs serve --port 0
 
 > ⚠️ **_Important:_** The default port, 8080, is used by vscode devcontainer!
 `--port 0` ensures, that a free port is used. 
+
+
+## Importing Schemas to localhost DB
+
+1) export from live DB as plain w/ UTF8 formatting
+2) import on localhost DB by right clicking **database** (not schema) and choosing 'Restore...'
 
 
 ## TODO
