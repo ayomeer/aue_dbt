@@ -29,7 +29,7 @@ docker rm postgis-container
 After running it with those flags that set up the user and setting up test and prod databases including target schemas, commit the container to the image used by vscode devcontainer setup: `postgres:dev`.
 
 > ℹ️ _**Note:**_ 
-For new databases created, postgis needs to be enabled: Right click on `Extensions` category in the pgAdmin browser pane.
+For new databases created, postgis and uuid-ossp extensions need to be added: Right click on `Extensions` category in the pgAdmin browser pane.
 
 #### Using the image in development/testing
 
@@ -94,8 +94,11 @@ dbt docs serve --port 0
 
 ## Importing Schemas to localhost DB
 
+Make sure postgis and uuid-ossp extensions are present on DB!
+
 1) export from live DB as plain w/ UTF8 formatting
-2) import on localhost DB by right clicking **database** (not schema) and choosing 'Restore...'
+2) Remove lines `\restrict ...` and `\unrestrict ...` from plain sql file in editor (e.g. vscode)
+3) import on localhost DB by right clicking **database** (not schema) and choosing 'Restore...'
 
 
 ## TODO
