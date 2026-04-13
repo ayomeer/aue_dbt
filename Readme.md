@@ -98,7 +98,7 @@ Make sure postgis and uuid-ossp extensions are present on DB!
 
 1) export from live DB as plain w/ UTF8 formatting
 2) Remove lines `\restrict ...` and `\unrestrict ...` from plain sql file in editor (e.g. vscode)
-3) import on localhost DB by right clicking **database** (not schema) and choosing 'Restore...'
+3) import on localhost DB by right clicking **database** (not schema) and choosing 'Restore...' or using command line (on host): `psql -h localhost -p 5432 -U postgres -d test-db -f prod_gl_biotope_20260402.sql`
 
 
 ## TODO
