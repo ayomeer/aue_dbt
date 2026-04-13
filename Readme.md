@@ -78,6 +78,13 @@ dbt_sandbox:
   target: dev
 ```
 
+### dbt Workflow
+- Ground up, data-first philosophy, Models = Select Queries
+
+#### Project Scope
+
+Not part of project(?):
+- Catalogues: Need to be present in target schema and included as dbt source in `models/sources.yaml`
 
 ## Docs
 
@@ -103,4 +110,9 @@ Make sure postgis and uuid-ossp extensions are present on DB!
 
 ## TODO
 
+- Finish switching catalogues from seeds to sources from gl_biotope
+- Look up how(/if) `_catref` tables are meant to be filled
 
+
+python scripts:
+- **export:** for each model in ext_mirror directory, insert into corresponding target table (same name after dbt model prefix)

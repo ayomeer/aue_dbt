@@ -1,0 +1,7 @@
+t_basket,kcode,bezeichnung,bezeichnung_de,bezeichnung_fr,bezeichnung_it
+5,K1,Landeskarte 1:25000,Landeskarte 1:25000,"Carte nationale 1 :25’000","Carta nazionale 1:25’000"
+5,K2,Andere Landeskarte,Andere Landeskarte,Autre carte nationale,Altra carta nazionale
+5,K3,Kantonale Plangrundlage,Kantonale Plangrundlage,Base cantonale de planification,Base cartografica cantonale
+5,K4,"Luftbild, Orthophoto","Luftbild, Orthophoto","Photographie arienne, orthophoto","Immagine aerea, orthophoto"
+5,K5,andere,andere,Autres,Altri/e
+5,K6,unbekannt,unbekannt,Inconnu,Sconosciuto

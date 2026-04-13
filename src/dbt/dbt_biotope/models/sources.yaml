@@ -6,3 +6,20 @@ sources:
       - name: biotope_national
       - name: cat_beschreibung
       - name: cat_beschreibung_hochlagen
+      - name: herkunft
+      - name: biotopart
+      - name: biotope_to_sf
+      - name: biotope_to_li
+      - name: biotope_to_pt
+      - name: cat_kartierungsgrundlage
+      - name: biotope_hochlagen_einheitsflaeche
+      - name: biotope_hochlagen_lebensraeume
+
+
+  - name: src_gl_biotope
+    database: test-db
+    schema: gl_biotope
+    tables:
+      - name: bedeutung_catalogue
+      - name: biotyp_catalogue
+      

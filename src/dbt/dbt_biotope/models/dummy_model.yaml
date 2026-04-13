@@ -1,0 +1,5 @@
+models:
+  - name: dbt_dummy_model
+    columns:
+      - name: id_lr
+      - name: beschreibung_de
