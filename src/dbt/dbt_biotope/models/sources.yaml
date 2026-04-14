@@ -3,15 +3,17 @@ sources:
     database: test-db
     schema: prod_gl_biotope
     tables:
-      - name: biotope_national
+      - name: cat_biotopart
+      - name: cat_bedeutung
+      - name: cat_beobachter
       - name: cat_beschreibung
       - name: cat_beschreibung_hochlagen
-      - name: herkunft
-      - name: biotopart
+      - name: cat_herkunft
+      - name: cat_kartierungsgrundlage
       - name: biotope_to_sf
       - name: biotope_to_li
       - name: biotope_to_pt
-      - name: cat_kartierungsgrundlage
+      - name: biotope_national
       - name: biotope_hochlagen_einheitsflaeche
       - name: biotope_hochlagen_lebensraeume
 
@@ -23,3 +25,8 @@ sources:
       - name: bedeutung_catalogue
       - name: biotyp_catalogue
       
+  - name: src_prod_gl_arten
+    database: test-db
+    tables:
+      - name: artvorkommen_gl_pt
+      - name: cat_art

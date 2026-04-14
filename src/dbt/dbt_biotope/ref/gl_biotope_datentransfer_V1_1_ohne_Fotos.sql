@@ -366,6 +366,7 @@ WHERE sf.biotopart is not null AND sf.rechtsstatus is not null
 
 -- Linienobjekte
 UNION SELECT 
+	-- interlis
 	r.teilobj_tid,
 	7,
 	'to_linie', 		--> t_type

@@ -81,6 +81,21 @@ dbt_sandbox:
 ### dbt Workflow
 - Ground up, data-first philosophy, Models = Select Queries
 
+#### Power User for dbt Extension
+
+- Model documentation yaml files -> generate w/ Documentation Editor in bottom pane (part of Power User for dbt extension)
+
+Conditions for Documentation Editor to work as expected:
+- Model needs to exist on database -> `dbt run --select <model_name>`
+
+
+#### dbt Flow Lineage Extension
+
+Conditions for lineage graph to look as expected:
+- `dbt compile` and `dbt docs generate` have been run
+- model columns are documented in yaml file
+
+
 #### Project Scope
 
 Not part of project(?):
@@ -110,7 +125,6 @@ Make sure postgis and uuid-ossp extensions are present on DB!
 
 ## TODO
 
-- Finish switching catalogues from seeds to sources from gl_biotope
 - Look up how(/if) `_catref` tables are meant to be filled
 
 
