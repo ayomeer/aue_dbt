@@ -1,0 +1,44 @@
+models:
+  - name: staging_alpquellen
+    columns:
+      - name: fid
+        data_type: integer
+      - name: geom
+        data_type: user-defined
+      - name: x_koordinaten
+        data_type: integer
+      - name: y_koordinaten
+        data_type: integer
+      - name: höhe
+        data_type: integer
+        quote: true
+      - name: identifikator
+        data_type: character varying
+      - name: name
+        data_type: character varying
+      - name: grundwasserleiter_typ
+        data_type: character varying
+      - name: quelltyp
+        data_type: character varying
+      - name: fassungsart
+        data_type: character varying
+      - name: nutzungszustand
+        data_type: character varying
+      - name: trinkwasser
+        data_type: character varying
+      - name: zweck
+        data_type: character varying
+      - name: notwasserversrogung
+        data_type: character varying
+      - name: öffentliches_interesse
+        data_type: character varying
+        quote: true
+      - name: schüttung_minimal
+        data_type: double precision
+        quote: true
+      - name: schüttung_mittel
+        data_type: double precision
+        quote: true
+      - name: schüttung_maximal
+        data_type: integer
+        quote: true

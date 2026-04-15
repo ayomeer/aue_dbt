@@ -1,1 +1,0 @@
-select * from {{ ref('stg_pub_data') }}
