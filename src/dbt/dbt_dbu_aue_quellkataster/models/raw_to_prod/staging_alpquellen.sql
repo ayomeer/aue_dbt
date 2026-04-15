@@ -1,1 +1,0 @@
-{{ select_clean_columns(source('raw_sources', 'alpquellen')) }}

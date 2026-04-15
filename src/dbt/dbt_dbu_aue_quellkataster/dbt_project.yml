@@ -22,11 +22,32 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "target"
   - "dbt_packages"
 
+
+vars:
+  datasets:
+    dataset_access:
+      t_id: 1
+      dataset: access-datenquelle
+
+    dataset_alpquellen:
+      t_id: 2
+      dataset: alpquellen-datenquelle
+      
+  baskets:
+    basket_quellkataster_access:
+      t_id: 1
+      topic: ProdQuellkataster
+      dataset_t_id: 1 
+
+    basket_quellkataster_alpquellen:
+      t_id: 1
+      topic: ProdQuellkataster
+      dataset_t_id: 2 
+
+  classnames:
+    Quelle_intern: Prod_Quellkataster_V1.Quelle.Quelle_intern
+
 models:
   dbt_dbu_aue_quellkataster:
-    info:
-      +materialized: view
-
-    import_to_prod:
-      +materialized: table
-
+    0_info:
+      +materialized: view 

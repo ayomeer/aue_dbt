@@ -48,6 +48,17 @@ The source files are mounted onto the dev container (./src/dbt).
 
 > ⚠️ _**Note:**_ If the devcontainer is opened for the first time, or rebuild, you need to set the DB connection password as an environment variable as follows: `echo 'export DB_PASSWORD="password"' >> ~/.bashrc`
 
+#### First time setup
+
+1) Save DB password in environment variable `DB_PASSWORD`
+```bash
+echo 'export DB_PASSWORD="password"' >> ~/.bashrc
+```
+2) Load dbt packages
+```bash
+dbt deps
+```
+
 ## Connecting pgAdmin to postgres Server
 
 hostname / address: localhost
@@ -55,6 +66,7 @@ port: 5432
 pw: postgres
 
 
+# dbt
 ## Setting up dbt Core Project
 
 Open the project within the dbt devcontainer and run
@@ -78,10 +90,18 @@ dbt_sandbox:
   target: dev
 ```
 
-### dbt Workflow
+## dbt Workflow
 - Ground up, data-first philosophy, Models = Select Queries
 
-#### Power User for dbt Extension
+## Data Source
+
+For dbt to work smoothly, make sure of the following:
+- source tables only use SQL-safe naming
+  - no umlauts
+  - no spaces
+  - no capital characters
+
+## Power User for dbt Extension
 
 - Model documentation yaml files -> generate w/ Documentation Editor in bottom pane (part of Power User for dbt extension)
 
@@ -89,14 +109,14 @@ Conditions for Documentation Editor to work as expected:
 - Model needs to exist on database -> `dbt run --select <model_name>`
 
 
-#### dbt Flow Lineage Extension
+## dbt Flow Lineage Extension
 
 Conditions for lineage graph to look as expected:
 - `dbt compile` and `dbt docs generate` have been run
 - model columns are documented in yaml file
 
 
-#### Project Scope
+## Project Scope
 
 Not part of project(?):
 - Catalogues: Need to be present in target schema and included as dbt source in `models/sources.yaml`
@@ -129,4 +149,6 @@ Make sure postgis and uuid-ossp extensions are present on DB!
 
 
 python scripts:
-- **export:** for each model in ext_mirror directory, insert into corresponding target table (same name after dbt model prefix)
+- **export mirrors:** 
+  - for each model in mirros, get corresponding table and list of columns
+  - for each table 

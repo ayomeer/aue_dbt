@@ -5,16 +5,15 @@ models:
         data_type: integer
       - name: geom
         data_type: user-defined
-      - name: x_koordinaten
+      - name: x-koordinaten
         data_type: integer
       - name: y_koordinaten
         data_type: integer
-      - name: höhe
+      - name: hoehe
         data_type: integer
-        quote: true
       - name: identifikator
         data_type: character varying
-      - name: name
+      - name: aname
         data_type: character varying
       - name: grundwasserleiter_typ
         data_type: character varying
@@ -30,15 +29,11 @@ models:
         data_type: character varying
       - name: notwasserversrogung
         data_type: character varying
-      - name: öffentliches_interesse
+      - name: oeffentliches_interesse
         data_type: character varying
-        quote: true
-      - name: schüttung_minimal
+      - name: schuettung_minimal
         data_type: double precision
-        quote: true
-      - name: schüttung_mittel
+      - name: schuettung_mittel
         data_type: double precision
-        quote: true
-      - name: schüttung_maximal
+      - name: schuettung_maximal
         data_type: integer
-        quote: true
