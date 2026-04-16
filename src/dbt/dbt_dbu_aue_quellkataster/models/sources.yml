@@ -5,3 +5,11 @@ sources:
     tables:
       - name: alpquellen
       - name: access_objektdaten
+
+  - name: target
+    database: test-db
+    schema: dbu_aue_quellkataster
+    tables:
+    - name: quelle
+
+

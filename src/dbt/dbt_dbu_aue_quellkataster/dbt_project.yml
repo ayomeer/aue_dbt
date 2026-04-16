@@ -28,7 +28,6 @@ vars:
     dataset_access:
       t_id: 1
       dataset: access-datenquelle
-
     dataset_alpquellen:
       t_id: 2
       dataset: alpquellen-datenquelle
@@ -38,7 +37,6 @@ vars:
       t_id: 1
       topic: ProdQuellkataster
       dataset_t_id: 1 
-
     basket_quellkataster_alpquellen:
       t_id: 1
       topic: ProdQuellkataster

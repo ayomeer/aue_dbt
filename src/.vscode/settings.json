@@ -1,3 +1,4 @@
 {
-  "dbt.lineage.defaultExpansion": 2
+  "dbt.lineage.defaultExpansion": 2,
+  "editor.rulers": [80]
 }

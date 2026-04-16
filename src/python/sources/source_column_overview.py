@@ -5,8 +5,8 @@ import psycopg2
 
 # --- Constants ----------------------------------------------------------------------
 # DB-Table
-SCHEMA = "dbu_aue_quellkataster"      # schema we're working in
-SRC_TABLE = "src_access_objektdaten"  # source table to introspect on
+SCHEMA = "src"      # schema we're working in
+SRC_TABLE = "access_objektdaten"  # source table to introspect on
 
 # Introspection logic
 TOP_N = 3
