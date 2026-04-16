@@ -151,8 +151,27 @@ Make sure postgis and uuid-ossp extensions are present on DB!
 python scripts:
 - **export mirrors:** 
   - use dbt concept of _contract_ to generat boundary layer stump?
-    - use `dbt run-operation generate_source --args '{"schema_name": "dbu_aue_quellkataster", "table_names": ["quelle"], "generate_columns": true}'` to generate contract yaml (?)
-    - _test_ maybe also helpful
+    - using dbt-codegen package
+```bash
+dbt run-operation generate_source --args \
+'{"schema_name": "dbu_aue_quellkataster", "table_names": ["quelle"], "generate_columns": true}'
+```
+
+  - using custom python script
+  
+```python
+print("models:")
+print("  - name: quelle")
+print("    config:")
+print("      contract:")
+print("        enforced: true")
+print("    columns:")
+
+for name, dtype in cols:
+  print(f"      - name: {name}")
+  print(f"        data_type: {dtype}")
+```
+  - _test_ maybe also helpful
   - for each model in mirros, get corresponding table and list of columns
   - for each table 
   - change constant db connection string to arguments needed to build it passed to script

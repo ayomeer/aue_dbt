@@ -1,0 +1,40 @@
+models:
+  # compare the entire table 
+  - name: _b_quelle
+    columns:
+      - name: geom
+        data_type: user-defined
+      - name: x-koordinaten
+        data_type: integer
+        quote: true
+      - name: y_koordinaten
+        data_type: integer
+      - name: hoehe
+        data_type: integer
+      - name: identifikator
+        data_type: character varying
+      - name: aname
+        data_type: character varying
+      - name: grundwasserleiter_typ
+        data_type: character varying
+      - name: quelltyp
+        data_type: character varying
+      - name: fassungsart
+        data_type: character varying
+      - name: nutzungszustand
+        data_type: character varying
+      - name: trinkwasser
+        data_type: character varying
+      - name: zweck
+        data_type: character varying
+      - name: notwasserversrogung
+        data_type: character varying
+      - name: oeffentliches_interesse
+        data_type: character varying
+      - name: schuettung_minimal
+        data_type: double precision
+      - name: schuettung_mittel
+        data_type: double precision
+      - name: schuettung_maximal
+        data_type: integer
+
