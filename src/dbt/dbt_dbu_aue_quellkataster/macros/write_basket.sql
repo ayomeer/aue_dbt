@@ -1,0 +1,46 @@
+{% macro reset_target_schema(schema_name) %}
+
+  {{ reset_ili_sequence(schema_name) }}
+
+  -- Clear truncate tables
+  {% set sql_truncate %}
+    TRUNCATE TABLE {{schema_name}}.t_ili2db_basket CASCADE;
+    -- NOTE:
+    -- Also truncates all tables referencing basket such as main data tables
+  {% endset %}
+  {% do run_query(sql_truncate) %}
+
+
+  -- TODO: Populate dataset table
+
+
+  -- Populate basket table based on project configuration:
+  -- Add a row (i.e.) a basket for each basket defined in dbt_project.yml
+  {% for key, value_dict in var('baskets').items() %}
+    {% set sql_basket_row %}
+        {{ log(
+          "Writing " ~ key ~ "into " ~ schema_name ~ " t_ili2db_basket"
+        )}}
+      INSERT INTO {{schema_name}}.t_ili2db_basket(
+        t_id,         -- NOT NULL
+        dataset,
+        topic,        -- NOT NULL
+        t_ili_tid,
+        attachmentkey,-- NOT NULL (but also not used -> write '-')
+        domains
+      )
+      VALUES (
+        {{ value_dict['t_id'] }},
+        NULL, --{{ value_dict['dataset_t_id'] }},
+        '{{ value_dict['topic'] }}',
+        uuid_generate_v4(),
+        '-',
+        NULL
+      )
+
+    {% endset %}
+    {% set query_return = run_query(sql_basket_row)%}
+  
+{% endfor %}
+
+{%- endmacro %}

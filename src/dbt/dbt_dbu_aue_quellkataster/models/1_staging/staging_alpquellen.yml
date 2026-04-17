@@ -5,11 +5,9 @@ models:
         data_type: integer
       - name: geom
         data_type: user-defined
-      - name: x-koordinaten
+      - name: x_koordinaten
         data_type: integer
       - name: y_koordinaten
-        data_type: integer
-      - name: hoehe
         data_type: integer
       - name: identifikator
         data_type: character varying
@@ -37,3 +35,9 @@ models:
         data_type: double precision
       - name: schuettung_maximal
         data_type: integer
+      - name: x_koordinaten
+        data_type: integer
+      - name: hoehe
+        data_type: integer
+      - name: notwasserversorgung
+        data_type: character varying

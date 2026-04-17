@@ -31,16 +31,19 @@ vars:
     dataset_alpquellen:
       t_id: 2
       dataset: alpquellen-datenquelle
-      
+
+  # Basket definitions
+  # These get inserted into the target schema's t_ili2db_basket table
+  # when the macro 'write_basket()' is run.    
   baskets:
     basket_quellkataster_access:
       t_id: 1
       topic: ProdQuellkataster
-      dataset_t_id: 1 
+      dataset_t_id: NULL 
     basket_quellkataster_alpquellen:
-      t_id: 1
+      t_id: 2
       topic: ProdQuellkataster
-      dataset_t_id: 2 
+      dataset_t_id: NULL
 
   classnames:
     Quelle_intern: Prod_Quellkataster_V1.Quelle.Quelle_intern
