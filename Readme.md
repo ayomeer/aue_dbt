@@ -93,9 +93,20 @@ dbt_sandbox:
 ## dbt Workflow
 - Ground up, data-first philosophy, Models = Select Queries
 
-### Common Tasks
+### Run Variables
 
-#### Write Transformed Data to INTERLIS Target Schema
+| Variable | Effect |
+| -------- | ------ |
+| reset_target | Reset and re-initialize target ili schema (datasets and baskets)
+| enable_transfer | Triggers final dbt models to be transferred to their respective targets defined in the their model configuration.
+
+#### Usage Examples
+
+
+### Export Overview
+
+On first population of the INTERLIS model, the tables `t_ili2db_dataset` `t_ili2db_basket` need to be written. This is done by calling the macro `init_interlis_target` 
+
 Crossing the dbt-INTERLIS boundary needs to be explicitly enabled using the `enable_transfer` variable passed as an argument to `dbt run`. `transfer_schema` is the name of the 
 ```bash
 dbt run +transfer_schema --args  'enable_transer: true'
@@ -125,8 +136,16 @@ baskets:
     dataset_t_id: NULL 
 ```
 
+#### Boundary Models
+Boundary models (prefix `b_`) are the final transformation model managed by dbt. They serve as a dbt-side mirror of their respective corresponding INTERLIS table. The following implicit assumptions are made about these tables:
+- For each column of the target table, the boudary model has a corresponding column with
+  - the same exact name
+  - the same data type (use explicit casting)
+- The column are in the same order ⚠️
+
+
 #### Transfer Models
-dbt Models called `transfer`, select everything from the final transformation model and call the `write_to_interlis` macro to insert the data into the target INTERLIS schema as a [post-hook](https://docs.getdbt.com/reference/resource-configs/pre-hook-post-hook). 
+dbt Models called `transfer`, select everything from a boundary model and call the `write_to_interlis` macro to insert the data into the target INTERLIS schema as a [post-hook](https://docs.getdbt.com/reference/resource-configs/pre-hook-post-hook). 
 
 ```SQL
 {{ config(
