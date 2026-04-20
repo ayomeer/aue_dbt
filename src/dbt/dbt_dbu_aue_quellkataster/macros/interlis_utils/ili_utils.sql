@@ -1,5 +1,30 @@
 -- Managing INTERLIS Boundary ---------------------------------------
 
+{% macro run_start_parsing() %}
+  {% if var('reset_target', false) %}
+    {{ reset_target_schema(var('target_schema')) }}
+  {% endif %}
+{%- endmacro %}
+
+
+{% macro reset_target_schema(schema_name) %}
+  {{ reset_ili_sequence(schema_name) }}
+
+  -- Clear truncate tables
+  {% set sql_truncate %}
+    TRUNCATE TABLE {{schema_name}}.t_ili2db_basket CASCADE;
+    -- NOTE:
+    -- Also truncates all tables referencing basket such as main data tables
+  {% endset %}
+  {% do run_query(sql_truncate) %}
+
+
+  -- TODO: Populate dataset table
+
+  -- Populate basket table
+  {{ setup_baskets(schema_name) }}
+{%- endmacro %}
+
 
 {% macro setup_baskets(schema_name) %}
   -- Populate basket table based on project configuration:
@@ -31,32 +56,14 @@
 {%- endmacro %}
 
 
-{% macro reset_target_schema(schema_name) %}
-  {{ reset_ili_sequence(schema_name) }}
-
-  -- Clear truncate tables
-  {% set sql_truncate %}
-    TRUNCATE TABLE {{schema_name}}.t_ili2db_basket CASCADE;
-    -- NOTE:
-    -- Also truncates all tables referencing basket such as main data tables
-  {% endset %}
-  {% do run_query(sql_truncate) %}
-
-
-  -- TODO: Populate dataset table
-
-  -- Populate basket table
-  {{ setup_baskets(schema_name) }}
-{%- endmacro %}
-
-
-
 
 -- Export dbt table to target table
 {% macro transfer_table(schema_name, table_name) %}
 
   {% set insert_query %}
     INSERT INTO {{schema_name}}.{{table_name}}(
+      -- Get list of column names present in boundary model
+      -- assumption: boundary model column names match target column names 
       {{ dbt_utils.get_filtered_columns_in_relation(this) | join(',\n  ') }}
     )
     SELECT
