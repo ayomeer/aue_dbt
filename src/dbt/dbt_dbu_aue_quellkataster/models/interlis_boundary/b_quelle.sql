@@ -3,7 +3,6 @@
 SELECT 
   nextval('dbu_aue_quellkataster.t_ili2db_seq'::regclass) as t_id,
   {{ var('baskets')['basket_quellkataster_alpquellen']['t_id'] }}::bigint as t_basket,
-  '{{ var('classnames')['Quelle_intern'] }}'::character varying as t_type,
   'GL_' || Row_Number() OVER (ORDER BY fid)::character varying as identifikator,
   aname::character varying,
   grundwasserleiter_typ::character varying,

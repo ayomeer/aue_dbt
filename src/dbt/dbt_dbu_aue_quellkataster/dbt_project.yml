@@ -32,7 +32,7 @@ vars:
       t_id: 2
       dataset: alpquellen-datenquelle
 
-  # Basket definitions
+  # Basket variables
   # These get inserted into the target schema's t_ili2db_basket table
   # when the macro 'write_basket()' is run.    
   baskets:
@@ -45,8 +45,12 @@ vars:
       topic: ProdQuellkataster
       dataset_t_id: NULL
 
+  # Classnames variables
+  # Usage example:
+  # '{{ var('classnames')['Quelle_intern'] }}'::character varying as t_type,
   classnames:
     Quelle_intern: Prod_Quellkataster_V1.Quelle.Quelle_intern
+  
 
 models:
   dbt_dbu_aue_quellkataster:
