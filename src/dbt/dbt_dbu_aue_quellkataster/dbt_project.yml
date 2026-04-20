@@ -22,8 +22,12 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "target"
   - "dbt_packages"
 
+on-run-start: 
+  - '{{ run_start_parsing() }}'
 
 vars:
+  target_schema: dbu_aue_quellkataster
+
   datasets:
     dataset_access:
       t_id: 1
@@ -31,6 +35,9 @@ vars:
     dataset_alpquellen:
       t_id: 2
       dataset: alpquellen-datenquelle
+    dataset_new:
+      t_id: 3
+      dataset: neuerfassung
 
   # Basket variables
   # These get inserted into the target schema's t_ili2db_basket table
@@ -38,11 +45,11 @@ vars:
   baskets:
     basket_quellkataster_access:
       t_id: 1
-      topic: ProdQuellkataster
+      topic: Grundwasseraustritte_intern
       dataset_t_id: NULL 
     basket_quellkataster_alpquellen:
       t_id: 2
-      topic: ProdQuellkataster
+      topic: Grundwasseraustritte_intern
       dataset_t_id: NULL
 
   # Classnames variables
