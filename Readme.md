@@ -93,7 +93,17 @@ dbt_sandbox:
 ## dbt Workflow
 - Ground up, data-first philosophy, Models = Select Queries
 
-## Data Source
+### Common Tasks
+
+#### Write Transformed Data to INTERLIS Target Schema
+Crossing the dbt-INTERLIS boundary needs to be explicitly enabled using the `enable_transfer` variable passed as an argument to `dbt run`. `transfer_schema` is the name of the 
+```bash
+dbt run +transfer_schema --args  'enable_transer: true'
+```
+
+
+
+### Data Sources
 
 For dbt to work smoothly, make sure of the following:
 - source tables only use SQL-safe naming
@@ -101,7 +111,53 @@ For dbt to work smoothly, make sure of the following:
   - no spaces
   - no capital characters
 
-## Power User for dbt Extension
+### The dbt-INTERLIS Boundary
+
+Since dbt models can only be _SELECT_ statements, writing to the target INTERLIS models is done using [macros](#macros). 
+
+Basket definitions can be defined either in `dbt_project.yml` or a dedicated yaml file (e.g. `baskets.yml`) using variables following the structure:
+```yaml
+# Example from dbt_dbu_aue_quellkataster > dbt_project.yml
+baskets:
+  basket_quellkataster_access:
+    t_id: 1
+    topic: ProdQuellkataster
+    dataset_t_id: NULL 
+```
+
+#### Transfer Models
+dbt Models called `transfer`, select everything from the final transformation model and call the `write_to_interlis` macro to insert the data into the target INTERLIS schema as a [post-hook](https://docs.getdbt.com/reference/resource-configs/pre-hook-post-hook). 
+
+```SQL
+{{ config(
+  enable=var('enable_transfer', false),
+  post_hook='{{ write_to_interlis("dbu_aue_quellkataster", "quelle") }}'
+)}}
+
+SELECT * FROM {{ ref('b_quelle') }}
+```
+
+Transfer models are their own seperate models, so they can be configured to be disabled by default for safety and enabled explicitly using a variable.
+
+### Macros
+Macros are basically templated SQL-scripts. This is perfect for abstracting INTERLIS-specific tasks like populating basket tables <!-- TODO: more examples -->.
+
+Eventually, these macros should be split off into a seperate repo, so that they can be shared across dbt projects as a package.
+
+#### Available Macros
+
+| Macro | Usage |
+|--- | --- |
+| `create_ili_sequence` | Add `t_ili2db_seq` to given schema. Used to set up dbt schema with this sequence, such that this sequence is available to prepare data for export to INTERLIS schemas.
+<!-- TODO: document all the macros -->
+
+#### Debugging Macros
+
+<!-- TODO: Describe how to see what's going on with macros (make model or analysis + compile) -->
+
+
+### Extensions
+#### Power User for dbt Extension
 
 - Model documentation yaml files -> generate w/ Documentation Editor in bottom pane (part of Power User for dbt extension)
 
@@ -109,11 +165,14 @@ Conditions for Documentation Editor to work as expected:
 - Model needs to exist on database -> `dbt run --select <model_name>`
 
 
-## dbt Flow Lineage Extension
+#### dbt Flow Lineage Extension
 
 Conditions for lineage graph to look as expected:
 - `dbt compile` and `dbt docs generate` have been run
 - model columns are documented in yaml file
+
+
+
 
 
 ## Project Scope
@@ -148,30 +207,4 @@ Make sure postgis and uuid-ossp extensions are present on DB!
 - Look up how(/if) `_catref` tables are meant to be filled
 
 
-python scripts:
-- **export mirrors:** 
-  - use dbt concept of _contract_ to generat boundary layer stump?
-    - using dbt-codegen package
-```bash
-dbt run-operation generate_source --args \
-'{"schema_name": "dbu_aue_quellkataster", "table_names": ["quelle"], "generate_columns": true}'
-```
 
-  - using custom python script
-  
-```python
-print("models:")
-print("  - name: quelle")
-print("    config:")
-print("      contract:")
-print("        enforced: true")
-print("    columns:")
-
-for name, dtype in cols:
-  print(f"      - name: {name}")
-  print(f"        data_type: {dtype}")
-```
-  - _test_ maybe also helpful
-  - for each model in mirros, get corresponding table and list of columns
-  - for each table 
-  - change constant db connection string to arguments needed to build it passed to script
