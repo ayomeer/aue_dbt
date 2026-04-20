@@ -18,4 +18,4 @@ select
   {{ adapter.quote("schuettung_maximal") }},
   {{ adapter.quote("hoehe") }},
   {{ adapter.quote("notwasserversorgung") }}
-from {{ source('raw_sources', 'alpquellen') }}
+from {{ source('raw_sources', 'src_alpquellen') }}

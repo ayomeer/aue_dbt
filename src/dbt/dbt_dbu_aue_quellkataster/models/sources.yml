@@ -1,9 +1,9 @@
 sources:
   - name: raw_sources
     database: test-db
-    schema: src
+    schema: dbu_aue_quellkataster
     tables:
-      - name: alpquellen
-      - name: access_objektdaten
+      - name: src_alpquellen
+      - name: src_access_objektdaten
 
 
