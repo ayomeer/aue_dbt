@@ -102,6 +102,9 @@ dbt_sandbox:
 
 #### Usage Examples
 
+```bash
+dbt run  --vars '{reset_target: true, enable_transfer: true}'
+```
 
 ### Export Overview
 
