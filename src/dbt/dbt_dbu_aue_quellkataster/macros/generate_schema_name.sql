@@ -3,10 +3,10 @@
     -- Overrides standard schema naming behavior:
     -- Argumens:
     -- custom_schema_name: schema name explicitly defined dusing 
-    --                     'schema' model configuration
+    --                     schema model configuration
     -- node: dbt model metadata
 
-    -- default schema is the one defined in 'profiles.yml'
+    -- default schema is the one defined in profiles.yml
     {%- set default_schema = target.schema -%}
 
     {%- if custom_schema_name is none -%}
