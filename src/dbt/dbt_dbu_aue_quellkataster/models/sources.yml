@@ -1,6 +1,6 @@
 sources:
   - name: raw_sources
-    database: target.dbname
+    database: "{{ target.database }}"
     schema: dbu_aue_quellkataster
     tables:
       - name: src_alpquellen
