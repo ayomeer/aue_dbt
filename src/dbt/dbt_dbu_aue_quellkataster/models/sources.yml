@@ -1,6 +1,6 @@
 sources:
   - name: raw_sources
-    database: test-db
+    database: target.dbname
     schema: dbu_aue_quellkataster
     tables:
       - name: src_alpquellen

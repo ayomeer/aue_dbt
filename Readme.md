@@ -48,6 +48,7 @@ The source files are mounted onto the dev container (./src/dbt).
 
 > ⚠️ _**Note:**_ If the devcontainer is opened for the first time, or rebuild, you need to set the DB connection password as an environment variable as follows: `echo 'export DB_PASSWORD="password"' >> ~/.bashrc`
 
+
 #### First time setup
 
 1) Save DB password in environment variable `DB_PASSWORD`
