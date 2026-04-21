@@ -21,6 +21,6 @@ dbu_aue_quellkataster_profile:
       schema: dbt_quellkataster
       threads: 1
       type: postgres
-      user: gisuploadmanager
+      user: "andreas.kuhn"
   
 
