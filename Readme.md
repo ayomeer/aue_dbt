@@ -126,6 +126,10 @@ For dbt to work smoothly, make sure of the following:
   - no spaces
   - no capital characters
 
+- the role that dbt is accessing the DB through has been granted
+  - `USAGE` priviledges on the schema
+  - `SELECT` priviledges on the source tables
+
 ### The dbt-INTERLIS Boundary
 
 Since dbt models can only be _SELECT_ statements, writing to the target INTERLIS models is done using [macros](#macros). 
