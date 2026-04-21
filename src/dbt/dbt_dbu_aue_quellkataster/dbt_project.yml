@@ -61,5 +61,6 @@ vars:
 
 models:
   dbt_dbu_aue_quellkataster:
-    0_info:
-      +materialized: view 
+    +post-hook: 
+    - 'ALTER VIEW {{this}} OWNER TO "dbu_aue_quellkataster_write"'
+
