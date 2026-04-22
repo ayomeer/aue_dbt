@@ -4,7 +4,8 @@ services:
     container_name: dbt-container
     network_mode: host  
     volumes:
-      - ..:/project         
+      - ..:/project
+      - ~/.ssh:/home/user/.ssh # forward ssh keys (linux-specific)     
     tty: true
 
   postgis-srv:
