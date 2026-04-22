@@ -1,5 +1,5 @@
 models:
-  - name: b_quelle
+  - name: b_alpquellen
     columns:
       - name: t_id
         data_type: bigint

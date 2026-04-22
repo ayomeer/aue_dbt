@@ -7,7 +7,7 @@ dbu_aue_quellkataster_profile:
       dbname: test-db
       pass: "{{ env_var('DB_PASSWORD') }}" # export DB_PASSWORD='...' in bashrc
       port: 5432
-      schema: dbu_aue_quellkataster
+      schema: dbt_quellkataster
       threads: 1
       type: postgres
       user: postgres
@@ -18,7 +18,7 @@ dbu_aue_quellkataster_profile:
       dbname: glarus
       pass: "{{ env_var('DB_PASSWORD') }}" # export DB_PASSWORD='...' in bashrc
       port: 5432
-      schema: dbu_aue_quellkataster
+      schema: dbt_quellkataster
       threads: 1
       type: postgres
       user: gisuploadmanager

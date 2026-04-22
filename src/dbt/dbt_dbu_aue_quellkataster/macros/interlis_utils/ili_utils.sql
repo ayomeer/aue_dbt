@@ -49,7 +49,9 @@
         uuid_generate_v4(),
         '-',
         NULL
-      )
+      );
+      -- advance t_ili2db_seq to make up for manually set t_id
+      SELECT nextval('dbu_aue_quellkataster.t_ili2db_seq'::regclass);
     {% endset %}
     {% set query_return = run_query(sql_basket_row)%}
   {% endfor %}

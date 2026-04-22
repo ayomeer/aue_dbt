@@ -1,10 +1,7 @@
 {% set null_substitute = -1.00 %} -- NOT NULL workaround
 
 SELECT 
-  nextval('dbu_aue_quellkataster.t_ili2db_seq'::regclass) as t_id,
   {{ var('baskets')['basket_quellkataster_alpquellen']['t_id'] }}::bigint as t_basket,
-  uuid_generate_v4() as t_ili_tid, 
-  'GL_' || Row_Number() OVER (ORDER BY fid)::character varying as identifikator,
   aname::character varying,
   grundwasserleiter_typ::character varying,
   quelltyp::character varying,
@@ -13,9 +10,9 @@ SELECT
   trinkwasser::character varying,
   zweck::character varying,
   oeffentliches_interesse::character varying,
-  COALESCE(schuettung_minimal, {{null_substitute}})::numeric as schuettung_minimal,
-  COALESCE(schuettung_mittel, {{null_substitute}})::numeric as schuettung_mittel,
-  COALESCE(schuettung_maximal, {{null_substitute}})::numeric as schuettung_maximal,
+  schuettung_minimal::numeric(9,2),
+  schuettung_mittel::numeric(9,2),
+  schuettung_maximal::numeric(9,2),
   NULL::character varying as zustroembereich_erforderlich,
   geometrie,
   hoehe::numeric,

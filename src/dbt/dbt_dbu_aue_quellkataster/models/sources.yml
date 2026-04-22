@@ -1,9 +1,9 @@
 sources:
   - name: raw_sources
     database: "{{ target.database }}"
-    schema: dbu_aue_quellkataster
+    schema: dbt_quellkataster
     tables:
       - name: src_alpquellen
       - name: src_access_objektdaten
-
+      - name: src_access_messdaten
 
