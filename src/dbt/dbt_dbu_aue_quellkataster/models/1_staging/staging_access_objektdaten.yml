@@ -1,0 +1,84 @@
+models:
+  - name: staging_access_objektdaten
+    columns:
+      - name: schluessel
+        data_type: integer
+      - name: geom
+        data_type: user-defined
+      - name: objektname
+        data_type: character varying
+      - name: lokalbezeichnung
+        data_type: character varying
+      - name: gemeinde
+        data_type: character varying
+      - name: postleitzahl
+        data_type: integer
+      - name: x_koordinate
+        data_type: integer
+      - name: y_koordinate
+        data_type: integer
+      - name: part_nr
+        data_type: integer
+      - name: fassungseigentuemer
+        data_type: character varying
+      - name: ok_terrain
+        data_type: double precision
+      - name: schachtueberstand
+        data_type: integer
+      - name: ordnungs_nr
+        data_type: integer
+      - name: lagegenauigkeit
+        data_type: character varying
+      - name: verwendungszweck
+        data_type: character varying
+      - name: verwendungsart
+        data_type: character varying
+      - name: fassungsart
+        data_type: character varying
+      - name: fassungszustand
+        data_type: character varying
+      - name: fassungsabdeckung
+        data_type: character varying
+      - name: schachttyp
+        data_type: character varying
+      - name: datenherkunft
+        data_type: character varying
+      - name: kontaktperson
+        data_type: character varying
+      - name: bemerkungen objektdaten
+        data_type: character varying
+        quote: true
+      - name: foto
+        data_type: character varying
+      - name: foto_negativ_nr_1
+        data_type: character varying
+      - name: foto_negativ_nr_2
+        data_type: character varying
+      - name: foto_negativ_nr_3
+        data_type: character varying
+      - name: fassung
+        data_type: character varying
+      - name: schutzzone
+        data_type: character varying
+      - name: anzahl_zuleitungen
+        data_type: integer
+      - name: schloss
+        data_type: character varying
+      - name: aufgenommen_durch
+        data_type: character varying
+      - name: erhebungsdatum
+        data_type: character varying
+      - name: alte_ordnungs_nr
+        data_type: character varying
+      - name: feldbegehung
+        data_type: character varying
+      - name: objektbereinigung
+        data_type: character varying
+      - name: wva_nutzung
+        data_type: character varying
+      - name: wva_nutzung_ergaenzen
+        data_type: character varying
+      - name: wva_nutzung_streichen
+        data_type: character varying
+      - name: wva_nutzung_lage_neu
+        data_type: character varying

@@ -1,7 +1,7 @@
 
 select
   {{ adapter.quote("fid") }},
-  {{ adapter.quote("geom") }},
+  ST_Transform({{ adapter.quote("geom") }}, 2056) as geometrie,
   {{ adapter.quote("x_koordinaten") }},
   {{ adapter.quote("y_koordinaten") }},
   {{ adapter.quote("identifikator") }},

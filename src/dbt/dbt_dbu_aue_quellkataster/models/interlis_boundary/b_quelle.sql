@@ -17,7 +17,7 @@ SELECT
   COALESCE(schuettung_mittel, {{null_substitute}})::numeric as schuettung_mittel,
   COALESCE(schuettung_maximal, {{null_substitute}})::numeric as schuettung_maximal,
   NULL::character varying as zustroembereich_erforderlich,
-  ST_SetSRID(ST_Point(x_koordinaten, y_koordinaten), 2056) as geometrie,
+  geometrie,
   hoehe::numeric,
   notwasserversorgung::varchar,
   NULL::character varying as name_wv,
@@ -48,5 +48,5 @@ SELECT
   NULL::boolean as schutzzone_erforderlich,
   NULL::character varying as kontaktperson,
   NULL::character varying as bemerkungen
-FROM {{ ref("staging_alpquellen") }}
+FROM {{ ref('staging_alpquellen') }}
 

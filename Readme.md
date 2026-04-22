@@ -16,9 +16,11 @@ Testing environment for dbt + PostgreSQL.
 - [dbt](#dbt)
   - [Setting up dbt Core Project](#setting-up-dbt-core-project)
   - [dbt Workflow](#dbt-workflow)
-    - [Run Variables](#run-variables)
       - [Usage Examples](#usage-examples)
-    - [Export Overview](#export-overview)
+    - [Deployment](#deployment)
+      - [Profiles](#profiles)
+      - [Windmill](#windmill)
+      - [Run Variables](#run-variables)
     - [Data Sources](#data-sources)
     - [The dbt-INTERLIS Boundary](#the-dbt-interlis-boundary)
       - [Boundary Models](#boundary-models)
@@ -29,7 +31,6 @@ Testing environment for dbt + PostgreSQL.
     - [Extensions](#extensions)
       - [Power User for dbt Extension](#power-user-for-dbt-extension)
       - [dbt Flow Lineage Extension](#dbt-flow-lineage-extension)
-  - [Project Scope](#project-scope)
   - [Docs](#docs)
   - [Importing Schemas to localhost DB](#importing-schemas-to-localhost-db)
   - [TODO](#todo)
@@ -45,20 +46,18 @@ The dbt Core image is the development environment for this project. As such, is 
 
 The source files are mounted onto the dev container (./src/dbt).
 
-> ⚠️ _**Note:**_ If the devcontainer is opened for the first time, or rebuild, you need to set the DB connection password as an environment variable as follows: `echo 'export DB_PASSWORD="password"' >> ~/.bashrc`
-
-
 #### First time setup
 
-1) Save DB password in environment variable `DB_PASSWORD`
+Save DB password in environment variable `DB_PASSWORD`. 
 ```bash
 echo 'export DB_PASSWORD="password"' >> ~/.bashrc
 ```
-2) Load dbt packages
+Afterwards, reload window (`Ctr` + `Shift` + `P` > `Reload Windown`)
+
+Load dbt packages. While in the dbt project directory, run:
 ```bash
 dbt deps
 ```
-
 
 
 ### PostGIS Container
@@ -130,28 +129,29 @@ dbt_sandbox:
 ## dbt Workflow
 - Ground up, data-first philosophy, Models = Select Queries
 
-### Run Variables
 
-| Variable | Effect |
-| -------- | ------ |
-| reset_target | Reset and re-initialize target ili schema (datasets and baskets)
-| enable_transfer | Triggers final dbt models to be transferred to their respective targets defined in the their model configuration.
+
 
 #### Usage Examples
 
 ```bash
 dbt run  --vars '{reset_target: true, enable_transfer: true}'
 ```
+### Deployment
 
-### Export Overview
+#### Profiles
 
-On first population of the INTERLIS model, the tables `t_ili2db_dataset` `t_ili2db_basket` need to be written. This is done by calling the macro `init_interlis_target` 
+#### Windmill
 
-Crossing the dbt-INTERLIS boundary needs to be explicitly enabled using the `enable_transfer` variable passed as an argument to `dbt run`. `transfer_schema` is the name of the 
-```bash
-dbt run +transfer_schema --args  'enable_transer: true'
-```
+On Windmill, the script "dbt run transform" can be used to run dbt models on the live IAP DB. It uses the `windmill-iap` profile output defined in the project's `profiles.yaml`.
 
+
+#### Run Variables
+
+| Variable | Effect |
+| -------- | ------ |
+| reset_target | Reset and re-initialize target ili schema (datasets and baskets)
+| enable_transfer | Triggers final dbt models to be transferred to their respective targets defined in the their model configuration.
 
 
 ### Data Sources
@@ -236,12 +236,6 @@ Conditions for lineage graph to look as expected:
 
 
 
-
-
-## Project Scope
-
-Not part of project(?):
-- Catalogues: Need to be present in target schema and included as dbt source in `models/sources.yaml`
 
 ## Docs
 

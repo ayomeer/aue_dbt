@@ -3,7 +3,7 @@ models:
     columns:
       - name: fid
         data_type: integer
-      - name: geom
+      - name: geometrie
         data_type: user-defined
       - name: x_koordinaten
         data_type: integer

@@ -19,7 +19,8 @@
     "extensions": [
         "innoverio.vscode-dbt-power-user",
         "tripleaceme.dbt-flow-lineage",
-        "mechatroner.rainbow-csv"
+        "mechatroner.rainbow-csv",
+        "yzhang.markdown-all-in-one"
     ]
     }
   },
