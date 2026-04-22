@@ -1,1 +1,1 @@
-docker exec -it postgis-container /bin/bash
+docker exec -it $1 /bin/bash

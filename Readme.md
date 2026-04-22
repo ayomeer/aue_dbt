@@ -2,9 +2,63 @@
 
 Testing environment for dbt + PostgreSQL.
 
+## Table of Contents
+
+- [dbt\_aue](#dbt_aue)
+  - [Table of Contents](#table-of-contents)
+  - [Docker Setup](#docker-setup)
+    - [dbt devcontainer](#dbt-devcontainer)
+      - [First time setup](#first-time-setup)
+    - [PostGIS Container](#postgis-container)
+      - [First Time Setup](#first-time-setup-1)
+      - [Using the image in development/testing](#using-the-image-in-developmenttesting)
+  - [Connecting pgAdmin to postgres Server](#connecting-pgadmin-to-postgres-server)
+- [dbt](#dbt)
+  - [Setting up dbt Core Project](#setting-up-dbt-core-project)
+  - [dbt Workflow](#dbt-workflow)
+    - [Run Variables](#run-variables)
+      - [Usage Examples](#usage-examples)
+    - [Export Overview](#export-overview)
+    - [Data Sources](#data-sources)
+    - [The dbt-INTERLIS Boundary](#the-dbt-interlis-boundary)
+      - [Boundary Models](#boundary-models)
+      - [Transfer Models](#transfer-models)
+    - [Macros](#macros)
+      - [Available Macros](#available-macros)
+      - [Debugging Macros](#debugging-macros)
+    - [Extensions](#extensions)
+      - [Power User for dbt Extension](#power-user-for-dbt-extension)
+      - [dbt Flow Lineage Extension](#dbt-flow-lineage-extension)
+  - [Project Scope](#project-scope)
+  - [Docs](#docs)
+  - [Importing Schemas to localhost DB](#importing-schemas-to-localhost-db)
+  - [TODO](#todo)
+
+
 ## Docker Setup
 Based on this guide:
 https://medium.com/@oyekanmiakande/building-a-modern-data-pipeline-with-dbt-postgresql-and-docker-a68fe2d19a3c
+
+
+### dbt devcontainer
+The dbt Core image is the development environment for this project. As such, is run by VS Code when opening the directory in the configured devcontainer.
+
+The source files are mounted onto the dev container (./src/dbt).
+
+> ⚠️ _**Note:**_ If the devcontainer is opened for the first time, or rebuild, you need to set the DB connection password as an environment variable as follows: `echo 'export DB_PASSWORD="password"' >> ~/.bashrc`
+
+
+#### First time setup
+
+1) Save DB password in environment variable `DB_PASSWORD`
+```bash
+echo 'export DB_PASSWORD="password"' >> ~/.bashrc
+```
+2) Load dbt packages
+```bash
+dbt deps
+```
+
 
 
 ### PostGIS Container
@@ -41,24 +95,6 @@ Careful about using the VsCode command _'Rebuild and reopen in container'_ witho
 
 
 
-### dbt devcontainer
-The dbt Core image is the development environment for this project. As such, is run by VS Code when opening the directory in the configured devcontainer.
-
-The source files are mounted onto the dev container (./src/dbt).
-
-> ⚠️ _**Note:**_ If the devcontainer is opened for the first time, or rebuild, you need to set the DB connection password as an environment variable as follows: `echo 'export DB_PASSWORD="password"' >> ~/.bashrc`
-
-
-#### First time setup
-
-1) Save DB password in environment variable `DB_PASSWORD`
-```bash
-echo 'export DB_PASSWORD="password"' >> ~/.bashrc
-```
-2) Load dbt packages
-```bash
-dbt deps
-```
 
 ## Connecting pgAdmin to postgres Server
 

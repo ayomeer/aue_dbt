@@ -4,7 +4,7 @@
     "updateRemoteUserUID": false,
     "dockerComposeFile": "docker-compose.yml",
     "service": "dbt-dev",
-    "workspaceFolder": "/src",
+    "workspaceFolder": "/project",
     "customizations": {
     "vscode": {
       "settings": {
@@ -14,7 +14,7 @@
                     "*.yml": "jinja-yaml",
                     "*.sql": "jinja-sql",
                     "*.md": "jinja-md"
-                },
+        },
     },
     "extensions": [
         "innoverio.vscode-dbt-power-user",
