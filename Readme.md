@@ -18,7 +18,6 @@ Testing environment for dbt + PostgreSQL.
   - [dbt Workflow](#dbt-workflow)
     - [Transformation Layers](#transformation-layers)
     - [Deployment](#deployment)
-      - [Profiles](#profiles)
       - [Windmill](#windmill)
       - [Run Variables](#run-variables)
     - [Data Sources](#data-sources)
@@ -144,16 +143,29 @@ The dbt models are structured into layers.
 
 <!-- TODO: example DAG with layers superimposed -->
 
+
+### Deployment
+
 ```bash
 dbt run  --vars '{reset_target: true, enable_transfer: true}'
 ```
-### Deployment
-
-#### Profiles
 
 #### Windmill
 
-On Windmill, the script "dbt run transform" can be used to run dbt models on the live IAP DB. It uses the `windmill-iap` profile output defined in the project's `profiles.yaml`.
+On Windmill, the script "dbt run transform" can be used to run dbt models on the live IAP DB. It uses the `windmill-iap` profile output, which can be defined in the project's `profiles.yaml` like this:
+
+```yaml
+    windmill-iap:
+      host: srv-gisiap-02.glnet.ch
+      dbname: glarus
+      pass: "{{ env_var('DB_PASSWORD') }}" 
+      port: 5432
+      schema: dbt_quellkataster
+      threads: 1
+      type: postgres
+      user: gisuploadmanager # <-- subject to change
+  
+```
 
 
 #### Run Variables
