@@ -1,5 +1,6 @@
 
 select
+  {{ adapter.quote("fid") }} as pkey_src,
   {{ adapter.quote("daten id") }}::integer as fkey_quelle_src,
   to_date({{ adapter.quote("entnahmedatum") }}, 'DD.MM.YYYY') as entnahmedatum,
   NULLIF(substring({{ adapter.quote("entnahmezeit") }}, 12),'')::time as entnahmezeit,

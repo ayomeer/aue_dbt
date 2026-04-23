@@ -1,8 +1,7 @@
 -- 'TODO' -> von Fachleuten zu befüllen
-
 SELECT
-  pkey_src,
-  nextval('dbu_aue_quellkataster.t_ili2db_seq'::regclass) as t_id,
+  o.pkey_src,
+  ids.t_id as t_id,
   {{ var('baskets')['basket_quellkataster_access']['t_id'] }}::bigint as t_basket,
   uuid_generate_v4() as t_ili_tid, 
   aname,
@@ -48,6 +47,8 @@ SELECT
   schutzzone_erforderlich,
   kontaktperson,
   bemerkungen
-FROM {{ ref('staging_access_objektdaten') }} as o
+FROM {{ ref('staging_access_objektdaten_union') }} as o
+LEFT JOIN {{ ref('intermediate_access_objektdaten_ids') }} as ids
+  ON ids.pkey_src = o.pkey_src
 LEFT JOIN {{ ref('agg_messungen') }} as m
   ON o.pkey_src = m.fkey_quelle_src

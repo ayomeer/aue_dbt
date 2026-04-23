@@ -202,6 +202,7 @@ baskets:
     dataset_t_id: NULL 
 ```
 
+
 #### Boundary Models
 Boundary models (prefix `b_`) are the final transformation model managed by dbt. They serve as a dbt-side mirror of their respective corresponding INTERLIS table. The following implicit assumptions are made about these tables:
 - For each column of the target table, the boudary model has a corresponding column with
@@ -218,11 +219,14 @@ dbt Models called `transfer`, select everything from a boundary model and call t
   enable=var('enable_transfer', false),
   post_hook='{{ write_to_interlis("dbu_aue_quellkataster", "quelle") }}'
 )}}
+-- depends_on: {{ ref('upstream_parent_model') }}
 
-SELECT * FROM {{ ref('b_quelle') }}
+SELECT * FROM {{ ref('b_transfer_model') }}
 ```
+The `depends_on` comment is a comment, but actually is parsed by dbt and ensures correct order of transfers (e.g. parent table before child table) by stating the dependency.
 
 Transfer models are their own seperate models, so they can be configured to be disabled by default for safety and enabled explicitly using a variable.
+
 
 ### Macros
 Macros are basically templated SQL-scripts. This is perfect for abstracting INTERLIS-specific tasks like populating basket tables <!-- TODO: more examples -->.
@@ -240,6 +244,11 @@ Eventually, these macros should be split off into a seperate repo, so that they 
 
 <!-- TODO: Describe how to see what's going on with macros (make model or analysis + compile) -->
 
+#### run-operations
+
+```bash
+dbt run-operation create_ili_sequence --args 'schema: dbt_quellkataster'
+```
 
 ### Extensions
 #### Power User for dbt Extension
@@ -289,6 +298,7 @@ Try running `dbt compile` + Command Palette > Reload Window
 ## TODO
 
 - Look up how(/if) `_catref` tables are meant to be filled
+- Python script to create b_<target_table_name> models including datatypes from pg information_schema
 
 
 

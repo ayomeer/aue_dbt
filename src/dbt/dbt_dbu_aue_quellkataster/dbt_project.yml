@@ -23,10 +23,10 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "dbt_packages"
 
 on-run-start: 
-  - '{{ run_start_parsing() }}'
+  - '{{ run_start_parsing() }}' # function defined in macros/ili_utils.sql
 
 vars:
-  target_schema: dbu_aue_quellkataster
+  target_ili_schema: dbu_aue_quellkataster
 
   datasets:
     dataset_access:
@@ -63,7 +63,6 @@ models:
   dbt_dbu_aue_quellkataster:
     +grants:
       select: ['dbu_aue_quellkataster_read']
-    +materialization: view
     +post-hook: 
     - 'ALTER {{model.config.materialized}} {{this}} OWNER TO "dbu_aue_quellkataster_write"'
 

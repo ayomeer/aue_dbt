@@ -4,7 +4,7 @@
 SELECT  
   t_id,
   t_basket,
-  uuid_generate_v4() as t_ili_tid,
+  t_ili_tid,
   entnahmedatum::date,
   entnahmezeit::time,
   witterung::varchar,

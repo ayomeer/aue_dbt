@@ -6,7 +6,8 @@
     {
       "label": "dbt run - reset and transfer",
       "type": "shell",
-      "command": "dbt run  --vars '{reset_target: true, enable_transfer: true}'"
+      "command": "dbt run  --vars '{reset_target: true, enable_transfer: true}'",
+      "problemMatcher": []
     }
   ]
 }

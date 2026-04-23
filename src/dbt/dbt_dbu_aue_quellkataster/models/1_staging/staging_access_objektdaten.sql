@@ -1,6 +1,5 @@
 select
   {{ adapter.quote("schluessel") }} as pkey_src,
-  ST_SetSRID({{ adapter.quote("geom") }}, 2056) as geometrie,
   {{ adapter.quote("objektname") }} as aname,
   {{ adapter.quote("lokalbezeichnung") }},
   {{ adapter.quote("gemeinde") }} as ortschaft,
@@ -11,7 +10,7 @@ select
   {{ adapter.quote("fassungseigentuemer") }},
   {{ adapter.quote("ok terrain") }} as hoehe,
   {{ adapter.quote("schachtueberstand") }},
-  {{ adapter.quote("ordnungs-nr") }} as ordnungs_nr,
+  {{ adapter.quote("ordnungs-nr") }}::varchar as ordnungs_nr,
   {{ adapter.quote("lagegenauigkeit") }},
   {{ adapter.quote("verwendungszweck") }},
   {{ adapter.quote("verwendungsart") }},
@@ -38,5 +37,7 @@ select
   {{ adapter.quote("wva-nutzung") }} as wva_nutzung,
   {{ adapter.quote("wva-nutzung ergaenzen") }} as wva_nutzung_ergaenzen,
   {{ adapter.quote("wva-nutzung streichen") }} as wva_nutzung_streichen,
-  {{ adapter.quote("wva-nutzung lage neu") }} as wva_nutzung_lage_neu
+  {{ adapter.quote("wva-nutzung lage neu") }} as wva_nutzung_lage_neu,
+  ST_SetSRID({{ adapter.quote("geom") }}, 2056) as geometrie
 from {{ source('raw_sources', 'src_access_objektdaten') }}
+

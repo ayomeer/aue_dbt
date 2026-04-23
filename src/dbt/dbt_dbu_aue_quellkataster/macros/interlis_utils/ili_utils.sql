@@ -1,8 +1,11 @@
 -- Managing INTERLIS Boundary ---------------------------------------
 
 {% macro run_start_parsing() %}
+  -- reset dbt schema's t_ili2db_seq
+  {{ reset_ili_sequence(target.schema) }}
+  
   {% if var('reset_target', false) %}
-    {{ reset_target_schema(var('target_schema')) }}
+    {{ reset_target_schema(var('target_ili_schema')) }}
   {% endif %}
 {%- endmacro %}
 
@@ -51,7 +54,7 @@
         NULL
       );
       -- advance t_ili2db_seq to make up for manually set t_id
-      SELECT nextval('dbu_aue_quellkataster.t_ili2db_seq'::regclass);
+      SELECT nextval('{{schema_name}}.t_ili2db_seq'::regclass);
     {% endset %}
     {% set query_return = run_query(sql_basket_row)%}
   {% endfor %}

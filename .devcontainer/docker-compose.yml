@@ -17,3 +17,4 @@ services:
     # start using this when starting next project
     # volumes:
     #   - ./postgis_var/:var/lib/postgresql/data/
+ 
