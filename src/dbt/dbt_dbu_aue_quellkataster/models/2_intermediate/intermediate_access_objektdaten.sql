@@ -1,7 +1,10 @@
 -- 'TODO' -> von Fachleuten zu befüllen
 
 SELECT
-  id_quelle,
+  pkey_src,
+  nextval('dbu_aue_quellkataster.t_ili2db_seq'::regclass) as t_id,
+  {{ var('baskets')['basket_quellkataster_access']['t_id'] }}::bigint as t_basket,
+  uuid_generate_v4() as t_ili_tid, 
   aname,
   'unbestimmt' as grundwasserleiter_typ,
   NULL as quelltyp,
@@ -47,4 +50,4 @@ SELECT
   bemerkungen
 FROM {{ ref('staging_access_objektdaten') }} as o
 LEFT JOIN {{ ref('agg_messungen') }} as m
-  ON o.id_quelle = m.von_quelle
+  ON o.pkey_src = m.fkey_quelle_src

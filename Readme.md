@@ -16,7 +16,7 @@ Testing environment for dbt + PostgreSQL.
 - [dbt](#dbt)
   - [Setting up dbt Core Project](#setting-up-dbt-core-project)
   - [dbt Workflow](#dbt-workflow)
-      - [Usage Examples](#usage-examples)
+    - [Transformation Layers](#transformation-layers)
     - [Deployment](#deployment)
       - [Profiles](#profiles)
       - [Windmill](#windmill)
@@ -131,10 +131,18 @@ dbt_sandbox:
 ## dbt Workflow
 - Ground up, data-first philosophy, Models = Select Queries
 
+### Transformation Layers
 
+The dbt models are structured into layers.
 
+| Layer | Usage |
+| ----- | ----- |
+| info  | Queries you want to save (e.g. for data instrospection) but aren't part of the transformation pipeline. |
+| staging | Entry into dbt pipeline. Rename columns, clean data, transform to suitable datatypes |
+| intermediate | Here, models have columns from internal models as well as target models. Important for transferring object relations from internal database model as well as target INTERLIS model. More complex data transformations also live here. |
+| interlis_boundary | Objects are in the format of the target INTERLIS model and act as mirrors for their targets.  |
 
-#### Usage Examples
+<!-- TODO: example DAG with layers superimposed -->
 
 ```bash
 dbt run  --vars '{reset_target: true, enable_transfer: true}'

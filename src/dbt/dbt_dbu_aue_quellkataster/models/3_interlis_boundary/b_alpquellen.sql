@@ -1,7 +1,7 @@
-{% set null_substitute = -1.00 %} -- NOT NULL workaround
-
 SELECT 
-  {{ var('baskets')['basket_quellkataster_alpquellen']['t_id'] }}::bigint as t_basket,
+  t_id,
+  t_basket,
+  t_ili_tid,
   aname::character varying,
   grundwasserleiter_typ::character varying,
   quelltyp::character varying,
@@ -21,7 +21,7 @@ SELECT
   NULL::character varying as ordnungs_nr,
   NULL::character varying as ortschaft,
   NULL::character varying as postleitzahl,
-  NULL::character varying as parznr,
+  NULL::character varying as parz_nr,
   NULL::character varying as lagegenauigkeit,
   NULL::integer as schachtueberstand,
   NULL::character varying as fassungsart_beschreibung,
@@ -45,5 +45,5 @@ SELECT
   NULL::boolean as schutzzone_erforderlich,
   NULL::character varying as kontaktperson,
   NULL::character varying as bemerkungen
-FROM {{ ref('staging_alpquellen') }}
+FROM {{ ref('intermediate_alpquellen') }}
 

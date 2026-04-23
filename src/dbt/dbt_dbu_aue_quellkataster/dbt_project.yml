@@ -65,5 +65,5 @@ models:
       select: ['dbu_aue_quellkataster_read']
     +materialization: view
     +post-hook: 
-    - 'ALTER VIEW {{this}} OWNER TO "dbu_aue_quellkataster_write"'
+    - 'ALTER {{model.config.materialized}} {{this}} OWNER TO "dbu_aue_quellkataster_write"'
 

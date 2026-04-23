@@ -1,5 +1,7 @@
 SELECT 
-  {{ var('baskets')['basket_quellkataster_access']['t_id'] }}::bigint as t_basket,
+  t_id,
+  t_basket,
+  t_ili_tid,
   aname::character varying,
   grundwasserleiter_typ::character varying,
   quelltyp::character varying,
@@ -19,7 +21,7 @@ SELECT
   NULL::character varying as ordnungs_nr,
   NULL::character varying as ortschaft,
   NULL::character varying as postleitzahl,
-  NULL::character varying as parznr,
+  NULL::character varying as parz_nr,
   NULL::character varying as lagegenauigkeit,
   NULL::integer as schachtueberstand,
   NULL::character varying as fassungsart_beschreibung,

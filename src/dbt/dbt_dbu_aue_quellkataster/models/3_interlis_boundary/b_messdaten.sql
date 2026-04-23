@@ -1,17 +1,19 @@
   
+{{ config(materialized='table')}} -- so type casts are actually done and checked
+
 SELECT  
-  nextval('dbu_aue_quellkataster.t_ili2db_seq'::regclass) as t_id,
-  {{ var('baskets')['basket_quellkataster_access']['t_id'] }} as t_basket,
+  t_id,
+  t_basket,
   uuid_generate_v4() as t_ili_tid,
   entnahmedatum::date,
   entnahmezeit::time,
   witterung::varchar,
-  schuettungsmenge::numeric,
-  wassertemperatur::numeric,
+  schuettungsmenge::numeric(9,2),
+  wassertemperatur::numeric(4,1),
   ph_wert::varchar,
   sauerstoff::varchar,
   sauerstoffsaettigung::varchar,
   chemische_analysen::varchar,
   bemerkungen::varchar,
   von_quelle::bigint
-FROM {{ ref('staging_access_messdaten') }} 
+FROM {{ ref('intermediate_access_messdaten') }} as i

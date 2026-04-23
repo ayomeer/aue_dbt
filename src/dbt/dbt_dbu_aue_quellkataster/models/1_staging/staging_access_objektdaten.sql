@@ -1,5 +1,5 @@
 select
-  {{ adapter.quote("schluessel") }} as id_quelle,
+  {{ adapter.quote("schluessel") }} as pkey_src,
   ST_SetSRID({{ adapter.quote("geom") }}, 2056) as geometrie,
   {{ adapter.quote("objektname") }} as aname,
   {{ adapter.quote("lokalbezeichnung") }},
