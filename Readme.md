@@ -33,6 +33,8 @@ Testing environment for dbt + PostgreSQL.
       - [dbt Flow Lineage Extension](#dbt-flow-lineage-extension)
   - [Docs](#docs)
   - [Importing Schemas to localhost DB](#importing-schemas-to-localhost-db)
+  - [Troubleshooting](#troubleshooting)
+      - [There are problems highlighted (often in dbt\_project.yml) that I've already solved.](#there-are-problems-highlighted-often-in-dbt_projectyml-that-ive-already-solved)
   - [TODO](#todo)
 
 
@@ -258,6 +260,11 @@ Make sure postgis and uuid-ossp extensions are present on DB!
 2) Remove lines `\restrict ...` and `\unrestrict ...` from plain sql file in editor (e.g. vscode)
 3) import on localhost DB by right clicking **database** (not schema) and choosing 'Restore...' or using command line (on host): `psql -h localhost -p 5432 -U postgres -d test-db -f prod_gl_biotope_20260402.sql`
 
+
+## Troubleshooting
+
+#### There are problems highlighted (often in dbt_project.yml) that I've already solved.
+Try running `dbt compile` + Command Palette > Reload Window 
 
 ## TODO
 

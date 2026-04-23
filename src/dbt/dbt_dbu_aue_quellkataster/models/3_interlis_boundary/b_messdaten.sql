@@ -4,7 +4,7 @@ SELECT
   {{ var('baskets')['basket_quellkataster_access']['t_id'] }} as t_basket,
   uuid_generate_v4() as t_ili_tid,
   entnahmedatum::date,
-  entnahmezeit::varchar,
+  entnahmezeit::time,
   witterung::varchar,
   schuettungsmenge::numeric,
   wassertemperatur::numeric,
