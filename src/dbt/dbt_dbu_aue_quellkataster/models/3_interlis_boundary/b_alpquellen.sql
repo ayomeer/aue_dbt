@@ -42,7 +42,7 @@ SELECT
   NULL::date as erhebungsdatum,
   NULL::date as feldbegehung,
   NULL::date as objektbereinigung,
-  NULL::boolean as schutzzone_erforderlich,
+  NULL::varchar as schutzzone,
   NULL::character varying as kontaktperson,
   NULL::character varying as bemerkungen
 FROM {{ ref('intermediate_alpquellen') }}

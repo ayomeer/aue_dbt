@@ -45,7 +45,7 @@ SELECT
   erhebungsdatum::date,
   feldbegehung::date,
   objektbereinigung::date,
-  schutzzone_erforderlich::boolean,
+  schutzzone::varchar,
   kontaktperson::varchar,
   bemerkungen::varchar
 FROM {{ ref('b_quelle_union') }}

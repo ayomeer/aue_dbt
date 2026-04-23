@@ -31,20 +31,40 @@ SELECT
   fassungszustand,
   schachttyp,
   anzahl_zuleitungen,
-  schloss,
+  CASE 
+    WHEN schloss = 'ja' THEN true
+    WHEN schloss = 'nein' THEN false
+    ELSE NULL
+  END as schloss,
   fassungseigentuemer,
   verwendungsart,
   verwendungszweck as verwendungszweck_beschreibung,
-  wva_nutzung,
-  wva_nutzung_ergaenzen,
-  wva_nutzung_streichen,
-  wva_nutzung_lage_neu,
+  CASE 
+    WHEN wva_nutzung = 'WAHR' THEN true
+    WHEN wva_nutzung = 'FALSCH' THEN false
+    ELSE NULL
+  END as wva_nutzung,
+  CASE 
+    WHEN wva_nutzung_ergaenzen = 'WAHR' THEN true
+    WHEN wva_nutzung_ergaenzen = 'FALSCH' THEN false
+    ELSE NULL
+  END as wva_nutzung_ergaenzen,
+    CASE 
+    WHEN wva_nutzung_streichen = 'WAHR' THEN true
+    WHEN wva_nutzung_streichen = 'FALSCH' THEN false
+    ELSE NULL
+  END as wva_nutzung_streichen,
+    CASE 
+    WHEN wva_nutzung_lage_neu = 'WAHR' THEN true
+    WHEN wva_nutzung_lage_neu = 'FALSCH' THEN false
+    ELSE NULL
+  END as wva_nutzung_lage_neu,
   datenherkunft,
   aufgenommen_durch,
   erhebungsdatum,
   feldbegehung,
   objektbereinigung,
-  schutzzone_erforderlich,
+  schutzzone,
   kontaktperson,
   bemerkungen
 FROM {{ ref('staging_access_objektdaten_union') }} as o

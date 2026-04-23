@@ -2,7 +2,7 @@
 select
   {{ adapter.quote("fid") }} as pkey_src,
   {{ adapter.quote("daten id") }}::integer as fkey_quelle_src,
-  to_date({{ adapter.quote("entnahmedatum") }}, 'DD.MM.YYYY') as entnahmedatum,
+  to_date(NULLIF({{ adapter.quote("entnahmedatum") }},''), 'DD.MM.YYYY') as entnahmedatum,
   NULLIF(substring({{ adapter.quote("entnahmezeit") }}, 12),'')::time as entnahmezeit,
   {{ adapter.quote("witterung") }},
   NULLIF({{ adapter.quote("schüttungsmenge") }}, '') as schuettungsmenge,
