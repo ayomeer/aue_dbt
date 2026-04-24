@@ -31,7 +31,7 @@ select
   {{ adapter.quote("schloss") }},
   {{ adapter.quote("aufgenommen durch") }} as aufgenommen_durch,
   to_date(NULLIF({{ adapter.quote("erhebungsdatum") }},''), 'DD.MM.YYYY') as erhebungsdatum,
-  {{ adapter.quote("alte ordnungs nr") }} as alte_ordnungs_nr,
+  {{ adapter.quote("alte ordnungs-nr") }} as alte_ordnungs_nr,
   to_date(NULLIF({{ adapter.quote("feldbegehung") }},''), 'DD.MM.YYYY') as feldbegehung,
   to_date(NULLIF({{ adapter.quote("objektbereinigung") }},''), 'DD.MM.YYYY') as objektbereinigung,
   {{ adapter.quote("wva-nutzung") }} as wva_nutzung,
