@@ -122,6 +122,14 @@
 
 --- Parsing on dbt Triggers ---------------------------------------------------
 {% macro run_start_parsing() %}
+
+    {{ log(
+        "Running run_start_parsing() \n"
+        ~ "reset_target: " ~ var('reset_target', false) ~ "\n"
+        ~ "enable_transfer: " ~ var('enable_transfer', false),
+        info=True
+    )}}
+
   -- reset dbt schema's t_ili2db_seq
   {{ reset_ili_sequence(target.schema) }}
   
