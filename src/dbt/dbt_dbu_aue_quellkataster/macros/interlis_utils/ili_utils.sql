@@ -10,31 +10,13 @@
 {%- endmacro %}
 
 
-{% macro reset_target_schema(schema_name) %}
-  {{ reset_ili_sequence(schema_name) }}
-
-  -- Clear truncate tables
-  {% set sql_truncate %}
-    TRUNCATE TABLE {{schema_name}}.t_ili2db_basket CASCADE;
-    -- NOTE:
-    -- Also truncates all tables referencing basket such as main data tables
-  {% endset %}
-  {% do run_query(sql_truncate) %}
-
-
-  -- TODO: Populate dataset table
-
-  -- Populate basket table
-  {{ setup_baskets(schema_name) }}
-{%- endmacro %}
-
-
 {% macro setup_baskets(schema_name) %}
   -- Populate basket table based on project configuration:
   -- Add a row (i.e.) a basket for each basket defined in dbt_project.yml
   {% for key, value_dict in var('baskets').items() %}
     {{ log(
-        "Writing " ~ key ~ "into " ~ schema_name ~ ".t_ili2db_basket"
+        "Writing " ~ key ~ " into " ~ schema_name ~ ".t_ili2db_basket",
+        info=True
     )}}
     {% set sql_basket_row %}
       INSERT INTO {{schema_name}}.t_ili2db_basket(
@@ -47,7 +29,7 @@
       )
       VALUES (
         {{ value_dict['t_id'] }},
-        NULL, --{{ value_dict['dataset_t_id'] }},
+        {{ value_dict['dataset_t_id'] }},
         '{{ value_dict['topic'] }}',
         uuid_generate_v4(),
         '-',
@@ -59,6 +41,50 @@
     {% set query_return = run_query(sql_basket_row)%}
   {% endfor %}
 {%- endmacro %}
+
+{% macro setup_datasets(schema_name) %}
+  -- Populate dataset table based on project configuration:
+  -- Add a row (i.e.) a dataset for each dataset defined in dbt_project.yml
+  {% for key, value_dict in var('datasets').items() %}
+    {{ log(
+        "Writing " ~ key ~ " into " ~ schema_name ~ ".t_ili2db_dataset",
+        info=True
+    )}}
+    {% set sql_dataset_row %}
+      INSERT INTO {{schema_name}}.t_ili2db_dataset(
+        t_id,
+        datasetname
+      )
+      VALUES (
+        {{ value_dict['t_id'] }},
+        '{{ value_dict['datasetname'] }}'
+      );
+      -- advance t_ili2db_seq to make up for manually set t_id
+      SELECT nextval('{{schema_name}}.t_ili2db_seq'::regclass);
+    {% endset %}
+    {% set query_return = run_query(sql_dataset_row)%}
+  {% endfor %}
+{%- endmacro %}
+
+{% macro reset_target_schema(schema_name) %}
+  {{ reset_ili_sequence(schema_name) }}
+
+  -- Clear truncate tables
+  {% set sql_truncate %}
+    TRUNCATE TABLE {{schema_name}}.t_ili2db_dataset CASCADE;
+    -- Truncates:
+    -- t_ili2db_dataset, t_ili2db_basket, any data objects
+  {% endset %}
+  {% do run_query(sql_truncate) %}
+
+  -- Populate dataset table
+  {{ setup_datasets(schema_name) }}
+
+  -- Populate basket table
+  {{ setup_baskets(schema_name) }}
+{%- endmacro %}
+
+
 
 
 

@@ -28,29 +28,34 @@ on-run-start:
 vars:
   target_ili_schema: dbu_aue_quellkataster
 
-  datasets:
-    dataset_access:
-      t_id: 1
-      dataset: access-datenquelle
-    dataset_alpquellen:
-      t_id: 2
-      dataset: alpquellen-datenquelle
-    dataset_new:
-      t_id: 3
-      dataset: neuerfassung
-
-  # Basket variables
+  # Basket and Dataset Variables
   # These get inserted into the target schema's t_ili2db_basket table
-  # when the macro 'write_basket()' is run.    
+  # when the macro 'write_basket()' is run.  
+  # 
+  # Note: - t_id is meant to be unique across all tables!
+  #       - dataset_t_id must match one of the t_ids defined for a dataset
+  # Basket variables 
   baskets:
     basket_quellkataster_access:
       t_id: 1
       topic: Grundwasseraustritte_intern
-      dataset_t_id: NULL 
+      dataset_t_id: 3 
     basket_quellkataster_alpquellen:
       t_id: 2
       topic: Grundwasseraustritte_intern
-      dataset_t_id: NULL
+      dataset_t_id: 4
+  
+  # Dataset variables
+  datasets:
+    dataset_access:
+      t_id: 3
+      datasetname: access-datenquelle
+    dataset_alpquellen:
+      t_id: 4
+      datasetname: alpquellen-datenquelle
+    dataset_neuerfassung:
+      t_id: 6
+      datasetname: neuerfassung
 
   # Classnames variables
   # Usage example:
