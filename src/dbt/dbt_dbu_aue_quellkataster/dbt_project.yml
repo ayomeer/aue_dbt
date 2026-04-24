@@ -34,28 +34,29 @@ vars:
   # 
   # Note: - t_id is meant to be unique across all tables!
   #       - dataset_t_id must match one of the t_ids defined for a dataset
-  # Basket variables 
-  baskets:
-    basket_quellkataster_access:
-      t_id: 1
-      topic: Grundwasseraustritte_intern
-      dataset_t_id: 3 
-    basket_quellkataster_alpquellen:
-      t_id: 2
-      topic: Grundwasseraustritte_intern
-      dataset_t_id: 4
-  
+
   # Dataset variables
   datasets:
     dataset_access:
-      t_id: 3
-      datasetname: access-datenquelle
+      t_id: 1
+      datasetname: access-und-nachtraege-datenquelle
     dataset_alpquellen:
-      t_id: 4
+      t_id: 2
       datasetname: alpquellen-datenquelle
     dataset_neuerfassung:
-      t_id: 6
+      t_id: 3
       datasetname: neuerfassung
+
+  # Basket variables 
+  baskets:
+    basket_quellkataster_access:
+      t_id: 4
+      topic: Grundwasseraustritte_intern
+      dataset_t_id: 1 
+    basket_quellkataster_alpquellen:
+      t_id: 5
+      topic: Grundwasseraustritte_intern
+      dataset_t_id: 2
 
   # Classnames variables
   # Usage example:
@@ -63,6 +64,7 @@ vars:
   classnames:
     Quelle_intern: Prod_Quellkataster_V1.Quelle.Quelle_intern
   
+
 
 models:
   dbt_dbu_aue_quellkataster:
