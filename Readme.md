@@ -4,7 +4,12 @@ Testing environment for dbt + PostgreSQL.
 
 ## Table of Contents
 
-- [dbt\_aue](#dbt_aue)
+
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+
+<!-- code_chunk_output -->
+
+- [dbt_aue](#dbt_aue)
   - [Table of Contents](#table-of-contents)
   - [Docker Setup](#docker-setup)
     - [dbt devcontainer](#dbt-devcontainer)
@@ -27,14 +32,19 @@ Testing environment for dbt + PostgreSQL.
     - [Macros](#macros)
       - [Available Macros](#available-macros)
       - [Debugging Macros](#debugging-macros)
+      - [run-operations](#run-operations)
     - [Extensions](#extensions)
       - [Power User for dbt Extension](#power-user-for-dbt-extension)
       - [dbt Flow Lineage Extension](#dbt-flow-lineage-extension)
   - [Docs](#docs)
   - [Importing Schemas to localhost DB](#importing-schemas-to-localhost-db)
   - [Troubleshooting](#troubleshooting)
-      - [There are problems highlighted (often in dbt\_project.yml) that I've already solved.](#there-are-problems-highlighted-often-in-dbt_projectyml-that-ive-already-solved)
+      - [There are problems highlighted (often in dbt_project.yml) that I've already solved.](#there-are-problems-highlighted-often-in-dbt_projectyml-that-ive-already-solved)
   - [TODO](#todo)
+
+<!-- /code_chunk_output -->
+
+
 
 
 ## Docker Setup
