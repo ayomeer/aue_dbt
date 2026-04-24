@@ -38,6 +38,6 @@ select
   {{ adapter.quote("wva-nutzung ergaenzen") }} as wva_nutzung_ergaenzen,
   {{ adapter.quote("wva-nutzung streichen") }} as wva_nutzung_streichen,
   {{ adapter.quote("wva-nutzung lage neu") }} as wva_nutzung_lage_neu,
-  ST_SetSRID({{ adapter.quote("geom") }}, 2056) as geometrie
+  ST_Transform({{ adapter.quote("geom") }}, 2056) as geometrie
 from {{ source('raw_sources', 'src_access_objektdaten') }}
 
