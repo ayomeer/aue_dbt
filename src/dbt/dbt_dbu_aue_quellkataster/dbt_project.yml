@@ -57,6 +57,10 @@ vars:
       t_id: 5
       topic: Grundwasseraustritte_intern
       dataset_t_id: 2
+    basket_quellkataster_neuerfassung:
+      t_id: 6
+      topic: Grundwasseraustritte_intern
+      dataset_t_id: 3
 
   # Classnames variables
   # Usage example:
