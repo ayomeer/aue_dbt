@@ -130,10 +130,11 @@
         info=True
     )}}
 
+  -- reset dbt schema's t_ili2db_seq
+  {{ reset_ili_sequence(target.schema) }}
+
   {% if var('enable_transfer', false) %}
-    -- reset dbt schema's t_ili2db_seq
-    {{ reset_ili_sequence(target.schema) }}
-    
+
     {% if var('reset_target', false) %}
       {{ reset_target_schema(var('target_ili_schema')) }}
     {% endif %}
