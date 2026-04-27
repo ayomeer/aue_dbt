@@ -39,5 +39,5 @@ select
   {{ adapter.quote("wva-nutzung_ergaenzen") }} as wva_nutzung_ergaenzen,
   {{ adapter.quote("wva-nutzung_streichen") }} as wva_nutzung_streichen,
   {{ adapter.quote("wva-nutzung_lage_neu") }} as wva_nutzung_lage_neu,
-  ST_SetSRID(ST_Point("x-koordinate"::integer, "y-koordinate"::integer), 2056) as geometrie
+  ST_Transform(ST_Point("x-koordinate"::double precision, "y-koordinate"::double precision, 21781), 2056) as geometrie
 from {{ source('raw_sources', 'src_nachtraege') }}
