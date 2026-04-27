@@ -2,7 +2,7 @@ WITH agg as (
 	SELECT 
 		Verwendungsart,
 		COUNT(schluessel) as cnt
-	FROM {{source('raw_sources', 'src_access_objektdaten')}}
+	FROM {{source('raw_sources', 'src_nachtraege')}}
 	GROUP BY Verwendungsart
 	ORDER BY cnt DESC
 )
