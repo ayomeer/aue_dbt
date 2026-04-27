@@ -1,33 +1,28 @@
 # dbt_dbu_aue_quellkataster
 
-Corresponding INTERLIS model: prod_quellkataster_simple.ili
-
-
+Zugehöriges INTERLIS Modell: prod_quellkataster_simple.ili
 
 
 ## TODO
----
 
 - [ ] refactor model names in 'staging' and 'intermediate' layers
 
-### Manual Jobs after populating the prod model
+### Manuelle Bearbeitung nach Aufschalten des Datenbankschemas
 
-**Dataset merging:**
-- [ ] deduplicate
-  - QGIS-Layer: Link object(s) within 10m and edit side-by-side
+- [ ] deduplizieren von objekten, welche sowohl in access- als auch in alpquellen Datensatz vorhanden sind
 
-**Hard to map Attributes:**
-- [ ] grundwasserleiter_typ [Lockergestein, Kluft, Karst, gemischt, unbestimmt]
-- [ ] quelltyp (optional)
-  - "Quellfunktionsweise oder Schüttungsverhalten"
+**Manuelle Zuordnung von Attributwerten:**
 - [ ] fassungsart [ungefasst, gefasst]
 - [ ] nutzungszustand (wenn gefasst) [genutzt, ungenutzt, aufgehoben, unbestimmt]
 - [ ] trinkwasser (wenn gefasst und genutzt)[ja, nein, unbestimmt]
-- [ ] zweck (optional) [text]
 - [ ] oeffentliches interesse (wenn gefasst und genutzt) [ja, nein, unbestimmt]
 - [ ] zustroembereich_erforderlich (wenn fassung im öffentlichen Interesse) [ja, nein, unbestimmt]
+- [ ] grundwasserleiter_typ [Lockergestein, Kluft, Karst, gemischt, unbestimmt]
+- [ ] quelltyp (optional)
+  - "Quellfunktionsweise oder Schüttungsverhalten beschreiben"
+- [ ] zweck (optional) [text]
 
-
-**enter manually:**
-- [ ] 3 erhebungsdatum entries from csv -> DB
-- [ ] Messdaten csv -> DB
+**Manuell aus Quelldaten zu Erfassen**
+- [ ] 3 erhebungsdatum Attributwerte from csv -> DB
+- [ ] Messdaten Nachträge -> DB
+  - Excel zu unstrukturiert für automatismus und ohnehin nur ~8 Zeilen
