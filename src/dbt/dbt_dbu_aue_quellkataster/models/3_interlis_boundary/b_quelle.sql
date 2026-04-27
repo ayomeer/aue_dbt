@@ -48,5 +48,5 @@ SELECT
   schutzzone::varchar,
   kontaktperson::varchar,
   bemerkungen::varchar
+--FROM {{ ref('b_quelle_union') }}
 FROM {{ ref('b_quelle_union') }}
-

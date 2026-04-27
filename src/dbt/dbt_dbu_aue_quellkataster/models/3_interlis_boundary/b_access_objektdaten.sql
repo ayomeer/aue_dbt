@@ -45,5 +45,5 @@ SELECT
   schutzzone::varchar,
   kontaktperson::varchar,
   bemerkungen::varchar
-FROM {{ ref('intermediate_access_objektdaten') }}
+FROM {{ ref('intermediate_access_objektdaten_updated') }}
 

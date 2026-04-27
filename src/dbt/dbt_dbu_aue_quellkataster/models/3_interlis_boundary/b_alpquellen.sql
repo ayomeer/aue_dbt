@@ -45,5 +45,5 @@ SELECT
   NULL::varchar as schutzzone,
   NULL::character varying as kontaktperson,
   NULL::character varying as bemerkungen
-FROM {{ ref('intermediate_alpquellen') }}
+FROM {{ ref('intermediate_alpquellen_disjoint') }}
 
