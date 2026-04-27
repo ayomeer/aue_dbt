@@ -61,7 +61,7 @@ SELECT
   access.kontaktperson::varchar,
   access.bemerkungen::varchar
 FROM access_with_buffer as access
-JOIN LATERAL (
+LEFT JOIN LATERAL (
   SELECT * FROM {{ ref('intermediate_alpquellen_overlapping') }} as overlapping
   WHERE overlapping.access_t_id = access.t_id
   ORDER BY overlapping.distance DESC
