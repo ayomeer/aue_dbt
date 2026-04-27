@@ -5,9 +5,11 @@ Zugehöriges INTERLIS Modell: prod_quellkataster_simple.ili
 
 ## TODO
 
+### DBT Projekt (Andreas)
+
 - [ ] refactor model names in 'staging' and 'intermediate' layers
 
-### Manuelle Bearbeitung nach Aufschalten des Datenbankschemas
+### Manuelle Bearbeitung nach Aufschalten des Datenbankschemas (AUE)
 
 - [ ] deduplizieren von objekten, welche sowohl in access- als auch in alpquellen Datensatz vorhanden sind
 
