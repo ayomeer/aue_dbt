@@ -17,7 +17,8 @@ WITH access_geoms AS (
 SELECT 
   access_geoms.t_id as access_t_id,
   alpquelle.*,
-  ST_Within(alpquelle.geometrie, access_geoms.geom_buffer) as distance
-FROM {{ ref('intermediate_alpquellen') }} as alpquelle,
-     access_geoms
+  ST_Distance(access_geoms.geometrie, alpquelle.geometrie) as distance
+FROM {{ ref('intermediate_alpquellen') }} as alpquelle
+INNER JOIN access_geoms
+  ON ST_Within(alpquelle.geometrie, access_geoms.geom_buffer) 
  
