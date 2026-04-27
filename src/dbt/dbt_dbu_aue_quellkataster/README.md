@@ -3,11 +3,20 @@
 Zugehöriges INTERLIS Modell: prod_quellkataster_simple.ili
 
 
+## Bekannte Probleme
+
+**Erstellung neuer Quellen-Objekte:**
+- [ ] 'identifikator'-Feld muss ausgefüllt werden, es wird aber keine ID generiert.
+
+
 ## TODO
 
 ### DBT Projekt (Andreas)
 
-- [ ] refactor model names in 'staging' and 'intermediate' layers
+- [ ] Identifikator-Sequenz einfügen (oder andere Lösung)
+- [ ] 'last_modified' zum Modell hinzufügen(?)
+  - [ ] trigger-setup?   
+- [ ] refactoring von Modell Namen in 'staging' and 'intermediate' Layers
 
 ### Manuelle Bearbeitung nach Aufschalten des Datenbankschemas (AUE)
 
