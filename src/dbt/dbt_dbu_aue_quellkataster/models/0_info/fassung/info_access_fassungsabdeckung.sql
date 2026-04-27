@@ -1,6 +1,12 @@
-SELECT 
-	fassungsabdeckung,
-	COUNT(schluessel) as cnt
-FROM {{source('raw_sources', 'src_access_objektdaten')}}
-GROUP BY fassungsabdeckung
-ORDER BY cnt DESC
+WITH agg as (
+	SELECT 
+		fassungsabdeckung,
+		COUNT(schluessel) as cnt
+	FROM {{source('raw_sources', 'src_access_objektdaten')}}
+	GROUP BY fassungsabdeckung
+	ORDER BY cnt DESC
+)
+SELECT 	
+	Row_Number() OVER() as rank,
+	agg.*
+FROM agg
