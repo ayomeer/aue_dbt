@@ -13,6 +13,8 @@ Zugehöriges INTERLIS Modell: prod_quellkataster_simple.ili
 
 ### DBT Projekt (Andreas)
 
+- [ ] deduplizieren von objekten, welche sowohl in access- als auch in alpquellen Datensatz vorhanden sind
+  - MGDM-Attributen mit Werten von Alpquellen-Objekt überschreiben
 - [ ] Identifikator-Sequenz einfügen (oder andere Lösung)
 - [ ] 'last_modified' zum Modell hinzufügen(?)
   - [ ] trigger-setup?   
@@ -20,7 +22,6 @@ Zugehöriges INTERLIS Modell: prod_quellkataster_simple.ili
 
 ### Manuelle Bearbeitung nach Aufschalten des Datenbankschemas (AUE)
 
-- [ ] deduplizieren von objekten, welche sowohl in access- als auch in alpquellen Datensatz vorhanden sind
 
 **Manuelle Zuordnung von Attributwerten:**
 - [ ] fassungsart [ungefasst, gefasst]
