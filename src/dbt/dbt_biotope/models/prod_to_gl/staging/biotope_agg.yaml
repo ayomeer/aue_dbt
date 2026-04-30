@@ -1,9 +1,0 @@
-models:
-  - name: biotope_agg
-    columns:
-      - name: rep_gid
-        data_type: integer
-      - name: objekt_nummer
-        data_type: character varying
-      - name: objekt_name
-        data_type: character varying

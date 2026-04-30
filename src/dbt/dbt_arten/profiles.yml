@@ -17,7 +17,7 @@ dbt_arten:
       dbname: glarus
       pass: "{{ env_var('DB_PASSWORD') }}" # export DB_PASSWORD='...' in bashrc
       port: 5432
-      schema: dbt_quellkataster
+      schema: dbt_arten
       threads: 1
       type: postgres
       user: gisuploadmanager

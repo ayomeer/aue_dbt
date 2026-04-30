@@ -1,0 +1,8 @@
+packages:
+  - name: dbt_utils
+    package: dbt-labs/dbt_utils
+    version: 1.3.3
+  - git: https://github.com/ayomeer/dbt_ili_utils.git
+    name: ili_utils
+    revision: 5eca8dd31f3f9467ade20d1517f4146f34d39713
+sha1_hash: e4d8ccd7e213e86f56db519b8c9dd82e288c0bcc

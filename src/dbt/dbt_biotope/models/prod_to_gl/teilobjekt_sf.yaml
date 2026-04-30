@@ -1,8 +1,0 @@
-models:
-  - name: teilobjekt_sf
-    description: Biotop Teilobjekte - Flaechenobjekte
-    columns:
-      - name: teilobj_nr
-        data_type: character varying
-      - name: teilobj_name
-        data_type: character varying

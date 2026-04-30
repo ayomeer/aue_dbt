@@ -22,6 +22,7 @@ Testing environment for dbt + PostgreSQL.
   - [Connecting pgAdmin to postgres Server](#connecting-pgadmin-to-postgres-server)
 - [dbt](#dbt)
   - [Setting up dbt Core Project](#setting-up-dbt-core-project)
+    - [Custom Setup](#custom-setup)
   - [dbt Workflow](#dbt-workflow)
     - [Transformation Layers](#transformation-layers)
     - [Deployment](#deployment)
@@ -143,6 +144,14 @@ dbt_sandbox:
       user: postgres
   target: dev
 ```
+
+
+### Custom Setup
+
+- Copy Macros
+- Copy packages.yml & run `dbt deps`
+
+
 
 ## dbt Workflow
 - Ground up, data-first philosophy, Models = Select Queries
