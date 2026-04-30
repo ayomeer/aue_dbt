@@ -1,0 +1,26 @@
+dbu_aue_quellkataster_profile:
+  target: dev
+  outputs:
+    dev:
+      # use this profile for local testing
+      host: postgis-container
+      dbname: test-db
+      pass: "{{ env_var('DB_PASSWORD') }}" # export DB_PASSWORD='...' in bashrc
+      port: 5432
+      schema: __schema_name__
+      threads: 1
+      type: postgres
+      user: postgres
+
+    windmill-iap:
+      # use this profile when running dbt project from windmill runner
+      host: srv-gisiap-02.glnet.ch
+      dbname: glarus
+      pass: "{{ env_var('DB_PASSWORD') }}" # export DB_PASSWORD='...' in bashrc
+      port: 5432
+      schema: __schema_name__
+      threads: 1
+      type: postgres
+      user: gisuploadmanager
+  
+

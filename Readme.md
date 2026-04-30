@@ -22,7 +22,7 @@ Testing environment for dbt + PostgreSQL.
   - [Connecting pgAdmin to postgres Server](#connecting-pgadmin-to-postgres-server)
 - [dbt](#dbt)
   - [Setting up dbt Core Project](#setting-up-dbt-core-project)
-    - [Custom Setup](#custom-setup)
+    - [Setting up dbt schema](#setting-up-dbt-schema)
   - [dbt Workflow](#dbt-workflow)
     - [Transformation Layers](#transformation-layers)
     - [Deployment](#deployment)
@@ -129,28 +129,20 @@ Open the project within the dbt devcontainer and run
 dbt init
 ```
 
-This is essentially an interactive way to create your `profiles.yml` at `~/.dbt`. For this project, it should look like this:
-```yaml
-dbt_sandbox:
-  outputs:
-    dev:
-      dbname: postgres-test
-      host: localhost
-      pass: postgress
-      port: 5432
-      schema: dbt_dev
-      threads: 1
-      type: postgres
-      user: postgres
-  target: dev
-```
+### Setting up dbt schema
 
+1) create roles referenced in backup file 
+2) retore backups of schemas we want to develop for
+3) set up dbt_schema
+  - create `dbt_<topic>` schema
+  - run `dbt run-operation ili_utils.setup_roles_for_schema --args 'schema: dbt_<topic>'`
 
-### Custom Setup
+Some utility macros have been written to speed up setting up local test environments:
+(Currently part of the `ili_utils` package. Should maybe be split off)
 
-- Copy Macros
-- Copy packages.yml & run `dbt deps`
-
+| Macro | Usage |
+| ----- | ----- |
+| setup_roles_for_schema | set up read and write roles to mirror 
 
 
 ## dbt Workflow
@@ -321,10 +313,18 @@ dbt docs serve --port 0
 #### There are problems highlighted (often in dbt_project.yml) that I've already solved.
 Try running `dbt compile` + Command Palette > Reload Window 
 
+#### PostgreSQL Permission Gotchas
+
+- if a view doesn't have the same permissions as the table from which the data ultimately derives from, you get permission errors. Even if the user trying to access it is part of both roles but they don't match.
+
 ## TODO
 
 - Look up how(/if) `_catref` tables are meant to be filled
 - Python script to create b_<target_table_name> models including datatypes from pg information_schema
 
-
+- Custom version of dbt init
+  - generate dbt_project.yml template with
+    - templates for datasets and baskets
+  - generate profiles.yml in dbt project root
+    - profile name matching profile set in dbt_project.yml
 

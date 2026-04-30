@@ -2,11 +2,11 @@
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
-name: 'dbt_dbu_aue_quellkataster'
+name: '__project_name__'
 version: '1.0.0'
 
 # This setting configures which "profile" dbt uses for this project.
-profile: 'dbu_aue_quellkataster_profile'
+profile: '__profile_name__'
 
 # These configurations specify where dbt should look for different types of files.
 # The `model-paths` config, for example, states that models in this project can be
@@ -23,11 +23,9 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "dbt_packages"
 
 on-run-start: 
-  - '{{ ili_utils.run_start_parsing() }}' # function defined in macros/ili_utils.sql
+  - '{{ run_start_parsing() }}' # function defined in macros/ili_utils.sql
 
 vars:
-  target_ili_schema: dbu_aue_quellkataster
-
   # Basket and Dataset Variables
   # These get inserted into the target schema's t_ili2db_basket table
   # when the macro 'write_basket()' is run.  
@@ -68,9 +66,12 @@ vars:
   classnames:
     Quelle_intern: Prod_Quellkataster_V1.Quelle.Quelle_intern
   
+  
 models:
   dbt_dbu_aue_quellkataster:
+    {}
     +grants:
       select: ['dbu_aue_quellkataster_read']
     +post-hook: 
     - 'ALTER {{model.config.materialized}} {{this}} OWNER TO "dbu_aue_quellkataster_write"'
+
