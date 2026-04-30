@@ -29,7 +29,8 @@ RUN echo 'export PATH="$HOME/.local/bin:$PATH"' >> /home/user/.bashrc
 RUN apt-get update && apt-get install -y \
     lsof \
     git \
-    build-essential libpq-dev
+    build-essential libpq-dev \
+    curl gpg
 
 # Use non-root user for rest of the setup
 USER $USERNAME

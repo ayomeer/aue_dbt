@@ -1,0 +1,1 @@
+DELETE FROM gl_besonderewaldarten.besonderearten

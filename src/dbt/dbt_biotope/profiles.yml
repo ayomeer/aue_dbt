@@ -3,7 +3,7 @@ dbt_biotope:
   outputs:
     dev:
       dbname: test-db
-      host: localhost
+      host: postgis-container
       pass: "{{ env_var('DB_PASSWORD') }}" # export DB_PASSWORD='...' in bashrc
       port: 5432
       schema: dbt_biotope

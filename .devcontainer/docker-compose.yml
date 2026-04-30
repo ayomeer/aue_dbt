@@ -2,7 +2,7 @@ services:
   dbt-dev: 
     image: dbt_image:latest
     container_name: dbt-container
-    network_mode: host  
+    network_mode: devnet  
     environment:
       - DISPLAY=host.docker.internal:0.0 # set display environment to local host IP
     volumes:
@@ -11,10 +11,13 @@ services:
     tty: true
 
   postgis-srv:
-    image: postgis:dev
+    image: postgis/postgis:16-3.5-alpine
     container_name: postgis-container
-    network_mode: host
-    # start using this when starting next project
-    # volumes:
-    #   - ./postgis_var/:var/lib/postgresql/data/
+    attach: false
+    user: postgres
+    environment:
+      - POSTGRES_PASSWORD=postgres
+    network_mode: devnet
+    ports:
+      - 5432:5432 # change to "127.0.0.1:5432:5432"
  

@@ -60,3 +60,16 @@ Happy modeling!
 [0m12:37:35.107157 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7459ede52e90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7459efb4f890>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7459f2a34610>]}
 [0m12:37:35.107633 [debug] [MainThread]: Flushing usage events
 [0m12:37:35.739561 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m10:17:57.814400 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7398b4cdcd50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7398b4de18d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7398b5020090>]}
+
+
+============================== 10:17:57.819759 | ca47a7f8-6998-49d2-bf91-bf947b2e35be ==============================
+[0m10:17:57.819759 [info ] [MainThread]: Running with dbt=1.11.7
+[0m10:17:57.820218 [debug] [MainThread]: running dbt with arguments {'indirect_selection': 'eager', 'log_format': 'default', 'introspect': 'True', 'partial_parse': 'True', 'printer_width': '80', 'fail_fast': 'False', 'profiles_dir': '/home/user/.dbt', 'empty': 'None', 'write_json': 'True', 'cache_selected_only': 'False', 'use_experimental_parser': 'False', 'log_path': 'logs', 'log_cache_events': 'False', 'warn_error': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'static_parser': 'True', 'invocation_command': 'dbt init', 'no_print': 'None', 'debug': 'False', 'version_check': 'True', 'target_path': 'None', 'use_colors': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m10:17:57.830618 [info ] [MainThread]: Creating dbt configuration folder at /home/user/.dbt
+[0m10:18:04.180270 [info ] [MainThread]: A project called dbt_arten already exists here.
+[0m10:18:04.182151 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": true, "command_wall_clock_time": 6.4092546, "process_in_blocks": "48", "process_kernel_time": 0.279973, "process_mem_max_rss": "109684", "process_out_blocks": "24", "process_user_time": 1.70774}
+[0m10:18:04.183162 [debug] [MainThread]: Command `dbt init` succeeded at 10:18:04.182922 after 6.41 seconds
+[0m10:18:04.183859 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7398b4dd6e50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7398b4ccbad0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7398b9888650>]}
+[0m10:18:04.184401 [debug] [MainThread]: Flushing usage events
+[0m10:18:05.139666 [debug] [MainThread]: An error was encountered while trying to flush usage events

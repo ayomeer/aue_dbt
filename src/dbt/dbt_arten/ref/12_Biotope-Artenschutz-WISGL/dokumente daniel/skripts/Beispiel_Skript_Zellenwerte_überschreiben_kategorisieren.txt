@@ -1,0 +1,49 @@
+INSERT INTO gl_waldbestaende.waldbestaende(t_basket,perimeter,flaeche_a,mischung,entwicklungsstufe,schlussgrad,bk_code,gemeinde,eigentuemer,astatus,mutation,nhd_anteil,hdom,hmax,gru_struktur,dg_os,dg_ms, dg_us, erstellungsjahr)
+SELECT
+  1,
+  geom,
+  flaeche_ha,
+  CASE
+    WHEN mischung = 1 THEN 'Nadelholz'
+    WHEN mischung = 2 THEN 'Mischbestand'
+    WHEN mischung = 3 THEN 'Laubholz'
+    WHEN mischung = 4 THEN 'unbekannt'
+  END,
+  CASE
+    WHEN entw_stufe = 1 THEN 'Jungwuchs_Dickung'
+    WHEN entw_stufe = 2 THEN 'Stangenholz_Dm_8bis20cm'
+    WHEN entw_stufe = 3 THEN 'schwaches_Baumholz_Dm_20bis35cm'
+    WHEN entw_stufe = 4 THEN 'mittleres_Baumholz_Dm_35bis50cm'
+    WHEN entw_stufe = 5 THEN 'starkes_Baumholz_Dm_ueber50cm'
+    WHEN entw_stufe = 6 THEN 'stufiger_Bestand_dreischichtig_bis_plenterartig'
+    WHEN entw_stufe = 7 THEN 'Gebueschwald_Gruenerle_Legfoehre'
+    WHEN entw_stufe = 8 THEN 'unbestockt_Waldwiesen_Fels_Rutschungen_Holzlagerplaetze'
+    WHEN entw_stufe = 9 THEN 'unbekannt_Felswaende_extrem_steile_Haenge_im_Wald'
+  END,
+CASE
+    WHEN schl_grad = 1 THEN 'gedraengt'
+    WHEN schl_grad = 2 THEN 'geschlossen_bis_lueckig'
+    WHEN schl_grad = 3 THEN 'lueckig'
+    WHEN schl_grad = 4 THEN 'aufgeloest'
+    WHEN schl_grad = 5 THEN 'unbestockt_kaum_bestockt'
+  END,
+  code,
+  gemeinde,
+  e_name,
+  'berechnet',
+  '2020/09/17',
+  ndh_anteil,
+  hdom,
+  hmax,
+  CASE
+    WHEN gru_str = 0 THEN 'nicht_stufiger_Bestand'
+    WHEN gru_str = 1 THEN 'stufiger_Bestand'
+  End,
+  gru_str,
+  deck_grad,
+  deck_gr_ms,
+  deck_gr_us,
+  2020
+
+FROM dbu_aw_wa.import_waldbestaende_2020
+;

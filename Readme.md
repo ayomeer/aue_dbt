@@ -2,6 +2,7 @@
 
 Testing environment for dbt + PostgreSQL.
 
+
 ## Table of Contents
 
 
@@ -11,6 +12,7 @@ Testing environment for dbt + PostgreSQL.
 
 - [dbt_aue](#dbt_aue)
   - [Table of Contents](#table-of-contents)
+  - [Overall Workflow](#overall-workflow)
   - [Docker Setup](#docker-setup)
     - [dbt devcontainer](#dbt-devcontainer)
       - [First time setup](#first-time-setup)
@@ -45,6 +47,11 @@ Testing environment for dbt + PostgreSQL.
 <!-- /code_chunk_output -->
 
 
+## Overall Workflow
+
+- import backups from schemas we want to develop for onto locally hosted postgis server
+- develop dbt models until results satisfactory
+- deploy using [windmill target](#windmill)
 
 
 ## Docker Setup
@@ -293,7 +300,7 @@ dbt docs serve --port 0
 
 ## Importing Schemas to localhost DB
 
-Make sure postgis and uuid-ossp extensions are present on DB!
+> ⚠️ **_Important:_** Make sure postgis and uuid-ossp extensions are present on DB!
 
 1) export from live DB as plain w/ UTF8 formatting
 2) Remove lines `\restrict ...` and `\unrestrict ...` from plain sql file in editor (e.g. vscode)
