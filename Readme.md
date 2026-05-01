@@ -43,6 +43,7 @@ Testing environment for dbt + PostgreSQL.
   - [Importing Schemas to localhost DB](#importing-schemas-to-localhost-db)
   - [Troubleshooting](#troubleshooting)
       - [There are problems highlighted (often in dbt_project.yml) that I've already solved.](#there-are-problems-highlighted-often-in-dbt_projectyml-that-ive-already-solved)
+      - [PostgreSQL Permission Gotchas](#postgresql-permission-gotchas)
   - [TODO](#todo)
 
 <!-- /code_chunk_output -->
@@ -303,8 +304,8 @@ dbt docs serve --port 0
 
 > ⚠️ **_Important:_** Make sure postgis and uuid-ossp extensions are present on DB!
 
-1) export from live DB as plain w/ UTF8 formatting
-2) Remove lines `\restrict ...` and `\unrestrict ...` from plain sql file in editor (e.g. vscode)
+1) Backup from live DB as plain w/ UTF8 formatting
+2) Prepare roles referenced in plain backup file
 3) import on localhost DB by right clicking **database** (not schema) and choosing 'Restore...' or using command line (on host): `psql -h localhost -p 5432 -U postgres -d test-db -f prod_gl_biotope_20260402.sql`
 
 

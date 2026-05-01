@@ -1,15 +1,36 @@
 Welcome to your new dbt project!
+# prod_gl_arten
 
-### Using the starter project
+## Pipelines
 
-Try running the following commands:
-- dbt run
-- dbt test
+### WISGL Datensynchronisation
+
+1) Update `prod_gl_arten.artvorkommen_gl_pt` with data from `besonderewaldarten.besonderearten`
+2) Re-compute `prod_gl_arten.wis_artvorkommen`
+3) Replace `besonderewaldarten.besonderearten` data with `prod_gl_arten.wis_artvorkommen` data (truncate and insert)
+
+**sources**:
+- `prod_gl_arten`
+  - `artvorkommen_gl_pt`
+  - `cat_art`
+
+- `besonderewaldarten.besonderearten` 
+
+**target tables**:
+- `prod_gl_arten.wis_artvorkommen`
 
 
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [chat](https://community.getdbt.com/) on Slack for live discussions and support
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+#### Upserting Strategy
+
+
+
+
+
+## TODO
+
+**import WISGL data**
+- [ ] 
+- [ ] Define tests for successful upsert
+
+**Deduplication**
+- [ ] Deploy deduplicated version on IAP/PROD
