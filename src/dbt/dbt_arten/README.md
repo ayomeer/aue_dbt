@@ -38,10 +38,13 @@ Welcome to your new dbt project!
 
 ## TODO
 
-**import WISGL data**
-- [ ] 
-- [ ] Define tests for successful upsert
-
 **Deduplication**
 - [ ] Deploy deduplicated version on IAP/PROD via backup
   - [ ] Check with Viktor
+
+**import WISGL data**
+- [v] Make UPSERT observable
+  - [v] Create data diff audit, which compares before and after upsert
+
+**deliver dataset to Daniel**
+- [ ] re-compute wis_artvorkommen table with now updated artvorkommen_gl_pt 
