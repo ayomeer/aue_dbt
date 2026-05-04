@@ -31062,3 +31062,411 @@ drop table if exists "test_db"."dbt_arten"."audit_artvorkommen__dbt_backup" casc
 [0m14:37:17.489817 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7dfbe4d65a10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7dfbdffd2b90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7dfbe4bfc5d0>]}
 [0m14:37:17.490406 [debug] [MainThread]: Flushing usage events
 [0m14:37:18.254115 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m14:40:07.595632 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7105c66ea590>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7105c6944b50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7105c76725d0>]}
+
+
+============================== 14:40:07.605276 | d29d8552-c315-402b-91a5-d9ef671b3f80 ==============================
+[0m14:40:07.605276 [info ] [MainThread]: Running with dbt=1.11.7
+[0m14:40:07.606392 [debug] [MainThread]: running dbt with arguments {'use_experimental_parser': 'False', 'version_check': 'True', 'log_format': 'default', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'log_cache_events': 'False', 'no_print': 'None', 'indirect_selection': 'eager', 'printer_width': '80', 'log_path': '/project/src/dbt/dbt_arten/logs', 'profiles_dir': '/project/src/dbt/dbt_arten', 'use_colors': 'True', 'partial_parse': 'True', 'quiet': 'False', 'warn_error': 'None', 'target_path': 'None', 'send_anonymous_usage_stats': 'True', 'debug': 'False', 'introspect': 'True', 'invocation_command': 'dbt run -s 4_audit', 'empty': 'False', 'fail_fast': 'False', 'write_json': 'True', 'cache_selected_only': 'False'}
+[0m14:40:07.863659 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'd29d8552-c315-402b-91a5-d9ef671b3f80', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7105c707fd90>]}
+[0m14:40:07.962045 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'd29d8552-c315-402b-91a5-d9ef671b3f80', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7105c97f8810>]}
+[0m14:40:07.963251 [info ] [MainThread]: Registered adapter: postgres=1.10.0
+[0m14:40:08.176282 [debug] [MainThread]: checksum: b80718358155fc17c3559352095564dd56ada1cc1a1c0ef2e62c857e71583775, vars: {}, profile: , target: , version: 1.11.7
+[0m14:40:08.292423 [info ] [MainThread]: Unable to do partial parsing because config vars, config profile, or config target have changed
+[0m14:40:08.293027 [debug] [MainThread]: previous checksum: b80718358155fc17c3559352095564dd56ada1cc1a1c0ef2e62c857e71583775, current checksum: 2ddaf4a546c8a3e00251bfb609c3582123551139dc2f7ac114787474a7dc9720
+[0m14:40:08.293465 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': 'd29d8552-c315-402b-91a5-d9ef671b3f80', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7105c7739890>]}
+[0m14:40:09.717173 [error] [MainThread]: Encountered an error:
+Compilation Error
+  Model 'model.dbt_arten.audit_artvorkommen' (models/04_audit/audit_artvorkommen.sql) depends on a node named 'bdry_wis_update_transfer' which is disabled
+[0m14:40:09.718261 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": false, "command_wall_clock_time": 2.207902, "process_in_blocks": "56", "process_kernel_time": 0.661938, "process_mem_max_rss": "123564", "process_out_blocks": "16", "process_user_time": 5.176876}
+[0m14:40:09.718755 [debug] [MainThread]: Command `dbt run` failed at 14:40:09.718667 after 2.21 seconds
+[0m14:40:09.719101 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7105c66f6d50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7105c6018610>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7105c5d69310>]}
+[0m14:40:09.719465 [debug] [MainThread]: Flushing usage events
+[0m14:40:10.804029 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m14:40:59.251106 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71dcfb402310>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71dcfb402f10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71dcfb740a50>]}
+
+
+============================== 14:40:59.260289 | b6136b8f-fd15-4988-bc5e-4fadd71814ec ==============================
+[0m14:40:59.260289 [info ] [MainThread]: Running with dbt=1.11.7
+[0m14:40:59.261132 [debug] [MainThread]: running dbt with arguments {'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'use_experimental_parser': 'False', 'no_print': 'None', 'target_path': 'None', 'profiles_dir': '/project/src/dbt/dbt_arten', 'log_cache_events': 'False', 'log_format': 'default', 'introspect': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'version_check': 'True', 'log_path': '/project/src/dbt/dbt_arten/logs', 'warn_error': 'None', 'debug': 'False', 'fail_fast': 'False', 'indirect_selection': 'eager', 'write_json': 'True', 'static_parser': 'True', 'partial_parse': 'True', 'empty': 'False', 'printer_width': '80', 'cache_selected_only': 'False', 'use_colors': 'True', 'invocation_command': 'dbt run -s 4_audit'}
+[0m14:40:59.509702 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'b6136b8f-fd15-4988-bc5e-4fadd71814ec', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71dcfb43aa10>]}
+[0m14:40:59.607532 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'b6136b8f-fd15-4988-bc5e-4fadd71814ec', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71dcfe4bfdd0>]}
+[0m14:40:59.608754 [info ] [MainThread]: Registered adapter: postgres=1.10.0
+[0m14:40:59.835034 [debug] [MainThread]: checksum: b80718358155fc17c3559352095564dd56ada1cc1a1c0ef2e62c857e71583775, vars: {}, profile: , target: , version: 1.11.7
+[0m14:41:00.007124 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m14:41:00.007788 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m14:41:00.008215 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m14:41:00.062797 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'b6136b8f-fd15-4988-bc5e-4fadd71814ec', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71dcfad24f10>]}
+[0m14:41:00.256859 [debug] [MainThread]: Wrote artifact WritableManifest to /project/src/dbt/dbt_arten/target/manifest.json
+[0m14:41:00.259755 [debug] [MainThread]: Wrote artifact SemanticManifest to /project/src/dbt/dbt_arten/target/semantic_manifest.json
+[0m14:41:00.287467 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'b6136b8f-fd15-4988-bc5e-4fadd71814ec', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71dcfb62e410>]}
+[0m14:41:00.288262 [info ] [MainThread]: Found 7 models, 5 sources, 640 macros
+[0m14:41:00.288833 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'b6136b8f-fd15-4988-bc5e-4fadd71814ec', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71dcfae6e590>]}
+[0m14:41:00.289752 [warn ] [MainThread]: The selection criterion '4_audit' does not match any enabled nodes
+[0m14:41:00.291607 [warn ] [MainThread]: Nothing to do. Try checking your model configs and model specification args
+[0m14:41:00.294518 [debug] [MainThread]: Command end result
+[0m14:41:00.339387 [debug] [MainThread]: Wrote artifact WritableManifest to /project/src/dbt/dbt_arten/target/manifest.json
+[0m14:41:00.342028 [debug] [MainThread]: Wrote artifact SemanticManifest to /project/src/dbt/dbt_arten/target/semantic_manifest.json
+[0m14:41:00.346799 [debug] [MainThread]: Wrote artifact RunExecutionResult to /project/src/dbt/dbt_arten/target/run_results.json
+[0m14:41:00.348261 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 1.1816529, "process_in_blocks": "0", "process_kernel_time": 0.687415, "process_mem_max_rss": "119964", "process_out_blocks": "2792", "process_user_time": 4.081655}
+[0m14:41:00.349044 [debug] [MainThread]: Command `dbt run` succeeded at 14:41:00.348875 after 1.18 seconds
+[0m14:41:00.349779 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71dd000d4990>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71dd000d50d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71dd000d4850>]}
+[0m14:41:00.350496 [debug] [MainThread]: Flushing usage events
+[0m14:41:00.979360 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m14:41:21.942623 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x72dafaf7ad50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x72dafaf7ab10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x72dafaf7a250>]}
+
+
+============================== 14:41:21.952012 | 83697b9f-b3c5-429b-9085-c8c68ec625b6 ==============================
+[0m14:41:21.952012 [info ] [MainThread]: Running with dbt=1.11.7
+[0m14:41:21.952907 [debug] [MainThread]: running dbt with arguments {'warn_error': 'None', 'log_cache_events': 'False', 'use_colors': 'True', 'printer_width': '80', 'write_json': 'True', 'log_format': 'default', 'fail_fast': 'False', 'version_check': 'True', 'indirect_selection': 'eager', 'send_anonymous_usage_stats': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'quiet': 'False', 'profiles_dir': '/project/src/dbt/dbt_arten', 'log_path': '/project/src/dbt/dbt_arten/logs', 'debug': 'False', 'no_print': 'None', 'static_parser': 'True', 'invocation_command': 'dbt run -s 4_audit', 'target_path': 'None', 'partial_parse': 'True', 'introspect': 'True', 'empty': 'False', 'cache_selected_only': 'False', 'use_experimental_parser': 'False'}
+[0m14:41:22.205567 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '83697b9f-b3c5-429b-9085-c8c68ec625b6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x72dafaf6e1d0>]}
+[0m14:41:22.303519 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '83697b9f-b3c5-429b-9085-c8c68ec625b6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x72dafdfdce10>]}
+[0m14:41:22.304757 [info ] [MainThread]: Registered adapter: postgres=1.10.0
+[0m14:41:22.529346 [debug] [MainThread]: checksum: b80718358155fc17c3559352095564dd56ada1cc1a1c0ef2e62c857e71583775, vars: {}, profile: , target: , version: 1.11.7
+[0m14:41:22.698903 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m14:41:22.699547 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m14:41:22.699975 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m14:41:22.754118 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '83697b9f-b3c5-429b-9085-c8c68ec625b6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x72dafa859090>]}
+[0m14:41:22.943850 [debug] [MainThread]: Wrote artifact WritableManifest to /project/src/dbt/dbt_arten/target/manifest.json
+[0m14:41:22.946570 [debug] [MainThread]: Wrote artifact SemanticManifest to /project/src/dbt/dbt_arten/target/semantic_manifest.json
+[0m14:41:22.973249 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '83697b9f-b3c5-429b-9085-c8c68ec625b6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x72dafd985650>]}
+[0m14:41:22.974064 [info ] [MainThread]: Found 7 models, 5 sources, 640 macros
+[0m14:41:22.974597 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '83697b9f-b3c5-429b-9085-c8c68ec625b6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x72dafa9bf5d0>]}
+[0m14:41:22.976880 [info ] [MainThread]: 
+[0m14:41:22.977453 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m14:41:22.977925 [info ] [MainThread]: 
+[0m14:41:22.978683 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m14:41:22.980383 [debug] [ThreadPool]: Acquiring new postgres connection 'list_test_db'
+[0m14:41:23.053571 [debug] [ThreadPool]: Using postgres connection "list_test_db"
+[0m14:41:23.054203 [debug] [ThreadPool]: On list_test_db: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "dbt_arten", "target_name": "dev", "connection_name": "list_test_db"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m14:41:23.054866 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:41:23.074415 [debug] [ThreadPool]: SQL status: SELECT 16 in 0.019 seconds
+[0m14:41:23.076572 [debug] [ThreadPool]: On list_test_db: Close
+[0m14:41:23.083770 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_test_db, now list_test_db_dbt_arten)
+[0m14:41:23.093694 [debug] [ThreadPool]: Using postgres connection "list_test_db_dbt_arten"
+[0m14:41:23.094346 [debug] [ThreadPool]: On list_test_db_dbt_arten: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "dbt_arten", "target_name": "dev", "connection_name": "list_test_db_dbt_arten"} */
+select
+      'test_db' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'dbt_arten'
+    union all
+    select
+      'test_db' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'dbt_arten'
+    union all
+    select
+      'test_db' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'dbt_arten'
+  
+[0m14:41:23.094866 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m14:41:23.120769 [debug] [ThreadPool]: SQL status: SELECT 9 in 0.026 seconds
+[0m14:41:23.123840 [debug] [ThreadPool]: On list_test_db_dbt_arten: ROLLBACK
+[0m14:41:23.124738 [debug] [ThreadPool]: On list_test_db_dbt_arten: Close
+[0m14:41:23.135027 [debug] [MainThread]: Using postgres connection "master"
+[0m14:41:23.135781 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "dbt_arten", "target_name": "dev", "connection_name": "master"} */
+select distinct
+        dependent_namespace.nspname as dependent_schema,
+        dependent_class.relname as dependent_name,
+        referenced_namespace.nspname as referenced_schema,
+        referenced_class.relname as referenced_name
+
+    -- Query for views: views are entries in pg_class with an entry in pg_rewrite, but we avoid
+    -- a seq scan on pg_rewrite by leveraging the fact there is an "internal" row in pg_depend for
+    -- the view...
+    from pg_class as dependent_class
+    join pg_namespace as dependent_namespace on dependent_namespace.oid = dependent_class.relnamespace
+    join pg_depend as dependent_depend on dependent_depend.refobjid = dependent_class.oid
+        and dependent_depend.classid = 'pg_rewrite'::regclass
+        and dependent_depend.refclassid = 'pg_class'::regclass
+        and dependent_depend.deptype = 'i'
+
+    -- ... and via pg_depend (that has a row per column, hence the need for "distinct" above, and
+    -- making sure to exclude the internal row to avoid a view appearing to depend on itself)...
+    join pg_depend as joining_depend on joining_depend.objid = dependent_depend.objid
+        and joining_depend.classid = 'pg_rewrite'::regclass
+        and joining_depend.refclassid = 'pg_class'::regclass
+        and joining_depend.refobjid != dependent_depend.refobjid
+
+    -- ... we can find the tables they query from in pg_class, but excluding system tables. Note we
+    -- don't need need to exclude _dependent_ system tables, because they only query from other
+    -- system tables, and so are automatically excluded by excluding _referenced_ system tables
+    join pg_class as referenced_class on referenced_class.oid = joining_depend.refobjid
+    join pg_namespace as referenced_namespace on referenced_namespace.oid = referenced_class.relnamespace
+        and referenced_namespace.nspname != 'information_schema'
+        and referenced_namespace.nspname not like 'pg\_%'
+
+    order by
+        dependent_schema, dependent_name, referenced_schema, referenced_name;
+[0m14:41:23.136350 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m14:41:23.182354 [debug] [MainThread]: SQL status: SELECT 64 in 0.046 seconds
+[0m14:41:23.187289 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '83697b9f-b3c5-429b-9085-c8c68ec625b6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x72daf9e06790>]}
+[0m14:41:23.188034 [debug] [MainThread]: On master: ROLLBACK
+[0m14:41:23.188862 [debug] [MainThread]: On master: COMMIT
+[0m14:41:23.189682 [debug] [MainThread]: Using postgres connection "master"
+[0m14:41:23.190280 [debug] [MainThread]: On master: COMMIT
+[0m14:41:23.191099 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m14:41:23.191613 [debug] [MainThread]: On master: Close
+[0m14:41:23.198300 [debug] [Thread-1 (]: Began running node model.dbt_arten.audit_artvorkommen
+[0m14:41:23.199670 [info ] [Thread-1 (]: 1 of 1 START sql table model dbt_arten.audit_artvorkommen ...................... [RUN]
+[0m14:41:23.200443 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_test_db_dbt_arten, now model.dbt_arten.audit_artvorkommen)
+[0m14:41:23.201065 [debug] [Thread-1 (]: Began compiling node model.dbt_arten.audit_artvorkommen
+[0m14:41:23.266346 [debug] [Thread-1 (]: Using postgres connection "model.dbt_arten.audit_artvorkommen"
+[0m14:41:23.267302 [debug] [Thread-1 (]: On model.dbt_arten.audit_artvorkommen: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "dbt_arten", "target_name": "dev", "node_id": "model.dbt_arten.audit_artvorkommen"} */
+
+      select
+          column_name,
+          data_type,
+          character_maximum_length,
+          numeric_precision,
+          numeric_scale
+
+      from "test_db".INFORMATION_SCHEMA.columns
+      where table_name = 'artvorkommen_gl_pt'
+        
+        and table_schema = 'prod_gl_arten'
+        
+      order by ordinal_position
+
+  
+[0m14:41:23.268344 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m14:41:23.313222 [debug] [Thread-1 (]: SQL status: SELECT 32 in 0.045 seconds
+[0m14:41:23.373813 [debug] [Thread-1 (]: Writing injected SQL for node "model.dbt_arten.audit_artvorkommen"
+[0m14:41:23.374889 [debug] [Thread-1 (]: Began executing node model.dbt_arten.audit_artvorkommen
+[0m14:41:23.432188 [debug] [Thread-1 (]: Writing runtime sql for node "model.dbt_arten.audit_artvorkommen"
+[0m14:41:23.433284 [debug] [Thread-1 (]: Using postgres connection "model.dbt_arten.audit_artvorkommen"
+[0m14:41:23.434105 [debug] [Thread-1 (]: On model.dbt_arten.audit_artvorkommen: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "dbt_arten", "target_name": "dev", "node_id": "model.dbt_arten.audit_artvorkommen"} */
+
+  
+    
+
+  create  table "test_db"."dbt_arten"."audit_artvorkommen__dbt_tmp"
+  
+  
+    as
+  
+  (
+    
+
+
+
+
+
+
+
+    
+    
+    
+
+    
+
+    with 
+
+    
+    
+
+    a_base as (
+        select 
+            art_wiss, art_deutsch, spezart, substrat, radius, ext_label, ext_herkunft, copyright, funddatum, finder, kantonsintern, verwaltungsintern, bemerkungen, fotos, genauigkeit_ausreichend, biotopstatus, id_gl_aus_import, last_user, oid_uuid, id_from_cat_arten, e, n, dat_hinzugefuegt_am, neobiot, qualitaetskontrolle, taxonidch, ext_hoehe, gemeinde_kt_glarus, loeschmarkierung, geometrie, 
+            md5(cast(coalesce(cast(geometrie as TEXT), '_dbt_audit_helper_surrogate_key_null_') || '-' || coalesce(cast(funddatum as TEXT), '_dbt_audit_helper_surrogate_key_null_') || '-' || coalesce(cast(art_wiss as TEXT), '_dbt_audit_helper_surrogate_key_null_') as TEXT)) as dbt_audit_surrogate_key
+        from (
+  select
+    *
+  from "test_db"."prod_gl_arten"."bkp_artvorkommen"
+) a_base_subq
+        
+    
+
+    ),
+
+    b_base as (
+        select 
+            art_wiss, art_deutsch, spezart, substrat, radius, ext_label, ext_herkunft, copyright, funddatum, finder, kantonsintern, verwaltungsintern, bemerkungen, fotos, genauigkeit_ausreichend, biotopstatus, id_gl_aus_import, last_user, oid_uuid, id_from_cat_arten, e, n, dat_hinzugefuegt_am, neobiot, qualitaetskontrolle, taxonidch, ext_hoehe, gemeinde_kt_glarus, loeschmarkierung, geometrie, 
+            md5(cast(coalesce(cast(geometrie as TEXT), '_dbt_audit_helper_surrogate_key_null_') || '-' || coalesce(cast(funddatum as TEXT), '_dbt_audit_helper_surrogate_key_null_') || '-' || coalesce(cast(art_wiss as TEXT), '_dbt_audit_helper_surrogate_key_null_') as TEXT)) as dbt_audit_surrogate_key
+        from (
+  select
+    *
+  from "test_db"."prod_gl_arten"."artvorkommen_gl_pt"
+) b_base_subq
+        
+    
+
+    ),
+
+    a as (
+        select 
+            *, 
+            row_number() over (partition by dbt_audit_surrogate_key order by dbt_audit_surrogate_key) as dbt_audit_pk_row_num
+        from a_base
+    ),
+
+    b as (
+        select 
+            *, 
+            row_number() over (partition by dbt_audit_surrogate_key order by dbt_audit_surrogate_key) as dbt_audit_pk_row_num
+        from b_base
+    ),
+
+    a_intersect_b as (
+
+        select * from a
+        
+
+    intersect
+
+
+        select * from b
+
+    ),
+
+    a_except_b as (
+
+        select * from a
+        
+
+    except
+
+
+        select * from b
+
+    ),
+
+    b_except_a as (
+
+        select * from b
+        
+
+    except
+
+
+        select * from a
+
+    )
+
+    
+    ,
+
+    all_records as (
+
+        select
+            *,
+            true as dbt_audit_in_a,
+            true as dbt_audit_in_b
+        from a_intersect_b
+
+        union all
+
+        select
+            *,
+            true as dbt_audit_in_a,
+            false as dbt_audit_in_b
+        from a_except_b
+
+        union all
+
+        select
+            *,
+            false as dbt_audit_in_a,
+            true as dbt_audit_in_b
+        from b_except_a
+
+    ),
+
+    classified as (
+        select 
+            *,
+            case 
+        when max(dbt_audit_pk_row_num) over (partition by dbt_audit_surrogate_key) > 1 then 'nonunique_pk'
+        when dbt_audit_in_a and dbt_audit_in_b then 'identical'
+        when bool_or(dbt_audit_in_a) over (partition by dbt_audit_surrogate_key, dbt_audit_pk_row_num) 
+            and bool_or(dbt_audit_in_b) over (partition by dbt_audit_surrogate_key, dbt_audit_pk_row_num)
+            then 'modified'
+        when dbt_audit_in_a then 'removed'
+        when dbt_audit_in_b then 'added'
+    end
+ as dbt_audit_row_status
+        from all_records
+    ),
+
+    final as (
+        select 
+            *,
+            
+    dense_rank() over (partition by dbt_audit_row_status order by dbt_audit_surrogate_key, dbt_audit_pk_row_num)
+    + dense_rank() over (partition by dbt_audit_row_status order by dbt_audit_surrogate_key desc, dbt_audit_pk_row_num desc)
+    - 1
+
+ as dbt_audit_num_rows_in_status,
+            -- using dense_rank so that modified rows (which have a full row for both the left and right side) both get picked up in the sample. 
+            -- For every other type this is equivalent to a row_number()
+            dense_rank() over (partition by dbt_audit_row_status order by dbt_audit_surrogate_key, dbt_audit_pk_row_num) as dbt_audit_sample_number
+        from classified
+    )
+
+    select * from final
+    
+        where dbt_audit_sample_number <= 20
+    
+    order by dbt_audit_row_status, dbt_audit_sample_number
+
+
+  );
+  
+[0m14:41:40.495829 [debug] [Thread-1 (]: SQL status: SELECT 80 in 17.061 seconds
+[0m14:41:40.505717 [debug] [Thread-1 (]: Using postgres connection "model.dbt_arten.audit_artvorkommen"
+[0m14:41:40.506125 [debug] [Thread-1 (]: On model.dbt_arten.audit_artvorkommen: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "dbt_arten", "target_name": "dev", "node_id": "model.dbt_arten.audit_artvorkommen"} */
+alter table "test_db"."dbt_arten"."audit_artvorkommen" rename to "audit_artvorkommen__dbt_backup"
+[0m14:41:40.507463 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m14:41:40.510264 [debug] [Thread-1 (]: Using postgres connection "model.dbt_arten.audit_artvorkommen"
+[0m14:41:40.510644 [debug] [Thread-1 (]: On model.dbt_arten.audit_artvorkommen: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "dbt_arten", "target_name": "dev", "node_id": "model.dbt_arten.audit_artvorkommen"} */
+alter table "test_db"."dbt_arten"."audit_artvorkommen__dbt_tmp" rename to "audit_artvorkommen"
+[0m14:41:40.511811 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m14:41:40.526134 [debug] [Thread-1 (]: On model.dbt_arten.audit_artvorkommen: COMMIT
+[0m14:41:40.526564 [debug] [Thread-1 (]: Using postgres connection "model.dbt_arten.audit_artvorkommen"
+[0m14:41:40.526853 [debug] [Thread-1 (]: On model.dbt_arten.audit_artvorkommen: COMMIT
+[0m14:41:40.530570 [debug] [Thread-1 (]: SQL status: COMMIT in 0.003 seconds
+[0m14:41:40.536206 [debug] [Thread-1 (]: Applying DROP to: "test_db"."dbt_arten"."audit_artvorkommen__dbt_backup"
+[0m14:41:40.540937 [debug] [Thread-1 (]: Using postgres connection "model.dbt_arten.audit_artvorkommen"
+[0m14:41:40.541351 [debug] [Thread-1 (]: On model.dbt_arten.audit_artvorkommen: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "dbt_arten", "target_name": "dev", "node_id": "model.dbt_arten.audit_artvorkommen"} */
+drop table if exists "test_db"."dbt_arten"."audit_artvorkommen__dbt_backup" cascade
+[0m14:41:40.545776 [debug] [Thread-1 (]: SQL status: DROP TABLE in 0.004 seconds
+[0m14:41:40.548508 [debug] [Thread-1 (]: On model.dbt_arten.audit_artvorkommen: Close
+[0m14:41:40.550019 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '83697b9f-b3c5-429b-9085-c8c68ec625b6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x72daf9d0bdd0>]}
+[0m14:41:40.550741 [info ] [Thread-1 (]: 1 of 1 OK created sql table model dbt_arten.audit_artvorkommen ................. [[32mSELECT 80[0m in 17.35s]
+[0m14:41:40.551300 [debug] [Thread-1 (]: Finished running node model.dbt_arten.audit_artvorkommen
+[0m14:41:40.553484 [debug] [MainThread]: On master: COMMIT
+[0m14:41:40.554116 [debug] [MainThread]: Using postgres connection "master"
+[0m14:41:40.554739 [debug] [MainThread]: On master: COMMIT
+[0m14:41:40.555299 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m14:41:40.564204 [debug] [MainThread]: SQL status: COMMIT in 0.009 seconds
+[0m14:41:40.564714 [debug] [MainThread]: On master: Close
+[0m14:41:40.565298 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m14:41:40.565786 [debug] [MainThread]: Connection 'model.dbt_arten.audit_artvorkommen' was properly closed.
+[0m14:41:40.566198 [info ] [MainThread]: 
+[0m14:41:40.566659 [info ] [MainThread]: Finished running 1 table model in 0 hours 0 minutes and 17.59 seconds (17.59s).
+[0m14:41:40.567482 [debug] [MainThread]: Command end result
+[0m14:41:40.600898 [debug] [MainThread]: Wrote artifact WritableManifest to /project/src/dbt/dbt_arten/target/manifest.json
+[0m14:41:40.603502 [debug] [MainThread]: Wrote artifact SemanticManifest to /project/src/dbt/dbt_arten/target/semantic_manifest.json
+[0m14:41:40.610015 [debug] [MainThread]: Wrote artifact RunExecutionResult to /project/src/dbt/dbt_arten/target/run_results.json
+[0m14:41:40.610519 [info ] [MainThread]: 
+[0m14:41:40.611080 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m14:41:40.611521 [info ] [MainThread]: 
+[0m14:41:40.611851 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=1
+[0m14:41:40.612814 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 18.752111, "process_in_blocks": "0", "process_kernel_time": 0.715667, "process_mem_max_rss": "127884", "process_out_blocks": "2880", "process_user_time": 4.482393}
+[0m14:41:40.613294 [debug] [MainThread]: Command `dbt run` succeeded at 14:41:40.613203 after 18.75 seconds
+[0m14:41:40.613655 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x72dafaf1a250>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x72daffbd08d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x72daffbd1d50>]}
+[0m14:41:40.613983 [debug] [MainThread]: Flushing usage events
+[0m14:41:41.247969 [debug] [MainThread]: An error was encountered while trying to flush usage events

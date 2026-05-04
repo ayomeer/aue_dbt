@@ -27,9 +27,14 @@ Welcome to your new dbt project!
 
 #### Upsert Strategy
 
+- Match on (geometrie, funddatum, art_wiss) composite key
+- If updating, don't overwrite the following columns:
+  - ext_herkunft, ext_label, copyright
 
 
+#### Audits
 
+<!-- TODO: explain output table columns -->
 
 ## TODO
 
