@@ -1,4 +1,5 @@
 {{ config(materialized='table')}}
+-- depends_on: {{ ref('bdry_wis_update_transfer') }}
 
 {% set artvorkommen_old %}
   select

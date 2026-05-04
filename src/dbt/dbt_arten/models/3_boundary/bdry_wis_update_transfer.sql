@@ -1,6 +1,12 @@
 {{ config(
   enabled=var('enable_transfer', false),
-  post_hook='{{ ili_utils.upsert_into("prod_gl_arten", "artvorkommen_gl_pt", "geometrie, funddatum, art_wiss") }}'
+  post_hook='{{ 
+    ili_utils.upsert_into(
+      schema_name="prod_gl_arten", 
+      table_name="artvorkommen_gl_pt", 
+      conflict_target=["geometrie", "funddatum", "art_wiss"],
+      update_except_cols=["copyright", "ext_herkunft", "ext_label"]
+    )}}'
 ) }}
 
 SELECT * FROM {{ ref('bdry_wis_update') }}
