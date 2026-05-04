@@ -16,7 +16,7 @@ TOP_N = 3
 conn = psycopg2.connect(
     host="localhost",
     port="5432",
-    dbname="test-db",
+    dbname="test_db",
     user="postgres",
     password=str(os.environ['DB_PASSWORD'])
 )

@@ -4,8 +4,10 @@ sources:
     schema: prod_gl_arten
     tables:
       - name: artvorkommen_gl_pt
+      - name: besondere_waldarten
       - name: cat_art
-  
+      - name: bkp_artvorkommen
+    
   - name: src_dbt_arten
     database: "{{ target.database }}"
     schema: dbt_arten

@@ -1,6 +1,11 @@
 Welcome to your new dbt project!
 # prod_gl_arten
 
+## Important to know about prod_gl_arten
+
+- The column `id_art` in the table `besondere_waldarten` referrs to `id_art` in `cat_art`
+- `besondere_waldarten` is a subset of `cat_art`
+
 ## Pipelines
 
 ### WISGL Datensynchronisation
@@ -20,7 +25,7 @@ Welcome to your new dbt project!
 - `prod_gl_arten.wis_artvorkommen`
 
 
-#### Upserting Strategy
+#### Upsert Strategy
 
 
 
@@ -33,4 +38,5 @@ Welcome to your new dbt project!
 - [ ] Define tests for successful upsert
 
 **Deduplication**
-- [ ] Deploy deduplicated version on IAP/PROD
+- [ ] Deploy deduplicated version on IAP/PROD via backup
+  - [ ] Check with Viktor

@@ -3,11 +3,14 @@ with source as (
   ),
   staging as (
       select
-      -- columns mirroring besonderearten
+        -- columns mirroring besonderearten
         {{ adapter.quote("gid") }},
+        -- info related to cat_art
         {{ adapter.quote("art_deutsch") }},
         {{ adapter.quote("art_wiss") }},
         {{ adapter.quote("id_from_cat_arten") }}, 
+
+        -- info held only in artvorkommen_gl_pt
         {{ adapter.quote("radius") }},
         {{ adapter.quote("substrat") }},
         {{ adapter.quote("funddatum") }},
@@ -19,13 +22,15 @@ with source as (
         {{ adapter.quote("genauigkeit_ausreichend") }},
         {{ adapter.quote("biotopstatus") }},
         {{ adapter.quote("id_gl_aus_import") }},
-        {{ adapter.quote("last_modified") }},
-        {{ adapter.quote("last_user") }},
-        {{ adapter.quote("dat_hinzugefuegt_am") }},
-        {{ adapter.quote("e") }},
-        {{ adapter.quote("n") }},
-        {{ adapter.quote("geometrie") }},
         
+        {{ adapter.quote("last_modified") }},       -- automatically set by trigger function
+        {{ adapter.quote("last_user") }},           -- automatically set by trigger function
+        {{ adapter.quote("dat_hinzugefuegt_am") }}, -- automatically set by trigger function
+        {{ adapter.quote("e") }}, -- automatically set by trigger function from geom
+        {{ adapter.quote("n") }}, -- automatically set by trigger function from geom
+        {{ adapter.quote("geometrie") }},
+        -- 19 cols
+
         -- other columns
         {{ adapter.quote("neobiot") }},
         {{ adapter.quote("qualitaetskontrolle") }},

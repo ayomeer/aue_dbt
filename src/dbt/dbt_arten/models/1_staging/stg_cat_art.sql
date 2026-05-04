@@ -3,9 +3,9 @@ with source as (
   ),
   renamed as (
       select
-          {{ adapter.quote("id_art") }},
-        {{ adapter.quote("bez_art_latein") }},
-        {{ adapter.quote("bez_art_deutsch") }},
+        {{ adapter.quote("id_art") }},
+        {{ adapter.quote("bez_art_latein") }} as name_lateinisch,
+        {{ adapter.quote("bez_art_deutsch") }} as name_deutsch,
         {{ adapter.quote("artengruppe") }},
         {{ adapter.quote("schutzstatus") }},
         {{ adapter.quote("rl_status") }},

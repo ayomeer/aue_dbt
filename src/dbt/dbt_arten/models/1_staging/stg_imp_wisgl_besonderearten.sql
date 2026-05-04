@@ -4,32 +4,28 @@ with source as (
   staging as (
       select
         {{ adapter.quote("id") }},
+        {{ adapter.quote("t_ili_tid") }},
         -- info related to cat_art
         {{ adapter.quote("name_deutsch") }},
         {{ adapter.quote("name_lateinisch") }},
-        {{ adapter.quote("id_art") }}, -- corresponds to prod_gl_arten.cat_art
-        {{ adapter.quote("organismen") }},
-        {{ adapter.quote("schutz_ch") }}, 
-        {{ adapter.quote("schutz_gl") }},
-        {{ adapter.quote("roteliste") }},
+        {{ adapter.quote("id_art") }} as id_from_cat_arten, 
+
         -- info that's mirrored in prod_gl_arten.artvorkommen_pt_gl
         {{ adapter.quote("radius") }},
-        {{ adapter.quote("genau") }},
         {{ adapter.quote("substrat") }},
         {{ adapter.quote("foerdermassnahmen") }},
         {{ adapter.quote("finder") }},
         {{ adapter.quote("funddatum") }},
         {{ adapter.quote("hinzugefuegt_am") }},
-        {{ adapter.quote("kantonsint") }},
-        {{ adapter.quote("verwaltung") }},
-        {{ adapter.quote("status") }},
+        {{ adapter.quote("kantonsint") }}::boolean as kantonsintern,
+        {{ adapter.quote("verwaltung") }}::boolean as verwaltungsintern,
+        {{ adapter.quote("status") }}::boolean as biotopstatus,
         {{ adapter.quote("bemerkungen") }},
         {{ adapter.quote("fotos") }},
-        {{ adapter.quote("t_ili_tid") }},
+        {{ adapter.quote("genau") }}::boolean as genauigkeit_ausreichend,
         {{ adapter.quote("x_koord") }},
         {{ adapter.quote("y_koord") }},
-        {{ adapter.quote("geometry") }}
-
+        {{ adapter.quote("geometry") }} as geometrie
       from source
   )
   select * from staging

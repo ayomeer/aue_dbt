@@ -12,10 +12,10 @@ WITH imp as (
 		"w"."lateinischer name",
 		"w"."deutscher name",
 		w.organismengruppe, 
-       CASE
+		CASE
 			WHEN c.schutz_ch IS NULL THEN 'nicht geschuetzt'
 			ELSE c.schutz_ch 
-       END as schutz_status_schweiz,
+		END as schutz_status_schweiz,
        CASE
 			WHEN c.schutz_gl IS NULL THEN 'nicht geschuetzt'
 			ELSE c.schutz_gl 

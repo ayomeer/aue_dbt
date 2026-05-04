@@ -306,7 +306,7 @@ dbt docs serve --port 0
 
 1) Backup from live DB as plain w/ UTF8 formatting
 2) Prepare roles referenced in plain backup file
-3) import on localhost DB by right clicking **database** (not schema) and choosing 'Restore...' or using command line (on host): `psql -h localhost -p 5432 -U postgres -d test-db -f prod_gl_biotope_20260402.sql`
+3) import on localhost DB by right clicking **database** (not schema) and choosing 'Restore...' or using command line (on host): `psql -h localhost -p 5432 -U postgres -d test_db -f prod_gl_biotope_20260402.sql`
 
 
 ## Troubleshooting

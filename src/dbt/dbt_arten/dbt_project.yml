@@ -22,4 +22,14 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "target"
   - "dbt_packages"
 
-
+vars:
+  data_diff__configured_tables:
+    - src_db: test_db
+      src_schema: prod_gl_arten
+      src_table: bkp_artvorkommen
+      trg_db: test_db
+      trg_schema: prod_gl_arten
+      trg_table: artvorkommen_gl_pt
+      pk: geometrie, funddatum, art_wiss # multiple columns splitted by comma
+      include_columns: [] # [] to include all
+      exclude_columns: ["last_modified"] # [] 

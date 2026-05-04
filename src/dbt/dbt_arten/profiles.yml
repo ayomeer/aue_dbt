@@ -2,7 +2,7 @@ dbt_arten:
   target: dev
   outputs:
     dev:
-      dbname: test-db
+      dbname: test_db
       host: postgis-container
       pass: "{{ env_var('DB_PASSWORD') }}"
       port: 5432

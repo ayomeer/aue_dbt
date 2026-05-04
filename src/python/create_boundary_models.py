@@ -8,7 +8,7 @@ from sqlalchemy import Table, Column, select, create_engine, MetaData
 
 conn_url = (
   "postgresql+psycopg2://postgres:"
-  f"{os.environ['DB_PASSWORD']}@localhost:5432/test-db" 
+  f"{os.environ['DB_PASSWORD']}@localhost:5432/test_db" 
 )
 
 INTERLIS_TABLES = [
