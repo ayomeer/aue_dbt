@@ -1,4 +1,5 @@
 with source as (
+        -- select * from {{ source('src_prod_gl_arten', 'artvorkommen_gl_pt') }}
         select * from {{ source('src_prod_gl_arten', 'artvorkommen_gl_pt') }}
   ),
   staging as (

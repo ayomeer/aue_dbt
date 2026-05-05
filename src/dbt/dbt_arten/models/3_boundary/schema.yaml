@@ -1,0 +1,81 @@
+models:
+  - name: bdry_wisgl_export
+    columns:
+      - name: t_basket
+        data_type: integer
+        data_tests:
+          - not_null
+      - name: id_art
+        data_type: integer
+        data_tests:
+          - not_null
+      - name: name_d
+        data_type: character varying
+        data_tests:
+          - not_null
+      - name: name_lat
+        data_type: character varying
+        data_tests:
+          - not_null
+      - name: organismengruppe
+        data_type: character varying
+        data_tests:
+          - not_null
+      - name: schutz_ch
+        data_type: character varying
+        data_tests:
+          - not_null
+      - name: schutz_gl
+        data_type: character varying
+        data_tests:
+          - not_null
+      - name: roteliste
+        data_type: character varying
+        data_tests:
+          - not_null
+      - name: radius
+        data_type: numeric
+        data_tests:
+          - not_null
+      - name: genau
+        data_type: boolean
+        data_tests:
+          - not_null
+      - name: substrat
+        data_type: character varying
+        data_tests:
+          - not_null
+      - name: foerdermassnahmen
+        data_type: text
+        data_tests:
+          - not_null
+      - name: finder
+        data_type: character varying
+        data_tests:
+          - not_null
+      - name: funddatum
+        data_type: date
+        data_tests:
+          - not_null
+      - name: hinzugefuegt_am
+        data_type: date
+        data_tests:
+          - not_null
+      - name: kantonsintern
+        data_type: boolean
+        data_tests:
+          - not_null
+      - name: verwaltungsintern
+        data_type: boolean
+        data_tests:
+          - not_null
+      - name: astatus
+        data_type: boolean
+      - name: bemerkungen
+        data_type: text
+      - name: fotos
+        data_type: text
+      - name: geometrie
+        data_type: user-defined
+        data_tests:
+          - not_null

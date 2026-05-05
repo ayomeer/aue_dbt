@@ -6,7 +6,8 @@ sources:
       - name: artvorkommen_gl_pt
       - name: besondere_waldarten
       - name: cat_art
-      - name: bkp_artvorkommen
+      - name: bkp_artvorkommen # pre wald geopackge upsert
+      - name: orig_artvorkommen
     
   - name: src_dbt_arten
     database: "{{ target.database }}"

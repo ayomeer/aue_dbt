@@ -9,7 +9,7 @@
 -- Rote Liste Status: Leere Zellen (NULL) von Grünes Gabelzahnmoos werden mit "LC" gefüllt
 UPDATE prod_gl_arten.wis_artvorkommen SET rote_liste_status = 'LC'
 WHERE (((rote_liste_status) Is Null) AND ((deutscher_name)='Grünes Gabelzahnmoos'));
-
+-- returns 0 records
 
 -- Rote Liste Status: Leere Zellen (NULL) von Tamarisken-Wassersackmoos werden mit "NT" gefüllt
 UPDATE prod_gl_arten.wis_artvorkommen SET rote_liste_status = 'NT'
@@ -29,7 +29,6 @@ WHERE deutscher_name='Barrenringelnatter';
 -- Schutzstatus GL der Barrenringelnatter anpassen
 UPDATE prod_gl_arten.wis_artvorkommen SET schutz_status_kt_gl = 'ja'
 WHERE deutscher_name='Barrenringelnatter';
-
 
 -- Namen änder Epipactis helleborine aggr
 UPDATE prod_gl_arten.wis_artvorkommen 

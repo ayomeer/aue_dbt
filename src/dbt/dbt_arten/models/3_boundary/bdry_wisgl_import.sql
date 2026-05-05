@@ -25,7 +25,7 @@ SELECT
   w.y_koord as n,
   -- dat_hinzugefuegt_am generated automatically on insert (DEFAULT value)
   NULL::boolean as neobiot,
-  NULL::boolean as qualitaetskontrolle,
+  true::boolean as qualitaetskontrolle, -- explicitly true, so it fulfills export criteria for export back to wisgl
   cat.vdc_taxon_id as taxonidch,
   NULL::integer ext_hoehe,
   NULL::varchar as gemeinde_kt_glarus,

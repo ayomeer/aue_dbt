@@ -4,7 +4,7 @@ packages:
     version: 1.3.3
   - git: https://github.com/ayomeer/dbt_ili_utils.git
     name: ili_utils
-    revision: 15cd70ae4f9a21aa41a8aea09a0219fe1d17abf7
+    revision: 589560d83e29453d8862c0bb87e2cc57eec2aa20
   - name: audit_helper
     package: dbt-labs/audit_helper
     version: 0.13.0

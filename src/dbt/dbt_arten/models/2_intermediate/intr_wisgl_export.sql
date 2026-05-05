@@ -65,6 +65,10 @@ with union_cte as (
       on f.id_from_cat_arten = w.id_art
     left join prod_gl_arten.cat_art as c 
       on f.id_from_cat_arten = c.id_art
+  WHERE f.funddatum > '1.1.1980' 
+    and f.qualitaetskontrolle is true 
+    and w.wis is true 
+    and w.organismengruppe != 'Waldameisen'
 
   UNION
 
@@ -157,9 +161,11 @@ with union_cte as (
   FROM {{ ref('stg_artvorkommen') }}  as f 
   join {{ ref('stg_besondere_waldarten') }} as w 
     on f.art_wiss = w.name_lateinisch
-  WHERE w.wis is true and w.organismengruppe = 'Waldameisen'
+  WHERE w.wis is true 
+    and w.organismengruppe = 'Waldameisen'
 )
 SELECT
   row_number() over() as id,
   * 
 FROM union_cte
+WHERE genau is true
