@@ -31703,3 +31703,2004 @@ select distinct
 [0m08:14:30.640837 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fa533f249d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fa533f24a10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fa533f24910>]}
 [0m08:14:30.641233 [debug] [MainThread]: Flushing usage events
 [0m08:14:31.887072 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m08:43:16.573290 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x754c80b76910>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x754c80b77250>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x754c80b77550>]}
+
+
+============================== 08:43:16.579331 | 913cee22-e6b7-41f5-bc6c-69e871006dba ==============================
+[0m08:43:16.579331 [info ] [MainThread]: Running with dbt=1.11.7
+[0m08:43:16.579785 [debug] [MainThread]: running dbt with arguments {'target_path': 'None', 'printer_width': '80', 'introspect': 'True', 'fail_fast': 'False', 'write_json': 'True', 'warn_error': 'None', 'log_cache_events': 'False', 'empty': 'False', 'no_print': 'None', 'send_anonymous_usage_stats': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'log_format': 'default', 'cache_selected_only': 'False', 'quiet': 'False', 'indirect_selection': 'eager', 'version_check': 'True', 'partial_parse': 'True', 'invocation_command': 'dbt run -s intr_wisgl_export', 'log_path': '/project/src/dbt/dbt_arten/logs', 'use_experimental_parser': 'False', 'use_colors': 'True', 'debug': 'False', 'static_parser': 'True', 'profiles_dir': '/project/src/dbt/dbt_arten'}
+[0m08:43:16.727648 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '913cee22-e6b7-41f5-bc6c-69e871006dba', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x754c812c52d0>]}
+[0m08:43:16.778689 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '913cee22-e6b7-41f5-bc6c-69e871006dba', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x754c83bac450>]}
+[0m08:43:16.779460 [info ] [MainThread]: Registered adapter: postgres=1.10.0
+[0m08:43:16.921346 [debug] [MainThread]: checksum: b80718358155fc17c3559352095564dd56ada1cc1a1c0ef2e62c857e71583775, vars: {}, profile: , target: , version: 1.11.7
+[0m08:43:17.011368 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m08:43:17.011785 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m08:43:17.012015 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m08:43:17.041819 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '913cee22-e6b7-41f5-bc6c-69e871006dba', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x754c80504b50>]}
+[0m08:43:17.173242 [debug] [MainThread]: Wrote artifact WritableManifest to /project/src/dbt/dbt_arten/target/manifest.json
+[0m08:43:17.176285 [debug] [MainThread]: Wrote artifact SemanticManifest to /project/src/dbt/dbt_arten/target/semantic_manifest.json
+[0m08:43:17.193399 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '913cee22-e6b7-41f5-bc6c-69e871006dba', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x754c82a156d0>]}
+[0m08:43:17.193879 [info ] [MainThread]: Found 7 models, 5 sources, 640 macros
+[0m08:43:17.194148 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '913cee22-e6b7-41f5-bc6c-69e871006dba', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x754c803fca10>]}
+[0m08:43:17.195430 [info ] [MainThread]: 
+[0m08:43:17.195747 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m08:43:17.195974 [info ] [MainThread]: 
+[0m08:43:17.196387 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m08:43:17.197290 [debug] [ThreadPool]: Acquiring new postgres connection 'list_test_db'
+[0m08:43:17.243738 [debug] [ThreadPool]: Using postgres connection "list_test_db"
+[0m08:43:17.244231 [debug] [ThreadPool]: On list_test_db: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "dbt_arten", "target_name": "dev", "connection_name": "list_test_db"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m08:43:17.244514 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m08:43:17.256990 [debug] [ThreadPool]: SQL status: SELECT 16 in 0.012 seconds
+[0m08:43:17.258915 [debug] [ThreadPool]: On list_test_db: Close
+[0m08:43:17.264265 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_test_db, now list_test_db_dbt_arten)
+[0m08:43:17.269503 [debug] [ThreadPool]: Using postgres connection "list_test_db_dbt_arten"
+[0m08:43:17.269902 [debug] [ThreadPool]: On list_test_db_dbt_arten: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "dbt_arten", "target_name": "dev", "connection_name": "list_test_db_dbt_arten"} */
+select
+      'test_db' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'dbt_arten'
+    union all
+    select
+      'test_db' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'dbt_arten'
+    union all
+    select
+      'test_db' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'dbt_arten'
+  
+[0m08:43:17.270159 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m08:43:17.285211 [debug] [ThreadPool]: SQL status: SELECT 9 in 0.015 seconds
+[0m08:43:17.287371 [debug] [ThreadPool]: On list_test_db_dbt_arten: ROLLBACK
+[0m08:43:17.287984 [debug] [ThreadPool]: On list_test_db_dbt_arten: Close
+[0m08:43:17.293675 [debug] [MainThread]: Using postgres connection "master"
+[0m08:43:17.294077 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "dbt_arten", "target_name": "dev", "connection_name": "master"} */
+select distinct
+        dependent_namespace.nspname as dependent_schema,
+        dependent_class.relname as dependent_name,
+        referenced_namespace.nspname as referenced_schema,
+        referenced_class.relname as referenced_name
+
+    -- Query for views: views are entries in pg_class with an entry in pg_rewrite, but we avoid
+    -- a seq scan on pg_rewrite by leveraging the fact there is an "internal" row in pg_depend for
+    -- the view...
+    from pg_class as dependent_class
+    join pg_namespace as dependent_namespace on dependent_namespace.oid = dependent_class.relnamespace
+    join pg_depend as dependent_depend on dependent_depend.refobjid = dependent_class.oid
+        and dependent_depend.classid = 'pg_rewrite'::regclass
+        and dependent_depend.refclassid = 'pg_class'::regclass
+        and dependent_depend.deptype = 'i'
+
+    -- ... and via pg_depend (that has a row per column, hence the need for "distinct" above, and
+    -- making sure to exclude the internal row to avoid a view appearing to depend on itself)...
+    join pg_depend as joining_depend on joining_depend.objid = dependent_depend.objid
+        and joining_depend.classid = 'pg_rewrite'::regclass
+        and joining_depend.refclassid = 'pg_class'::regclass
+        and joining_depend.refobjid != dependent_depend.refobjid
+
+    -- ... we can find the tables they query from in pg_class, but excluding system tables. Note we
+    -- don't need need to exclude _dependent_ system tables, because they only query from other
+    -- system tables, and so are automatically excluded by excluding _referenced_ system tables
+    join pg_class as referenced_class on referenced_class.oid = joining_depend.refobjid
+    join pg_namespace as referenced_namespace on referenced_namespace.oid = referenced_class.relnamespace
+        and referenced_namespace.nspname != 'information_schema'
+        and referenced_namespace.nspname not like 'pg\_%'
+
+    order by
+        dependent_schema, dependent_name, referenced_schema, referenced_name;
+[0m08:43:17.294386 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m08:43:17.318478 [debug] [MainThread]: SQL status: SELECT 64 in 0.024 seconds
+[0m08:43:17.321824 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '913cee22-e6b7-41f5-bc6c-69e871006dba', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x754c7f938150>]}
+[0m08:43:17.322263 [debug] [MainThread]: On master: ROLLBACK
+[0m08:43:17.322706 [debug] [MainThread]: On master: COMMIT
+[0m08:43:17.322981 [debug] [MainThread]: Using postgres connection "master"
+[0m08:43:17.323236 [debug] [MainThread]: On master: COMMIT
+[0m08:43:17.323695 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m08:43:17.323970 [debug] [MainThread]: On master: Close
+[0m08:43:17.327647 [debug] [Thread-1 (]: Began running node model.dbt_arten.intr_wisgl_export
+[0m08:43:17.328424 [info ] [Thread-1 (]: 1 of 1 START sql view model dbt_arten.intr_wisgl_export ........................ [RUN]
+[0m08:43:17.328840 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_test_db_dbt_arten, now model.dbt_arten.intr_wisgl_export)
+[0m08:43:17.329156 [debug] [Thread-1 (]: Began compiling node model.dbt_arten.intr_wisgl_export
+[0m08:43:17.336693 [debug] [Thread-1 (]: Writing injected SQL for node "model.dbt_arten.intr_wisgl_export"
+[0m08:43:17.337367 [debug] [Thread-1 (]: Began executing node model.dbt_arten.intr_wisgl_export
+[0m08:43:17.377702 [debug] [Thread-1 (]: Writing runtime sql for node "model.dbt_arten.intr_wisgl_export"
+[0m08:43:17.378609 [debug] [Thread-1 (]: Using postgres connection "model.dbt_arten.intr_wisgl_export"
+[0m08:43:17.379176 [debug] [Thread-1 (]: On model.dbt_arten.intr_wisgl_export: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "dbt_arten", "target_name": "dev", "node_id": "model.dbt_arten.intr_wisgl_export"} */
+
+  create view "test_db"."dbt_arten"."intr_wisgl_export__dbt_tmp"
+    
+    
+  as (
+    -- Script by Peter Zopfi integrated into dbt wholesale. Might be reworked later.
+
+SELECT 
+  nextval('prod_gl_arten.wis_artvorkommen_id_seq'::regclass) as id, 
+  "w"."lateinischer name",
+  "w"."deutscher name",
+  w.organismengruppe, 
+  CASE
+    WHEN c.schutz_ch IS NULL THEN 'nicht geschuetzt'
+    ELSE c.schutz_ch 
+  END as schutz_status_schweiz,
+  CASE
+    WHEN c.schutz_gl IS NULL THEN 'nicht geschuetzt'
+    ELSE c.schutz_gl 
+  END as schutz_status_kt_gl,
+  c.rl_status as rote_liste_status, 
+  CASE
+    WHEN f.radius IS NULL THEN 9999
+    ELSE f.radius
+  END as radius, 
+  CASE
+    WHEN w.organismengruppe = 'Amphibien' and f.radius > 100 THEN false
+    WHEN w.organismengruppe = 'Blütenpflanzen' and f.radius > 100 THEN false
+    WHEN w.organismengruppe = 'Farne' and f.radius > 100 THEN false
+    WHEN w.organismengruppe = 'Flechten' and f.radius > 50 THEN false
+    WHEN w.organismengruppe = 'Fledermäuse' and f.radius > 100 THEN false
+    WHEN w.organismengruppe = 'Käfer' and f.radius > 50 THEN false
+    WHEN w.organismengruppe = 'Moose' and f.radius > 50 THEN false
+    WHEN w.organismengruppe = 'Schmetterlinge' and f.radius > 100 THEN false
+    WHEN w.organismengruppe = 'Reptilien' and f.radius > 100 THEN false
+    WHEN w.organismengruppe = 'Sträucher / Gehölze' and f.radius > 100 THEN false
+    WHEN w.organismengruppe = 'Vögel' and f.radius > 1000 THEN false
+    WHEN w.organismengruppe = 'Waldameisen' and f.radius > 50 THEN false	
+    ELSE true
+  END as genau, 
+  w.foerdermassnahmen as foerdermassnahmen,
+  CASE
+    WHEN f.verwaltungsintern IS NULL THEN true
+    ELSE f.verwaltungsintern
+  END as verwaltungsintern,
+  CASE 
+    WHEN f.kantonsintern IS NULL THEN false
+    ELSE f.kantonsintern
+  END as kantonsintern,
+    date('now') as hinzugefuegt_am,
+    c.id_art,
+    ST_SetSRID(ST_Point(f.e,f.n),2056) as geometrie,
+    f.bemerkungen, 
+    true as status, 
+    f.fotos, 
+CASE
+  WHEN f.finder IS NULL THEN 'keine Angabe'
+  ELSE f.finder
+    END as finder, 
+    f.funddatum, 
+    CASE
+  WHEN f.substrat IS NULL THEN 'keine Angabe'
+  ELSE f.substrat
+END as substrat
+FROM "test_db"."prod_gl_arten"."artvorkommen_gl_pt"  as f 
+  join "test_db"."prod_gl_arten"."besondere_waldarten" as w 
+    on f.id_from_cat_arten = w.id_art
+  left join prod_gl_arten.cat_art as c 
+    on f.id_from_cat_arten = c.id_art
+
+UNION
+
+SELECT 
+  nextval('prod_gl_arten.wis_artvorkommen_id_seq'::regclass) as id, 
+  CASE 
+    WHEN "w"."lateinischer name" = 'Formica cf lugubris' THEN 'Formica lugubris'
+    WHEN "w"."lateinischer name" = 'Formica cf. lugubris' THEN 'Formica lugubris'
+    WHEN "w"."lateinischer name" = 'Formica lugubris' THEN 'Formica lugubris'
+    WHEN "w"."lateinischer name" = 'Formica paralugubris' THEN 'Formica paralugubris'
+    WHEN "w"."lateinischer name" = 'Formica polyctena' THEN 'Formica polyctena'
+    WHEN "w"."lateinischer name" = 'Formica rufa' THEN 'Formica rufa'
+    WHEN "w"."lateinischer name" = 'Formica rufa, Gruppe' THEN 'Formica rufa'
+    WHEN "w"."lateinischer name" = 'Formica rufa x polyctena' THEN 'Formica rufa'
+    WHEN "w"."lateinischer name" = 'Formica sensu stricto' THEN 'Formica sensu stricto'
+  END as lateinischer_name,
+  CASE 
+    WHEN "w"."lateinischer name" = 'Formica cf lugubris' THEN 'Starkbeborstete Gebirgswaldameise'
+    WHEN "w"."lateinischer name" = 'Formica cf. lugubris' THEN'Starkbeborstete Gebirgswaldameise'
+    WHEN "w"."lateinischer name" = 'Formica lugubris' THEN 'Starkbeborstete Gebirgswaldameise'
+    WHEN "w"."lateinischer name" = 'Formica paralugubris' THEN 'Kurzbeborstete Gebirgswaldameise'
+    WHEN "w"."lateinischer name" ='Formica polyctena' THEN 'Kahlrücke Waldameise'
+    WHEN "w"."lateinischer name" = 'Formica rufa' THEN 'Rote Waldameise'
+    WHEN "w"."lateinischer name" = 'Formica rufa, Gruppe' THEN 'Rote Waldameise'
+    WHEN "w"."lateinischer name" = 'Formica rufa x polyctena' THEN 'Rote Waldameise'
+    WHEN "w"."lateinischer name" = 'Formica sensu stricto' THEN 'Waldameisen (Untergattung)'
+  END as deutscher_name,
+  w.organismengruppe, 
+  '451.1/2' as schutz_status_schweiz,
+  'ja' as schutz_status_kt_gl, 
+  CASE 
+    WHEN "w"."lateinischer name" = 'Formica cf lugubris' THEN 'kA'
+    WHEN "w"."lateinischer name" = 'Formica cf. lugubris' THEN'kA'
+    WHEN "w"."lateinischer name" = 'Formica lugubris' THEN 'kA'
+    WHEN "w"."lateinischer name" = 'Formica paralugubris' THEN 'kA'
+    WHEN "w"."lateinischer name" = 'Formica polyctena' THEN 'NT'
+    WHEN "w"."lateinischer name" = 'Formica rufa' THEN 'NT'
+    WHEN "w"."lateinischer name" ='Formica rufa, Gruppe' THEN 'NT'
+    WHEN "w"."lateinischer name" = 'Formica rufa x polyctena' THEN 'NT'
+    WHEN "w"."lateinischer name" = 'Formica sensu stricto' THEN 'kA'
+  END as rote_liste_status,
+      CASE
+    WHEN f.radius IS NULL THEN 9999
+    ELSE f.radius
+      END as radius, 
+      CASE
+    WHEN f.radius > 50 THEN false	
+  ELSE true
+      END as genau, 
+      w.foerdermassnahmen as foerdermassnahmen,
+      CASE
+    WHEN f.verwaltungsintern IS NULL THEN true
+    ELSE f.verwaltungsintern
+      END as verwaltungsintern,
+      CASE 
+    WHEN f.kantonsintern IS NULL THEN false
+    ELSE f.kantonsintern
+      END as kantonsintern,
+      date('now') as hinzugefuegt_am,
+  CASE 
+    WHEN "w"."lateinischer name" = 'Formica cf lugubris' THEN 25288
+    WHEN "w"."lateinischer name" = 'Formica cf. lugubris' THEN 25288
+    WHEN "w"."lateinischer name" = 'Formica lugubris' THEN 25288
+    WHEN "w"."lateinischer name" = 'Formica paralugubris' THEN 25291
+    WHEN "w"."lateinischer name" = 'Formica polyctena' THEN 25292
+    WHEN "w"."lateinischer name" = 'Formica rufa' THEN 86730
+    WHEN "w"."lateinischer name" = 'Formica rufa, Gruppe' THEN 86730
+    WHEN "w"."lateinischer name" = 'Formica rufa x polyctena' THEN 86730
+    WHEN "w"."lateinischer name" = 'Formica sensu stricto' THEN 108121
+  END as id_art, 
+  ST_SetSRID(ST_Point(f.e,f.n),2056) as geometrie,
+  f.bemerkungen, 
+  true as status, 
+  f.fotos, 
+  CASE
+    WHEN f.finder IS NULL THEN 'keine Angabe'
+    ELSE f.finder
+  END as finder, 
+  CASE 
+    WHEN f.finder = 'Ruedi Zimmermann' and f.funddatum is NULL THEN '1.1.2019'
+    ELSE f.funddatum
+    END as funddatum, 
+  CASE
+    WHEN f.substrat IS NULL THEN 'keine Angabe'
+    ELSE f.substrat
+  END as substrat
+FROM "test_db"."prod_gl_arten"."artvorkommen_gl_pt"  as f 
+join "test_db"."prod_gl_arten"."besondere_waldarten" as w 
+  on f.art_wiss = "w"."lateinischer name"
+WHERE w.wis is true and w.organismengruppe = 'Waldameisen'
+  );
+[0m08:43:17.379697 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m08:43:17.408430 [debug] [Thread-1 (]: SQL status: CREATE VIEW in 0.029 seconds
+[0m08:43:17.414033 [debug] [Thread-1 (]: Using postgres connection "model.dbt_arten.intr_wisgl_export"
+[0m08:43:17.414437 [debug] [Thread-1 (]: On model.dbt_arten.intr_wisgl_export: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "dbt_arten", "target_name": "dev", "node_id": "model.dbt_arten.intr_wisgl_export"} */
+alter table "test_db"."dbt_arten"."intr_wisgl_export__dbt_tmp" rename to "intr_wisgl_export"
+[0m08:43:17.416517 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.002 seconds
+[0m08:43:17.429139 [debug] [Thread-1 (]: On model.dbt_arten.intr_wisgl_export: COMMIT
+[0m08:43:17.429559 [debug] [Thread-1 (]: Using postgres connection "model.dbt_arten.intr_wisgl_export"
+[0m08:43:17.429834 [debug] [Thread-1 (]: On model.dbt_arten.intr_wisgl_export: COMMIT
+[0m08:43:17.431451 [debug] [Thread-1 (]: SQL status: COMMIT in 0.001 seconds
+[0m08:43:17.436791 [debug] [Thread-1 (]: Applying DROP to: "test_db"."dbt_arten"."intr_wisgl_export__dbt_backup"
+[0m08:43:17.441140 [debug] [Thread-1 (]: Using postgres connection "model.dbt_arten.intr_wisgl_export"
+[0m08:43:17.441543 [debug] [Thread-1 (]: On model.dbt_arten.intr_wisgl_export: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "dbt_arten", "target_name": "dev", "node_id": "model.dbt_arten.intr_wisgl_export"} */
+drop view if exists "test_db"."dbt_arten"."intr_wisgl_export__dbt_backup" cascade
+[0m08:43:17.442366 [debug] [Thread-1 (]: SQL status: DROP VIEW in 0.000 seconds
+[0m08:43:17.444363 [debug] [Thread-1 (]: On model.dbt_arten.intr_wisgl_export: Close
+[0m08:43:17.446140 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '913cee22-e6b7-41f5-bc6c-69e871006dba', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x754c7f7f0850>]}
+[0m08:43:17.446867 [info ] [Thread-1 (]: 1 of 1 OK created sql view model dbt_arten.intr_wisgl_export ................... [[32mCREATE VIEW[0m in 0.12s]
+[0m08:43:17.447400 [debug] [Thread-1 (]: Finished running node model.dbt_arten.intr_wisgl_export
+[0m08:43:17.448994 [debug] [MainThread]: On master: COMMIT
+[0m08:43:17.449359 [debug] [MainThread]: Using postgres connection "master"
+[0m08:43:17.449582 [debug] [MainThread]: On master: COMMIT
+[0m08:43:17.449793 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m08:43:17.458506 [debug] [MainThread]: SQL status: COMMIT in 0.009 seconds
+[0m08:43:17.458926 [debug] [MainThread]: On master: Close
+[0m08:43:17.459636 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m08:43:17.460072 [debug] [MainThread]: Connection 'model.dbt_arten.intr_wisgl_export' was properly closed.
+[0m08:43:17.460379 [info ] [MainThread]: 
+[0m08:43:17.460680 [info ] [MainThread]: Finished running 1 view model in 0 hours 0 minutes and 0.26 seconds (0.26s).
+[0m08:43:17.461281 [debug] [MainThread]: Command end result
+[0m08:43:17.499409 [debug] [MainThread]: Wrote artifact WritableManifest to /project/src/dbt/dbt_arten/target/manifest.json
+[0m08:43:17.501782 [debug] [MainThread]: Wrote artifact SemanticManifest to /project/src/dbt/dbt_arten/target/semantic_manifest.json
+[0m08:43:17.507996 [debug] [MainThread]: Wrote artifact RunExecutionResult to /project/src/dbt/dbt_arten/target/run_results.json
+[0m08:43:17.508485 [info ] [MainThread]: 
+[0m08:43:17.508953 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m08:43:17.509376 [info ] [MainThread]: 
+[0m08:43:17.509786 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=1
+[0m08:43:17.510854 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 0.9802738, "process_in_blocks": "128", "process_kernel_time": 0.401115, "process_mem_max_rss": "127252", "process_out_blocks": "2928", "process_user_time": 2.341996}
+[0m08:43:17.511361 [debug] [MainThread]: Command `dbt run` succeeded at 08:43:17.511273 after 0.98 seconds
+[0m08:43:17.511706 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x754c857b48d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x754c857b49d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x754c857b5010>]}
+[0m08:43:17.512053 [debug] [MainThread]: Flushing usage events
+[0m08:43:18.454387 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m08:51:22.029264 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7551090e58d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7551090dbad0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7551090db590>]}
+
+
+============================== 08:51:22.034453 | 641c8733-ebba-45bc-9b30-4628c00e7e5c ==============================
+[0m08:51:22.034453 [info ] [MainThread]: Running with dbt=1.11.7
+[0m08:51:22.034900 [debug] [MainThread]: running dbt with arguments {'warn_error': 'None', 'invocation_command': 'dbt run -s +intr_wisgl_export_dedup', 'debug': 'False', 'target_path': 'None', 'log_format': 'default', 'empty': 'False', 'write_json': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'use_experimental_parser': 'False', 'quiet': 'False', 'fail_fast': 'False', 'send_anonymous_usage_stats': 'True', 'indirect_selection': 'eager', 'static_parser': 'True', 'introspect': 'True', 'use_colors': 'True', 'no_print': 'None', 'log_cache_events': 'False', 'printer_width': '80', 'profiles_dir': '/project/src/dbt/dbt_arten', 'log_path': '/project/src/dbt/dbt_arten/logs', 'partial_parse': 'True', 'cache_selected_only': 'False', 'version_check': 'True'}
+[0m08:51:22.180550 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '641c8733-ebba-45bc-9b30-4628c00e7e5c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75510dc10ad0>]}
+[0m08:51:22.230620 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '641c8733-ebba-45bc-9b30-4628c00e7e5c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75510c0009d0>]}
+[0m08:51:22.231392 [info ] [MainThread]: Registered adapter: postgres=1.10.0
+[0m08:51:22.367494 [debug] [MainThread]: checksum: b80718358155fc17c3559352095564dd56ada1cc1a1c0ef2e62c857e71583775, vars: {}, profile: , target: , version: 1.11.7
+[0m08:51:22.457858 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m08:51:22.458252 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m08:51:22.458475 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m08:51:22.488304 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '641c8733-ebba-45bc-9b30-4628c00e7e5c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x755108aab190>]}
+[0m08:51:22.616783 [debug] [MainThread]: Wrote artifact WritableManifest to /project/src/dbt/dbt_arten/target/manifest.json
+[0m08:51:22.619745 [debug] [MainThread]: Wrote artifact SemanticManifest to /project/src/dbt/dbt_arten/target/semantic_manifest.json
+[0m08:51:22.635659 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '641c8733-ebba-45bc-9b30-4628c00e7e5c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x755108a39710>]}
+[0m08:51:22.636139 [info ] [MainThread]: Found 8 models, 5 sources, 640 macros
+[0m08:51:22.636438 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '641c8733-ebba-45bc-9b30-4628c00e7e5c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x755108bb9690>]}
+[0m08:51:22.637789 [info ] [MainThread]: 
+[0m08:51:22.638104 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m08:51:22.638341 [info ] [MainThread]: 
+[0m08:51:22.638739 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m08:51:22.642225 [debug] [ThreadPool]: Acquiring new postgres connection 'list_test_db'
+[0m08:51:22.690892 [debug] [ThreadPool]: Using postgres connection "list_test_db"
+[0m08:51:22.691348 [debug] [ThreadPool]: On list_test_db: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "dbt_arten", "target_name": "dev", "connection_name": "list_test_db"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m08:51:22.691602 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m08:51:22.703111 [debug] [ThreadPool]: SQL status: SELECT 16 in 0.011 seconds
+[0m08:51:22.704281 [debug] [ThreadPool]: On list_test_db: Close
+[0m08:51:22.706639 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_test_db, now list_test_db_dbt_arten)
+[0m08:51:22.711948 [debug] [ThreadPool]: Using postgres connection "list_test_db_dbt_arten"
+[0m08:51:22.712350 [debug] [ThreadPool]: On list_test_db_dbt_arten: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "dbt_arten", "target_name": "dev", "connection_name": "list_test_db_dbt_arten"} */
+select
+      'test_db' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'dbt_arten'
+    union all
+    select
+      'test_db' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'dbt_arten'
+    union all
+    select
+      'test_db' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'dbt_arten'
+  
+[0m08:51:22.712612 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m08:51:22.727367 [debug] [ThreadPool]: SQL status: SELECT 10 in 0.015 seconds
+[0m08:51:22.729470 [debug] [ThreadPool]: On list_test_db_dbt_arten: ROLLBACK
+[0m08:51:22.729999 [debug] [ThreadPool]: On list_test_db_dbt_arten: Close
+[0m08:51:22.736310 [debug] [MainThread]: Using postgres connection "master"
+[0m08:51:22.736743 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "dbt_arten", "target_name": "dev", "connection_name": "master"} */
+select distinct
+        dependent_namespace.nspname as dependent_schema,
+        dependent_class.relname as dependent_name,
+        referenced_namespace.nspname as referenced_schema,
+        referenced_class.relname as referenced_name
+
+    -- Query for views: views are entries in pg_class with an entry in pg_rewrite, but we avoid
+    -- a seq scan on pg_rewrite by leveraging the fact there is an "internal" row in pg_depend for
+    -- the view...
+    from pg_class as dependent_class
+    join pg_namespace as dependent_namespace on dependent_namespace.oid = dependent_class.relnamespace
+    join pg_depend as dependent_depend on dependent_depend.refobjid = dependent_class.oid
+        and dependent_depend.classid = 'pg_rewrite'::regclass
+        and dependent_depend.refclassid = 'pg_class'::regclass
+        and dependent_depend.deptype = 'i'
+
+    -- ... and via pg_depend (that has a row per column, hence the need for "distinct" above, and
+    -- making sure to exclude the internal row to avoid a view appearing to depend on itself)...
+    join pg_depend as joining_depend on joining_depend.objid = dependent_depend.objid
+        and joining_depend.classid = 'pg_rewrite'::regclass
+        and joining_depend.refclassid = 'pg_class'::regclass
+        and joining_depend.refobjid != dependent_depend.refobjid
+
+    -- ... we can find the tables they query from in pg_class, but excluding system tables. Note we
+    -- don't need need to exclude _dependent_ system tables, because they only query from other
+    -- system tables, and so are automatically excluded by excluding _referenced_ system tables
+    join pg_class as referenced_class on referenced_class.oid = joining_depend.refobjid
+    join pg_namespace as referenced_namespace on referenced_namespace.oid = referenced_class.relnamespace
+        and referenced_namespace.nspname != 'information_schema'
+        and referenced_namespace.nspname not like 'pg\_%'
+
+    order by
+        dependent_schema, dependent_name, referenced_schema, referenced_name;
+[0m08:51:22.737014 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m08:51:22.761871 [debug] [MainThread]: SQL status: SELECT 68 in 0.025 seconds
+[0m08:51:22.764518 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '641c8733-ebba-45bc-9b30-4628c00e7e5c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x755108bb1650>]}
+[0m08:51:22.764895 [debug] [MainThread]: On master: ROLLBACK
+[0m08:51:22.765404 [debug] [MainThread]: On master: COMMIT
+[0m08:51:22.765679 [debug] [MainThread]: Using postgres connection "master"
+[0m08:51:22.765895 [debug] [MainThread]: On master: COMMIT
+[0m08:51:22.766379 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m08:51:22.766648 [debug] [MainThread]: On master: Close
+[0m08:51:22.770437 [debug] [Thread-1 (]: Began running node model.dbt_arten.intr_wisgl_export
+[0m08:51:22.771344 [info ] [Thread-1 (]: 1 of 2 START sql view model dbt_arten.intr_wisgl_export ........................ [RUN]
+[0m08:51:22.771777 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_test_db_dbt_arten, now model.dbt_arten.intr_wisgl_export)
+[0m08:51:22.772112 [debug] [Thread-1 (]: Began compiling node model.dbt_arten.intr_wisgl_export
+[0m08:51:22.779782 [debug] [Thread-1 (]: Writing injected SQL for node "model.dbt_arten.intr_wisgl_export"
+[0m08:51:22.780487 [debug] [Thread-1 (]: Began executing node model.dbt_arten.intr_wisgl_export
+[0m08:51:22.820066 [debug] [Thread-1 (]: Writing runtime sql for node "model.dbt_arten.intr_wisgl_export"
+[0m08:51:22.820893 [debug] [Thread-1 (]: Using postgres connection "model.dbt_arten.intr_wisgl_export"
+[0m08:51:22.821416 [debug] [Thread-1 (]: On model.dbt_arten.intr_wisgl_export: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "dbt_arten", "target_name": "dev", "node_id": "model.dbt_arten.intr_wisgl_export"} */
+
+  create view "test_db"."dbt_arten"."intr_wisgl_export__dbt_tmp"
+    
+    
+  as (
+    -- Script by Peter Zopfi integrated into dbt wholesale. Might be reworked later.
+with union_cte as (
+  SELECT 
+    w.name_lateinisch,
+    w.name_deutsch,
+    w.organismengruppe, 
+    CASE
+      WHEN c.schutz_ch IS NULL THEN 'nicht geschuetzt'
+      ELSE c.schutz_ch 
+    END as schutz_status_schweiz,
+    CASE
+      WHEN c.schutz_gl IS NULL THEN 'nicht geschuetzt'
+      ELSE c.schutz_gl 
+    END as schutz_status_kt_gl,
+    c.rl_status as rote_liste_status, 
+    CASE
+      WHEN f.radius IS NULL THEN 9999
+      ELSE f.radius
+    END as radius, 
+    CASE
+      WHEN w.organismengruppe = 'Amphibien' and f.radius > 100 THEN false
+      WHEN w.organismengruppe = 'Blütenpflanzen' and f.radius > 100 THEN false
+      WHEN w.organismengruppe = 'Farne' and f.radius > 100 THEN false
+      WHEN w.organismengruppe = 'Flechten' and f.radius > 50 THEN false
+      WHEN w.organismengruppe = 'Fledermäuse' and f.radius > 100 THEN false
+      WHEN w.organismengruppe = 'Käfer' and f.radius > 50 THEN false
+      WHEN w.organismengruppe = 'Moose' and f.radius > 50 THEN false
+      WHEN w.organismengruppe = 'Schmetterlinge' and f.radius > 100 THEN false
+      WHEN w.organismengruppe = 'Reptilien' and f.radius > 100 THEN false
+      WHEN w.organismengruppe = 'Sträucher / Gehölze' and f.radius > 100 THEN false
+      WHEN w.organismengruppe = 'Vögel' and f.radius > 1000 THEN false
+      WHEN w.organismengruppe = 'Waldameisen' and f.radius > 50 THEN false	
+      ELSE true
+    END as genau, 
+    w.foerdermassnahmen as foerdermassnahmen,
+    CASE
+      WHEN f.verwaltungsintern IS NULL THEN true
+      ELSE f.verwaltungsintern
+    END as verwaltungsintern,
+    CASE 
+      WHEN f.kantonsintern IS NULL THEN false
+      ELSE f.kantonsintern
+    END as kantonsintern,
+      date('now') as hinzugefuegt_am,
+      c.id_art,
+      ST_SetSRID(ST_Point(f.e,f.n),2056) as geometrie,
+      f.bemerkungen, 
+      true as status, 
+      f.fotos, 
+  CASE
+    WHEN f.finder IS NULL THEN 'keine Angabe'
+    ELSE f.finder
+      END as finder, 
+      f.funddatum, 
+      CASE
+    WHEN f.substrat IS NULL THEN 'keine Angabe'
+    ELSE f.substrat
+  END as substrat
+  FROM "test_db"."prod_gl_arten"."artvorkommen_gl_pt"  as f 
+    join "test_db"."prod_gl_arten"."besondere_waldarten" as w 
+      on f.id_from_cat_arten = w.id_art
+    left join prod_gl_arten.cat_art as c 
+      on f.id_from_cat_arten = c.id_art
+
+  UNION
+
+  SELECT 
+    CASE 
+      WHEN w.name_lateinisch = 'Formica cf lugubris' THEN 'Formica lugubris'
+      WHEN w.name_lateinisch = 'Formica cf. lugubris' THEN 'Formica lugubris'
+      WHEN w.name_lateinisch = 'Formica lugubris' THEN 'Formica lugubris'
+      WHEN w.name_lateinisch = 'Formica paralugubris' THEN 'Formica paralugubris'
+      WHEN w.name_lateinisch = 'Formica polyctena' THEN 'Formica polyctena'
+      WHEN w.name_lateinisch = 'Formica rufa' THEN 'Formica rufa'
+      WHEN w.name_lateinisch = 'Formica rufa, Gruppe' THEN 'Formica rufa'
+      WHEN w.name_lateinisch = 'Formica rufa x polyctena' THEN 'Formica rufa'
+      WHEN w.name_lateinisch = 'Formica sensu stricto' THEN 'Formica sensu stricto'
+    END as lateinischer_name,
+    CASE 
+      WHEN w.name_lateinisch = 'Formica cf lugubris' THEN 'Starkbeborstete Gebirgswaldameise'
+      WHEN w.name_lateinisch = 'Formica cf. lugubris' THEN'Starkbeborstete Gebirgswaldameise'
+      WHEN w.name_lateinisch = 'Formica lugubris' THEN 'Starkbeborstete Gebirgswaldameise'
+      WHEN w.name_lateinisch = 'Formica paralugubris' THEN 'Kurzbeborstete Gebirgswaldameise'
+      WHEN w.name_lateinisch ='Formica polyctena' THEN 'Kahlrücke Waldameise'
+      WHEN w.name_lateinisch = 'Formica rufa' THEN 'Rote Waldameise'
+      WHEN w.name_lateinisch = 'Formica rufa, Gruppe' THEN 'Rote Waldameise'
+      WHEN w.name_lateinisch = 'Formica rufa x polyctena' THEN 'Rote Waldameise'
+      WHEN w.name_lateinisch = 'Formica sensu stricto' THEN 'Waldameisen (Untergattung)'
+    END as deutscher_name,
+    w.organismengruppe, 
+    '451.1/2' as schutz_status_schweiz,
+    'ja' as schutz_status_kt_gl, 
+    CASE 
+      WHEN w.name_lateinisch = 'Formica cf lugubris' THEN 'kA'
+      WHEN w.name_lateinisch = 'Formica cf. lugubris' THEN'kA'
+      WHEN w.name_lateinisch = 'Formica lugubris' THEN 'kA'
+      WHEN w.name_lateinisch = 'Formica paralugubris' THEN 'kA'
+      WHEN w.name_lateinisch = 'Formica polyctena' THEN 'NT'
+      WHEN w.name_lateinisch = 'Formica rufa' THEN 'NT'
+      WHEN w.name_lateinisch ='Formica rufa, Gruppe' THEN 'NT'
+      WHEN w.name_lateinisch = 'Formica rufa x polyctena' THEN 'NT'
+      WHEN w.name_lateinisch = 'Formica sensu stricto' THEN 'kA'
+    END as rote_liste_status,
+        CASE
+      WHEN f.radius IS NULL THEN 9999
+      ELSE f.radius
+        END as radius, 
+        CASE
+      WHEN f.radius > 50 THEN false	
+    ELSE true
+        END as genau, 
+        w.foerdermassnahmen as foerdermassnahmen,
+        CASE
+      WHEN f.verwaltungsintern IS NULL THEN true
+      ELSE f.verwaltungsintern
+        END as verwaltungsintern,
+        CASE 
+      WHEN f.kantonsintern IS NULL THEN false
+      ELSE f.kantonsintern
+        END as kantonsintern,
+        date('now') as hinzugefuegt_am,
+    CASE 
+      WHEN w.name_lateinisch = 'Formica cf lugubris' THEN 25288
+      WHEN w.name_lateinisch = 'Formica cf. lugubris' THEN 25288
+      WHEN w.name_lateinisch = 'Formica lugubris' THEN 25288
+      WHEN w.name_lateinisch = 'Formica paralugubris' THEN 25291
+      WHEN w.name_lateinisch = 'Formica polyctena' THEN 25292
+      WHEN w.name_lateinisch = 'Formica rufa' THEN 86730
+      WHEN w.name_lateinisch = 'Formica rufa, Gruppe' THEN 86730
+      WHEN w.name_lateinisch = 'Formica rufa x polyctena' THEN 86730
+      WHEN w.name_lateinisch = 'Formica sensu stricto' THEN 108121
+    END as id_art, 
+    ST_SetSRID(ST_Point(f.e,f.n),2056) as geometrie,
+    f.bemerkungen, 
+    true as status, 
+    f.fotos, 
+    CASE
+      WHEN f.finder IS NULL THEN 'keine Angabe'
+      ELSE f.finder
+    END as finder, 
+    CASE 
+      WHEN f.finder = 'Ruedi Zimmermann' and f.funddatum is NULL THEN '1.1.2019'
+      ELSE f.funddatum
+      END as funddatum, 
+    CASE
+      WHEN f.substrat IS NULL THEN 'keine Angabe'
+      ELSE f.substrat
+    END as substrat
+  FROM "test_db"."prod_gl_arten"."artvorkommen_gl_pt"  as f 
+  join "test_db"."prod_gl_arten"."besondere_waldarten" as w 
+    on f.art_wiss = w.name_lateinisch
+  WHERE w.wis is true and w.organismengruppe = 'Waldameisen'
+)
+SELECT
+  row_number() over() as id,
+  * 
+FROM union_cte
+  );
+[0m08:51:22.821912 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m08:51:22.833616 [debug] [Thread-1 (]: Postgres adapter: Postgres error: column w.name_lateinisch does not exist
+LINE 10:     w.name_lateinisch,
+             ^
+
+[0m08:51:22.834063 [debug] [Thread-1 (]: On model.dbt_arten.intr_wisgl_export: ROLLBACK
+[0m08:51:22.834635 [debug] [Thread-1 (]: On model.dbt_arten.intr_wisgl_export: Close
+[0m08:51:22.841158 [debug] [Thread-1 (]: Database Error in model intr_wisgl_export (models/2_intermediate/intr_wisgl_export.sql)
+  column w.name_lateinisch does not exist
+  LINE 10:     w.name_lateinisch,
+               ^
+  compiled code at target/run/dbt_arten/models/2_intermediate/intr_wisgl_export.sql
+[0m08:51:22.842633 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '641c8733-ebba-45bc-9b30-4628c00e7e5c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x755108988950>]}
+[0m08:51:22.843263 [error] [Thread-1 (]: 1 of 2 ERROR creating sql view model dbt_arten.intr_wisgl_export ............... [[31mERROR[0m in 0.07s]
+[0m08:51:22.843776 [debug] [Thread-1 (]: Finished running node model.dbt_arten.intr_wisgl_export
+[0m08:51:22.844793 [debug] [Thread-4 (]: Marking all children of 'model.dbt_arten.intr_wisgl_export' to be skipped because of status 'error'.  Reason: Database Error in model intr_wisgl_export (models/2_intermediate/intr_wisgl_export.sql)
+  column w.name_lateinisch does not exist
+  LINE 10:     w.name_lateinisch,
+               ^
+  compiled code at target/run/dbt_arten/models/2_intermediate/intr_wisgl_export.sql.
+[0m08:51:22.847035 [debug] [Thread-1 (]: Began running node model.dbt_arten.intr_wisgl_export_dedup
+[0m08:51:22.847567 [info ] [Thread-1 (]: 2 of 2 SKIP relation dbt_arten.intr_wisgl_export_dedup ......................... [[33mSKIP[0m]
+[0m08:51:22.848037 [debug] [Thread-1 (]: Finished running node model.dbt_arten.intr_wisgl_export_dedup
+[0m08:51:22.849260 [debug] [MainThread]: On master: COMMIT
+[0m08:51:22.849671 [debug] [MainThread]: Using postgres connection "master"
+[0m08:51:22.849889 [debug] [MainThread]: On master: COMMIT
+[0m08:51:22.850093 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m08:51:22.858690 [debug] [MainThread]: SQL status: COMMIT in 0.009 seconds
+[0m08:51:22.859102 [debug] [MainThread]: On master: Close
+[0m08:51:22.859625 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m08:51:22.860106 [debug] [MainThread]: Connection 'model.dbt_arten.intr_wisgl_export' was properly closed.
+[0m08:51:22.860572 [info ] [MainThread]: 
+[0m08:51:22.860859 [info ] [MainThread]: Finished running 2 view models in 0 hours 0 minutes and 0.22 seconds (0.22s).
+[0m08:51:22.861482 [debug] [MainThread]: Command end result
+[0m08:51:22.900254 [debug] [MainThread]: Wrote artifact WritableManifest to /project/src/dbt/dbt_arten/target/manifest.json
+[0m08:51:22.902513 [debug] [MainThread]: Wrote artifact SemanticManifest to /project/src/dbt/dbt_arten/target/semantic_manifest.json
+[0m08:51:22.907908 [debug] [MainThread]: Wrote artifact RunExecutionResult to /project/src/dbt/dbt_arten/target/run_results.json
+[0m08:51:22.908269 [info ] [MainThread]: 
+[0m08:51:22.908641 [info ] [MainThread]: [31mCompleted with 1 error, 0 partial successes, and 0 warnings:[0m
+[0m08:51:22.908946 [info ] [MainThread]: 
+[0m08:51:22.909469 [error] [MainThread]: [31mFailure in model intr_wisgl_export (models/2_intermediate/intr_wisgl_export.sql)[0m
+[0m08:51:22.909984 [error] [MainThread]:   Database Error in model intr_wisgl_export (models/2_intermediate/intr_wisgl_export.sql)
+  column w.name_lateinisch does not exist
+  LINE 10:     w.name_lateinisch,
+               ^
+  compiled code at target/run/dbt_arten/models/2_intermediate/intr_wisgl_export.sql
+[0m08:51:22.910390 [info ] [MainThread]: 
+[0m08:51:22.911401 [info ] [MainThread]:   compiled code at target/compiled/dbt_arten/models/2_intermediate/intr_wisgl_export.sql
+[0m08:51:22.912032 [info ] [MainThread]: 
+[0m08:51:22.912629 [info ] [MainThread]: Done. PASS=0 WARN=0 ERROR=1 SKIP=1 NO-OP=0 TOTAL=2
+[0m08:51:22.914162 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": false, "command_wall_clock_time": 0.92955, "process_in_blocks": "400", "process_kernel_time": 0.405809, "process_mem_max_rss": "127608", "process_out_blocks": "2928", "process_user_time": 2.397967}
+[0m08:51:22.915048 [debug] [MainThread]: Command `dbt run` failed at 08:51:22.914859 after 0.93 seconds
+[0m08:51:22.915688 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75510dc10b10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7551090d8990>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75510c221f50>]}
+[0m08:51:22.916352 [debug] [MainThread]: Flushing usage events
+[0m08:51:23.827222 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m08:52:37.254906 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73cad2156290>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73cad239cad0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73cad2155c90>]}
+
+
+============================== 08:52:37.260360 | bd48f716-2a84-4ad9-a01a-1f45743d7488 ==============================
+[0m08:52:37.260360 [info ] [MainThread]: Running with dbt=1.11.7
+[0m08:52:37.260967 [debug] [MainThread]: running dbt with arguments {'fail_fast': 'False', 'cache_selected_only': 'False', 'version_check': 'True', 'log_format': 'default', 'log_cache_events': 'False', 'debug': 'False', 'warn_error': 'None', 'send_anonymous_usage_stats': 'True', 'use_colors': 'True', 'indirect_selection': 'eager', 'profiles_dir': '/project/src/dbt/dbt_arten', 'quiet': 'False', 'log_path': '/project/src/dbt/dbt_arten/logs', 'empty': 'False', 'partial_parse': 'True', 'printer_width': '80', 'no_print': 'None', 'target_path': 'None', 'use_experimental_parser': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'invocation_command': 'dbt run -s +intr_wisgl_export_dedup', 'static_parser': 'True', 'introspect': 'True', 'write_json': 'True'}
+[0m08:52:37.403770 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'bd48f716-2a84-4ad9-a01a-1f45743d7488', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73cad2161550>]}
+[0m08:52:37.454607 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'bd48f716-2a84-4ad9-a01a-1f45743d7488', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73cad5120e90>]}
+[0m08:52:37.455399 [info ] [MainThread]: Registered adapter: postgres=1.10.0
+[0m08:52:37.600472 [debug] [MainThread]: checksum: b80718358155fc17c3559352095564dd56ada1cc1a1c0ef2e62c857e71583775, vars: {}, profile: , target: , version: 1.11.7
+[0m08:52:37.694865 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m08:52:37.695265 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m08:52:37.695514 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m08:52:37.724671 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'bd48f716-2a84-4ad9-a01a-1f45743d7488', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73cad19add10>]}
+[0m08:52:37.848991 [debug] [MainThread]: Wrote artifact WritableManifest to /project/src/dbt/dbt_arten/target/manifest.json
+[0m08:52:37.852302 [debug] [MainThread]: Wrote artifact SemanticManifest to /project/src/dbt/dbt_arten/target/semantic_manifest.json
+[0m08:52:37.880176 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'bd48f716-2a84-4ad9-a01a-1f45743d7488', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73cad1cf3f10>]}
+[0m08:52:37.880943 [info ] [MainThread]: Found 8 models, 5 sources, 640 macros
+[0m08:52:37.881590 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'bd48f716-2a84-4ad9-a01a-1f45743d7488', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73cad19ad550>]}
+[0m08:52:37.884066 [info ] [MainThread]: 
+[0m08:52:37.884707 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m08:52:37.885282 [info ] [MainThread]: 
+[0m08:52:37.885913 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m08:52:37.890470 [debug] [ThreadPool]: Acquiring new postgres connection 'list_test_db'
+[0m08:52:37.929683 [debug] [ThreadPool]: Using postgres connection "list_test_db"
+[0m08:52:37.930090 [debug] [ThreadPool]: On list_test_db: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "dbt_arten", "target_name": "dev", "connection_name": "list_test_db"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m08:52:37.930384 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m08:52:37.947727 [debug] [ThreadPool]: SQL status: SELECT 16 in 0.017 seconds
+[0m08:52:37.949784 [debug] [ThreadPool]: On list_test_db: Close
+[0m08:52:37.953928 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_test_db, now list_test_db_dbt_arten)
+[0m08:52:37.961875 [debug] [ThreadPool]: Using postgres connection "list_test_db_dbt_arten"
+[0m08:52:37.962423 [debug] [ThreadPool]: On list_test_db_dbt_arten: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "dbt_arten", "target_name": "dev", "connection_name": "list_test_db_dbt_arten"} */
+select
+      'test_db' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'dbt_arten'
+    union all
+    select
+      'test_db' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'dbt_arten'
+    union all
+    select
+      'test_db' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'dbt_arten'
+  
+[0m08:52:37.962715 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m08:52:37.978000 [debug] [ThreadPool]: SQL status: SELECT 10 in 0.015 seconds
+[0m08:52:37.979600 [debug] [ThreadPool]: On list_test_db_dbt_arten: ROLLBACK
+[0m08:52:37.980221 [debug] [ThreadPool]: On list_test_db_dbt_arten: Close
+[0m08:52:37.987680 [debug] [MainThread]: Using postgres connection "master"
+[0m08:52:37.988149 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "dbt_arten", "target_name": "dev", "connection_name": "master"} */
+select distinct
+        dependent_namespace.nspname as dependent_schema,
+        dependent_class.relname as dependent_name,
+        referenced_namespace.nspname as referenced_schema,
+        referenced_class.relname as referenced_name
+
+    -- Query for views: views are entries in pg_class with an entry in pg_rewrite, but we avoid
+    -- a seq scan on pg_rewrite by leveraging the fact there is an "internal" row in pg_depend for
+    -- the view...
+    from pg_class as dependent_class
+    join pg_namespace as dependent_namespace on dependent_namespace.oid = dependent_class.relnamespace
+    join pg_depend as dependent_depend on dependent_depend.refobjid = dependent_class.oid
+        and dependent_depend.classid = 'pg_rewrite'::regclass
+        and dependent_depend.refclassid = 'pg_class'::regclass
+        and dependent_depend.deptype = 'i'
+
+    -- ... and via pg_depend (that has a row per column, hence the need for "distinct" above, and
+    -- making sure to exclude the internal row to avoid a view appearing to depend on itself)...
+    join pg_depend as joining_depend on joining_depend.objid = dependent_depend.objid
+        and joining_depend.classid = 'pg_rewrite'::regclass
+        and joining_depend.refclassid = 'pg_class'::regclass
+        and joining_depend.refobjid != dependent_depend.refobjid
+
+    -- ... we can find the tables they query from in pg_class, but excluding system tables. Note we
+    -- don't need need to exclude _dependent_ system tables, because they only query from other
+    -- system tables, and so are automatically excluded by excluding _referenced_ system tables
+    join pg_class as referenced_class on referenced_class.oid = joining_depend.refobjid
+    join pg_namespace as referenced_namespace on referenced_namespace.oid = referenced_class.relnamespace
+        and referenced_namespace.nspname != 'information_schema'
+        and referenced_namespace.nspname not like 'pg\_%'
+
+    order by
+        dependent_schema, dependent_name, referenced_schema, referenced_name;
+[0m08:52:37.988535 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m08:52:38.012384 [debug] [MainThread]: SQL status: SELECT 68 in 0.024 seconds
+[0m08:52:38.015993 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'bd48f716-2a84-4ad9-a01a-1f45743d7488', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73cad1c72690>]}
+[0m08:52:38.016396 [debug] [MainThread]: On master: ROLLBACK
+[0m08:52:38.016889 [debug] [MainThread]: On master: COMMIT
+[0m08:52:38.017158 [debug] [MainThread]: Using postgres connection "master"
+[0m08:52:38.017396 [debug] [MainThread]: On master: COMMIT
+[0m08:52:38.017846 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m08:52:38.018114 [debug] [MainThread]: On master: Close
+[0m08:52:38.021732 [debug] [Thread-1 (]: Began running node model.dbt_arten.stg_artvorkommen
+[0m08:52:38.022709 [info ] [Thread-1 (]: 1 of 4 START sql view model dbt_arten.stg_artvorkommen ......................... [RUN]
+[0m08:52:38.023508 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_test_db_dbt_arten, now model.dbt_arten.stg_artvorkommen)
+[0m08:52:38.023837 [debug] [Thread-1 (]: Began compiling node model.dbt_arten.stg_artvorkommen
+[0m08:52:38.035845 [debug] [Thread-1 (]: Writing injected SQL for node "model.dbt_arten.stg_artvorkommen"
+[0m08:52:38.036556 [debug] [Thread-1 (]: Began executing node model.dbt_arten.stg_artvorkommen
+[0m08:52:38.078912 [debug] [Thread-1 (]: Writing runtime sql for node "model.dbt_arten.stg_artvorkommen"
+[0m08:52:38.079701 [debug] [Thread-1 (]: Using postgres connection "model.dbt_arten.stg_artvorkommen"
+[0m08:52:38.080104 [debug] [Thread-1 (]: On model.dbt_arten.stg_artvorkommen: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "dbt_arten", "target_name": "dev", "node_id": "model.dbt_arten.stg_artvorkommen"} */
+
+  create view "test_db"."dbt_arten"."stg_artvorkommen__dbt_tmp"
+    
+    
+  as (
+    with source as (
+        select * from "test_db"."prod_gl_arten"."artvorkommen_gl_pt"
+  ),
+  staging as (
+      select
+        -- columns mirroring besonderearten
+        "gid",
+        -- info related to cat_art
+        "art_deutsch",
+        "art_wiss",
+        "id_from_cat_arten", 
+
+        -- info held only in artvorkommen_gl_pt
+        "radius",
+        "substrat",
+        "funddatum",
+        "finder",
+        "kantonsintern",
+        "verwaltungsintern",
+        "bemerkungen",
+        "fotos",
+        "genauigkeit_ausreichend",
+        "biotopstatus",
+        "id_gl_aus_import",
+        
+        "last_modified",       -- automatically set by trigger function
+        "last_user",           -- automatically set by trigger function
+        "dat_hinzugefuegt_am", -- automatically set by trigger function
+        "e", -- automatically set by trigger function from geom
+        "n", -- automatically set by trigger function from geom
+        "geometrie",
+        -- 19 cols
+
+        -- other columns
+        "neobiot",
+        "qualitaetskontrolle",
+        "taxonidch",
+        "ext_hoehe",
+        "gemeinde_kt_glarus",
+        "oid_uuid",
+        "spezart",
+        "ext_label",
+        "ext_herkunft",
+        "copyright",
+        "loeschmarkierung"
+      from source
+  )
+  select * from staging
+  );
+[0m08:52:38.080480 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m08:52:38.095616 [debug] [Thread-1 (]: SQL status: CREATE VIEW in 0.015 seconds
+[0m08:52:38.102035 [debug] [Thread-1 (]: Using postgres connection "model.dbt_arten.stg_artvorkommen"
+[0m08:52:38.102475 [debug] [Thread-1 (]: On model.dbt_arten.stg_artvorkommen: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "dbt_arten", "target_name": "dev", "node_id": "model.dbt_arten.stg_artvorkommen"} */
+alter table "test_db"."dbt_arten"."stg_artvorkommen" rename to "stg_artvorkommen__dbt_backup"
+[0m08:52:38.104592 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.002 seconds
+[0m08:52:38.107939 [debug] [Thread-1 (]: Using postgres connection "model.dbt_arten.stg_artvorkommen"
+[0m08:52:38.108338 [debug] [Thread-1 (]: On model.dbt_arten.stg_artvorkommen: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "dbt_arten", "target_name": "dev", "node_id": "model.dbt_arten.stg_artvorkommen"} */
+alter table "test_db"."dbt_arten"."stg_artvorkommen__dbt_tmp" rename to "stg_artvorkommen"
+[0m08:52:38.109969 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m08:52:38.124499 [debug] [Thread-1 (]: On model.dbt_arten.stg_artvorkommen: COMMIT
+[0m08:52:38.124950 [debug] [Thread-1 (]: Using postgres connection "model.dbt_arten.stg_artvorkommen"
+[0m08:52:38.125254 [debug] [Thread-1 (]: On model.dbt_arten.stg_artvorkommen: COMMIT
+[0m08:52:38.126636 [debug] [Thread-1 (]: SQL status: COMMIT in 0.001 seconds
+[0m08:52:38.133368 [debug] [Thread-1 (]: Applying DROP to: "test_db"."dbt_arten"."stg_artvorkommen__dbt_backup"
+[0m08:52:38.138144 [debug] [Thread-1 (]: Using postgres connection "model.dbt_arten.stg_artvorkommen"
+[0m08:52:38.138564 [debug] [Thread-1 (]: On model.dbt_arten.stg_artvorkommen: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "dbt_arten", "target_name": "dev", "node_id": "model.dbt_arten.stg_artvorkommen"} */
+drop view if exists "test_db"."dbt_arten"."stg_artvorkommen__dbt_backup" cascade
+[0m08:52:38.143119 [debug] [Thread-1 (]: SQL status: DROP VIEW in 0.004 seconds
+[0m08:52:38.145995 [debug] [Thread-1 (]: On model.dbt_arten.stg_artvorkommen: Close
+[0m08:52:38.147537 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'bd48f716-2a84-4ad9-a01a-1f45743d7488', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73cad0d29310>]}
+[0m08:52:38.148269 [info ] [Thread-1 (]: 1 of 4 OK created sql view model dbt_arten.stg_artvorkommen .................... [[32mCREATE VIEW[0m in 0.12s]
+[0m08:52:38.148852 [debug] [Thread-1 (]: Finished running node model.dbt_arten.stg_artvorkommen
+[0m08:52:38.149305 [debug] [Thread-1 (]: Began running node model.dbt_arten.stg_besondere_waldarten
+[0m08:52:38.149946 [info ] [Thread-1 (]: 2 of 4 START sql view model dbt_arten.stg_besondere_waldarten .................. [RUN]
+[0m08:52:38.150425 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.dbt_arten.stg_artvorkommen, now model.dbt_arten.stg_besondere_waldarten)
+[0m08:52:38.150755 [debug] [Thread-1 (]: Began compiling node model.dbt_arten.stg_besondere_waldarten
+[0m08:52:38.154845 [debug] [Thread-1 (]: Writing injected SQL for node "model.dbt_arten.stg_besondere_waldarten"
+[0m08:52:38.155722 [debug] [Thread-1 (]: Began executing node model.dbt_arten.stg_besondere_waldarten
+[0m08:52:38.159916 [debug] [Thread-1 (]: Writing runtime sql for node "model.dbt_arten.stg_besondere_waldarten"
+[0m08:52:38.160654 [debug] [Thread-1 (]: Using postgres connection "model.dbt_arten.stg_besondere_waldarten"
+[0m08:52:38.161007 [debug] [Thread-1 (]: On model.dbt_arten.stg_besondere_waldarten: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "dbt_arten", "target_name": "dev", "node_id": "model.dbt_arten.stg_besondere_waldarten"} */
+
+  create view "test_db"."dbt_arten"."stg_besondere_waldarten__dbt_tmp"
+    
+    
+  as (
+    with source as (
+        select * from "test_db"."prod_gl_arten"."besondere_waldarten"
+  ),
+  renamed as (
+      select
+        "id",
+        "organismengruppe",
+        "deutscher name" as name_deutsch,
+        "lateinischer name" as name_lateinisch,
+        "id_art",
+        "wis",
+        "foerdermassnahmen",
+        "aufnahmegrund"
+
+      from source
+  )
+  select * from renamed
+  );
+[0m08:52:38.161334 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m08:52:38.173485 [debug] [Thread-1 (]: SQL status: CREATE VIEW in 0.012 seconds
+[0m08:52:38.176530 [debug] [Thread-1 (]: Using postgres connection "model.dbt_arten.stg_besondere_waldarten"
+[0m08:52:38.176953 [debug] [Thread-1 (]: On model.dbt_arten.stg_besondere_waldarten: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "dbt_arten", "target_name": "dev", "node_id": "model.dbt_arten.stg_besondere_waldarten"} */
+alter table "test_db"."dbt_arten"."stg_besondere_waldarten" rename to "stg_besondere_waldarten__dbt_backup"
+[0m08:52:38.179211 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.002 seconds
+[0m08:52:38.182855 [debug] [Thread-1 (]: Using postgres connection "model.dbt_arten.stg_besondere_waldarten"
+[0m08:52:38.183913 [debug] [Thread-1 (]: On model.dbt_arten.stg_besondere_waldarten: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "dbt_arten", "target_name": "dev", "node_id": "model.dbt_arten.stg_besondere_waldarten"} */
+alter table "test_db"."dbt_arten"."stg_besondere_waldarten__dbt_tmp" rename to "stg_besondere_waldarten"
+[0m08:52:38.185659 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m08:52:38.188220 [debug] [Thread-1 (]: On model.dbt_arten.stg_besondere_waldarten: COMMIT
+[0m08:52:38.188932 [debug] [Thread-1 (]: Using postgres connection "model.dbt_arten.stg_besondere_waldarten"
+[0m08:52:38.189488 [debug] [Thread-1 (]: On model.dbt_arten.stg_besondere_waldarten: COMMIT
+[0m08:52:38.190954 [debug] [Thread-1 (]: SQL status: COMMIT in 0.001 seconds
+[0m08:52:38.195560 [debug] [Thread-1 (]: Applying DROP to: "test_db"."dbt_arten"."stg_besondere_waldarten__dbt_backup"
+[0m08:52:38.196775 [debug] [Thread-1 (]: Using postgres connection "model.dbt_arten.stg_besondere_waldarten"
+[0m08:52:38.197359 [debug] [Thread-1 (]: On model.dbt_arten.stg_besondere_waldarten: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "dbt_arten", "target_name": "dev", "node_id": "model.dbt_arten.stg_besondere_waldarten"} */
+drop view if exists "test_db"."dbt_arten"."stg_besondere_waldarten__dbt_backup" cascade
+[0m08:52:38.201828 [debug] [Thread-1 (]: SQL status: DROP VIEW in 0.004 seconds
+[0m08:52:38.203972 [debug] [Thread-1 (]: On model.dbt_arten.stg_besondere_waldarten: Close
+[0m08:52:38.204886 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'bd48f716-2a84-4ad9-a01a-1f45743d7488', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73cad0d3d890>]}
+[0m08:52:38.205724 [info ] [Thread-1 (]: 2 of 4 OK created sql view model dbt_arten.stg_besondere_waldarten ............. [[32mCREATE VIEW[0m in 0.05s]
+[0m08:52:38.206457 [debug] [Thread-1 (]: Finished running node model.dbt_arten.stg_besondere_waldarten
+[0m08:52:38.207620 [debug] [Thread-1 (]: Began running node model.dbt_arten.intr_wisgl_export
+[0m08:52:38.208324 [info ] [Thread-1 (]: 3 of 4 START sql view model dbt_arten.intr_wisgl_export ........................ [RUN]
+[0m08:52:38.208890 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.dbt_arten.stg_besondere_waldarten, now model.dbt_arten.intr_wisgl_export)
+[0m08:52:38.209312 [debug] [Thread-1 (]: Began compiling node model.dbt_arten.intr_wisgl_export
+[0m08:52:38.214486 [debug] [Thread-1 (]: Writing injected SQL for node "model.dbt_arten.intr_wisgl_export"
+[0m08:52:38.215354 [debug] [Thread-1 (]: Began executing node model.dbt_arten.intr_wisgl_export
+[0m08:52:38.219953 [debug] [Thread-1 (]: Writing runtime sql for node "model.dbt_arten.intr_wisgl_export"
+[0m08:52:38.220887 [debug] [Thread-1 (]: Using postgres connection "model.dbt_arten.intr_wisgl_export"
+[0m08:52:38.221717 [debug] [Thread-1 (]: On model.dbt_arten.intr_wisgl_export: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "dbt_arten", "target_name": "dev", "node_id": "model.dbt_arten.intr_wisgl_export"} */
+
+  create view "test_db"."dbt_arten"."intr_wisgl_export__dbt_tmp"
+    
+    
+  as (
+    -- Script by Peter Zopfi integrated into dbt wholesale. Might be reworked later.
+with union_cte as (
+  SELECT 
+    w.name_lateinisch,
+    w.name_deutsch,
+    w.organismengruppe, 
+    CASE
+      WHEN c.schutz_ch IS NULL THEN 'nicht geschuetzt'
+      ELSE c.schutz_ch 
+    END as schutz_status_schweiz,
+    CASE
+      WHEN c.schutz_gl IS NULL THEN 'nicht geschuetzt'
+      ELSE c.schutz_gl 
+    END as schutz_status_kt_gl,
+    c.rl_status as rote_liste_status, 
+    CASE
+      WHEN f.radius IS NULL THEN 9999
+      ELSE f.radius
+    END as radius, 
+    CASE
+      WHEN w.organismengruppe = 'Amphibien' and f.radius > 100 THEN false
+      WHEN w.organismengruppe = 'Blütenpflanzen' and f.radius > 100 THEN false
+      WHEN w.organismengruppe = 'Farne' and f.radius > 100 THEN false
+      WHEN w.organismengruppe = 'Flechten' and f.radius > 50 THEN false
+      WHEN w.organismengruppe = 'Fledermäuse' and f.radius > 100 THEN false
+      WHEN w.organismengruppe = 'Käfer' and f.radius > 50 THEN false
+      WHEN w.organismengruppe = 'Moose' and f.radius > 50 THEN false
+      WHEN w.organismengruppe = 'Schmetterlinge' and f.radius > 100 THEN false
+      WHEN w.organismengruppe = 'Reptilien' and f.radius > 100 THEN false
+      WHEN w.organismengruppe = 'Sträucher / Gehölze' and f.radius > 100 THEN false
+      WHEN w.organismengruppe = 'Vögel' and f.radius > 1000 THEN false
+      WHEN w.organismengruppe = 'Waldameisen' and f.radius > 50 THEN false	
+      ELSE true
+    END as genau, 
+    w.foerdermassnahmen as foerdermassnahmen,
+    CASE
+      WHEN f.verwaltungsintern IS NULL THEN true
+      ELSE f.verwaltungsintern
+    END as verwaltungsintern,
+    CASE 
+      WHEN f.kantonsintern IS NULL THEN false
+      ELSE f.kantonsintern
+    END as kantonsintern,
+      date('now') as hinzugefuegt_am,
+      c.id_art,
+      ST_SetSRID(ST_Point(f.e,f.n),2056) as geometrie,
+      f.bemerkungen, 
+      true as status, 
+      f.fotos, 
+  CASE
+    WHEN f.finder IS NULL THEN 'keine Angabe'
+    ELSE f.finder
+      END as finder, 
+      f.funddatum, 
+      CASE
+    WHEN f.substrat IS NULL THEN 'keine Angabe'
+    ELSE f.substrat
+  END as substrat
+  FROM "test_db"."dbt_arten"."stg_artvorkommen"  as f 
+  join "test_db"."dbt_arten"."stg_besondere_waldarten" as w 
+      on f.id_from_cat_arten = w.id_art
+    left join prod_gl_arten.cat_art as c 
+      on f.id_from_cat_arten = c.id_art
+
+  UNION
+
+  SELECT 
+    CASE 
+      WHEN w.name_lateinisch = 'Formica cf lugubris' THEN 'Formica lugubris'
+      WHEN w.name_lateinisch = 'Formica cf. lugubris' THEN 'Formica lugubris'
+      WHEN w.name_lateinisch = 'Formica lugubris' THEN 'Formica lugubris'
+      WHEN w.name_lateinisch = 'Formica paralugubris' THEN 'Formica paralugubris'
+      WHEN w.name_lateinisch = 'Formica polyctena' THEN 'Formica polyctena'
+      WHEN w.name_lateinisch = 'Formica rufa' THEN 'Formica rufa'
+      WHEN w.name_lateinisch = 'Formica rufa, Gruppe' THEN 'Formica rufa'
+      WHEN w.name_lateinisch = 'Formica rufa x polyctena' THEN 'Formica rufa'
+      WHEN w.name_lateinisch = 'Formica sensu stricto' THEN 'Formica sensu stricto'
+    END as lateinischer_name,
+    CASE 
+      WHEN w.name_lateinisch = 'Formica cf lugubris' THEN 'Starkbeborstete Gebirgswaldameise'
+      WHEN w.name_lateinisch = 'Formica cf. lugubris' THEN'Starkbeborstete Gebirgswaldameise'
+      WHEN w.name_lateinisch = 'Formica lugubris' THEN 'Starkbeborstete Gebirgswaldameise'
+      WHEN w.name_lateinisch = 'Formica paralugubris' THEN 'Kurzbeborstete Gebirgswaldameise'
+      WHEN w.name_lateinisch ='Formica polyctena' THEN 'Kahlrücke Waldameise'
+      WHEN w.name_lateinisch = 'Formica rufa' THEN 'Rote Waldameise'
+      WHEN w.name_lateinisch = 'Formica rufa, Gruppe' THEN 'Rote Waldameise'
+      WHEN w.name_lateinisch = 'Formica rufa x polyctena' THEN 'Rote Waldameise'
+      WHEN w.name_lateinisch = 'Formica sensu stricto' THEN 'Waldameisen (Untergattung)'
+    END as deutscher_name,
+    w.organismengruppe, 
+    '451.1/2' as schutz_status_schweiz,
+    'ja' as schutz_status_kt_gl, 
+    CASE 
+      WHEN w.name_lateinisch = 'Formica cf lugubris' THEN 'kA'
+      WHEN w.name_lateinisch = 'Formica cf. lugubris' THEN'kA'
+      WHEN w.name_lateinisch = 'Formica lugubris' THEN 'kA'
+      WHEN w.name_lateinisch = 'Formica paralugubris' THEN 'kA'
+      WHEN w.name_lateinisch = 'Formica polyctena' THEN 'NT'
+      WHEN w.name_lateinisch = 'Formica rufa' THEN 'NT'
+      WHEN w.name_lateinisch ='Formica rufa, Gruppe' THEN 'NT'
+      WHEN w.name_lateinisch = 'Formica rufa x polyctena' THEN 'NT'
+      WHEN w.name_lateinisch = 'Formica sensu stricto' THEN 'kA'
+    END as rote_liste_status,
+        CASE
+      WHEN f.radius IS NULL THEN 9999
+      ELSE f.radius
+        END as radius, 
+        CASE
+      WHEN f.radius > 50 THEN false	
+    ELSE true
+        END as genau, 
+        w.foerdermassnahmen as foerdermassnahmen,
+        CASE
+      WHEN f.verwaltungsintern IS NULL THEN true
+      ELSE f.verwaltungsintern
+        END as verwaltungsintern,
+        CASE 
+      WHEN f.kantonsintern IS NULL THEN false
+      ELSE f.kantonsintern
+        END as kantonsintern,
+        date('now') as hinzugefuegt_am,
+    CASE 
+      WHEN w.name_lateinisch = 'Formica cf lugubris' THEN 25288
+      WHEN w.name_lateinisch = 'Formica cf. lugubris' THEN 25288
+      WHEN w.name_lateinisch = 'Formica lugubris' THEN 25288
+      WHEN w.name_lateinisch = 'Formica paralugubris' THEN 25291
+      WHEN w.name_lateinisch = 'Formica polyctena' THEN 25292
+      WHEN w.name_lateinisch = 'Formica rufa' THEN 86730
+      WHEN w.name_lateinisch = 'Formica rufa, Gruppe' THEN 86730
+      WHEN w.name_lateinisch = 'Formica rufa x polyctena' THEN 86730
+      WHEN w.name_lateinisch = 'Formica sensu stricto' THEN 108121
+    END as id_art, 
+    ST_SetSRID(ST_Point(f.e,f.n),2056) as geometrie,
+    f.bemerkungen, 
+    true as status, 
+    f.fotos, 
+    CASE
+      WHEN f.finder IS NULL THEN 'keine Angabe'
+      ELSE f.finder
+    END as finder, 
+    CASE 
+      WHEN f.finder = 'Ruedi Zimmermann' and f.funddatum is NULL THEN '1.1.2019'
+      ELSE f.funddatum
+      END as funddatum, 
+    CASE
+      WHEN f.substrat IS NULL THEN 'keine Angabe'
+      ELSE f.substrat
+    END as substrat
+  FROM "test_db"."dbt_arten"."stg_artvorkommen"  as f 
+  join "test_db"."dbt_arten"."stg_besondere_waldarten" as w 
+    on f.art_wiss = w.name_lateinisch
+  WHERE w.wis is true and w.organismengruppe = 'Waldameisen'
+)
+SELECT
+  row_number() over() as id,
+  * 
+FROM union_cte
+  );
+[0m08:52:38.222410 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m08:52:38.255529 [debug] [Thread-1 (]: SQL status: CREATE VIEW in 0.033 seconds
+[0m08:52:38.260904 [debug] [Thread-1 (]: Using postgres connection "model.dbt_arten.intr_wisgl_export"
+[0m08:52:38.261500 [debug] [Thread-1 (]: On model.dbt_arten.intr_wisgl_export: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "dbt_arten", "target_name": "dev", "node_id": "model.dbt_arten.intr_wisgl_export"} */
+alter table "test_db"."dbt_arten"."intr_wisgl_export" rename to "intr_wisgl_export__dbt_backup"
+[0m08:52:38.264281 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.002 seconds
+[0m08:52:38.270632 [debug] [Thread-1 (]: Using postgres connection "model.dbt_arten.intr_wisgl_export"
+[0m08:52:38.271164 [debug] [Thread-1 (]: On model.dbt_arten.intr_wisgl_export: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "dbt_arten", "target_name": "dev", "node_id": "model.dbt_arten.intr_wisgl_export"} */
+alter table "test_db"."dbt_arten"."intr_wisgl_export__dbt_tmp" rename to "intr_wisgl_export"
+[0m08:52:38.274050 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.002 seconds
+[0m08:52:38.276181 [debug] [Thread-1 (]: On model.dbt_arten.intr_wisgl_export: COMMIT
+[0m08:52:38.276698 [debug] [Thread-1 (]: Using postgres connection "model.dbt_arten.intr_wisgl_export"
+[0m08:52:38.277084 [debug] [Thread-1 (]: On model.dbt_arten.intr_wisgl_export: COMMIT
+[0m08:52:38.278856 [debug] [Thread-1 (]: SQL status: COMMIT in 0.001 seconds
+[0m08:52:38.282218 [debug] [Thread-1 (]: Applying DROP to: "test_db"."dbt_arten"."intr_wisgl_export__dbt_backup"
+[0m08:52:38.283004 [debug] [Thread-1 (]: Using postgres connection "model.dbt_arten.intr_wisgl_export"
+[0m08:52:38.283408 [debug] [Thread-1 (]: On model.dbt_arten.intr_wisgl_export: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "dbt_arten", "target_name": "dev", "node_id": "model.dbt_arten.intr_wisgl_export"} */
+drop view if exists "test_db"."dbt_arten"."intr_wisgl_export__dbt_backup" cascade
+[0m08:52:38.287811 [debug] [Thread-1 (]: SQL status: DROP VIEW in 0.004 seconds
+[0m08:52:38.289555 [debug] [Thread-1 (]: On model.dbt_arten.intr_wisgl_export: Close
+[0m08:52:38.290411 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'bd48f716-2a84-4ad9-a01a-1f45743d7488', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73cad0389a10>]}
+[0m08:52:38.291041 [info ] [Thread-1 (]: 3 of 4 OK created sql view model dbt_arten.intr_wisgl_export ................... [[32mCREATE VIEW[0m in 0.08s]
+[0m08:52:38.291667 [debug] [Thread-1 (]: Finished running node model.dbt_arten.intr_wisgl_export
+[0m08:52:38.292648 [debug] [Thread-1 (]: Began running node model.dbt_arten.intr_wisgl_export_dedup
+[0m08:52:38.293186 [info ] [Thread-1 (]: 4 of 4 START sql view model dbt_arten.intr_wisgl_export_dedup .................. [RUN]
+[0m08:52:38.293725 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.dbt_arten.intr_wisgl_export, now model.dbt_arten.intr_wisgl_export_dedup)
+[0m08:52:38.294105 [debug] [Thread-1 (]: Began compiling node model.dbt_arten.intr_wisgl_export_dedup
+[0m08:52:38.296947 [debug] [Thread-1 (]: Writing injected SQL for node "model.dbt_arten.intr_wisgl_export_dedup"
+[0m08:52:38.297604 [debug] [Thread-1 (]: Began executing node model.dbt_arten.intr_wisgl_export_dedup
+[0m08:52:38.301269 [debug] [Thread-1 (]: Writing runtime sql for node "model.dbt_arten.intr_wisgl_export_dedup"
+[0m08:52:38.301919 [debug] [Thread-1 (]: Using postgres connection "model.dbt_arten.intr_wisgl_export_dedup"
+[0m08:52:38.302286 [debug] [Thread-1 (]: On model.dbt_arten.intr_wisgl_export_dedup: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "dbt_arten", "target_name": "dev", "node_id": "model.dbt_arten.intr_wisgl_export_dedup"} */
+
+  create view "test_db"."dbt_arten"."intr_wisgl_export_dedup__dbt_tmp"
+    
+    
+  as (
+    SELECT DISTINCT ON (geometrie, funddatum, name_lateinisch)
+	*
+FROM "test_db"."dbt_arten"."intr_wisgl_export"
+ORDER BY geometrie, funddatum, name_lateinisch, id DESC
+  );
+[0m08:52:38.302600 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m08:52:38.322215 [debug] [Thread-1 (]: SQL status: CREATE VIEW in 0.019 seconds
+[0m08:52:38.328574 [debug] [Thread-1 (]: Using postgres connection "model.dbt_arten.intr_wisgl_export_dedup"
+[0m08:52:38.329417 [debug] [Thread-1 (]: On model.dbt_arten.intr_wisgl_export_dedup: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "dbt_arten", "target_name": "dev", "node_id": "model.dbt_arten.intr_wisgl_export_dedup"} */
+alter table "test_db"."dbt_arten"."intr_wisgl_export_dedup__dbt_tmp" rename to "intr_wisgl_export_dedup"
+[0m08:52:38.331273 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m08:52:38.333745 [debug] [Thread-1 (]: On model.dbt_arten.intr_wisgl_export_dedup: COMMIT
+[0m08:52:38.334345 [debug] [Thread-1 (]: Using postgres connection "model.dbt_arten.intr_wisgl_export_dedup"
+[0m08:52:38.334768 [debug] [Thread-1 (]: On model.dbt_arten.intr_wisgl_export_dedup: COMMIT
+[0m08:52:38.336246 [debug] [Thread-1 (]: SQL status: COMMIT in 0.001 seconds
+[0m08:52:38.339724 [debug] [Thread-1 (]: Applying DROP to: "test_db"."dbt_arten"."intr_wisgl_export_dedup__dbt_backup"
+[0m08:52:38.340642 [debug] [Thread-1 (]: Using postgres connection "model.dbt_arten.intr_wisgl_export_dedup"
+[0m08:52:38.341075 [debug] [Thread-1 (]: On model.dbt_arten.intr_wisgl_export_dedup: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "dbt_arten", "target_name": "dev", "node_id": "model.dbt_arten.intr_wisgl_export_dedup"} */
+drop view if exists "test_db"."dbt_arten"."intr_wisgl_export_dedup__dbt_backup" cascade
+[0m08:52:38.342006 [debug] [Thread-1 (]: SQL status: DROP VIEW in 0.000 seconds
+[0m08:52:38.343660 [debug] [Thread-1 (]: On model.dbt_arten.intr_wisgl_export_dedup: Close
+[0m08:52:38.344597 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'bd48f716-2a84-4ad9-a01a-1f45743d7488', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73cad1d0cad0>]}
+[0m08:52:38.345635 [info ] [Thread-1 (]: 4 of 4 OK created sql view model dbt_arten.intr_wisgl_export_dedup ............. [[32mCREATE VIEW[0m in 0.05s]
+[0m08:52:38.346631 [debug] [Thread-1 (]: Finished running node model.dbt_arten.intr_wisgl_export_dedup
+[0m08:52:38.348393 [debug] [MainThread]: On master: COMMIT
+[0m08:52:38.348881 [debug] [MainThread]: Using postgres connection "master"
+[0m08:52:38.349265 [debug] [MainThread]: On master: COMMIT
+[0m08:52:38.349709 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m08:52:38.360384 [debug] [MainThread]: SQL status: COMMIT in 0.011 seconds
+[0m08:52:38.360909 [debug] [MainThread]: On master: Close
+[0m08:52:38.361798 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m08:52:38.362313 [debug] [MainThread]: Connection 'model.dbt_arten.intr_wisgl_export_dedup' was properly closed.
+[0m08:52:38.362768 [info ] [MainThread]: 
+[0m08:52:38.363162 [info ] [MainThread]: Finished running 4 view models in 0 hours 0 minutes and 0.48 seconds (0.48s).
+[0m08:52:38.364353 [debug] [MainThread]: Command end result
+[0m08:52:38.416931 [debug] [MainThread]: Wrote artifact WritableManifest to /project/src/dbt/dbt_arten/target/manifest.json
+[0m08:52:38.420241 [debug] [MainThread]: Wrote artifact SemanticManifest to /project/src/dbt/dbt_arten/target/semantic_manifest.json
+[0m08:52:38.428594 [debug] [MainThread]: Wrote artifact RunExecutionResult to /project/src/dbt/dbt_arten/target/run_results.json
+[0m08:52:38.429261 [info ] [MainThread]: 
+[0m08:52:38.429943 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m08:52:38.430390 [info ] [MainThread]: 
+[0m08:52:38.430776 [info ] [MainThread]: Done. PASS=4 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=4
+[0m08:52:38.431923 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 1.2212232, "process_in_blocks": "0", "process_kernel_time": 0.453909, "process_mem_max_rss": "127636", "process_out_blocks": "3024", "process_user_time": 2.584096}
+[0m08:52:38.432502 [debug] [MainThread]: Command `dbt run` succeeded at 08:52:38.432390 after 1.22 seconds
+[0m08:52:38.432924 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73cad6d30ad0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73cad6d31150>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73cad6d30b10>]}
+[0m08:52:38.433354 [debug] [MainThread]: Flushing usage events
+[0m08:52:39.600675 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m08:54:38.330463 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c8b52b02510>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c8b52bf58d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c8b52b03850>]}
+
+
+============================== 08:54:38.335652 | f59aedc8-e20c-421b-834b-b7949ac30e1b ==============================
+[0m08:54:38.335652 [info ] [MainThread]: Running with dbt=1.11.7
+[0m08:54:38.336086 [debug] [MainThread]: running dbt with arguments {'use_colors': 'True', 'target_path': 'None', 'version_check': 'True', 'partial_parse': 'True', 'invocation_command': 'dbt run -s intr_wisgl_export', 'cache_selected_only': 'False', 'log_path': '/project/src/dbt/dbt_arten/logs', 'send_anonymous_usage_stats': 'True', 'static_parser': 'True', 'empty': 'False', 'profiles_dir': '/project/src/dbt/dbt_arten', 'no_print': 'None', 'write_json': 'True', 'printer_width': '80', 'fail_fast': 'False', 'log_cache_events': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'quiet': 'False', 'indirect_selection': 'eager', 'log_format': 'default', 'introspect': 'True', 'warn_error': 'None', 'debug': 'False', 'use_experimental_parser': 'False'}
+[0m08:54:38.481440 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'f59aedc8-e20c-421b-834b-b7949ac30e1b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c8b53590dd0>]}
+[0m08:54:38.532707 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'f59aedc8-e20c-421b-834b-b7949ac30e1b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c8b55b1c4d0>]}
+[0m08:54:38.533489 [info ] [MainThread]: Registered adapter: postgres=1.10.0
+[0m08:54:38.671604 [debug] [MainThread]: checksum: b80718358155fc17c3559352095564dd56ada1cc1a1c0ef2e62c857e71583775, vars: {}, profile: , target: , version: 1.11.7
+[0m08:54:38.760264 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m08:54:38.760644 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m08:54:38.760860 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m08:54:38.790284 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'f59aedc8-e20c-421b-834b-b7949ac30e1b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c8b52479c10>]}
+[0m08:54:38.919643 [debug] [MainThread]: Wrote artifact WritableManifest to /project/src/dbt/dbt_arten/target/manifest.json
+[0m08:54:38.922309 [debug] [MainThread]: Wrote artifact SemanticManifest to /project/src/dbt/dbt_arten/target/semantic_manifest.json
+[0m08:54:38.939805 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'f59aedc8-e20c-421b-834b-b7949ac30e1b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c8b54a83050>]}
+[0m08:54:38.940307 [info ] [MainThread]: Found 8 models, 5 sources, 640 macros
+[0m08:54:38.940586 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'f59aedc8-e20c-421b-834b-b7949ac30e1b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c8b52575290>]}
+[0m08:54:38.941844 [info ] [MainThread]: 
+[0m08:54:38.942156 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m08:54:38.942408 [info ] [MainThread]: 
+[0m08:54:38.942810 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m08:54:38.944046 [debug] [ThreadPool]: Acquiring new postgres connection 'list_test_db'
+[0m08:54:38.994001 [debug] [ThreadPool]: Using postgres connection "list_test_db"
+[0m08:54:38.994406 [debug] [ThreadPool]: On list_test_db: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "dbt_arten", "target_name": "dev", "connection_name": "list_test_db"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m08:54:38.994652 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m08:54:39.005714 [debug] [ThreadPool]: SQL status: SELECT 16 in 0.011 seconds
+[0m08:54:39.007363 [debug] [ThreadPool]: On list_test_db: Close
+[0m08:54:39.011687 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_test_db, now list_test_db_dbt_arten)
+[0m08:54:39.016785 [debug] [ThreadPool]: Using postgres connection "list_test_db_dbt_arten"
+[0m08:54:39.017151 [debug] [ThreadPool]: On list_test_db_dbt_arten: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "dbt_arten", "target_name": "dev", "connection_name": "list_test_db_dbt_arten"} */
+select
+      'test_db' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'dbt_arten'
+    union all
+    select
+      'test_db' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'dbt_arten'
+    union all
+    select
+      'test_db' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'dbt_arten'
+  
+[0m08:54:39.017423 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m08:54:39.034105 [debug] [ThreadPool]: SQL status: SELECT 11 in 0.017 seconds
+[0m08:54:39.036373 [debug] [ThreadPool]: On list_test_db_dbt_arten: ROLLBACK
+[0m08:54:39.036990 [debug] [ThreadPool]: On list_test_db_dbt_arten: Close
+[0m08:54:39.042838 [debug] [MainThread]: Using postgres connection "master"
+[0m08:54:39.043259 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "dbt_arten", "target_name": "dev", "connection_name": "master"} */
+select distinct
+        dependent_namespace.nspname as dependent_schema,
+        dependent_class.relname as dependent_name,
+        referenced_namespace.nspname as referenced_schema,
+        referenced_class.relname as referenced_name
+
+    -- Query for views: views are entries in pg_class with an entry in pg_rewrite, but we avoid
+    -- a seq scan on pg_rewrite by leveraging the fact there is an "internal" row in pg_depend for
+    -- the view...
+    from pg_class as dependent_class
+    join pg_namespace as dependent_namespace on dependent_namespace.oid = dependent_class.relnamespace
+    join pg_depend as dependent_depend on dependent_depend.refobjid = dependent_class.oid
+        and dependent_depend.classid = 'pg_rewrite'::regclass
+        and dependent_depend.refclassid = 'pg_class'::regclass
+        and dependent_depend.deptype = 'i'
+
+    -- ... and via pg_depend (that has a row per column, hence the need for "distinct" above, and
+    -- making sure to exclude the internal row to avoid a view appearing to depend on itself)...
+    join pg_depend as joining_depend on joining_depend.objid = dependent_depend.objid
+        and joining_depend.classid = 'pg_rewrite'::regclass
+        and joining_depend.refclassid = 'pg_class'::regclass
+        and joining_depend.refobjid != dependent_depend.refobjid
+
+    -- ... we can find the tables they query from in pg_class, but excluding system tables. Note we
+    -- don't need need to exclude _dependent_ system tables, because they only query from other
+    -- system tables, and so are automatically excluded by excluding _referenced_ system tables
+    join pg_class as referenced_class on referenced_class.oid = joining_depend.refobjid
+    join pg_namespace as referenced_namespace on referenced_namespace.oid = referenced_class.relnamespace
+        and referenced_namespace.nspname != 'information_schema'
+        and referenced_namespace.nspname not like 'pg\_%'
+
+    order by
+        dependent_schema, dependent_name, referenced_schema, referenced_name;
+[0m08:54:39.043561 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m08:54:39.067109 [debug] [MainThread]: SQL status: SELECT 68 in 0.023 seconds
+[0m08:54:39.070180 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'f59aedc8-e20c-421b-834b-b7949ac30e1b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c8b5279db50>]}
+[0m08:54:39.070592 [debug] [MainThread]: On master: ROLLBACK
+[0m08:54:39.071034 [debug] [MainThread]: On master: COMMIT
+[0m08:54:39.071324 [debug] [MainThread]: Using postgres connection "master"
+[0m08:54:39.071550 [debug] [MainThread]: On master: COMMIT
+[0m08:54:39.071986 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m08:54:39.072266 [debug] [MainThread]: On master: Close
+[0m08:54:39.075914 [debug] [Thread-1 (]: Began running node model.dbt_arten.intr_wisgl_export
+[0m08:54:39.076453 [info ] [Thread-1 (]: 1 of 1 START sql view model dbt_arten.intr_wisgl_export ........................ [RUN]
+[0m08:54:39.076871 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_test_db_dbt_arten, now model.dbt_arten.intr_wisgl_export)
+[0m08:54:39.077171 [debug] [Thread-1 (]: Began compiling node model.dbt_arten.intr_wisgl_export
+[0m08:54:39.084603 [debug] [Thread-1 (]: Writing injected SQL for node "model.dbt_arten.intr_wisgl_export"
+[0m08:54:39.085299 [debug] [Thread-1 (]: Began executing node model.dbt_arten.intr_wisgl_export
+[0m08:54:39.127381 [debug] [Thread-1 (]: Writing runtime sql for node "model.dbt_arten.intr_wisgl_export"
+[0m08:54:39.128235 [debug] [Thread-1 (]: Using postgres connection "model.dbt_arten.intr_wisgl_export"
+[0m08:54:39.128857 [debug] [Thread-1 (]: On model.dbt_arten.intr_wisgl_export: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "dbt_arten", "target_name": "dev", "node_id": "model.dbt_arten.intr_wisgl_export"} */
+
+  create view "test_db"."dbt_arten"."intr_wisgl_export__dbt_tmp"
+    
+    
+  as (
+    -- Script by Peter Zopfi integrated into dbt wholesale. Might be reworked later.
+with union_cte as (
+  SELECT 
+    w.name_lateinisch,
+    w.name_deutsch,
+    w.organismengruppe, 
+    CASE
+      WHEN c.schutz_ch IS NULL THEN 'nicht geschuetzt'
+      ELSE c.schutz_ch 
+    END as schutz_status_schweiz,
+    CASE
+      WHEN c.schutz_gl IS NULL THEN 'nicht geschuetzt'
+      ELSE c.schutz_gl 
+    END as schutz_status_kt_gl,
+    c.rl_status as rote_liste_status, 
+    CASE
+      WHEN f.radius IS NULL THEN 9999
+      ELSE f.radius
+    END as radius, 
+    CASE
+      WHEN w.organismengruppe = 'Amphibien' and f.radius > 100 THEN false
+      WHEN w.organismengruppe = 'Blütenpflanzen' and f.radius > 100 THEN false
+      WHEN w.organismengruppe = 'Farne' and f.radius > 100 THEN false
+      WHEN w.organismengruppe = 'Flechten' and f.radius > 50 THEN false
+      WHEN w.organismengruppe = 'Fledermäuse' and f.radius > 100 THEN false
+      WHEN w.organismengruppe = 'Käfer' and f.radius > 50 THEN false
+      WHEN w.organismengruppe = 'Moose' and f.radius > 50 THEN false
+      WHEN w.organismengruppe = 'Schmetterlinge' and f.radius > 100 THEN false
+      WHEN w.organismengruppe = 'Reptilien' and f.radius > 100 THEN false
+      WHEN w.organismengruppe = 'Sträucher / Gehölze' and f.radius > 100 THEN false
+      WHEN w.organismengruppe = 'Vögel' and f.radius > 1000 THEN false
+      WHEN w.organismengruppe = 'Waldameisen' and f.radius > 50 THEN false	
+      ELSE true
+    END as genau, 
+    w.foerdermassnahmen as foerdermassnahmen,
+    CASE
+      WHEN f.verwaltungsintern IS NULL THEN true
+      ELSE f.verwaltungsintern
+    END as verwaltungsintern,
+    CASE 
+      WHEN f.kantonsintern IS NULL THEN false
+      ELSE f.kantonsintern
+    END as kantonsintern,
+      date('now') as hinzugefuegt_am,
+      c.id_art,
+      ST_SetSRID(ST_Point(f.e,f.n),2056) as geometrie,
+      f.bemerkungen, 
+      true as status, 
+      f.fotos, 
+  CASE
+    WHEN f.finder IS NULL THEN 'keine Angabe'
+    ELSE f.finder
+      END as finder, 
+      f.funddatum, 
+      CASE
+    WHEN f.substrat IS NULL THEN 'keine Angabe'
+    ELSE f.substrat
+  END as substrat,
+  f.ext_herkunft
+
+
+  FROM "test_db"."dbt_arten"."stg_artvorkommen"  as f 
+  join "test_db"."dbt_arten"."stg_besondere_waldarten" as w 
+      on f.id_from_cat_arten = w.id_art
+    left join prod_gl_arten.cat_art as c 
+      on f.id_from_cat_arten = c.id_art
+
+  UNION
+
+  SELECT 
+    CASE 
+      WHEN w.name_lateinisch = 'Formica cf lugubris' THEN 'Formica lugubris'
+      WHEN w.name_lateinisch = 'Formica cf. lugubris' THEN 'Formica lugubris'
+      WHEN w.name_lateinisch = 'Formica lugubris' THEN 'Formica lugubris'
+      WHEN w.name_lateinisch = 'Formica paralugubris' THEN 'Formica paralugubris'
+      WHEN w.name_lateinisch = 'Formica polyctena' THEN 'Formica polyctena'
+      WHEN w.name_lateinisch = 'Formica rufa' THEN 'Formica rufa'
+      WHEN w.name_lateinisch = 'Formica rufa, Gruppe' THEN 'Formica rufa'
+      WHEN w.name_lateinisch = 'Formica rufa x polyctena' THEN 'Formica rufa'
+      WHEN w.name_lateinisch = 'Formica sensu stricto' THEN 'Formica sensu stricto'
+    END as lateinischer_name,
+    CASE 
+      WHEN w.name_lateinisch = 'Formica cf lugubris' THEN 'Starkbeborstete Gebirgswaldameise'
+      WHEN w.name_lateinisch = 'Formica cf. lugubris' THEN'Starkbeborstete Gebirgswaldameise'
+      WHEN w.name_lateinisch = 'Formica lugubris' THEN 'Starkbeborstete Gebirgswaldameise'
+      WHEN w.name_lateinisch = 'Formica paralugubris' THEN 'Kurzbeborstete Gebirgswaldameise'
+      WHEN w.name_lateinisch ='Formica polyctena' THEN 'Kahlrücke Waldameise'
+      WHEN w.name_lateinisch = 'Formica rufa' THEN 'Rote Waldameise'
+      WHEN w.name_lateinisch = 'Formica rufa, Gruppe' THEN 'Rote Waldameise'
+      WHEN w.name_lateinisch = 'Formica rufa x polyctena' THEN 'Rote Waldameise'
+      WHEN w.name_lateinisch = 'Formica sensu stricto' THEN 'Waldameisen (Untergattung)'
+    END as deutscher_name,
+    w.organismengruppe, 
+    '451.1/2' as schutz_status_schweiz,
+    'ja' as schutz_status_kt_gl, 
+    CASE 
+      WHEN w.name_lateinisch = 'Formica cf lugubris' THEN 'kA'
+      WHEN w.name_lateinisch = 'Formica cf. lugubris' THEN'kA'
+      WHEN w.name_lateinisch = 'Formica lugubris' THEN 'kA'
+      WHEN w.name_lateinisch = 'Formica paralugubris' THEN 'kA'
+      WHEN w.name_lateinisch = 'Formica polyctena' THEN 'NT'
+      WHEN w.name_lateinisch = 'Formica rufa' THEN 'NT'
+      WHEN w.name_lateinisch ='Formica rufa, Gruppe' THEN 'NT'
+      WHEN w.name_lateinisch = 'Formica rufa x polyctena' THEN 'NT'
+      WHEN w.name_lateinisch = 'Formica sensu stricto' THEN 'kA'
+    END as rote_liste_status,
+        CASE
+      WHEN f.radius IS NULL THEN 9999
+      ELSE f.radius
+        END as radius, 
+        CASE
+      WHEN f.radius > 50 THEN false	
+    ELSE true
+        END as genau, 
+        w.foerdermassnahmen as foerdermassnahmen,
+        CASE
+      WHEN f.verwaltungsintern IS NULL THEN true
+      ELSE f.verwaltungsintern
+        END as verwaltungsintern,
+        CASE 
+      WHEN f.kantonsintern IS NULL THEN false
+      ELSE f.kantonsintern
+        END as kantonsintern,
+        date('now') as hinzugefuegt_am,
+    CASE 
+      WHEN w.name_lateinisch = 'Formica cf lugubris' THEN 25288
+      WHEN w.name_lateinisch = 'Formica cf. lugubris' THEN 25288
+      WHEN w.name_lateinisch = 'Formica lugubris' THEN 25288
+      WHEN w.name_lateinisch = 'Formica paralugubris' THEN 25291
+      WHEN w.name_lateinisch = 'Formica polyctena' THEN 25292
+      WHEN w.name_lateinisch = 'Formica rufa' THEN 86730
+      WHEN w.name_lateinisch = 'Formica rufa, Gruppe' THEN 86730
+      WHEN w.name_lateinisch = 'Formica rufa x polyctena' THEN 86730
+      WHEN w.name_lateinisch = 'Formica sensu stricto' THEN 108121
+    END as id_art, 
+    ST_SetSRID(ST_Point(f.e,f.n),2056) as geometrie,
+    f.bemerkungen, 
+    true as status, 
+    f.fotos, 
+    CASE
+      WHEN f.finder IS NULL THEN 'keine Angabe'
+      ELSE f.finder
+    END as finder, 
+    CASE 
+      WHEN f.finder = 'Ruedi Zimmermann' and f.funddatum is NULL THEN '1.1.2019'
+      ELSE f.funddatum
+      END as funddatum, 
+    CASE
+      WHEN f.substrat IS NULL THEN 'keine Angabe'
+      ELSE f.substrat
+    END as substrat,
+    f.ext_herkunft
+
+
+  FROM "test_db"."dbt_arten"."stg_artvorkommen"  as f 
+  join "test_db"."dbt_arten"."stg_besondere_waldarten" as w 
+    on f.art_wiss = w.name_lateinisch
+  WHERE w.wis is true and w.organismengruppe = 'Waldameisen'
+)
+SELECT
+  row_number() over() as id,
+  * 
+FROM union_cte
+  );
+[0m08:54:39.129356 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m08:54:39.150175 [debug] [Thread-1 (]: SQL status: CREATE VIEW in 0.021 seconds
+[0m08:54:39.156649 [debug] [Thread-1 (]: Using postgres connection "model.dbt_arten.intr_wisgl_export"
+[0m08:54:39.157069 [debug] [Thread-1 (]: On model.dbt_arten.intr_wisgl_export: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "dbt_arten", "target_name": "dev", "node_id": "model.dbt_arten.intr_wisgl_export"} */
+alter table "test_db"."dbt_arten"."intr_wisgl_export" rename to "intr_wisgl_export__dbt_backup"
+[0m08:54:39.158902 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m08:54:39.161716 [debug] [Thread-1 (]: Using postgres connection "model.dbt_arten.intr_wisgl_export"
+[0m08:54:39.162100 [debug] [Thread-1 (]: On model.dbt_arten.intr_wisgl_export: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "dbt_arten", "target_name": "dev", "node_id": "model.dbt_arten.intr_wisgl_export"} */
+alter table "test_db"."dbt_arten"."intr_wisgl_export__dbt_tmp" rename to "intr_wisgl_export"
+[0m08:54:39.164322 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.002 seconds
+[0m08:54:39.178931 [debug] [Thread-1 (]: On model.dbt_arten.intr_wisgl_export: COMMIT
+[0m08:54:39.179404 [debug] [Thread-1 (]: Using postgres connection "model.dbt_arten.intr_wisgl_export"
+[0m08:54:39.179707 [debug] [Thread-1 (]: On model.dbt_arten.intr_wisgl_export: COMMIT
+[0m08:54:39.181021 [debug] [Thread-1 (]: SQL status: COMMIT in 0.001 seconds
+[0m08:54:39.186303 [debug] [Thread-1 (]: Applying DROP to: "test_db"."dbt_arten"."intr_wisgl_export__dbt_backup"
+[0m08:54:39.191935 [debug] [Thread-1 (]: Using postgres connection "model.dbt_arten.intr_wisgl_export"
+[0m08:54:39.192370 [debug] [Thread-1 (]: On model.dbt_arten.intr_wisgl_export: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "dbt_arten", "target_name": "dev", "node_id": "model.dbt_arten.intr_wisgl_export"} */
+drop view if exists "test_db"."dbt_arten"."intr_wisgl_export__dbt_backup" cascade
+[0m08:54:39.197224 [debug] [Thread-1 (]: SQL status: DROP VIEW in 0.004 seconds
+[0m08:54:39.200007 [debug] [Thread-1 (]: On model.dbt_arten.intr_wisgl_export: Close
+[0m08:54:39.201613 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'f59aedc8-e20c-421b-834b-b7949ac30e1b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c8b517c0910>]}
+[0m08:54:39.202326 [info ] [Thread-1 (]: 1 of 1 OK created sql view model dbt_arten.intr_wisgl_export ................... [[32mCREATE VIEW[0m in 0.12s]
+[0m08:54:39.202936 [debug] [Thread-1 (]: Finished running node model.dbt_arten.intr_wisgl_export
+[0m08:54:39.204790 [debug] [MainThread]: On master: COMMIT
+[0m08:54:39.205147 [debug] [MainThread]: Using postgres connection "master"
+[0m08:54:39.205378 [debug] [MainThread]: On master: COMMIT
+[0m08:54:39.205584 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m08:54:39.214323 [debug] [MainThread]: SQL status: COMMIT in 0.009 seconds
+[0m08:54:39.214953 [debug] [MainThread]: On master: Close
+[0m08:54:39.215796 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m08:54:39.216058 [debug] [MainThread]: Connection 'model.dbt_arten.intr_wisgl_export' was properly closed.
+[0m08:54:39.216361 [info ] [MainThread]: 
+[0m08:54:39.216660 [info ] [MainThread]: Finished running 1 view model in 0 hours 0 minutes and 0.27 seconds (0.27s).
+[0m08:54:39.217271 [debug] [MainThread]: Command end result
+[0m08:54:39.259232 [debug] [MainThread]: Wrote artifact WritableManifest to /project/src/dbt/dbt_arten/target/manifest.json
+[0m08:54:39.262773 [debug] [MainThread]: Wrote artifact SemanticManifest to /project/src/dbt/dbt_arten/target/semantic_manifest.json
+[0m08:54:39.269865 [debug] [MainThread]: Wrote artifact RunExecutionResult to /project/src/dbt/dbt_arten/target/run_results.json
+[0m08:54:39.270312 [info ] [MainThread]: 
+[0m08:54:39.270789 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m08:54:39.271132 [info ] [MainThread]: 
+[0m08:54:39.271556 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=1
+[0m08:54:39.272813 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 0.984975, "process_in_blocks": "0", "process_kernel_time": 0.399297, "process_mem_max_rss": "127384", "process_out_blocks": "2928", "process_user_time": 2.376868}
+[0m08:54:39.273387 [debug] [MainThread]: Command `dbt run` succeeded at 08:54:39.273277 after 0.99 seconds
+[0m08:54:39.273779 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c8b52b03a10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c8b52b02c90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c8b5772c8d0>]}
+[0m08:54:39.274151 [debug] [MainThread]: Flushing usage events
+[0m08:54:40.032600 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m08:55:43.575853 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c8dd0199e10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c8dd11d2710>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c8dd0198bd0>]}
+
+
+============================== 08:55:43.580981 | 37656e4d-39ed-47df-bde8-15a7e7d2578b ==============================
+[0m08:55:43.580981 [info ] [MainThread]: Running with dbt=1.11.7
+[0m08:55:43.581456 [debug] [MainThread]: running dbt with arguments {'no_print': 'None', 'cache_selected_only': 'False', 'empty': 'False', 'log_format': 'default', 'send_anonymous_usage_stats': 'True', 'partial_parse': 'True', 'printer_width': '80', 'debug': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'profiles_dir': '/project/src/dbt/dbt_arten', 'introspect': 'True', 'write_json': 'True', 'use_colors': 'True', 'target_path': 'None', 'log_path': '/project/src/dbt/dbt_arten/logs', 'use_experimental_parser': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'indirect_selection': 'eager', 'quiet': 'False', 'log_cache_events': 'False', 'static_parser': 'True', 'version_check': 'True', 'invocation_command': 'dbt run -s intr_wisgl_export'}
+[0m08:55:43.744640 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '37656e4d-39ed-47df-bde8-15a7e7d2578b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c8dd08bffd0>]}
+[0m08:55:43.796931 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '37656e4d-39ed-47df-bde8-15a7e7d2578b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c8dd321c290>]}
+[0m08:55:43.797686 [info ] [MainThread]: Registered adapter: postgres=1.10.0
+[0m08:55:43.951767 [debug] [MainThread]: checksum: b80718358155fc17c3559352095564dd56ada1cc1a1c0ef2e62c857e71583775, vars: {}, profile: , target: , version: 1.11.7
+[0m08:55:44.046978 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m08:55:44.047365 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m08:55:44.047587 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m08:55:44.077334 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '37656e4d-39ed-47df-bde8-15a7e7d2578b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c8dcfafb3d0>]}
+[0m08:55:44.209153 [debug] [MainThread]: Wrote artifact WritableManifest to /project/src/dbt/dbt_arten/target/manifest.json
+[0m08:55:44.212315 [debug] [MainThread]: Wrote artifact SemanticManifest to /project/src/dbt/dbt_arten/target/semantic_manifest.json
+[0m08:55:44.228440 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '37656e4d-39ed-47df-bde8-15a7e7d2578b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c8dcfbdef50>]}
+[0m08:55:44.228983 [info ] [MainThread]: Found 8 models, 5 sources, 640 macros
+[0m08:55:44.229319 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '37656e4d-39ed-47df-bde8-15a7e7d2578b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c8dcfba3e50>]}
+[0m08:55:44.230623 [info ] [MainThread]: 
+[0m08:55:44.230940 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m08:55:44.231167 [info ] [MainThread]: 
+[0m08:55:44.231592 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m08:55:44.232616 [debug] [ThreadPool]: Acquiring new postgres connection 'list_test_db'
+[0m08:55:44.282557 [debug] [ThreadPool]: Using postgres connection "list_test_db"
+[0m08:55:44.282986 [debug] [ThreadPool]: On list_test_db: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "dbt_arten", "target_name": "dev", "connection_name": "list_test_db"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m08:55:44.283251 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m08:55:44.294485 [debug] [ThreadPool]: SQL status: SELECT 16 in 0.011 seconds
+[0m08:55:44.295704 [debug] [ThreadPool]: On list_test_db: Close
+[0m08:55:44.300553 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_test_db, now list_test_db_dbt_arten)
+[0m08:55:44.305651 [debug] [ThreadPool]: Using postgres connection "list_test_db_dbt_arten"
+[0m08:55:44.306033 [debug] [ThreadPool]: On list_test_db_dbt_arten: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "dbt_arten", "target_name": "dev", "connection_name": "list_test_db_dbt_arten"} */
+select
+      'test_db' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'dbt_arten'
+    union all
+    select
+      'test_db' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'dbt_arten'
+    union all
+    select
+      'test_db' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'dbt_arten'
+  
+[0m08:55:44.306318 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m08:55:44.322124 [debug] [ThreadPool]: SQL status: SELECT 10 in 0.016 seconds
+[0m08:55:44.324278 [debug] [ThreadPool]: On list_test_db_dbt_arten: ROLLBACK
+[0m08:55:44.324847 [debug] [ThreadPool]: On list_test_db_dbt_arten: Close
+[0m08:55:44.330240 [debug] [MainThread]: Using postgres connection "master"
+[0m08:55:44.330653 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "dbt_arten", "target_name": "dev", "connection_name": "master"} */
+select distinct
+        dependent_namespace.nspname as dependent_schema,
+        dependent_class.relname as dependent_name,
+        referenced_namespace.nspname as referenced_schema,
+        referenced_class.relname as referenced_name
+
+    -- Query for views: views are entries in pg_class with an entry in pg_rewrite, but we avoid
+    -- a seq scan on pg_rewrite by leveraging the fact there is an "internal" row in pg_depend for
+    -- the view...
+    from pg_class as dependent_class
+    join pg_namespace as dependent_namespace on dependent_namespace.oid = dependent_class.relnamespace
+    join pg_depend as dependent_depend on dependent_depend.refobjid = dependent_class.oid
+        and dependent_depend.classid = 'pg_rewrite'::regclass
+        and dependent_depend.refclassid = 'pg_class'::regclass
+        and dependent_depend.deptype = 'i'
+
+    -- ... and via pg_depend (that has a row per column, hence the need for "distinct" above, and
+    -- making sure to exclude the internal row to avoid a view appearing to depend on itself)...
+    join pg_depend as joining_depend on joining_depend.objid = dependent_depend.objid
+        and joining_depend.classid = 'pg_rewrite'::regclass
+        and joining_depend.refclassid = 'pg_class'::regclass
+        and joining_depend.refobjid != dependent_depend.refobjid
+
+    -- ... we can find the tables they query from in pg_class, but excluding system tables. Note we
+    -- don't need need to exclude _dependent_ system tables, because they only query from other
+    -- system tables, and so are automatically excluded by excluding _referenced_ system tables
+    join pg_class as referenced_class on referenced_class.oid = joining_depend.refobjid
+    join pg_namespace as referenced_namespace on referenced_namespace.oid = referenced_class.relnamespace
+        and referenced_namespace.nspname != 'information_schema'
+        and referenced_namespace.nspname not like 'pg\_%'
+
+    order by
+        dependent_schema, dependent_name, referenced_schema, referenced_name;
+[0m08:55:44.330928 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m08:55:44.355707 [debug] [MainThread]: SQL status: SELECT 67 in 0.025 seconds
+[0m08:55:44.358981 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '37656e4d-39ed-47df-bde8-15a7e7d2578b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c8dcfbedd50>]}
+[0m08:55:44.359417 [debug] [MainThread]: On master: ROLLBACK
+[0m08:55:44.359910 [debug] [MainThread]: On master: COMMIT
+[0m08:55:44.360176 [debug] [MainThread]: Using postgres connection "master"
+[0m08:55:44.360417 [debug] [MainThread]: On master: COMMIT
+[0m08:55:44.360948 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m08:55:44.361311 [debug] [MainThread]: On master: Close
+[0m08:55:44.365294 [debug] [Thread-1 (]: Began running node model.dbt_arten.intr_wisgl_export
+[0m08:55:44.365954 [info ] [Thread-1 (]: 1 of 1 START sql view model dbt_arten.intr_wisgl_export ........................ [RUN]
+[0m08:55:44.366574 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_test_db_dbt_arten, now model.dbt_arten.intr_wisgl_export)
+[0m08:55:44.366933 [debug] [Thread-1 (]: Began compiling node model.dbt_arten.intr_wisgl_export
+[0m08:55:44.375002 [debug] [Thread-1 (]: Writing injected SQL for node "model.dbt_arten.intr_wisgl_export"
+[0m08:55:44.375932 [debug] [Thread-1 (]: Began executing node model.dbt_arten.intr_wisgl_export
+[0m08:55:44.417335 [debug] [Thread-1 (]: Writing runtime sql for node "model.dbt_arten.intr_wisgl_export"
+[0m08:55:44.418055 [debug] [Thread-1 (]: Using postgres connection "model.dbt_arten.intr_wisgl_export"
+[0m08:55:44.418573 [debug] [Thread-1 (]: On model.dbt_arten.intr_wisgl_export: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "dbt_arten", "target_name": "dev", "node_id": "model.dbt_arten.intr_wisgl_export"} */
+
+  create view "test_db"."dbt_arten"."intr_wisgl_export__dbt_tmp"
+    
+    
+  as (
+    -- Script by Peter Zopfi integrated into dbt wholesale. Might be reworked later.
+with union_cte as (
+  SELECT 
+    w.name_lateinisch,
+    w.name_deutsch,
+    w.organismengruppe, 
+    CASE
+      WHEN c.schutz_ch IS NULL THEN 'nicht geschuetzt'
+      ELSE c.schutz_ch 
+    END as schutz_status_schweiz,
+    CASE
+      WHEN c.schutz_gl IS NULL THEN 'nicht geschuetzt'
+      ELSE c.schutz_gl 
+    END as schutz_status_kt_gl,
+    c.rl_status as rote_liste_status, 
+    CASE
+      WHEN f.radius IS NULL THEN 9999
+      ELSE f.radius
+    END as radius, 
+    CASE
+      WHEN w.organismengruppe = 'Amphibien' and f.radius > 100 THEN false
+      WHEN w.organismengruppe = 'Blütenpflanzen' and f.radius > 100 THEN false
+      WHEN w.organismengruppe = 'Farne' and f.radius > 100 THEN false
+      WHEN w.organismengruppe = 'Flechten' and f.radius > 50 THEN false
+      WHEN w.organismengruppe = 'Fledermäuse' and f.radius > 100 THEN false
+      WHEN w.organismengruppe = 'Käfer' and f.radius > 50 THEN false
+      WHEN w.organismengruppe = 'Moose' and f.radius > 50 THEN false
+      WHEN w.organismengruppe = 'Schmetterlinge' and f.radius > 100 THEN false
+      WHEN w.organismengruppe = 'Reptilien' and f.radius > 100 THEN false
+      WHEN w.organismengruppe = 'Sträucher / Gehölze' and f.radius > 100 THEN false
+      WHEN w.organismengruppe = 'Vögel' and f.radius > 1000 THEN false
+      WHEN w.organismengruppe = 'Waldameisen' and f.radius > 50 THEN false	
+      ELSE true
+    END as genau, 
+    w.foerdermassnahmen as foerdermassnahmen,
+    CASE
+      WHEN f.verwaltungsintern IS NULL THEN true
+      ELSE f.verwaltungsintern
+    END as verwaltungsintern,
+    CASE 
+      WHEN f.kantonsintern IS NULL THEN false
+      ELSE f.kantonsintern
+    END as kantonsintern,
+      date('now') as hinzugefuegt_am,
+      c.id_art,
+      ST_SetSRID(ST_Point(f.e,f.n),2056) as geometrie,
+      f.bemerkungen, 
+      true as status, 
+      f.fotos, 
+  CASE
+    WHEN f.finder IS NULL THEN 'keine Angabe'
+    ELSE f.finder
+      END as finder, 
+      f.funddatum, 
+      CASE
+    WHEN f.substrat IS NULL THEN 'keine Angabe'
+    ELSE f.substrat
+  END as substrat,
+  f.ext_herkunft,
+  f.last_modified
+
+
+  FROM "test_db"."dbt_arten"."stg_artvorkommen"  as f 
+  join "test_db"."dbt_arten"."stg_besondere_waldarten" as w 
+      on f.id_from_cat_arten = w.id_art
+    left join prod_gl_arten.cat_art as c 
+      on f.id_from_cat_arten = c.id_art
+
+  UNION
+
+  SELECT 
+    CASE 
+      WHEN w.name_lateinisch = 'Formica cf lugubris' THEN 'Formica lugubris'
+      WHEN w.name_lateinisch = 'Formica cf. lugubris' THEN 'Formica lugubris'
+      WHEN w.name_lateinisch = 'Formica lugubris' THEN 'Formica lugubris'
+      WHEN w.name_lateinisch = 'Formica paralugubris' THEN 'Formica paralugubris'
+      WHEN w.name_lateinisch = 'Formica polyctena' THEN 'Formica polyctena'
+      WHEN w.name_lateinisch = 'Formica rufa' THEN 'Formica rufa'
+      WHEN w.name_lateinisch = 'Formica rufa, Gruppe' THEN 'Formica rufa'
+      WHEN w.name_lateinisch = 'Formica rufa x polyctena' THEN 'Formica rufa'
+      WHEN w.name_lateinisch = 'Formica sensu stricto' THEN 'Formica sensu stricto'
+    END as lateinischer_name,
+    CASE 
+      WHEN w.name_lateinisch = 'Formica cf lugubris' THEN 'Starkbeborstete Gebirgswaldameise'
+      WHEN w.name_lateinisch = 'Formica cf. lugubris' THEN'Starkbeborstete Gebirgswaldameise'
+      WHEN w.name_lateinisch = 'Formica lugubris' THEN 'Starkbeborstete Gebirgswaldameise'
+      WHEN w.name_lateinisch = 'Formica paralugubris' THEN 'Kurzbeborstete Gebirgswaldameise'
+      WHEN w.name_lateinisch ='Formica polyctena' THEN 'Kahlrücke Waldameise'
+      WHEN w.name_lateinisch = 'Formica rufa' THEN 'Rote Waldameise'
+      WHEN w.name_lateinisch = 'Formica rufa, Gruppe' THEN 'Rote Waldameise'
+      WHEN w.name_lateinisch = 'Formica rufa x polyctena' THEN 'Rote Waldameise'
+      WHEN w.name_lateinisch = 'Formica sensu stricto' THEN 'Waldameisen (Untergattung)'
+    END as deutscher_name,
+    w.organismengruppe, 
+    '451.1/2' as schutz_status_schweiz,
+    'ja' as schutz_status_kt_gl, 
+    CASE 
+      WHEN w.name_lateinisch = 'Formica cf lugubris' THEN 'kA'
+      WHEN w.name_lateinisch = 'Formica cf. lugubris' THEN'kA'
+      WHEN w.name_lateinisch = 'Formica lugubris' THEN 'kA'
+      WHEN w.name_lateinisch = 'Formica paralugubris' THEN 'kA'
+      WHEN w.name_lateinisch = 'Formica polyctena' THEN 'NT'
+      WHEN w.name_lateinisch = 'Formica rufa' THEN 'NT'
+      WHEN w.name_lateinisch ='Formica rufa, Gruppe' THEN 'NT'
+      WHEN w.name_lateinisch = 'Formica rufa x polyctena' THEN 'NT'
+      WHEN w.name_lateinisch = 'Formica sensu stricto' THEN 'kA'
+    END as rote_liste_status,
+        CASE
+      WHEN f.radius IS NULL THEN 9999
+      ELSE f.radius
+        END as radius, 
+        CASE
+      WHEN f.radius > 50 THEN false	
+    ELSE true
+        END as genau, 
+        w.foerdermassnahmen as foerdermassnahmen,
+        CASE
+      WHEN f.verwaltungsintern IS NULL THEN true
+      ELSE f.verwaltungsintern
+        END as verwaltungsintern,
+        CASE 
+      WHEN f.kantonsintern IS NULL THEN false
+      ELSE f.kantonsintern
+        END as kantonsintern,
+        date('now') as hinzugefuegt_am,
+    CASE 
+      WHEN w.name_lateinisch = 'Formica cf lugubris' THEN 25288
+      WHEN w.name_lateinisch = 'Formica cf. lugubris' THEN 25288
+      WHEN w.name_lateinisch = 'Formica lugubris' THEN 25288
+      WHEN w.name_lateinisch = 'Formica paralugubris' THEN 25291
+      WHEN w.name_lateinisch = 'Formica polyctena' THEN 25292
+      WHEN w.name_lateinisch = 'Formica rufa' THEN 86730
+      WHEN w.name_lateinisch = 'Formica rufa, Gruppe' THEN 86730
+      WHEN w.name_lateinisch = 'Formica rufa x polyctena' THEN 86730
+      WHEN w.name_lateinisch = 'Formica sensu stricto' THEN 108121
+    END as id_art, 
+    ST_SetSRID(ST_Point(f.e,f.n),2056) as geometrie,
+    f.bemerkungen, 
+    true as status, 
+    f.fotos, 
+    CASE
+      WHEN f.finder IS NULL THEN 'keine Angabe'
+      ELSE f.finder
+    END as finder, 
+    CASE 
+      WHEN f.finder = 'Ruedi Zimmermann' and f.funddatum is NULL THEN '1.1.2019'
+      ELSE f.funddatum
+      END as funddatum, 
+    CASE
+      WHEN f.substrat IS NULL THEN 'keine Angabe'
+      ELSE f.substrat
+    END as substrat,
+    f.ext_herkunft,
+    f.last_modified
+
+
+  FROM "test_db"."dbt_arten"."stg_artvorkommen"  as f 
+  join "test_db"."dbt_arten"."stg_besondere_waldarten" as w 
+    on f.art_wiss = w.name_lateinisch
+  WHERE w.wis is true and w.organismengruppe = 'Waldameisen'
+)
+SELECT
+  row_number() over() as id,
+  * 
+FROM union_cte
+  );
+[0m08:55:44.419053 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m08:55:44.440401 [debug] [Thread-1 (]: SQL status: CREATE VIEW in 0.021 seconds
+[0m08:55:44.446687 [debug] [Thread-1 (]: Using postgres connection "model.dbt_arten.intr_wisgl_export"
+[0m08:55:44.447119 [debug] [Thread-1 (]: On model.dbt_arten.intr_wisgl_export: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "dbt_arten", "target_name": "dev", "node_id": "model.dbt_arten.intr_wisgl_export"} */
+alter table "test_db"."dbt_arten"."intr_wisgl_export" rename to "intr_wisgl_export__dbt_backup"
+[0m08:55:44.448935 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m08:55:44.452218 [debug] [Thread-1 (]: Using postgres connection "model.dbt_arten.intr_wisgl_export"
+[0m08:55:44.452594 [debug] [Thread-1 (]: On model.dbt_arten.intr_wisgl_export: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "dbt_arten", "target_name": "dev", "node_id": "model.dbt_arten.intr_wisgl_export"} */
+alter table "test_db"."dbt_arten"."intr_wisgl_export__dbt_tmp" rename to "intr_wisgl_export"
+[0m08:55:44.454718 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.002 seconds
+[0m08:55:44.469725 [debug] [Thread-1 (]: On model.dbt_arten.intr_wisgl_export: COMMIT
+[0m08:55:44.470162 [debug] [Thread-1 (]: Using postgres connection "model.dbt_arten.intr_wisgl_export"
+[0m08:55:44.470501 [debug] [Thread-1 (]: On model.dbt_arten.intr_wisgl_export: COMMIT
+[0m08:55:44.472154 [debug] [Thread-1 (]: SQL status: COMMIT in 0.001 seconds
+[0m08:55:44.478525 [debug] [Thread-1 (]: Applying DROP to: "test_db"."dbt_arten"."intr_wisgl_export__dbt_backup"
+[0m08:55:44.485549 [debug] [Thread-1 (]: Using postgres connection "model.dbt_arten.intr_wisgl_export"
+[0m08:55:44.486014 [debug] [Thread-1 (]: On model.dbt_arten.intr_wisgl_export: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "dbt_arten", "target_name": "dev", "node_id": "model.dbt_arten.intr_wisgl_export"} */
+drop view if exists "test_db"."dbt_arten"."intr_wisgl_export__dbt_backup" cascade
+[0m08:55:44.490146 [debug] [Thread-1 (]: SQL status: DROP VIEW in 0.004 seconds
+[0m08:55:44.492766 [debug] [Thread-1 (]: On model.dbt_arten.intr_wisgl_export: Close
+[0m08:55:44.494539 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '37656e4d-39ed-47df-bde8-15a7e7d2578b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c8dcd457710>]}
+[0m08:55:44.495261 [info ] [Thread-1 (]: 1 of 1 OK created sql view model dbt_arten.intr_wisgl_export ................... [[32mCREATE VIEW[0m in 0.13s]
+[0m08:55:44.495861 [debug] [Thread-1 (]: Finished running node model.dbt_arten.intr_wisgl_export
+[0m08:55:44.497501 [debug] [MainThread]: On master: COMMIT
+[0m08:55:44.497860 [debug] [MainThread]: Using postgres connection "master"
+[0m08:55:44.498098 [debug] [MainThread]: On master: COMMIT
+[0m08:55:44.498337 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m08:55:44.508682 [debug] [MainThread]: SQL status: COMMIT in 0.010 seconds
+[0m08:55:44.509214 [debug] [MainThread]: On master: Close
+[0m08:55:44.509795 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m08:55:44.510209 [debug] [MainThread]: Connection 'model.dbt_arten.intr_wisgl_export' was properly closed.
+[0m08:55:44.510608 [info ] [MainThread]: 
+[0m08:55:44.511028 [info ] [MainThread]: Finished running 1 view model in 0 hours 0 minutes and 0.28 seconds (0.28s).
+[0m08:55:44.511901 [debug] [MainThread]: Command end result
+[0m08:55:44.561090 [debug] [MainThread]: Wrote artifact WritableManifest to /project/src/dbt/dbt_arten/target/manifest.json
+[0m08:55:44.563549 [debug] [MainThread]: Wrote artifact SemanticManifest to /project/src/dbt/dbt_arten/target/semantic_manifest.json
+[0m08:55:44.571656 [debug] [MainThread]: Wrote artifact RunExecutionResult to /project/src/dbt/dbt_arten/target/run_results.json
+[0m08:55:44.572363 [info ] [MainThread]: 
+[0m08:55:44.573220 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m08:55:44.573905 [info ] [MainThread]: 
+[0m08:55:44.574575 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=1
+[0m08:55:44.576163 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 1.0436193, "process_in_blocks": "0", "process_kernel_time": 0.465802, "process_mem_max_rss": "127252", "process_out_blocks": "2928", "process_user_time": 2.842487}
+[0m08:55:44.577001 [debug] [MainThread]: Command `dbt run` succeeded at 08:55:44.576838 after 1.04 seconds
+[0m08:55:44.577639 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c8dd4e14710>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c8dd4e14810>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c8dd4e14e50>]}
+[0m08:55:44.578293 [debug] [MainThread]: Flushing usage events
+[0m08:55:45.155703 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m09:14:42.379469 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x72a2f33fbf90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x72a2f33fa550>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x72a2f33fa4d0>]}
+
+
+============================== 09:14:42.384424 | 7e59d71f-b546-4b21-ba04-20aad21db9db ==============================
+[0m09:14:42.384424 [info ] [MainThread]: Running with dbt=1.11.7
+[0m09:14:42.384935 [debug] [MainThread]: running dbt with arguments {'log_path': '/project/src/dbt/dbt_arten/logs', 'debug': 'False', 'no_print': 'None', 'introspect': 'True', 'invocation_command': 'dbt compile', 'log_cache_events': 'False', 'use_experimental_parser': 'False', 'static_parser': 'True', 'write_json': 'True', 'quiet': 'False', 'version_check': 'True', 'fail_fast': 'False', 'profiles_dir': '/project/src/dbt/dbt_arten', 'printer_width': '80', 'warn_error': 'None', 'send_anonymous_usage_stats': 'True', 'indirect_selection': 'eager', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'log_format': 'default', 'empty': 'False', 'cache_selected_only': 'False', 'use_colors': 'True', 'partial_parse': 'True', 'target_path': 'None'}
+[0m09:14:42.528142 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '7e59d71f-b546-4b21-ba04-20aad21db9db', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x72a2f32e91d0>]}
+[0m09:14:42.579246 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '7e59d71f-b546-4b21-ba04-20aad21db9db', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x72a2f63cc150>]}
+[0m09:14:42.580007 [info ] [MainThread]: Registered adapter: postgres=1.10.0
+[0m09:14:42.713156 [debug] [MainThread]: checksum: b80718358155fc17c3559352095564dd56ada1cc1a1c0ef2e62c857e71583775, vars: {}, profile: , target: , version: 1.11.7
+[0m09:14:42.804351 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m09:14:42.804739 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m09:14:42.804982 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m09:14:42.833916 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '7e59d71f-b546-4b21-ba04-20aad21db9db', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x72a2f2d74490>]}
+[0m09:14:42.964929 [debug] [MainThread]: Wrote artifact WritableManifest to /project/src/dbt/dbt_arten/target/manifest.json
+[0m09:14:42.968394 [debug] [MainThread]: Wrote artifact SemanticManifest to /project/src/dbt/dbt_arten/target/semantic_manifest.json
+[0m09:14:42.986891 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '7e59d71f-b546-4b21-ba04-20aad21db9db', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x72a2f2ecce10>]}
+[0m09:14:42.987463 [info ] [MainThread]: Found 9 models, 5 sources, 640 macros
+[0m09:14:42.987825 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '7e59d71f-b546-4b21-ba04-20aad21db9db', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x72a2f47ed350>]}
+[0m09:14:42.989809 [info ] [MainThread]: 
+[0m09:14:42.990232 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m09:14:42.990592 [info ] [MainThread]: 
+[0m09:14:42.991089 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m09:14:42.995322 [debug] [ThreadPool]: Acquiring new postgres connection 'list_test_db_dbt_arten'
+[0m09:14:43.046648 [debug] [ThreadPool]: Using postgres connection "list_test_db_dbt_arten"
+[0m09:14:43.047230 [debug] [ThreadPool]: On list_test_db_dbt_arten: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "dbt_arten", "target_name": "dev", "connection_name": "list_test_db_dbt_arten"} */
+select
+      'test_db' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'dbt_arten'
+    union all
+    select
+      'test_db' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'dbt_arten'
+    union all
+    select
+      'test_db' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'dbt_arten'
+  
+[0m09:14:43.047665 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m09:14:43.065063 [debug] [ThreadPool]: SQL status: SELECT 10 in 0.017 seconds
+[0m09:14:43.066856 [debug] [ThreadPool]: On list_test_db_dbt_arten: ROLLBACK
+[0m09:14:43.067456 [debug] [ThreadPool]: On list_test_db_dbt_arten: Close
+[0m09:14:43.074362 [debug] [MainThread]: Using postgres connection "master"
+[0m09:14:43.074821 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "dbt_arten", "target_name": "dev", "connection_name": "master"} */
+select distinct
+        dependent_namespace.nspname as dependent_schema,
+        dependent_class.relname as dependent_name,
+        referenced_namespace.nspname as referenced_schema,
+        referenced_class.relname as referenced_name
+
+    -- Query for views: views are entries in pg_class with an entry in pg_rewrite, but we avoid
+    -- a seq scan on pg_rewrite by leveraging the fact there is an "internal" row in pg_depend for
+    -- the view...
+    from pg_class as dependent_class
+    join pg_namespace as dependent_namespace on dependent_namespace.oid = dependent_class.relnamespace
+    join pg_depend as dependent_depend on dependent_depend.refobjid = dependent_class.oid
+        and dependent_depend.classid = 'pg_rewrite'::regclass
+        and dependent_depend.refclassid = 'pg_class'::regclass
+        and dependent_depend.deptype = 'i'
+
+    -- ... and via pg_depend (that has a row per column, hence the need for "distinct" above, and
+    -- making sure to exclude the internal row to avoid a view appearing to depend on itself)...
+    join pg_depend as joining_depend on joining_depend.objid = dependent_depend.objid
+        and joining_depend.classid = 'pg_rewrite'::regclass
+        and joining_depend.refclassid = 'pg_class'::regclass
+        and joining_depend.refobjid != dependent_depend.refobjid
+
+    -- ... we can find the tables they query from in pg_class, but excluding system tables. Note we
+    -- don't need need to exclude _dependent_ system tables, because they only query from other
+    -- system tables, and so are automatically excluded by excluding _referenced_ system tables
+    join pg_class as referenced_class on referenced_class.oid = joining_depend.refobjid
+    join pg_namespace as referenced_namespace on referenced_namespace.oid = referenced_class.relnamespace
+        and referenced_namespace.nspname != 'information_schema'
+        and referenced_namespace.nspname not like 'pg\_%'
+
+    order by
+        dependent_schema, dependent_name, referenced_schema, referenced_name;
+[0m09:14:43.075179 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m09:14:43.101952 [debug] [MainThread]: SQL status: SELECT 67 in 0.027 seconds
+[0m09:14:43.106267 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '7e59d71f-b546-4b21-ba04-20aad21db9db', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x72a2f2ecdf10>]}
+[0m09:14:43.106717 [debug] [MainThread]: On master: ROLLBACK
+[0m09:14:43.107189 [debug] [MainThread]: On master: Close
+[0m09:14:43.111006 [debug] [Thread-1 (]: Began running node model.dbt_arten.audit_artvorkommen
+[0m09:14:43.111544 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_test_db_dbt_arten, now model.dbt_arten.audit_artvorkommen)
+[0m09:14:43.111864 [debug] [Thread-1 (]: Began compiling node model.dbt_arten.audit_artvorkommen
+[0m09:14:43.144653 [debug] [Thread-1 (]: Using postgres connection "model.dbt_arten.audit_artvorkommen"
+[0m09:14:43.145160 [debug] [Thread-1 (]: On model.dbt_arten.audit_artvorkommen: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "dbt_arten", "target_name": "dev", "node_id": "model.dbt_arten.audit_artvorkommen"} */
+
+      select
+          column_name,
+          data_type,
+          character_maximum_length,
+          numeric_precision,
+          numeric_scale
+
+      from "test_db".INFORMATION_SCHEMA.columns
+      where table_name = 'artvorkommen_gl_pt'
+        
+        and table_schema = 'prod_gl_arten'
+        
+      order by ordinal_position
+
+  
+[0m09:14:43.145543 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m09:14:43.173360 [debug] [Thread-1 (]: SQL status: SELECT 32 in 0.028 seconds
+[0m09:14:43.210636 [debug] [Thread-1 (]: Writing injected SQL for node "model.dbt_arten.audit_artvorkommen"
+[0m09:14:43.211345 [debug] [Thread-1 (]: Began executing node model.dbt_arten.audit_artvorkommen
+[0m09:14:43.211715 [debug] [Thread-1 (]: On model.dbt_arten.audit_artvorkommen: ROLLBACK
+[0m09:14:43.212305 [debug] [Thread-1 (]: On model.dbt_arten.audit_artvorkommen: Close
+[0m09:14:43.212995 [debug] [Thread-1 (]: Finished running node model.dbt_arten.audit_artvorkommen
+[0m09:14:43.213393 [debug] [Thread-1 (]: Began running node model.dbt_arten.stg_artvorkommen
+[0m09:14:43.213905 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.dbt_arten.audit_artvorkommen, now model.dbt_arten.stg_artvorkommen)
+[0m09:14:43.214286 [debug] [Thread-1 (]: Began compiling node model.dbt_arten.stg_artvorkommen
+[0m09:14:43.223948 [debug] [Thread-1 (]: Writing injected SQL for node "model.dbt_arten.stg_artvorkommen"
+[0m09:14:43.224770 [debug] [Thread-1 (]: Began executing node model.dbt_arten.stg_artvorkommen
+[0m09:14:43.225477 [debug] [Thread-1 (]: Finished running node model.dbt_arten.stg_artvorkommen
+[0m09:14:43.225868 [debug] [Thread-1 (]: Began running node model.dbt_arten.stg_besondere_waldarten
+[0m09:14:43.226386 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.dbt_arten.stg_artvorkommen, now model.dbt_arten.stg_besondere_waldarten)
+[0m09:14:43.226736 [debug] [Thread-1 (]: Began compiling node model.dbt_arten.stg_besondere_waldarten
+[0m09:14:43.231111 [debug] [Thread-1 (]: Writing injected SQL for node "model.dbt_arten.stg_besondere_waldarten"
+[0m09:14:43.231921 [debug] [Thread-1 (]: Began executing node model.dbt_arten.stg_besondere_waldarten
+[0m09:14:43.232628 [debug] [Thread-1 (]: Finished running node model.dbt_arten.stg_besondere_waldarten
+[0m09:14:43.232997 [debug] [Thread-1 (]: Began running node model.dbt_arten.stg_cat_art
+[0m09:14:43.233603 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.dbt_arten.stg_besondere_waldarten, now model.dbt_arten.stg_cat_art)
+[0m09:14:43.233944 [debug] [Thread-1 (]: Began compiling node model.dbt_arten.stg_cat_art
+[0m09:14:43.242802 [debug] [Thread-1 (]: Writing injected SQL for node "model.dbt_arten.stg_cat_art"
+[0m09:14:43.243503 [debug] [Thread-1 (]: Began executing node model.dbt_arten.stg_cat_art
+[0m09:14:43.244116 [debug] [Thread-1 (]: Finished running node model.dbt_arten.stg_cat_art
+[0m09:14:43.244477 [debug] [Thread-1 (]: Began running node model.dbt_arten.stg_imp_wisgl_besonderearten
+[0m09:14:43.244809 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.dbt_arten.stg_cat_art, now model.dbt_arten.stg_imp_wisgl_besonderearten)
+[0m09:14:43.245264 [debug] [Thread-1 (]: Began compiling node model.dbt_arten.stg_imp_wisgl_besonderearten
+[0m09:14:43.253037 [debug] [Thread-1 (]: Writing injected SQL for node "model.dbt_arten.stg_imp_wisgl_besonderearten"
+[0m09:14:43.253749 [debug] [Thread-1 (]: Began executing node model.dbt_arten.stg_imp_wisgl_besonderearten
+[0m09:14:43.254363 [debug] [Thread-1 (]: Finished running node model.dbt_arten.stg_imp_wisgl_besonderearten
+[0m09:14:43.254708 [debug] [Thread-1 (]: Began running node model.dbt_arten.intr_wisgl_export
+[0m09:14:43.255041 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.dbt_arten.stg_imp_wisgl_besonderearten, now model.dbt_arten.intr_wisgl_export)
+[0m09:14:43.255579 [debug] [Thread-1 (]: Began compiling node model.dbt_arten.intr_wisgl_export
+[0m09:14:43.260032 [debug] [Thread-1 (]: Writing injected SQL for node "model.dbt_arten.intr_wisgl_export"
+[0m09:14:43.260822 [debug] [Thread-1 (]: Began executing node model.dbt_arten.intr_wisgl_export
+[0m09:14:43.261549 [debug] [Thread-1 (]: Finished running node model.dbt_arten.intr_wisgl_export
+[0m09:14:43.261912 [debug] [Thread-1 (]: Began running node model.dbt_arten.bdry_wisgl_import
+[0m09:14:43.262474 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.dbt_arten.intr_wisgl_export, now model.dbt_arten.bdry_wisgl_import)
+[0m09:14:43.262819 [debug] [Thread-1 (]: Began compiling node model.dbt_arten.bdry_wisgl_import
+[0m09:14:43.266295 [debug] [Thread-1 (]: Writing injected SQL for node "model.dbt_arten.bdry_wisgl_import"
+[0m09:14:43.266939 [debug] [Thread-1 (]: Began executing node model.dbt_arten.bdry_wisgl_import
+[0m09:14:43.267611 [debug] [Thread-1 (]: Finished running node model.dbt_arten.bdry_wisgl_import
+[0m09:14:43.268006 [debug] [Thread-1 (]: Began running node model.dbt_arten.intr_wisgl_export_dedup
+[0m09:14:43.268552 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.dbt_arten.bdry_wisgl_import, now model.dbt_arten.intr_wisgl_export_dedup)
+[0m09:14:43.268949 [debug] [Thread-1 (]: Began compiling node model.dbt_arten.intr_wisgl_export_dedup
+[0m09:14:43.271989 [debug] [Thread-1 (]: Writing injected SQL for node "model.dbt_arten.intr_wisgl_export_dedup"
+[0m09:14:43.272725 [debug] [Thread-1 (]: Began executing node model.dbt_arten.intr_wisgl_export_dedup
+[0m09:14:43.273520 [debug] [Thread-1 (]: Finished running node model.dbt_arten.intr_wisgl_export_dedup
+[0m09:14:43.274647 [debug] [Thread-1 (]: Began running node model.dbt_arten.bdry_wisgl_export
+[0m09:14:43.275323 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.dbt_arten.intr_wisgl_export_dedup, now model.dbt_arten.bdry_wisgl_export)
+[0m09:14:43.275722 [debug] [Thread-1 (]: Began compiling node model.dbt_arten.bdry_wisgl_export
+[0m09:14:43.279006 [debug] [Thread-1 (]: Writing injected SQL for node "model.dbt_arten.bdry_wisgl_export"
+[0m09:14:43.279903 [debug] [Thread-1 (]: Began executing node model.dbt_arten.bdry_wisgl_export
+[0m09:14:43.280678 [debug] [Thread-1 (]: Finished running node model.dbt_arten.bdry_wisgl_export
+[0m09:14:43.281781 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m09:14:43.282289 [debug] [MainThread]: Connection 'model.dbt_arten.bdry_wisgl_export' was properly closed.
+[0m09:14:43.284124 [debug] [MainThread]: Command end result
+[0m09:14:43.324526 [debug] [MainThread]: Wrote artifact WritableManifest to /project/src/dbt/dbt_arten/target/manifest.json
+[0m09:14:43.327021 [debug] [MainThread]: Wrote artifact SemanticManifest to /project/src/dbt/dbt_arten/target/semantic_manifest.json
+[0m09:14:43.334710 [debug] [MainThread]: Wrote artifact RunExecutionResult to /project/src/dbt/dbt_arten/target/run_results.json
+[0m09:14:43.335865 [debug] [MainThread]: Resource report: {"command_name": "compile", "command_success": true, "command_wall_clock_time": 0.99947196, "process_in_blocks": "192", "process_kernel_time": 0.391884, "process_mem_max_rss": "127408", "process_out_blocks": "3056", "process_user_time": 2.460996}
+[0m09:14:43.336392 [debug] [MainThread]: Command `dbt compile` succeeded at 09:14:43.336292 after 1.00 seconds
+[0m09:14:43.336795 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x72a2f3405990>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x72a2f3407e90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x72a2f7ebf690>]}
+[0m09:14:43.337209 [debug] [MainThread]: Flushing usage events
+[0m09:14:44.267072 [debug] [MainThread]: An error was encountered while trying to flush usage events

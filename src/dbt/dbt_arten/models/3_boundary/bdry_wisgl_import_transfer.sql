@@ -9,4 +9,4 @@
     )}}'
 ) }}
 
-SELECT * FROM {{ ref('bdry_wis_update') }}
+SELECT * FROM {{ ref('bdry_wisgl_import') }}
