@@ -2,9 +2,10 @@ dbt_arten:
   target: dev
   outputs:
     dev:
+      # use this profile for local development and testing
       dbname: test_db
       host: postgis-container
-      pass: "{{ env_var('DB_PASSWORD') }}"
+      pass: "{{ env_var('DB_PASSWORD') }}" # export DB_PASSWORD='...' in bashrc
       port: 5432
       schema: dbt_arten
       threads: 1
@@ -15,7 +16,7 @@ dbt_arten:
       # use this profile when running dbt project from windmill runner
       host: srv-gisiap-02.glnet.ch
       dbname: glarus
-      pass: "{{ env_var('DB_PASSWORD') }}" # export DB_PASSWORD='...' in bashrc
+      pass: "{{ env_var('DB_PASSWORD') }}" 
       port: 5432
       schema: dbt_arten
       threads: 1
