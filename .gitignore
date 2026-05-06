@@ -1,6 +1,6 @@
 src/dbt/core
 
-/target/*
+**/target/*
 
 # good practice to ignore dbt_packages
 # commented out temporarily until SSL issue on windmill runner resolved
