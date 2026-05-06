@@ -39,12 +39,16 @@ Welcome to your new dbt project!
 ## TODO
 
 **Deduplication**
-- [ ] Deploy deduplicated version on IAP/PROD via backup
-  - [ ] Check with Viktor
+- [x] Deploy deduplicated version on IAP/PROD via backup
+  - [x] Check with Viktor
 
 **import WISGL data**
-- [v] Make UPSERT observable
-  - [v] Create data diff audit, which compares before and after upsert
+- [x] Make UPSERT observable
+  - [x] Create data diff audit, which compares before and after upsert
+  - [x] Create test to catch bad data before trying to insert
+
 
 **deliver dataset to Daniel**
-- [ ] re-compute wis_artvorkommen table with now updated artvorkommen_gl_pt 
+- [x] re-compute wis_artvorkommen table with now updated artvorkommen_gl_pt 
+- [x] do last renaming tasks in PZ Skript NR.3
+- [ ] set up
