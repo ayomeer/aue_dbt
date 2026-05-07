@@ -1,4 +1,7 @@
-{{ config(materialized='table')}}
+{{ config(
+  materialized='table',
+  enabled=var('enable_audits', false)
+)}}
 
 
 {% set artvorkommen_old %}

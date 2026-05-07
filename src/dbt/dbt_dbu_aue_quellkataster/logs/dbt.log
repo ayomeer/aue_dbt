@@ -28417,3 +28417,67 @@ dbt_common.exceptions.connection.ConnectionError: External connection exception 
 [0m10:10:33.268127 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78ae530a5510>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78ae530b5b90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78ae533fbdd0>]}
 [0m10:10:33.268730 [debug] [MainThread]: Flushing usage events
 [0m10:10:34.144447 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m07:22:56.675959 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x711bd5fe9f10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x711bd5ef3510>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x711bd6244990>]}
+
+
+============================== 07:22:56.682084 | 2731c1d7-4026-4745-bec7-459d8af1902e ==============================
+[0m07:22:56.682084 [info ] [MainThread]: Running with dbt=1.11.7
+[0m07:22:56.682632 [debug] [MainThread]: running dbt with arguments {'quiet': 'False', 'use_colors': 'True', 'write_json': 'True', 'log_format': 'default', 'indirect_selection': 'eager', 'static_parser': 'True', 'partial_parse': 'True', 'debug': 'False', 'cache_selected_only': 'False', 'no_print': 'None', 'send_anonymous_usage_stats': 'True', 'target_path': 'None', 'invocation_command': 'dbt ', 'warn_error': 'None', 'use_experimental_parser': 'False', 'log_path': '/project/src/dbt/dbt_dbu_aue_quellkataster/logs', 'introspect': 'True', 'fail_fast': 'False', 'empty': 'None', 'printer_width': '80', 'version_check': 'True', 'profiles_dir': '/project/src/dbt/dbt_dbu_aue_quellkataster', 'log_cache_events': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])'}
+[0m07:22:56.804326 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '2731c1d7-4026-4745-bec7-459d8af1902e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x711bd5e16210>]}
+[0m07:22:56.841397 [debug] [MainThread]: Set downloads directory='/tmp/dbt-downloads-zrskhnlg'
+[0m07:22:56.841940 [debug] [MainThread]: Making package index registry request: GET https://hub.getdbt.com/api/v1/index.json
+[0m07:22:57.473018 [debug] [MainThread]: Response from registry index: GET https://hub.getdbt.com/api/v1/index.json 200
+[0m07:22:57.475071 [debug] [MainThread]: Making package registry request: GET https://hub.getdbt.com/api/v1/dbt-labs/dbt_utils.json
+[0m07:22:57.911521 [debug] [MainThread]: Response from registry: GET https://hub.getdbt.com/api/v1/dbt-labs/dbt_utils.json 200
+[0m07:22:57.919608 [info ] [MainThread]: Installing dbt-labs/dbt_utils
+[0m07:22:59.503547 [info ] [MainThread]: Installed from version 1.3.3
+[0m07:22:59.503977 [info ] [MainThread]: Up to date!
+[0m07:22:59.504369 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'package', 'label': '2731c1d7-4026-4745-bec7-459d8af1902e', 'property_': 'install', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x711bd5f1a050>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x711bd5e087d0>]}
+[0m07:22:59.504735 [info ] [MainThread]: Installing https://github.com/ayomeer/dbt_ili_utils.git
+[0m07:22:59.505187 [debug] [MainThread]: Executing "git clone --depth 1 https://github.com/ayomeer/dbt_ili_utils.git 40ce5aef83702975cae3b932e8fa38e7"
+[0m07:23:00.934302 [debug] [MainThread]: STDOUT: "b''"
+[0m07:23:00.935079 [debug] [MainThread]: STDERR: "b"Cloning into '40ce5aef83702975cae3b932e8fa38e7'...\n""
+[0m07:23:00.935768 [debug] [MainThread]: Pulling new dependency 40ce5aef83702975cae3b932e8fa38e7.
+[0m07:23:00.936235 [debug] [MainThread]: Executing "git rev-parse HEAD"
+[0m07:23:00.939301 [debug] [MainThread]: STDOUT: "b'c6fa8bda165669b8f67f7a9c05e61c39e123b76a\n'"
+[0m07:23:00.939705 [debug] [MainThread]: STDERR: "b''"
+[0m07:23:00.939957 [debug] [MainThread]: Checking out revision 61e9616125fa4d2909b60a229331831e7a0649d5.
+[0m07:23:00.940188 [debug] [MainThread]: Executing "git fetch origin --depth 1 61e9616125fa4d2909b60a229331831e7a0649d5"
+[0m07:23:02.649400 [debug] [MainThread]: STDOUT: "b''"
+[0m07:23:02.650204 [debug] [MainThread]: STDERR: "b'From https://github.com/ayomeer/dbt_ili_utils\n * branch            61e9616125fa4d2909b60a229331831e7a0649d5 -> FETCH_HEAD\n'"
+[0m07:23:02.650503 [debug] [MainThread]: Executing "git reset --hard 61e9616125fa4d2909b60a229331831e7a0649d5"
+[0m07:23:02.655231 [debug] [MainThread]: STDOUT: "b'HEAD is now at 61e9616 applying changes so refactoring from last commit actually sticks :s\n'"
+[0m07:23:02.655856 [debug] [MainThread]: STDERR: "b''"
+[0m07:23:02.656250 [debug] [MainThread]: Executing "git rev-parse HEAD"
+[0m07:23:02.658327 [debug] [MainThread]: STDOUT: "b'61e9616125fa4d2909b60a229331831e7a0649d5\n'"
+[0m07:23:02.658659 [debug] [MainThread]: STDERR: "b''"
+[0m07:23:02.658902 [debug] [MainThread]: Checked out at 61e9616.
+[0m07:23:02.659131 [debug] [MainThread]: Executing "git rev-parse HEAD"
+[0m07:23:02.661251 [debug] [MainThread]: STDOUT: "b'61e9616125fa4d2909b60a229331831e7a0649d5\n'"
+[0m07:23:02.661814 [debug] [MainThread]: STDERR: "b''"
+[0m07:23:02.663004 [debug] [MainThread]: Executing "git clone --depth 1 https://github.com/ayomeer/dbt_ili_utils.git 40ce5aef83702975cae3b932e8fa38e7"
+[0m07:23:02.665348 [debug] [MainThread]: STDOUT: "b''"
+[0m07:23:02.666188 [debug] [MainThread]: STDERR: "b"fatal: destination path '40ce5aef83702975cae3b932e8fa38e7' already exists and is not an empty directory.\n""
+[0m07:23:02.666538 [debug] [MainThread]: command return code=128
+[0m07:23:02.667236 [debug] [MainThread]: Updating existing dependency 40ce5aef83702975cae3b932e8fa38e7.
+[0m07:23:02.667554 [debug] [MainThread]: Executing "git rev-parse HEAD"
+[0m07:23:02.670316 [debug] [MainThread]: STDOUT: "b'61e9616125fa4d2909b60a229331831e7a0649d5\n'"
+[0m07:23:02.670702 [debug] [MainThread]: STDERR: "b''"
+[0m07:23:02.670982 [debug] [MainThread]: Checking out revision 61e9616125fa4d2909b60a229331831e7a0649d5.
+[0m07:23:02.671250 [debug] [MainThread]: Executing "git fetch origin --depth 1 61e9616125fa4d2909b60a229331831e7a0649d5"
+[0m07:23:03.599130 [debug] [MainThread]: STDOUT: "b''"
+[0m07:23:03.599505 [debug] [MainThread]: STDERR: "b'From https://github.com/ayomeer/dbt_ili_utils\n * branch            61e9616125fa4d2909b60a229331831e7a0649d5 -> FETCH_HEAD\n'"
+[0m07:23:03.599772 [debug] [MainThread]: Executing "git reset --hard 61e9616125fa4d2909b60a229331831e7a0649d5"
+[0m07:23:03.604553 [debug] [MainThread]: STDOUT: "b'HEAD is now at 61e9616 applying changes so refactoring from last commit actually sticks :s\n'"
+[0m07:23:03.604923 [debug] [MainThread]: STDERR: "b''"
+[0m07:23:03.605159 [debug] [MainThread]: Executing "git rev-parse HEAD"
+[0m07:23:03.607283 [debug] [MainThread]: STDOUT: "b'61e9616125fa4d2909b60a229331831e7a0649d5\n'"
+[0m07:23:03.608281 [debug] [MainThread]: STDERR: "b''"
+[0m07:23:03.608682 [debug] [MainThread]: Already at 61e9616, nothing to do.
+[0m07:23:03.622804 [info ] [MainThread]: Installed from revision 61e9616125fa4d2909b60a229331831e7a0649d5
+[0m07:23:03.623381 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'package', 'label': '2731c1d7-4026-4745-bec7-459d8af1902e', 'property_': 'install', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x711bd5d708d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x711bd5d71990>]}
+[0m07:23:03.625671 [debug] [MainThread]: Resource report: {"command_name": "deps", "command_success": true, "command_wall_clock_time": 7.01419, "process_in_blocks": "2160", "process_kernel_time": 0.450273, "process_mem_max_rss": "113384", "process_out_blocks": "2696", "process_user_time": 2.472519}
+[0m07:23:03.626391 [debug] [MainThread]: Command `cli deps` succeeded at 07:23:03.626215 after 7.02 seconds
+[0m07:23:03.626880 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x711bd62448d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x711bdab38d90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x711bdab38e10>]}
+[0m07:23:03.627590 [debug] [MainThread]: Flushing usage events
+[0m07:23:04.841667 [debug] [MainThread]: An error was encountered while trying to flush usage events

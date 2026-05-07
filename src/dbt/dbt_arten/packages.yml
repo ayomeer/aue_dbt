@@ -3,8 +3,9 @@ packages:
     package: dbt-labs/dbt_utils
     version: 1.3.3
 
-  - git: https://github.com/ayomeer/dbt_ili_utils.git
-    revision: main
-
   - package: dbt-labs/audit_helper
     version: 0.13.0
+
+  - git: https://github.com/ayomeer/dbt_ili_utils.git
+    revision: main
+    # depends on dbt_utils
