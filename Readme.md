@@ -82,9 +82,12 @@ dbt deps
 
 ### PostGIS Container
 
-Using image: `postgis/postgis:17-3.5-alpine`
-- PostgreSQL version 17: Higher than version 16 that is used in production (backwards compatible)
+Using image: `postgis/postgis:16-3.5-alpine`
+- PostgreSQL version 16.13: Higher than version 16.10 that is used in production (backwards compatible)
+  - pg_dump version 16.13 
 - PostGIS version 3.5, same as production version 
+
+
 
 #### First Time Setup
 
@@ -102,7 +105,7 @@ docker rm postgis-container
 After running it with those flags that set up the user and setting up test and prod databases including target schemas, commit the container to the image used by vscode devcontainer setup: `postgres:dev`.
 
 > ℹ️ _**Note:**_ 
-For new databases created, postgis and uuid-ossp extensions need to be added: Right click on `Extensions` category in the pgAdmin browser pane.
+For new databases created, **postgis** and **uuid-ossp** extensions need to be added: Right click on `Extensions` category in the pgAdmin browser pane.
 
 #### Using the image in development/testing
 

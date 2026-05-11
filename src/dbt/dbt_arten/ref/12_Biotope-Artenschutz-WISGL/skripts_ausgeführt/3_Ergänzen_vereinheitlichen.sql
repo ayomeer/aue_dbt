@@ -14,21 +14,22 @@ WHERE (((rote_liste_status) Is Null) AND ((deutscher_name)='Grünes Gabelzahnmoo
 -- Rote Liste Status: Leere Zellen (NULL) von Tamarisken-Wassersackmoos werden mit "NT" gefüllt
 UPDATE prod_gl_arten.wis_artvorkommen SET rote_liste_status = 'NT'
 WHERE (((rote_liste_status) Is Null) AND ((deutscher_name)='Tamarisken-Wassersackmoos'));
-
+-- returns 0 records
 
 -- Rote Liste Status: Leere Zellen (NULL) von Hängemoos werden mit "LC" gefüllt
 UPDATE prod_gl_arten.wis_artvorkommen SET rote_liste_status = 'LC'
 WHERE (((rote_liste_status) Is Null) AND ((deutscher_name)='Hängemoos'));
-
+-- returns 0 records: LC already set in cat_art
 
 -- Schutzstatus CH der Barrenringelnatter anpassen
 UPDATE prod_gl_arten.wis_artvorkommen SET schutz_status_schweiz = '451.1/3' 
 WHERE deutscher_name='Barrenringelnatter';
-
+-- done
 
 -- Schutzstatus GL der Barrenringelnatter anpassen
 UPDATE prod_gl_arten.wis_artvorkommen SET schutz_status_kt_gl = 'ja'
 WHERE deutscher_name='Barrenringelnatter';
+-- done
 
 -- Namen änder Epipactis helleborine aggr
 UPDATE prod_gl_arten.wis_artvorkommen 

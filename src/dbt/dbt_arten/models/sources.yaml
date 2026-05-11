@@ -15,3 +15,8 @@ sources:
     tables:
       - name: imp_wisgl_besonderearten
 
+  - name: src_gl_besonderewaldarten 
+    database: "{{ target.database }}"
+    schema: gl_besonderewaldarten
+    tables:
+      - name: besonderearten
