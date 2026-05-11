@@ -10,6 +10,12 @@ with source as (
         {{ adapter.quote("name_lateinisch") }},
         {{ adapter.quote("id_art") }} as id_from_cat_arten, 
 
+        -- info that's mirrored in gl_besonderewaldarten.besonderearten
+        {{ adapter.quote("organismen") }} as organismengruppe,
+        {{ adapter.quote("schutz_ch") }},
+        {{ adapter.quote("schutz_gl") }},
+        {{ adapter.quote("roteliste") }},
+
         -- info that's mirrored in prod_gl_arten.artvorkommen_pt_gl
         {{ adapter.quote("radius") }},
         {{ adapter.quote("substrat") }},
