@@ -82890,3 +82890,64 @@ drop view if exists "test_db"."dbt_arten"."bdry_wisgl_export_transfer__dbt_backu
 [0m11:23:26.403441 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7641c6f1c9d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7641c6f1c890>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7641c232d150>]}
 [0m11:23:26.403976 [debug] [MainThread]: Flushing usage events
 [0m11:23:26.939105 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m12:01:49.066960 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c1be01f1710>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c1be01f1b50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c1be01f15d0>]}
+
+
+============================== 12:01:49.072371 | f2b06d52-614e-4370-b7e9-a70c5dbe56c4 ==============================
+[0m12:01:49.072371 [info ] [MainThread]: Running with dbt=1.11.7
+[0m12:01:49.072925 [debug] [MainThread]: running dbt with arguments {'use_colors': 'True', 'warn_error': 'None', 'log_cache_events': 'False', 'fail_fast': 'False', 'static_parser': 'True', 'introspect': 'True', 'profiles_dir': '/project/src/dbt/dbt_arten', 'cache_selected_only': 'False', 'write_json': 'True', 'partial_parse': 'True', 'empty': 'None', 'no_print': 'None', 'invocation_command': 'dbt ls', 'quiet': 'False', 'use_experimental_parser': 'False', 'printer_width': '80', 'send_anonymous_usage_stats': 'True', 'indirect_selection': 'eager', 'debug': 'False', 'version_check': 'True', 'log_format': 'default', 'target_path': 'None', 'log_path': '/project/src/dbt/dbt_arten/logs', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])'}
+[0m12:01:49.238756 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'f2b06d52-614e-4370-b7e9-a70c5dbe56c4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c1be1267950>]}
+[0m12:01:49.294650 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'f2b06d52-614e-4370-b7e9-a70c5dbe56c4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c1be01a8450>]}
+[0m12:01:49.295499 [info ] [MainThread]: Registered adapter: postgres=1.10.0
+[0m12:01:49.453183 [debug] [MainThread]: checksum: b80718358155fc17c3559352095564dd56ada1cc1a1c0ef2e62c857e71583775, vars: {}, profile: , target: , version: 1.11.7
+[0m12:01:49.573263 [info ] [MainThread]: Unable to do partial parsing because config vars, config profile, or config target have changed
+[0m12:01:49.573779 [debug] [MainThread]: previous checksum: b80718358155fc17c3559352095564dd56ada1cc1a1c0ef2e62c857e71583775, current checksum: 2ddaf4a546c8a3e00251bfb609c3582123551139dc2f7ac114787474a7dc9720
+[0m12:01:49.574116 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': 'f2b06d52-614e-4370-b7e9-a70c5dbe56c4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c1be12ed7d0>]}
+[0m12:01:50.707006 [info ] [MainThread]: Inserting into gl_besonderewaldarten.besonderearten with truncate_target=True
+[0m12:01:50.738983 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'experimental_parser', 'label': 'f2b06d52-614e-4370-b7e9-a70c5dbe56c4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c1bdf99d7d0>]}
+[0m12:01:51.214799 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'f2b06d52-614e-4370-b7e9-a70c5dbe56c4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c1bde19ea10>]}
+[0m12:01:51.305230 [debug] [MainThread]: Wrote artifact WritableManifest to /project/src/dbt/dbt_arten/target/manifest.json
+[0m12:01:51.307525 [debug] [MainThread]: Wrote artifact SemanticManifest to /project/src/dbt/dbt_arten/target/semantic_manifest.json
+[0m12:01:51.324256 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'f2b06d52-614e-4370-b7e9-a70c5dbe56c4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c1bde201d50>]}
+[0m12:01:51.324783 [info ] [MainThread]: Found 10 models, 18 data tests, 7 sources, 640 macros
+[0m12:01:51.325070 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'f2b06d52-614e-4370-b7e9-a70c5dbe56c4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c1bde093e90>]}
+[0m12:01:51.326026 [info ] [MainThread]: dbt_arten.3_boundary.bdry_wisgl_export
+[0m12:01:51.326324 [info ] [MainThread]: dbt_arten.3_boundary.bdry_wisgl_import
+[0m12:01:51.326562 [info ] [MainThread]: dbt_arten.0_info.info_vgl_art_catalogues
+[0m12:01:51.326784 [info ] [MainThread]: dbt_arten.2_intermediate.intr_wisgl_export
+[0m12:01:51.327003 [info ] [MainThread]: dbt_arten.2_intermediate.intr_wisgl_export_dedup
+[0m12:01:51.327221 [info ] [MainThread]: dbt_arten.src_test
+[0m12:01:51.327437 [info ] [MainThread]: dbt_arten.1_staging.stg_artvorkommen
+[0m12:01:51.327670 [info ] [MainThread]: dbt_arten.1_staging.stg_besondere_waldarten
+[0m12:01:51.327883 [info ] [MainThread]: dbt_arten.1_staging.stg_cat_art
+[0m12:01:51.328094 [info ] [MainThread]: dbt_arten.1_staging.stg_imp_wisgl_besonderearten
+[0m12:01:51.328337 [info ] [MainThread]: source:dbt_arten.src_dbt_arten.imp_wisgl_besonderearten
+[0m12:01:51.328593 [info ] [MainThread]: source:dbt_arten.src_gl_besonderewaldarten.besonderearten
+[0m12:01:51.328815 [info ] [MainThread]: source:dbt_arten.src_prod_gl_arten.artvorkommen_gl_pt
+[0m12:01:51.329027 [info ] [MainThread]: source:dbt_arten.src_prod_gl_arten.besondere_waldarten
+[0m12:01:51.329239 [info ] [MainThread]: source:dbt_arten.src_prod_gl_arten.bkp_artvorkommen
+[0m12:01:51.329451 [info ] [MainThread]: source:dbt_arten.src_prod_gl_arten.cat_art
+[0m12:01:51.329681 [info ] [MainThread]: source:dbt_arten.src_prod_gl_arten.orig_artvorkommen
+[0m12:01:51.329893 [info ] [MainThread]: dbt_arten.3_boundary.not_null_bdry_wisgl_export_finder
+[0m12:01:51.330101 [info ] [MainThread]: dbt_arten.3_boundary.not_null_bdry_wisgl_export_foerdermassnahmen
+[0m12:01:51.330312 [info ] [MainThread]: dbt_arten.3_boundary.not_null_bdry_wisgl_export_funddatum
+[0m12:01:51.330529 [info ] [MainThread]: dbt_arten.3_boundary.not_null_bdry_wisgl_export_genau
+[0m12:01:51.330738 [info ] [MainThread]: dbt_arten.3_boundary.not_null_bdry_wisgl_export_geometrie
+[0m12:01:51.330944 [info ] [MainThread]: dbt_arten.3_boundary.not_null_bdry_wisgl_export_hinzugefuegt_am
+[0m12:01:51.331152 [info ] [MainThread]: dbt_arten.3_boundary.not_null_bdry_wisgl_export_id_art
+[0m12:01:51.331361 [info ] [MainThread]: dbt_arten.3_boundary.not_null_bdry_wisgl_export_kantonsintern
+[0m12:01:51.331588 [info ] [MainThread]: dbt_arten.3_boundary.not_null_bdry_wisgl_export_name_d
+[0m12:01:51.331800 [info ] [MainThread]: dbt_arten.3_boundary.not_null_bdry_wisgl_export_name_lat
+[0m12:01:51.332008 [info ] [MainThread]: dbt_arten.3_boundary.not_null_bdry_wisgl_export_organismengruppe
+[0m12:01:51.332216 [info ] [MainThread]: dbt_arten.3_boundary.not_null_bdry_wisgl_export_radius
+[0m12:01:51.332422 [info ] [MainThread]: dbt_arten.3_boundary.not_null_bdry_wisgl_export_roteliste
+[0m12:01:51.332647 [info ] [MainThread]: dbt_arten.3_boundary.not_null_bdry_wisgl_export_schutz_ch
+[0m12:01:51.332856 [info ] [MainThread]: dbt_arten.3_boundary.not_null_bdry_wisgl_export_schutz_gl
+[0m12:01:51.333062 [info ] [MainThread]: dbt_arten.3_boundary.not_null_bdry_wisgl_export_substrat
+[0m12:01:51.333269 [info ] [MainThread]: dbt_arten.3_boundary.not_null_bdry_wisgl_export_t_basket
+[0m12:01:51.333474 [info ] [MainThread]: dbt_arten.3_boundary.not_null_bdry_wisgl_export_verwaltungsintern
+[0m12:01:51.334297 [debug] [MainThread]: Resource report: {"command_name": "list", "command_success": true, "command_wall_clock_time": 2.314757, "process_in_blocks": "32", "process_kernel_time": 0.395851, "process_mem_max_rss": "128420", "process_out_blocks": "3112", "process_user_time": 3.834558}
+[0m12:01:51.334694 [debug] [MainThread]: Command `dbt ls` succeeded at 12:01:51.334622 after 2.32 seconds
+[0m12:01:51.335010 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c1be4e68550>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c1be4e68410>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c1bdf949bd0>]}
+[0m12:01:51.335304 [debug] [MainThread]: Flushing usage events
+[0m12:01:52.289763 [debug] [MainThread]: An error was encountered while trying to flush usage events
