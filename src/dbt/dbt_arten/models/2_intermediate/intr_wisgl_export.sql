@@ -41,7 +41,7 @@ with union_cte as (
       WHEN f.kantonsintern IS NULL THEN false
       ELSE f.kantonsintern
     END as kantonsintern,
-      date('now') as hinzugefuegt_am,
+      f.dat_hinzugefuegt_am as hinzugefuegt_am,
       c.id_art,
       ST_SetSRID(ST_Point(f.e,f.n),2056) as geometrie,
       f.bemerkungen, 
@@ -126,7 +126,7 @@ with union_cte as (
       WHEN f.kantonsintern IS NULL THEN false
       ELSE f.kantonsintern
         END as kantonsintern,
-        date('now') as hinzugefuegt_am,
+    f.dat_hinzugefuegt_am as hinzugefuegt_am,
     CASE 
       WHEN w.name_lateinisch = 'Formica cf lugubris' THEN 25288
       WHEN w.name_lateinisch = 'Formica cf. lugubris' THEN 25288

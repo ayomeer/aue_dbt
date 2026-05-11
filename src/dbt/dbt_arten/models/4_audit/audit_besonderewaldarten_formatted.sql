@@ -4,6 +4,11 @@
 
 SELECT 
   row_number() over() as fid,
+  CASE 
+    WHEN dbt_audit_in_a THEN 'old row'
+    WHEN dbt_audit_in_b THEN 'new row'
+    ELSE 'error'
+  END as row_shown,
 	*
 FROM {{ ref('audit_besonderewaldarten') }}
 ORDER BY 
