@@ -21,7 +21,15 @@
 
 -- Reset 't_ili2db_seq' in target schema
 {% macro reset_ili_sequence(schema_name) -%}
-  ALTER SEQUENCE {{schema_name}}.t_ili2db_seq RESTART WITH 1;
+  
+  {% if execute %}
+    {{ log("Restarting " ~ schema_name ~ ".t_ili2db_seq with 1", info=True) }}
+
+    {% set sql_query %}
+      ALTER SEQUENCE {{schema_name}}.t_ili2db_seq RESTART WITH 1;
+    {% endset%}
+    {% do run_query(sql_query) %}
+  {% endif %}
 {%- endmacro %}
 
 
@@ -148,6 +156,8 @@
     -- Populate basket table
     {{ ili_utils.setup_baskets(schema_name) }}
   {% endif %}
+
+  SELECT 1 -- temporary fix for "cannot execute empty sql query"
 {%- endmacro %}
 
 
