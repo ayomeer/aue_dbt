@@ -41,7 +41,8 @@ Testing environment for dbt + PostgreSQL.
       - [dbt Flow Lineage Extension](#dbt-flow-lineage-extension)
   - [Docs](#docs)
   - [Importing Schemas to localhost DB](#importing-schemas-to-localhost-db)
-  - [Troubleshooting](#troubleshooting)
+- [git releases for windmill](#git-releases-for-windmill)
+- [Troubleshooting](#troubleshooting)
       - [There are problems highlighted (often in dbt_project.yml) that I've already solved.](#there-are-problems-highlighted-often-in-dbt_projectyml-that-ive-already-solved)
       - [PostgreSQL Permission Gotchas](#postgresql-permission-gotchas)
   - [TODO](#todo)
@@ -312,7 +313,23 @@ dbt docs serve --port 0
 3) import on localhost DB by right clicking **database** (not schema) and choosing 'Restore...' or using command line (on host): `psql -h localhost -p 5432 -U postgres -d test_db -f prod_gl_biotope_20260402.sql`
 
 
-## Troubleshooting
+# git releases for windmill
+
+1) Add dbt_packages to git source
+2) Commit
+3) Add release tag
+4) Explicitly push tag (not pushed with regular push command)
+
+
+Commands:
+```bash
+git add -f src/dbt/dbt_arten/dbt_packages 
+git commit -m "wmill release commit"
+git tag wmill_release_v0.0.2 
+git push origin wmill_release_v0.0.2
+```
+
+# Troubleshooting
 
 #### There are problems highlighted (often in dbt_project.yml) that I've already solved.
 Try running `dbt compile` + Command Palette > Reload Window 
