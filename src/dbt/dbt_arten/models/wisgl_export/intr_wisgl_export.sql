@@ -44,7 +44,7 @@ with union_cte as (
     END as kantonsintern,
       f.dat_hinzugefuegt_am as hinzugefuegt_am,
       c.id_art,
-      ST_SetSRID(ST_Point(f.e,f.n),2056) as geometrie,
+      geometrie,
       f.bemerkungen, 
       true as status, 
       f.fotos, 
@@ -140,7 +140,7 @@ with union_cte as (
       WHEN w.name_lateinisch = 'Formica rufa x polyctena' THEN 86730
       WHEN w.name_lateinisch = 'Formica sensu stricto' THEN 108121
     END as id_art, 
-    ST_SetSRID(ST_Point(f.e,f.n),2056) as geometrie,
+    geometrie,
     f.bemerkungen, 
     true as status, 
     f.fotos, 
