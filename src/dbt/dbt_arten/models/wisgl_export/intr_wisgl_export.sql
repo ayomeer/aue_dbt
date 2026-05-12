@@ -1,5 +1,6 @@
 -- Script by Peter Zopfi integrated into dbt wholesale. Might be reworked later.
 with union_cte as (
+  -- alles ausser waldameisen
   SELECT 
     w.name_lateinisch,
     w.name_deutsch,
@@ -72,6 +73,7 @@ with union_cte as (
 
   UNION
 
+  -- waldameisen
   SELECT 
     CASE 
       WHEN w.name_lateinisch = 'Formica cf lugubris' THEN 'Formica lugubris'
@@ -156,7 +158,6 @@ with union_cte as (
     END as substrat,
     f.ext_herkunft,
     f.last_modified
-
 
   FROM {{ ref('stg_artvorkommen') }}  as f 
   join {{ ref('stg_besondere_waldarten') }} as w 

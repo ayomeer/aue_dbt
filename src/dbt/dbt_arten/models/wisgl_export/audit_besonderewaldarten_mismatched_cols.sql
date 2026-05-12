@@ -1,3 +1,7 @@
+{{ config(
+  enabled=var("enable_audits", false)
+)}}
+
 
 {% set cols_to_compare = [
 'id_art',

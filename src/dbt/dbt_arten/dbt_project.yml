@@ -23,13 +23,6 @@ clean-targets:
   - "target"
   - "dbt_packages"
 
-
-models:
-  dbt_arten:
-    4_audit:
-      +enabled: '{{var("enable_audits", false)}}'
-
-
 vars:
   # ili setup
   datasets:

@@ -1,3 +1,6 @@
+{{ config(
+  enabled=var("enable_audits", false)
+)}}
 
 SELECT 
   row_number() over() as fid,
