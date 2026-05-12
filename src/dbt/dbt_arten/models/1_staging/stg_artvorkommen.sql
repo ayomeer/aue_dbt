@@ -29,7 +29,7 @@ with source as (
         {{ adapter.quote("dat_hinzugefuegt_am") }}, -- automatically set by trigger function
         {{ adapter.quote("e") }}, -- automatically set by trigger function from geom
         {{ adapter.quote("n") }}, -- automatically set by trigger function from geom
-        ST_Transform({{ adapter.quote("geometrie") }}, 2056) as geometrie,
+        {{ adapter.quote("geometrie") }},
         -- 19 cols
 
         -- other columns

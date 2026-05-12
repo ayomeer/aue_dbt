@@ -8,7 +8,7 @@ with source as (
         -- info related to cat_art
         {{ adapter.quote("name_deutsch") }},
         {{ adapter.quote("name_lateinisch") }},
-        {{ adapter.quote("id_art") }} as id_from_cat_arten, 
+        {{ adapter.quote("id_art") }}, 
 
         -- info that's mirrored in gl_besonderewaldarten.besonderearten
         {{ adapter.quote("organismen") }} as organismengruppe,
@@ -25,10 +25,10 @@ with source as (
         {{ adapter.quote("hinzugefuegt_am") }},
         {{ adapter.quote("kantonsint") }}::boolean as kantonsintern,
         {{ adapter.quote("verwaltung") }}::boolean as verwaltungsintern,
-        {{ adapter.quote("status") }}::boolean as biotopstatus,
+        {{ adapter.quote("status") }}::boolean,
         {{ adapter.quote("bemerkungen") }},
         {{ adapter.quote("fotos") }},
-        {{ adapter.quote("genau") }}::boolean as genauigkeit_ausreichend,
+        {{ adapter.quote("genau") }}::boolean,
         {{ adapter.quote("x_koord") }},
         {{ adapter.quote("y_koord") }},
         {{ adapter.quote("geometry") }} as geometrie

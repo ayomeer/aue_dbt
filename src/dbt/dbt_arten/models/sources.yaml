@@ -1,4 +1,5 @@
 sources:
+  # schema to build transformations around
   - name: src_prod_gl_arten
     database: "{{ target.database }}"
     schema: prod_gl_arten
@@ -8,13 +9,15 @@ sources:
       - name: cat_art
       - name: bkp_artvorkommen # pre wald geopackge upsert
       - name: orig_artvorkommen
-    
+
+  # input imported into DB from geopackage  
   - name: src_dbt_arten
     database: "{{ target.database }}"
     schema: dbt_arten
     tables:
       - name: imp_wisgl_besonderearten
 
+  # output target for wisgl_export
   - name: src_gl_besonderewaldarten 
     database: "{{ target.database }}"
     schema: gl_besonderewaldarten
