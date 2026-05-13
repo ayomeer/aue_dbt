@@ -24,7 +24,7 @@ verwaltungsintern,
 astatus as status,
 bemerkungen,
 fotos,
-geometrie,
+ST_AsEWKB(geometrie)::varchar as geometrie,
 i.audit_link_id 
 FROM {{ ref('stg_besonderearten') }} as new
 LEFT JOIN {{ ref('stg_audit_id_relations') }} as i
