@@ -23,7 +23,7 @@ SELECT
   status,
   bemerkungen,
   fotos,
-  ST_AsEWKB(geometrie) as geometrie,
+  geometrie,
   i.audit_link_id
 FROM {{ ref('stg_imp_wisgl_besonderearten') }} as old
 LEFT JOIN {{ ref('stg_audit_id_relations') }} as i
