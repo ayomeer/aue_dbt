@@ -20,7 +20,7 @@
   {% set return_cols = [] %}
 
   {% for col in col_list %}
-    {% do return_cols.append(col ~ "[1] <> " ~ col ~ "[2] as mismatch_" ~ col) %}
+    {% do return_cols.append(col ~ "[1] is distinct from " ~ col ~ "[2] as mismatch_" ~ col) %}
   {% endfor %}
 
   {{ return(
