@@ -1,4 +1,4 @@
-Welcome to your new dbt project!
+
 # prod_gl_arten
 
 ## Important to know about prod_gl_arten
@@ -51,4 +51,11 @@ Welcome to your new dbt project!
 **deliver dataset to Daniel**
 - [x] re-compute wis_artvorkommen table with now updated artvorkommen_gl_pt 
 - [x] do last renaming tasks in PZ Skript NR.3
-- [ ] set up
+- [x] fix foerdermassnahmen being clipped
+  - [x] fixed foerdermassnahmen that were imported incorrectly
+  - [x] checked, that all 79 remaining foerdermassnahmen mismatches stem from string from being shorter in _geopackage_ (`row_shown=old`)
+- [ ] check other column changes
+
+
+**optimization after pressing issues are done**
+- [ ] refactor to use tags instead of variables that enable/disable models
