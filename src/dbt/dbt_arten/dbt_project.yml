@@ -23,6 +23,11 @@ clean-targets:
   - "target"
   - "dbt_packages"
 
+models:
+  dbt_arten:
+    +grants:
+      select: ['prod_gl_arten_read']
+
 vars:
   # ili setup
   datasets:
