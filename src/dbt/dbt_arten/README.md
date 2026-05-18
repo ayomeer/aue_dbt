@@ -54,8 +54,9 @@
 - [x] fix foerdermassnahmen being clipped
   - [x] fixed foerdermassnahmen that were imported incorrectly
   - [x] checked, that all 79 remaining foerdermassnahmen mismatches stem from string from being shorter in _geopackage_ (`row_shown=old`)
-- [ ] check other column changes
+- [x] check other column changes
 
 
 **optimization after pressing issues are done**
 - [ ] refactor to use tags instead of variables that enable/disable models
+  - makes them show up in lineage viewer and docs
