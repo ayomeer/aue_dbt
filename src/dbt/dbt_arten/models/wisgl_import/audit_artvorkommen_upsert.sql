@@ -7,7 +7,7 @@
 {% set artvorkommen_old %}
   select
     *
-  from {{source('src_prod_gl_arten', 'bkp_artvorkommen')}}
+  from {{source('src_dbt_arten', 'old_artvorkommen_gl_pt')}}
 {% endset %}
 
 {% set artvorkommen_new %}

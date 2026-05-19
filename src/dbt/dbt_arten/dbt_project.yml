@@ -28,6 +28,9 @@ models:
     +grants:
       select: ['prod_gl_arten_read']
 
+    wisgl_export:
+      tags: wisgl_export
+
 vars:
   # ili setup
   datasets:

@@ -343,12 +343,13 @@ Try running `dbt compile` + Command Palette > Reload Window
 
 ## TODO
 
-- Look up how(/if) `_catref` tables are meant to be filled
-- Python script to create b_<target_table_name> models including datatypes from pg information_schema
+- [ ] Look up how(/if) `_catref` tables are meant to be filled
+- [ ] Python script to create boundary models including datatypes from pg information_schema
 
-- Custom version of dbt init
+- [ ] Custom version of dbt init
   - generate dbt_project.yml template with
     - templates for datasets and baskets
   - generate profiles.yml in dbt project root
     - profile name matching profile set in dbt_project.yml
+  - models structure with tagging set up (if we end up going that route)
 

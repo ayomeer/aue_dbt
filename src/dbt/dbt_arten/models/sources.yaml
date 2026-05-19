@@ -7,8 +7,8 @@ sources:
       - name: artvorkommen_gl_pt
       - name: besondere_waldarten
       - name: cat_art
-      - name: bkp_artvorkommen # pre wald geopackge upsert
-      - name: orig_artvorkommen
+
+
 
   # input imported into DB from geopackage  
   - name: src_dbt_arten
@@ -16,6 +16,7 @@ sources:
     schema: dbt_arten
     tables:
       - name: imp_wisgl_besonderearten
+      - name: old_artvorkommen_gl_pt
 
   # output target for wisgl_export
   - name: src_gl_besonderewaldarten 
