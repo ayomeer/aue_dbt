@@ -23,4 +23,4 @@ SELECT
 	bemerkungen,
 	fotos, 
 	geometrie
-FROM {{ ref('intr_wisgl_export_dedup') }}
+FROM {{ ref('deduplicate') }}

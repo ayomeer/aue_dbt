@@ -9,4 +9,4 @@
     )}}'
 ) }}
 
-SELECT * FROM {{ ref('bdry_wisgl_import') }}
+SELECT * FROM {{ ref('mirrormodel_prod_gl_arten_artvorkommen_gl_pt') }}

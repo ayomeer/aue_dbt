@@ -57,8 +57,16 @@
 - [x] check other column changes
 
 
+**fix missing id_art in artvorkommen**
+- [ ] create update job to write cat_art based on art_wiss
+  - make id_art NOT NULL once cleaned up
+- [ ] run job on prod
+
+
 **optimization after pressing issues are done**
 - [ ] refactor to decouple audits from transfer models, create new graph starting from sources for audits
 - [ ] refactor to use tags instead of variables that enable/disable models
   - makes them show up in lineage viewer and docs
 - [ ] address issues that were observed when going through export process.
+- [ ] rename job models to be more descriptive
+- [ ] add descriptions to models

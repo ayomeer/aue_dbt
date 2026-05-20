@@ -27,10 +27,25 @@ models:
   dbt_arten:
     +grants:
       select: ['prod_gl_arten_read']
+  
+  # tags mirroring models dir structure
+    audits:
+      staging:
+        tags: audit_staging
+      wisgl_export:
+        tags: audit_wisgl_export
+      wisgl_import:
+        tags: audit_wisgl_import
 
     transformations:
+      staging:
+        tags: staging
       wisgl_export:
         tags: wisgl_export
+      wisgl_import:
+        tags: wisgl_import
+
+
 
 vars:
   # ili setup

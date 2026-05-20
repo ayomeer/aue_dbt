@@ -10,4 +10,4 @@
   ]
 )}}
 
-SELECT * FROM {{ ref('bdry_wisgl_export') }}
+SELECT * FROM {{ ref('mirrormodel_gl_besonderewaldarten_besonderearten') }}

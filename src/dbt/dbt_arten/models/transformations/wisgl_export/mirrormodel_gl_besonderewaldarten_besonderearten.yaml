@@ -1,5 +1,5 @@
 models:
-  - name: bdry_wisgl_export
+  - name: mirrormodel_gl_besonderewaldarten_besonderearten
     columns:
       - name: t_basket
         data_type: integer
