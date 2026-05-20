@@ -1,6 +1,6 @@
 {# This model describes alpquellen objects, which are very close to
 access_objektdaten objects and are thus assumed to be the same real-world
-object. The MGDM-information contained within these objects are to be merged
+object. The MGDM-information contained within these objects are merged
 into access_objektdaten objects, whereas alpquellen information takes 
 priority over access_objektdaten information 
 (COALESCE(alpquellen_column, access_objektdaten_column ))  #}

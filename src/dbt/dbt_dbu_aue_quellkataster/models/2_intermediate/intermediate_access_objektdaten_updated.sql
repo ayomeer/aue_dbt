@@ -1,10 +1,13 @@
 {# this model represents access_objektdaten, where  #}
 
 {# create buffer around access objects #}
+
+{% set buffer_radius = 5 %}
+
 WITH access_with_buffer AS (
   SELECT 
     access.*,
-    ST_buffer(geometrie, 10, 16) as buffer_10m
+    ST_buffer(geometrie, {{buffer_radius}}, 16) as buffer_geom
   FROM {{ ref('intermediate_access_objektdaten') }} as access
 )
 
