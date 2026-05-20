@@ -22,6 +22,7 @@ Testing environment for dbt + PostgreSQL.
   - [Connecting pgAdmin to postgres Server](#connecting-pgadmin-to-postgres-server)
 - [dbt](#dbt)
   - [Setting up dbt Core Project](#setting-up-dbt-core-project)
+    - [Model Directory Structure](#model-directory-structure)
     - [Setting up dbt schema](#setting-up-dbt-schema)
   - [dbt Workflow](#dbt-workflow)
     - [Transformation Layers](#transformation-layers)
@@ -131,6 +132,24 @@ pw: postgres
 Open the project within the dbt devcontainer and run
 ```
 dbt init
+```
+
+### Model Directory Structure
+
+In the `models` directory, we differentiate between `transformations` and `audits`. Transformations being the models concerned with doing the main data transformation work, and audits being models that offer observability to the changes made by those transformations.
+Inside each of those categories, models are grouped into `staging` or the job they belong to (`export` and `import` in the example below). A staging model is one that takes an external source and normalizes it with regards to column names and data types, preparing it for use in the job-specific models. 
+
+
+``` 
+models
+├── audits
+|   ├── audit_staging
+|   ├── export
+|   └── import
+└── transformations
+    ├── staging
+    ├── export
+    └── import
 ```
 
 ### Setting up dbt schema

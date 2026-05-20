@@ -8,7 +8,7 @@
 
 ## Pipelines
 
-### WISGL Datensynchronisation
+### WISGL Data Synchronization
 
 1) Update `prod_gl_arten.artvorkommen_gl_pt` with data from `besonderewaldarten.besonderearten`
 2) Re-compute `prod_gl_arten.wis_artvorkommen`
@@ -19,15 +19,15 @@
   - `artvorkommen_gl_pt`
   - `cat_art`
 
-- `besonderewaldarten.besonderearten` 
+- `imp_wisgl_besonderewaldarten`
 
 **target tables**:
-- `prod_gl_arten.wis_artvorkommen`
+- `gl_besonderewaldarten.besonderearten`: This is where dept. Wald 
 
 
 #### Upsert Strategy
 
-- Match on (geometrie, funddatum, art_wiss) composite key
+- Match on (geometrie, funddatum, id_art) composite key
 - If updating, don't overwrite the following columns:
   - ext_herkunft, ext_label, copyright
 
@@ -58,5 +58,7 @@
 
 
 **optimization after pressing issues are done**
+- [ ] refactor to decouple audits from transfer models, create new graph starting from sources for audits
 - [ ] refactor to use tags instead of variables that enable/disable models
   - makes them show up in lineage viewer and docs
+- [ ] address issues that were observed when going through export process.

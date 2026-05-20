@@ -1,11 +1,3 @@
--- depends_on: {{ ref('bdry_wisgl_export_transfer') }}
-
-{{ config(
-  materialized='table',
-  enabled=var("enable_audits", false)
-)}}
-
-
 
 {% set besonderearten_old %}
   select

@@ -1,8 +1,6 @@
--- depends_on: {{ ref('bdry_wisgl_export_transfer') }}
 
 {{ config(
-  materialized='table',
-  enabled=var("enable_audits", false)
+  materialized='table'
 )}}
 
 

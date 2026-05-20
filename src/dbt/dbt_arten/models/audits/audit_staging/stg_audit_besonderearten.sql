@@ -1,7 +1,3 @@
-{{ config(
-  enabled=var("enable_audits", false)
-)}}
-
 
 SELECT
 id,
