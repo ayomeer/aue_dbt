@@ -1,5 +1,6 @@
 models:
   - name: mirrormodel_gl_besonderewaldarten_besonderearten
+    description: Mirrors INTERLIS target table gl_besonderewaldarten.besonderearten with regards to column names and data types.
     columns:
       - name: t_basket
         data_type: integer

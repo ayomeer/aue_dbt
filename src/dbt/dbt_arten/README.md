@@ -62,6 +62,7 @@
   - make id_art NOT NULL once cleaned up
 - [ ] run job on prod
 
+**check removed duplicates on art_wiss again**
 
 **optimization after pressing issues are done**
 - [ ] refactor to decouple audits from transfer models, create new graph starting from sources for audits

@@ -2,6 +2,8 @@
 -- Rank audit rows by string length of foerdermassnahmen column
 -- and filter for those, where the new row is shorter than old one.
 
+{{ config(tags=['audit_wisgl_export']) }}
+
 with rank_cte AS (
 	SELECT 
 		dbt_audit_surrogate_key,
