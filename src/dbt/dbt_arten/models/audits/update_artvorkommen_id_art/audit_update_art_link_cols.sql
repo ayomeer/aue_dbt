@@ -11,6 +11,6 @@
 {{ audit_helper.compare_all_columns(
     a_relation = old,
     b_relation = current,
-    exclude_columns=['geometrie'] 
+    exclude_columns=['geometrie'],
     primary_key = 'gid'
 ) }}
