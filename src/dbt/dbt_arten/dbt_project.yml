@@ -30,20 +30,20 @@ models:
   
   # tags mirroring models dir structure
     audits:
-      staging:
-        tags: audit_staging
       wisgl_export:
-        tags: audit_wisgl_export
+        +tags: audit_wisgl_export
       wisgl_import:
-        tags: audit_wisgl_import
+        +tags: audit_wisgl_import
+      update_artvorkommen_id_art:
+        +tags: audit_update_artvorkommen_id_art
 
     transformations:
-      staging:
-        tags: staging
       wisgl_export:
-        tags: wisgl_export
+        +tags: wisgl_export
       wisgl_import:
-        tags: wisgl_import
+        +tags: wisgl_import
+      update_artvorkommen_id_art:
+        +tags: update_artvorkommen_id_art
 
 
 

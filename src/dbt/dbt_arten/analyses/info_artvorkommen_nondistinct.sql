@@ -1,3 +1,8 @@
+-- This query returns artvorkommen_gl_pt objects, which are not distinct from
+-- every other one based on the composite key (geometrie, funddatum, 
+-- id_from_cat_arten). This is primarily a result of id_from_cat_arten being 
+-- null instead of containing the id corresponding to the species described in
+-- the columns art_deutsch and art_wiss.
 
 WITH nondistinct as (
   SELECT 

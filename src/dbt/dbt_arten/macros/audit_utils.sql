@@ -28,3 +28,8 @@
     | join(',\n')
   )}}
 {%- endmacro %}
+
+
+{% macro get_datetime_string() -%}
+  {{ run_started_at.astimezone(modules.pytz.timezone("Europe/Zurich")).strftime('%Y-%m-%d %H:%M:%S') }}
+{%- endmacro%}

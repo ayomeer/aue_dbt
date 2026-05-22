@@ -58,11 +58,13 @@
 
 
 **fix missing id_art in artvorkommen**
-- [ ] create update job to write cat_art based on art_wiss
-  - make id_art NOT NULL once cleaned up
-- [ ] run job on prod
+This will make it so deduplication logic is consistent across artvorkommen and export script and there will be less to no diff. There may also be more objects in export after this.
+- [x] create update job to write id_art based on art_wiss
+  - This doesn't affect wisgl export
+  - [ ] run job on prod
+- [ ] check deduplication loss in wisgl_export
+  - it's because PZ's script manually assigns id_art based on latin names.
 
-**check removed duplicates on art_wiss again**
 
 **optimization after pressing issues are done**
 - [ ] refactor to decouple audits from transfer models, create new graph starting from sources for audits
