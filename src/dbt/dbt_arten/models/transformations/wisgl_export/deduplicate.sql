@@ -3,5 +3,5 @@
 
 SELECT DISTINCT ON (geometrie, funddatum, id_art)
 	*
-FROM {{ ref('extract_and_reformat_waldarten') }}
+FROM {{ ref('union_besondere_arten') }}
 ORDER BY geometrie, funddatum, id_art, id DESC 
