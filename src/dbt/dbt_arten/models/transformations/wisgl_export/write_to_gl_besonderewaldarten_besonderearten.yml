@@ -1,0 +1,46 @@
+models:
+  - name: write_to_gl_besonderewaldarten_besonderearten
+    description: Transfer Model. Beschreibt gl_besonderewaldarten.besonderearten neu mit den Werten aus dem vorhergehenden mirrormodel.
+    columns:
+      - name: t_basket
+        data_type: integer
+      - name: id_art
+        data_type: integer
+      - name: name_d
+        data_type: character varying
+      - name: name_lat
+        data_type: character varying
+      - name: organismengruppe
+        data_type: character varying
+      - name: schutz_ch
+        data_type: character varying
+      - name: schutz_gl
+        data_type: character varying
+      - name: roteliste
+        data_type: character varying
+      - name: radius
+        data_type: numeric
+      - name: genau
+        data_type: boolean
+      - name: substrat
+        data_type: character varying
+      - name: foerdermassnahmen
+        data_type: text
+      - name: finder
+        data_type: character varying
+      - name: funddatum
+        data_type: date
+      - name: hinzugefuegt_am
+        data_type: date
+      - name: kantonsintern
+        data_type: boolean
+      - name: verwaltungsintern
+        data_type: boolean
+      - name: astatus
+        data_type: boolean
+      - name: bemerkungen
+        data_type: text
+      - name: fotos
+        data_type: text
+      - name: geometrie
+        data_type: user-defined

@@ -1,0 +1,50 @@
+models:
+  - name: union_besondere_arten
+    description: Zusammenführen der besonderen Waldarten.
+    columns:
+      - name: id
+        data_type: bigint
+      - name: name_lateinisch
+        data_type: character varying
+      - name: name_deutsch
+        data_type: character varying
+      - name: organismengruppe
+        data_type: character varying
+      - name: schutz_status_schweiz
+        data_type: character varying
+      - name: schutz_status_kt_gl
+        data_type: character varying
+      - name: rote_liste_status
+        data_type: character varying
+      - name: radius
+        data_type: numeric
+      - name: genau
+        data_type: boolean
+      - name: foerdermassnahmen
+        data_type: text
+      - name: verwaltungsintern
+        data_type: boolean
+      - name: kantonsintern
+        data_type: boolean
+      - name: hinzugefuegt_am
+        data_type: date
+      - name: id_art
+        data_type: integer
+      - name: geometrie
+        data_type: user-defined
+      - name: bemerkungen
+        data_type: text
+      - name: status
+        data_type: boolean
+      - name: fotos
+        data_type: text
+      - name: finder
+        data_type: character varying
+      - name: funddatum
+        data_type: date
+      - name: substrat
+        data_type: character varying
+      - name: ext_herkunft
+        data_type: character varying
+      - name: last_modified
+        data_type: date
