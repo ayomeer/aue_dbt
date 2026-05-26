@@ -5,19 +5,10 @@ with union_cte as (
     w.name_lateinisch,
     w.name_deutsch,
     w.organismengruppe, 
-    CASE
-      WHEN c.schutz_ch IS NULL THEN 'nicht geschuetzt'
-      ELSE c.schutz_ch 
-    END as schutz_status_schweiz,
-    CASE
-      WHEN c.schutz_gl IS NULL THEN 'nicht geschuetzt'
-      ELSE c.schutz_gl 
-    END as schutz_status_kt_gl,
+    COALESCE(c.schutz_ch, 'nicht geschuetzt') as schutz_status_schweiz,
+    COALESCE(c.schutz_gl, 'nicht geschuetzt') as schutz_status_kt_gl,
     c.rl_status as rote_liste_status, 
-    CASE
-      WHEN f.radius IS NULL THEN 9999
-      ELSE f.radius
-    END as radius, 
+    COALESCE(f.radius, 9999) as radius,
     CASE
       WHEN w.organismengruppe = 'Amphibien' and f.radius > 100 THEN false
       WHEN w.organismengruppe = 'Blütenpflanzen' and f.radius > 100 THEN false
@@ -34,31 +25,19 @@ with union_cte as (
       ELSE true
     END as genau, 
     w.foerdermassnahmen as foerdermassnahmen,
-    CASE
-      WHEN f.verwaltungsintern IS NULL THEN true
-      ELSE f.verwaltungsintern
-    END as verwaltungsintern,
-    CASE 
-      WHEN f.kantonsintern IS NULL THEN false
-      ELSE f.kantonsintern
-    END as kantonsintern,
-      f.dat_hinzugefuegt_am as hinzugefuegt_am,
-      c.id_art,
-      geometrie,
-      f.bemerkungen, 
-      true as status, 
-      f.fotos, 
-  CASE
-    WHEN f.finder IS NULL THEN 'keine Angabe'
-    ELSE f.finder
-      END as finder, 
-      f.funddatum, 
-      CASE
-    WHEN f.substrat IS NULL THEN 'keine Angabe'
-    ELSE f.substrat
-  END as substrat,
-  f.ext_herkunft,
-  f.last_modified
+    COALESCE(f.verwaltungsintern, true) as verwaltungsintern,
+    COALESCE(f.kantonsintern, false) as kantonsintern,
+    f.dat_hinzugefuegt_am as hinzugefuegt_am,
+    c.id_art,
+    geometrie,
+    f.bemerkungen, 
+    true as status, 
+    f.fotos, 
+    COALESCE(f.finder, 'keine Angabe') as finder,
+    f.funddatum, 
+    COALESCE(f.substrat, 'keine Angabe') as substrat,
+    f.ext_herkunft,
+    f.last_modified
 
 
   FROM {{ ref('stg_artvorkommen') }}  as f 
@@ -111,23 +90,14 @@ with union_cte as (
       WHEN w.name_lateinisch = 'Formica rufa x polyctena' THEN 'NT'
       WHEN w.name_lateinisch = 'Formica sensu stricto' THEN 'kA'
     END as rote_liste_status,
-        CASE
-      WHEN f.radius IS NULL THEN 9999
-      ELSE f.radius
-        END as radius, 
-        CASE
+    COALESCE(f.radius, 9999) as radius,
+    CASE
       WHEN f.radius > 50 THEN false	
-    ELSE true
-        END as genau, 
-        w.foerdermassnahmen as foerdermassnahmen,
-        CASE
-      WHEN f.verwaltungsintern IS NULL THEN true
-      ELSE f.verwaltungsintern
-        END as verwaltungsintern,
-        CASE 
-      WHEN f.kantonsintern IS NULL THEN false
-      ELSE f.kantonsintern
-        END as kantonsintern,
+      ELSE true
+    END as genau, 
+    w.foerdermassnahmen as foerdermassnahmen,
+    COALESCE(f.verwaltungsintern, true) as verwaltungsintern,
+    COALESCE(f.kantonsintern, false) as kantonsintern,
     f.dat_hinzugefuegt_am as hinzugefuegt_am,
     CASE 
       WHEN w.name_lateinisch = 'Formica cf lugubris' THEN 25288
@@ -144,18 +114,12 @@ with union_cte as (
     f.bemerkungen, 
     true as status, 
     f.fotos, 
-    CASE
-      WHEN f.finder IS NULL THEN 'keine Angabe'
-      ELSE f.finder
-    END as finder, 
+    COALESCE(f.finder, 'keine Angabe') as finder,
     CASE 
       WHEN f.finder = 'Ruedi Zimmermann' and f.funddatum is NULL THEN '1.1.2019'
       ELSE f.funddatum
-      END as funddatum, 
-    CASE
-      WHEN f.substrat IS NULL THEN 'keine Angabe'
-      ELSE f.substrat
-    END as substrat,
+    END as funddatum, 
+    COALESCE(f.substrat, 'keine Angabe') as substrat,
     f.ext_herkunft,
     f.last_modified
 
