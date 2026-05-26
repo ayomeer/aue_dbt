@@ -15,7 +15,7 @@ SELECT
     WHEN w.name_lateinisch = 'Formica cf. lugubris' THEN'Starkbeborstete Gebirgswaldameise'
     WHEN w.name_lateinisch = 'Formica lugubris' THEN 'Starkbeborstete Gebirgswaldameise'
     WHEN w.name_lateinisch = 'Formica paralugubris' THEN 'Kurzbeborstete Gebirgswaldameise'
-    WHEN w.name_lateinisch ='Formica polyctena' THEN 'Kahlrücke Waldameise'
+    WHEN w.name_lateinisch = 'Formica polyctena' THEN 'Kahlrücke Waldameise'
     WHEN w.name_lateinisch = 'Formica rufa' THEN 'Rote Waldameise'
     WHEN w.name_lateinisch = 'Formica rufa, Gruppe' THEN 'Rote Waldameise'
     WHEN w.name_lateinisch = 'Formica rufa x polyctena' THEN 'Rote Waldameise'
