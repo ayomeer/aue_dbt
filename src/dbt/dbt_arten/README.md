@@ -77,4 +77,4 @@ This will make it so deduplication logic is consistent across artvorkommen and e
 - [x] rename job models to be more descriptive
 - [x] add descriptions to models
   - re-deploy docs to netlify page
-- [ ] Create custom docs overview page
+- [x] Create custom docs overview page
