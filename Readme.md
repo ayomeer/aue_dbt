@@ -371,4 +371,5 @@ Try running `dbt compile` + Command Palette > Reload Window
   - generate profiles.yml in dbt project root
     - profile name matching profile set in dbt_project.yml
   - models structure with tagging set up (if we end up going that route)
+  - Custom `models/overview.md` template for docs
 

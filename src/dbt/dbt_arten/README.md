@@ -61,15 +61,20 @@
 This will make it so deduplication logic is consistent across artvorkommen and export script and there will be less to no diff. There may also be more objects in export after this.
 - [x] create update job to write id_art based on art_wiss
   - This doesn't affect wisgl export
-  - [ ] run job on prod
-- [ ] check deduplication loss in wisgl_export
+  - [x] run job on prod
+- [x] check deduplication loss in wisgl_export
   - it's because PZ's script manually assigns id_art based on latin names.
 
 
 **optimization after pressing issues are done**
-- [ ] refactor to decouple audits from transfer models, create new graph starting from sources for audits
-- [ ] refactor to use tags instead of variables that enable/disable models
+- [x] refactor to decouple audits from transfer models, create new graph starting from sources for audits
+- [x] refactor to use tags instead of variables that enable/disable models
   - makes them show up in lineage viewer and docs
+  - choosing to still use variable to enable transfer models for safety
 - [ ] address issues that were observed when going through export process.
-- [ ] rename job models to be more descriptive
-- [ ] add descriptions to models
+  - catalog mismatch between prod_gl_arten and wisgl
+  --> how are id_art 
+- [x] rename job models to be more descriptive
+- [x] add descriptions to models
+  - re-deploy docs to netlify page
+- [ ] Create custom docs overview page
