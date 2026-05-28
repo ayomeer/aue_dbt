@@ -129,10 +129,12 @@ pw: postgres
 # dbt
 ## Setting up dbt Core Project
 
-Open the project within the dbt devcontainer and run
+Open the /src/dbt directory within the dbt devcontainer and run
 ```
-dbt init
+dbt init --skip-profile-setup
 ```
+
+This sets up the project directory structure. We are skipping the interactive profile setup with `--skip-profile-setup`, since we are using our own templates.
 
 ### Model Directory Structure
 

@@ -1,0 +1,69 @@
+ > ---------- Model Baker - Workflow Wizard
+ > ---------- Source Selektion
+Add source GL_Ersatzbiotope_V1.ili (C:/Users/peter/Documents/office/4_scherrer/52_ersatzmassnahmen_gl/Datenmodell/Ersatzbiotope_V1/GL_Ersatzbiotope_V1.ili) Vom Benutzer über den Wizard hinzugefügt.
+ > ---------- Datenbank Konfiguration
+Aktualisiere verfügbare Modelle:
+ > ---------- Schema Import Konfiguration
+ > ---------- Datenbank Konfiguration
+ > ---------- Source Selektion
+ > ---------- Datenbank Konfiguration
+Aktualisiere verfügbare Modelle:
+ > ---------- Schema Import Konfiguration
+ > ---------- Schema Import Sessions
+"C:\Program Files (x86)\Common Files\Oracle\Java\java8path\java.exe" -jar C:\Users\peter\AppData\Roaming\QGIS\QGIS3\profiles\default\python\plugins\QgisModelBaker\libs\modelbaker\iliwrapper\bin\ili2pg-5.2.0\ili2pg-5.2.0.jar --schemaimport --dbhost localhost --dbport 5433 --dbusr postgres --dbpwd ****** --dbdatabase glarus --dbschema gl_ersatzbiotope --coalesceCatalogueRef --createNumChecks --createUnique --createFk --createFkIdx --coalesceMultiSurface --coalesceMultiLine --coalesceMultiPoint --coalesceArray --beautifyEnumDispName --createGeomIdx --createMetaInfo --expandMultilingual --createTypeConstraint --createEnumTabsWithId --createTidCol --smart2Inheritance --strokeArcs --createBasketCol --defaultSrsAuth EPSG --defaultSrsCode 2056 --preScript NULL --postScript NULL --createNlsTab --models GL_Ersatzbiotope_V1 --iliMetaAttrs NULL C:/Users/peter/Documents/office/4_scherrer/52_ersatzmassnahmen_gl/Datenmodell/Ersatzbiotope_V1/GL_Ersatzbiotope_V1.ili
+Info: dburl <jdbc:postgresql://localhost:5433/glarus>
+Info: dbusr <postgres>
+
+Info: ili2pg-5.2.0-375168b6abf225834531d7aa07a1fbb159937361
+
+Info: ili2c-5.6.0-024e98a076a1fc001c56ab0c0d3e3f81da02de21
+
+Info: iox-ili-1.23.2-bdddc5e5c761f44d6cbd639ceaef15602b3635c9
+Info: java.version 1.8.0_441
+
+Info: user.name <peter>
+Info: maxMemory 3646464 KB
+
+Info: currentTime 2025-05-23 11:53:49
+
+Info: dbschema <gl_ersatzbiotope>
+Info: dburl <jdbc:postgresql://localhost:5433/glarus>
+Info: dbusr <postgres>
+
+Info: databaseProduct <PostgreSQL>
+Info: databaseVersion <16.8>
+Info: driverName <PostgreSQL JDBC Driver>
+Info: driverVersion <42.6.0>
+
+Info: postGISVersion <POSTGIS="3.5.2 3.5.2" [EXTENSION] PGSQL="160" GEOS="3.13.0-CAPI-1.19.0" SFCGAL="SFCGAL 1.5.2, CGAL 5.6.1, BOOST 1.84.0" PROJ="8.2.1 NETWORK_ENABLED=OFF URL_ENDPOINT=https://cdn.proj.org USER_WRITABLE_DIRECTORY=C:\WINDOWS\ServiceProfiles\NetworkService\AppData\Local/proj DATABASE_PATH=C:\Program Files\PostgreSQL\16\share\contrib\postgis-3.5\proj\proj.db" (compiled against PROJ 8.2.1) GDAL="GDAL 3.9.2, released 2024/08/13" LIBXML="2.12.5" LIBJSON="0.12" LIBPROTOBUF="1.2.1" WAGYU="0.5.0 (Internal)" TOPOLOGY RASTER>
+Info: max active DB statements <0>
+
+Info: compile models...
+
+Info: lookup model <GeometryCHLV95_V1> 2.3 in repository <C:\Users\peter\Documents\office\4_scherrer\52_ersatzmassnahmen_gl\Datenmodell\Ersatzbiotope_V1/>
+
+Info: lookup model <CHAdminCodes_V1> 2.3 in repository <C:\Users\peter\Documents\office\4_scherrer\52_ersatzmassnahmen_gl\Datenmodell\Ersatzbiotope_V1/>
+
+Info: lookup model <GL_Basis_Geometrie_V1> 2.3 in repository <C:\Users\peter\Documents\office\4_scherrer\52_ersatzmassnahmen_gl\Datenmodell\Ersatzbiotope_V1/>
+Info: lookup model <LocalisationCH_V1> 2.3 in repository <C:\Users\peter\Documents\office\4_scherrer\52_ersatzmassnahmen_gl\Datenmodell\Ersatzbiotope_V1/>
+Info: lookup model <Units> 2.3 in repository <C:\Users\peter\Documents\office\4_scherrer\52_ersatzmassnahmen_gl\Datenmodell\Ersatzbiotope_V1/>
+Info: lookup model <CatalogueObjects_V1> 2.3 in repository <C:\Users\peter\Documents\office\4_scherrer\52_ersatzmassnahmen_gl\Datenmodell\Ersatzbiotope_V1/>
+Info: lookup model <CoordSys> 2.3 in repository <C:\Users\peter\Documents\office\4_scherrer\52_ersatzmassnahmen_gl\Datenmodell\Ersatzbiotope_V1/>
+
+Info: ilifile <C:\Users\peter\Documents\office\4_scherrer\52_ersatzmassnahmen_gl\Datenmodell\Ersatzbiotope_V1\CHBase_Part2_LOCALISATION_V1.ili>
+Info: ilifile <C:\Users\peter\Documents\office\4_scherrer\52_ersatzmassnahmen_gl\Datenmodell\Ersatzbiotope_V1\Units-20120220.ili>
+Info: ilifile <C:\Users\peter\Documents\office\4_scherrer\52_ersatzmassnahmen_gl\Datenmodell\Ersatzbiotope_V1\CHBase_Part3_CATALOGUEOBJECTS_V1.ili>
+Info: ilifile <C:\Users\peter\Documents\office\4_scherrer\52_ersatzmassnahmen_gl\Datenmodell\Ersatzbiotope_V1\CoordSys-20151124.ili>
+Info: ilifile <C:\Users\peter\Documents\office\4_scherrer\52_ersatzmassnahmen_gl\Datenmodell\Ersatzbiotope_V1\CHBase_Part4_ADMINISTRATIVEUNITS_V1.ili>
+Info: ilifile <C:\Users\peter\Documents\office\4_scherrer\52_ersatzmassnahmen_gl\Datenmodell\Ersatzbiotope_V1\CHBase_Part1_GEOMETRY_V1.ili>
+Info: ilifile <C:\Users\peter\Documents\office\4_scherrer\52_ersatzmassnahmen_gl\Datenmodell\Ersatzbiotope_V1\GL_Basis_2020-11-04.ili>
+Info: ilifile <C:\Users\peter\Documents\office\4_scherrer\52_ersatzmassnahmen_gl\Datenmodell\Ersatzbiotope_V1\GL_Ersatzbiotope_V1.ili>
+
+Info: create table structure, if not existing...
+
+Info: ...done
+
+INTERLIS Modell(e) erfolgreich in die Datenbank importiert!
+Erstelle Standard-Dataset Baseset
+Successfully created dataset "Baseset".
+Done!

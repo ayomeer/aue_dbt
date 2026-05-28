@@ -73,3 +73,63 @@ Happy modeling!
 [0m10:18:04.183859 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7398b4dd6e50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7398b4ccbad0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7398b9888650>]}
 [0m10:18:04.184401 [debug] [MainThread]: Flushing usage events
 [0m10:18:05.139666 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m11:23:29.940507 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7da3446eb290>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7da340e27dd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7da343e91b90>]}
+
+
+============================== 11:23:29.948370 | a6af9bc2-1862-4015-8cc7-b834f2e16776 ==============================
+[0m11:23:29.948370 [info ] [MainThread]: Running with dbt=1.11.7
+[0m11:23:29.948910 [debug] [MainThread]: running dbt with arguments {'log_path': 'logs', 'empty': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'profiles_dir': '/home/user/.dbt', 'version_check': 'True', 'target_path': 'None', 'cache_selected_only': 'False', 'debug': 'False', 'no_print': 'None', 'static_parser': 'True', 'log_format': 'default', 'partial_parse': 'True', 'write_json': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'log_cache_events': 'False', 'fail_fast': 'False', 'indirect_selection': 'eager', 'send_anonymous_usage_stats': 'True', 'invocation_command': 'dbt init', 'quiet': 'False', 'introspect': 'True', 'warn_error': 'None'}
+[0m11:23:37.363844 [debug] [MainThread]: Starter project path: /home/user/.local/lib/python3.11/site-packages/dbt/include/starter_project
+[0m11:23:37.368361 [info ] [MainThread]: 
+Your new dbt project "dbt_ersatzbiotope" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m11:23:37.368838 [info ] [MainThread]: Setting up your profile.
+[0m11:23:43.755233 [error] [MainThread]: Encountered an error:
+
+[0m11:23:43.759934 [error] [MainThread]: Traceback (most recent call last):
+  File "/home/user/.local/lib/python3.11/site-packages/dbt/cli/requires.py", line 182, in wrapper
+    result, success = func(*args, **kwargs)
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/.local/lib/python3.11/site-packages/dbt/cli/requires.py", line 128, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/.local/lib/python3.11/site-packages/dbt/cli/main.py", line 483, in init
+    results = task.run()
+              ^^^^^^^^^^
+  File "/home/user/.local/lib/python3.11/site-packages/dbt/task/init.py", line 346, in run
+    self.setup_profile(profile_name)
+  File "/home/user/.local/lib/python3.11/site-packages/dbt/task/init.py", line 262, in setup_profile
+    self.create_profile_from_target(adapter, profile_name=profile_name)
+  File "/home/user/.local/lib/python3.11/site-packages/dbt/task/init.py", line 179, in create_profile_from_target
+    self.create_profile_from_profile_template(profile_template, profile_name)
+  File "/home/user/.local/lib/python3.11/site-packages/dbt/task/init.py", line 163, in create_profile_from_profile_template
+    target = self.generate_target_from_input(prompts, initial_target)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/.local/lib/python3.11/site-packages/dbt/task/init.py", line 129, in generate_target_from_input
+    target[key] = click.prompt(
+                  ^^^^^^^^^^^^^
+  File "/home/user/.local/lib/python3.11/site-packages/click/termui.py", line 171, in prompt
+    value = prompt_func(prompt)
+            ^^^^^^^^^^^^^^^^^^^
+  File "/home/user/.local/lib/python3.11/site-packages/click/termui.py", line 154, in prompt_func
+    raise Abort() from None
+click.exceptions.Abort
+
+[0m11:23:43.760908 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": false, "command_wall_clock_time": 13.862855, "process_in_blocks": "104", "process_kernel_time": 0.23815, "process_mem_max_rss": "111628", "process_out_blocks": "72", "process_user_time": 1.672035}
+[0m11:23:43.761293 [debug] [MainThread]: Command `dbt init` failed at 11:23:43.761212 after 13.86 seconds
+[0m11:23:43.761592 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7da340dd9390>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7da340dd9290>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7da345a24650>]}
+[0m11:23:43.761914 [debug] [MainThread]: Flushing usage events
+[0m11:23:43.795045 [debug] [MainThread]: An error was encountered while trying to flush usage events

@@ -1,0 +1,163 @@
+INTERLIS 2.3;
+
+!!@ technicalContact=mailto:models@geo.admin.ch
+!!@ furtherInformation=https://www.geo.admin.ch/de/geoinformation-schweiz/geobasisdaten/geodata-models.html
+TYPE MODEL GeometryCHLV03_V1 (en)
+AT "http://www.geo.admin.ch"
+VERSION "2017-12-04"  =
+  IMPORTS Units,CoordSys;
+
+  REFSYSTEM BASKET BCoordSys~CoordSys.CoordsysTopic
+    OBJECTS OF GeoCartesian2D:
+      CHLV03
+    OBJECTS OF GeoHeight:
+      SwissOrthometricAlt;
+
+  DOMAIN
+
+    !!@ CRS=EPSG:21781
+    Coord2 = COORD 460000.000 .. 870000.000 [INTERLIS.m]{GeometryCHLV03_V1.BCoordSys.CHLV03[1]}, 45000.000 .. 310000.000 [INTERLIS.m]{GeometryCHLV03_V1.BCoordSys.CHLV03[2]} ,ROTATION 2 -> 1;
+
+    !!@ CRS=EPSG:21781
+    Coord3 = COORD 460000.000 .. 870000.000 [INTERLIS.m]{GeometryCHLV03_V1.BCoordSys.CHLV03[1]}, 45000.000 .. 310000.000 [INTERLIS.m]{GeometryCHLV03_V1.BCoordSys.CHLV03[2]}, -200.000 .. 5000.000 [INTERLIS.m]{GeometryCHLV03_V1.BCoordSys.SwissOrthometricAlt[1]} ,ROTATION 2 -> 1;
+
+    Surface = SURFACE WITH (ARCS,STRAIGHTS) VERTEX Coord2 WITHOUT OVERLAPS>0.001;
+
+    Area = AREA WITH (ARCS,STRAIGHTS) VERTEX Coord2 WITHOUT OVERLAPS>0.001;
+
+    Line = POLYLINE WITH (ARCS,STRAIGHTS) VERTEX Coord2;
+
+    DirectedLine
+    EXTENDS Line = DIRECTED POLYLINE WITH (ARCS,STRAIGHTS) VERTEX Coord2;
+
+    LineWithAltitude = POLYLINE WITH (ARCS,STRAIGHTS) VERTEX Coord3;
+
+    DirectedLineWithAltitude = DIRECTED POLYLINE WITH (ARCS,STRAIGHTS) VERTEX Coord3;
+
+    SurfaceWithOverlaps2mm = SURFACE WITH (ARCS,STRAIGHTS) VERTEX Coord2 WITHOUT OVERLAPS>0.002;
+
+    AreaWithOverlaps2mm = AREA WITH (ARCS,STRAIGHTS) VERTEX Coord2 WITHOUT OVERLAPS>0.002;
+
+    Orientation = 0.00000 .. 359.99999 CIRCULAR [Units.Angle_Degree]<GeometryCHLV03_V1.Coord2>;
+
+    Accuracy = (
+      cm,
+      cm50,
+      m,
+      m10,
+      m50,
+      vague
+    );
+
+    Method = (
+      measured,
+      sketched,
+      calculated
+    );
+
+  STRUCTURE LineStructure =
+    Line : Line;
+  END LineStructure;
+
+  STRUCTURE DirectedLineStructure =
+    Line : DirectedLine;
+  END DirectedLineStructure;
+
+  STRUCTURE MultiLine =
+    Lines : BAG {1..*} OF GeometryCHLV03_V1.LineStructure;
+  END MultiLine;
+
+  STRUCTURE MultiDirectedLine =
+    Lines : BAG {1..*} OF GeometryCHLV03_V1.DirectedLineStructure;
+  END MultiDirectedLine;
+
+  STRUCTURE SurfaceStructure =
+    Surface : Surface;
+  END SurfaceStructure;
+
+  STRUCTURE MultiSurface =
+    Surfaces : BAG {1..*} OF GeometryCHLV03_V1.SurfaceStructure;
+  END MultiSurface;
+
+END GeometryCHLV03_V1.
+
+!!@ technicalContact=mailto:models@geo.admin.ch
+!!@ furtherInformation=https://www.geo.admin.ch/de/geoinformation-schweiz/geobasisdaten/geodata-models.html
+TYPE MODEL GeometryCHLV95_V1 (en)
+AT "http://www.geo.admin.ch"
+VERSION "2017-12-04"  =
+  IMPORTS Units,CoordSys;
+
+  REFSYSTEM BASKET BCoordSys~CoordSys.CoordsysTopic
+    OBJECTS OF GeoCartesian2D:
+      CHLV95
+    OBJECTS OF GeoHeight:
+      SwissOrthometricAlt;
+
+  DOMAIN
+
+    !!@ CRS=EPSG:2056
+    Coord2 = COORD 2460000.000 .. 2870000.000 [INTERLIS.m]{GeometryCHLV95_V1.BCoordSys.CHLV95[1]}, 1045000.000 .. 1310000.000 [INTERLIS.m]{GeometryCHLV95_V1.BCoordSys.CHLV95[2]} ,ROTATION 2 -> 1;
+
+    !!@ CRS=EPSG:2056
+    Coord3 = COORD 2460000.000 .. 2870000.000 [INTERLIS.m]{GeometryCHLV95_V1.BCoordSys.CHLV95[1]}, 1045000.000 .. 1310000.000 [INTERLIS.m]{GeometryCHLV95_V1.BCoordSys.CHLV95[2]}, -200.000 .. 5000.000 [INTERLIS.m]{GeometryCHLV95_V1.BCoordSys.SwissOrthometricAlt[1]} ,ROTATION 2 -> 1;
+
+    Surface = SURFACE WITH (ARCS,STRAIGHTS) VERTEX Coord2 WITHOUT OVERLAPS>0.001;
+
+    Area = AREA WITH (ARCS,STRAIGHTS) VERTEX Coord2 WITHOUT OVERLAPS>0.001;
+
+    Line = POLYLINE WITH (ARCS,STRAIGHTS) VERTEX Coord2;
+
+    DirectedLine
+    EXTENDS Line = DIRECTED POLYLINE WITH (ARCS,STRAIGHTS) VERTEX Coord2;
+
+    LineWithAltitude = POLYLINE WITH (ARCS,STRAIGHTS) VERTEX Coord3;
+
+    DirectedLineWithAltitude = DIRECTED POLYLINE WITH (ARCS,STRAIGHTS) VERTEX Coord3;
+
+    SurfaceWithOverlaps2mm = SURFACE WITH (ARCS,STRAIGHTS) VERTEX Coord2 WITHOUT OVERLAPS>0.002;
+
+    AreaWithOverlaps2mm = AREA WITH (ARCS,STRAIGHTS) VERTEX Coord2 WITHOUT OVERLAPS>0.002;
+
+    Orientation = 0.00000 .. 359.99999 CIRCULAR [Units.Angle_Degree]<GeometryCHLV95_V1.Coord2>;
+
+    Accuracy = (
+      cm,
+      cm50,
+      m,
+      m10,
+      m50,
+      vague
+    );
+
+    Method = (
+      measured,
+      sketched,
+      calculated
+    );
+
+  STRUCTURE LineStructure =
+    Line : Line;
+  END LineStructure;
+
+  STRUCTURE DirectedLineStructure =
+    Line : DirectedLine;
+  END DirectedLineStructure;
+
+  STRUCTURE MultiLine =
+    Lines : BAG {1..*} OF GeometryCHLV95_V1.LineStructure;
+  END MultiLine;
+
+  STRUCTURE MultiDirectedLine =
+    Lines : BAG {1..*} OF GeometryCHLV95_V1.DirectedLineStructure;
+  END MultiDirectedLine;
+
+  STRUCTURE SurfaceStructure =
+    Surface : Surface;
+  END SurfaceStructure;
+
+  STRUCTURE MultiSurface =
+    Surfaces : BAG {1..*} OF GeometryCHLV95_V1.SurfaceStructure;
+  END MultiSurface;
+
+END GeometryCHLV95_V1.

@@ -1,0 +1,26 @@
+dbt_ersatzbiotope_profile:
+  target: dev
+  outputs:
+    dev:
+      # use this profile for local testing
+      host: postgis-container
+      dbname: test_db
+      port: 5432
+      schema: dbt_ersatzbiotope
+      threads: 1
+      type: postgres
+      user: postgres
+      pass: "{{ env_var('DB_PASSWORD') }}" # export DB_PASSWORD='...' in bashrc
+
+    windmill-iap:
+      # use this profile when running dbt project from windmill runner
+      host: srv-gisiap-02.glnet.ch
+      dbname: glarus
+      port: 5432
+      schema: dbt_ersatzbiotope
+      threads: 1
+      type: postgres
+      user: gisuploadmanager
+      pass: "{{ env_var('DB_PASSWORD') }}" # export DB_PASSWORD='...' in bashrc
+  
+

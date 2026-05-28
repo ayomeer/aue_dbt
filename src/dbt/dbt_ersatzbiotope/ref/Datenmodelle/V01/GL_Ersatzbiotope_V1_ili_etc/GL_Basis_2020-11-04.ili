@@ -1,0 +1,48 @@
+INTERLIS 2.3;
+
+!!@ technicalContact=mailto:geoinformation@gl.ch
+MODEL GL_Basis_UUIDDef_V1 (de)
+AT "https://www.gl.ch"
+VERSION "2020-11-04"  =
+
+  /** Basisthema fuer kantonale Datenmodelle ohne generelle UUID-Deklaration
+   */
+  TOPIC GL_Basisthema(ABSTRACT) =
+
+    /** Basisklasse mit OID-Attribut.
+     * Diese Klasse soll fuer Modellklassen erweitert werden,
+     * wenn Modelle ohne OID-Deklaration im Topic nicht anwendbar sind.
+     */
+    CLASS GL_Basisobjekt (ABSTRACT) =
+      /** Stabiler Objektidentifikator vom Typ UUID gemaess ISO 11578
+       */
+      GL_Ident : MANDATORY INTERLIS.UUIDOID;
+    END GL_Basisobjekt;
+
+  END GL_Basisthema;
+
+END GL_Basis_UUIDDef_V1.
+
+/** Basismodell GL_Basis_Geometrie mit Geometrie-Strukturdefinition
+ */
+!!@ technicalContact=mailto:geoinformation@gl.ch
+MODEL GL_Basis_Geometrie_V1 (de)
+AT "https://www.gl.ch"
+VERSION "2020-11-04"  =
+  IMPORTS GeometryCHLV95_V1;
+
+  /** Punkt-Geometriestruktur
+   */
+  STRUCTURE PointStructure =
+    Point : GeometryCHLV95_V1.Coord2;
+  END PointStructure;
+
+  /** MultiPoint-Struktur (das Metaattribut ili2db.mapping stellt sicher, dass bei
+   * der Schemakonfiguration in PostGIS direkt MultiPoint-Geometrien erzeugt werden)
+   */
+  !!@ ili2db.mapping=MultiPoint
+  STRUCTURE MultiPoint =
+    Points : BAG {1..*} OF GL_Basis_Geometrie_V1.PointStructure;
+  END MultiPoint;
+
+END GL_Basis_Geometrie_V1.

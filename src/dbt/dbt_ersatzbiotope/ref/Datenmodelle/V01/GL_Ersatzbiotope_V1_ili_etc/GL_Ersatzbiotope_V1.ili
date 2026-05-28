@@ -1,0 +1,76 @@
+INTERLIS 2.3;
+
+/** Kantonales Geodatenmodell
+ * Ersatzbiotope
+ * (ID kGeoIV ---)
+ * 
+ * 2025-05-23: Version 1.0
+ */
+MODEL GL_Ersatzbiotope_V1 (de)
+AT "http://geo.gl.ch"
+VERSION "2025-05-23"  =
+  IMPORTS GeometryCHLV95_V1,CatalogueObjects_V1,LocalisationCH_V1,CHAdminCodes_V1,Units,GL_Basis_Geometrie_V1;
+
+  TOPIC Kataloge =
+    OID AS INTERLIS.UUIDOID;
+
+    CLASS Ersatzmassnahme_Item
+    EXTENDS CatalogueObjects_V1.Catalogues.Item =
+      Massnahmenkategorie : MANDATORY TEXT;
+    END Ersatzmassnahme_Item;
+
+    STRUCTURE Ersatzmassnahme_CatRef
+    EXTENDS CatalogueObjects_V1.Catalogues.CatalogueReference =
+      Reference (EXTENDED) : REFERENCE TO Ersatzmassnahme_Item;
+    END Ersatzmassnahme_CatRef;
+
+  END Kataloge;
+
+  TOPIC Ersatzbiotope =
+    OID AS INTERLIS.UUIDOID;
+    DEPENDS ON GL_Ersatzbiotope_V1.Kataloge;
+
+    CLASS Ersatzbiotop =
+      Kanton : MANDATORY CHAdminCodes_V1.CHCantonCode;
+      Objekt_Nummer : MANDATORY 0 .. 100000;
+      Entscheide : MTEXT;
+      Dokumente : MTEXT;
+      Projekttraeger : TEXT*254;
+    END Ersatzbiotop;
+
+    CLASS Teilobjekt (ABSTRACT) =
+      Teilobj_Nr : MANDATORY 0 .. 1000;
+      Kategorie_Ersatzmassnahme : MANDATORY GL_Ersatzbiotope_V1.Kataloge.Ersatzmassnahme_CatRef;
+      Ersatzmassnahme : MANDATORY TEXT*254;
+      Ziellebensraum : TEXT*254;
+    END Teilobjekt;
+
+    CLASS TO_Flaeche
+    EXTENDS Teilobjekt =
+      Flaeche_m2 : MANDATORY 0.000 .. 999999999.999 [Units.m2];
+      Geo_Obj : MANDATORY GeometryCHLV95_V1.MultiSurface;
+    END TO_Flaeche;
+
+    CLASS TO_Linie
+    EXTENDS Teilobjekt =
+      Laenge_m : 0 .. 99999999 [INTERLIS.m];
+      Geo_Obj : MANDATORY GeometryCHLV95_V1.MultiLine;
+    END TO_Linie;
+
+    CLASS TO_Punkt
+    EXTENDS Teilobjekt =
+      Geo_Obj : MANDATORY GL_Basis_Geometrie_V1.MultiPoint;
+    END TO_Punkt;
+
+    ASSOCIATION ErsatzbiotopTeilobjekt =
+      /** Beziehungsrolle des Ersatzbiotopes
+       */
+      Ersatzbiotop -- {1} Ersatzbiotop;
+      /** Beziehungsrolle des Teilobjektes
+       */
+      Teilobjekt -- {0..*} Teilobjekt;
+    END ErsatzbiotopTeilobjekt;
+
+  END Ersatzbiotope;
+
+END GL_Ersatzbiotope_V1.

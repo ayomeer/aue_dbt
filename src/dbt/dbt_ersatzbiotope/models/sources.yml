@@ -1,0 +1,7 @@
+sources:
+  - name: src_prod_gl_ersatzbiotope
+    database: "{{ target.database }}"
+    schema: prod_gl_ersatzbiotope
+    tables:
+      - name: ersatzbiotope_sf
+      - name: cat_kategorie_ersatzmassnahme

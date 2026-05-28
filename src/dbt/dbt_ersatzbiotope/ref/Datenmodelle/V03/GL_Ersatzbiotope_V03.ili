@@ -1,0 +1,116 @@
+INTERLIS 2.3;
+
+/** Kantonales Geodatenmodell
+ * Ersatzbiotope
+ * (ID kGeoIV ---)
+ * 
+ * 2025-04-18: Version 0.3
+ */
+MODEL GL_Ersatzbiotope_V1 (de)
+AT "http://geo.gl.ch"
+VERSION "2025-04-01"  =
+  IMPORTS GeometryCHLV95_V1,CatalogueObjects_V1,LocalisationCH_V1,CHAdminCodes_V1,Units,GL_Basis_Geometrie_V1;
+
+  /** Hier sind Referenzen und Erweiterungen zu verschiedenen CHBase Katalogen definiert, welche als Auswahlfeld fuer Attributen benutzt werden.
+   */
+  TOPIC Kataloge =
+
+    /** Dieser Katalog dient der Typisierung der Ersatzbiotope
+     */
+    CLASS Ersatzmassnahme_Catalogue
+    EXTENDS CatalogueObjects_V1.Catalogues.Item =
+      /** Kategorie der Ersatzmassnahme
+       */
+      Kategorie : MANDATORY TEXT;
+      /** Sicherstellen Eindeutigkeit fuer  Katalogreferenz Join bei Datentransfer von prod_gl_ersatzbiotope auf gl_ersatzbiotope
+       * Sicherstellen Eindeutigkeit fuer  Katalogreferenz Join bei Datentransfer von prod_gl_ersatzbiotope auf gl_ersatzbiotope
+       */
+      /** Sicherstellen Eindeutigkeit fuer  Katalogreferenz Join bei Datentransfer von prod_gl_ersatzbiotope auf gl_ersatzbiotope
+       * Sicherstellen Eindeutigkeit fuer  Katalogreferenz Join bei Datentransfer von prod_gl_ersatzbiotope auf gl_ersatzbiotope
+       */
+      UNIQUE Kategorie;
+    END Ersatzmassnahme_Catalogue;
+
+    STRUCTURE Ersatzmassnahme_CatRef
+    EXTENDS CatalogueObjects_V1.Catalogues.CatalogueReference =
+      Reference (EXTENDED) : REFERENCE TO (EXTERNAL) Ersatzmassnahme_Catalogue;
+    END Ersatzmassnahme_CatRef;
+
+  END Kataloge;
+
+  /** Dieses Thema beinhaltet alle oeffentlichen Informationen zu Biotopen, die als Flaeche dargestellt werden.
+   */
+  TOPIC Ersatzbiotope =
+    OID AS INTERLIS.UUIDOID;
+    DEPENDS ON GL_Ersatzbiotope_V1.Kataloge;
+
+    /** Klasse der uebergeordneten Informationen einer Gruppe von Teilobjekten.
+     */
+    CLASS Ersatzbiotop =
+      Kanton : MANDATORY CHAdminCodes_V1.CHCantonCode;
+      /** Kantonale Identifikationsnummer fuer das Ersatzbiotopobjekt, Kuerzel
+       */
+      Objekt_Nummer : MANDATORY 1 .. 10000;
+      Entscheide : MTEXT;
+      Dokumente : MTEXT;
+      Projekttraeger : TEXT*255;
+    END Ersatzbiotop;
+
+    /** Kantonale Teilobjekte der Ersatzbiotope (Superclass)
+     */
+    CLASS Teilobjekt (ABSTRACT) =
+      /** Nummerierung der Teilobjekte innerhalb eines Ersatzbiotopes.
+       * Dient der Bezeichnung im Datenviewer und auf Plaenen, sowie zum Zuordnen von Akten.
+       */
+      Teilobj_Nr : MANDATORY 1 .. 10000;
+      /** Bezeichnung der Teilobjektes innerhalb eines Biotopes, Flurname oder andere Lagebezeichnung.
+       * Dient der Bezeichnung im Datenviewer und auf Plaenen, sowie zum Zuordnen von Akten.
+       */
+      Kategorie_Ersatzmassnahme : MANDATORY GL_Ersatzbiotope_V1.Kataloge.Ersatzmassnahme_CatRef;
+      /** Beschreibung des schuetzenswerten Lebensraumes gemaess Beschreibung_Catalogue
+       */
+      Ersatzmassnahme : MANDATORY TEXT*255;
+      Ziellebensraum : TEXT*255;
+    END Teilobjekt;
+
+    /** Spezialisierung: Teilobjekt mit Flaechengeometrie
+     */
+    CLASS TO_Flaeche
+    EXTENDS Teilobjekt =
+      /** GIS-Flaeche des Teilobjekts in ha
+       */
+      Flaeche_m2 : MANDATORY 0.000 .. 999999999.999 [Units.m2];
+      /** Flaechige Vektorgeometrie des Teilobjekts (bei entsprechender Biotopart)
+       */
+      Geo_Obj : MANDATORY GeometryCHLV95_V1.MultiSurface;
+    END TO_Flaeche;
+
+    /** Spezialisierung: Teilobjekt mit Liniengeometrie
+     */
+    CLASS TO_Linie
+    EXTENDS Teilobjekt =
+      /** GIS_Laenge des Teilobjektes
+       */
+      Laenge_m : 0 .. 99999999 [INTERLIS.m];
+      /** linienfoermige Vektorgeometrie des Teilobjekts (bei entsprechender Biotopart))
+       */
+      Geo_Obj : MANDATORY GeometryCHLV95_V1.MultiLine;
+    END TO_Linie;
+
+    /** Spezialisierung: Teilobjekt mit Punktgeometrie
+     */
+    CLASS TO_Punkt
+    EXTENDS Teilobjekt =
+      /** punktfoermige Vektorgeometrie des Teilobjekts (bei entsprechender Biotopart)
+       */
+      Geo_Obj : MANDATORY GL_Basis_Geometrie_V1.MultiPoint;
+    END TO_Punkt;
+
+    ASSOCIATION ErsatzbiotopTeilobjekt =
+      hat_Teilobjekt -- {1..*} Teilobjekt;
+      von_Ersatzbiotop -<> {1} Ersatzbiotop;
+    END ErsatzbiotopTeilobjekt;
+
+  END Ersatzbiotope;
+
+END GL_Ersatzbiotope_V1.

@@ -1,0 +1,52 @@
+name: 'dbt_ersatzbiotope'
+version: '1.0.0'
+
+profile: 'dbt_ersatzbiotope_profile'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:         # directories to be removed by `dbt clean`
+  - "target"
+  - "dbt_packages"
+
+vars:
+
+  # Basket and Dataset Variables
+  # These get inserted into the target schema's t_ili2db_basket table
+  # when the macro 'write_basket()' is run.  
+  # 
+  # Note: - t_id is meant to be unique across all tables!
+  #       - dataset_t_id must match one of the t_ids defined for a dataset
+
+  # Dataset variables
+  datasets:
+    dataset_placeholder:
+      t_id: 1
+      datasetname: dataset_placeholder
+
+  # Basket variables 
+  baskets:
+    basket_placeholder:
+      t_id: 2
+      topic: topic_placeholder
+      dataset_t_id: 1 
+
+
+  # Classnames variables
+  # Usage example:
+  # '{{ var('classnames')['Quelle_intern'] }}'::character varying as t_type,
+  classnames:
+    classname_placeholder: classname_placeholder
+  
+models:
+  dbt_ersatzbiotope:
+    +grants:
+      select: ['prod_gl_biotope_read']
+    +post-hook: 
+    - 'ALTER {{model.config.materialized}} {{this}} OWNER TO "prod_gl_biotope_write"'
+

@@ -1,0 +1,224 @@
+INTERLIS 2.3;
+
+!!@ technicalContact=mailto:models@geo.admin.ch
+!!@ furtherInformation=https://www.geo.admin.ch/de/geoinformation-schweiz/geobasisdaten/geodata-models.html
+TYPE MODEL CHAdminCodes_V1 (en)
+AT "http://www.geo.admin.ch"
+VERSION "2018-02-19"  =
+
+  DOMAIN
+
+    CHCantonCode = (
+      ZH,
+      BE,
+      LU,
+      UR,
+      SZ,
+      OW,
+      NW,
+      GL,
+      ZG,
+      FR,
+      SO,
+      BS,
+      BL,
+      SH,
+      AR,
+      AI,
+      SG,
+      GR,
+      AG,
+      TG,
+      TI,
+      VD,
+      VS,
+      NE,
+      GE,
+      JU,
+      FL,
+      CH
+    );
+
+    CHMunicipalityCode = 1 .. 9999;
+
+END CHAdminCodes_V1.
+
+!!@ technicalContact=mailto:models@geo.admin.ch
+!!@ furtherInformation=https://www.geo.admin.ch/internet/geoportal/de/home/topics/geobasedata/models.html
+MODEL AdministrativeUnits_V1 (en)
+AT "http://www.geo.admin.ch"
+VERSION "2022-10-06"  =
+  IMPORTS CHAdminCodes_V1,InternationalCodes_V1,Localisation_V1,Dictionaries_V1;
+
+  TOPIC AdministrativeUnits(ABSTRACT) =
+
+    CLASS AdministrativeElement (ABSTRACT) =
+    END AdministrativeElement;
+
+    CLASS AdministrativeUnit
+    EXTENDS AdministrativeElement =
+    END AdministrativeUnit;
+
+    ASSOCIATION Hierarchy =
+      UpperLevelUnit (EXTERNAL) -<> {0..1} AdministrativeUnit;
+      LowerLevelUnit -- {0..*} AdministrativeUnit;
+    END Hierarchy;
+
+    CLASS AdministrativeUnion
+    EXTENDS AdministrativeElement =
+    END AdministrativeUnion;
+
+    ASSOCIATION UnionMembers =
+      Union -<> {0..*} AdministrativeUnion;
+      Member -- {0..*} AdministrativeElement;
+    END UnionMembers;
+
+  END AdministrativeUnits;
+
+  TOPIC Countries
+  EXTENDS AdministrativeUnits_V1.AdministrativeUnits =
+
+    CLASS Country
+    EXTENDS AdministrativeUnits_V1.AdministrativeUnits.AdministrativeUnit =
+      Code : MANDATORY InternationalCodes_V1.CountryCode_ISO3166_1;
+      UNIQUE Code;
+    END Country;
+
+  END Countries;
+
+  TOPIC CountryNames
+  EXTENDS Dictionaries_V1.Dictionaries =
+    DEPENDS ON AdministrativeUnits_V1.Countries;
+
+    STRUCTURE CountryName
+    EXTENDS Dictionaries_V1.Dictionaries.Entry =
+      Code : MANDATORY InternationalCodes_V1.CountryCode_ISO3166_1;
+    END CountryName;
+
+    CLASS CountryNamesTranslation
+    EXTENDS Dictionaries_V1.Dictionaries.Dictionary =
+      Entries (EXTENDED) : LIST {0..*} OF AdministrativeUnits_V1.CountryNames.CountryName;
+      UNIQUE (LOCAL) Entries: Code;
+      EXISTENCE CONSTRAINT Entries->Code REQUIRED IN AdministrativeUnits_V1.Countries.Country:Code;
+    END CountryNamesTranslation;
+
+  END CountryNames;
+
+  TOPIC Agencies(ABSTRACT) =
+    DEPENDS ON AdministrativeUnits_V1.AdministrativeUnits;
+
+    CLASS Agency (ABSTRACT) =
+    END Agency;
+
+    ASSOCIATION Authority =
+      Supervisor (EXTERNAL) -<> {1} Agency
+         OR AdministrativeUnits_V1.AdministrativeUnits.AdministrativeElement
+      ;
+      Agency -- {0..*} Agency;
+    END Authority;
+
+    ASSOCIATION Organisation =
+      Orderer (EXTERNAL) -- {0..*} Agency
+         OR AdministrativeUnits_V1.AdministrativeUnits.AdministrativeElement
+      ;
+      Executor -- {0..*} Agency;
+    END Organisation;
+
+  END Agencies;
+
+END AdministrativeUnits_V1.
+
+!!@ technicalContact=mailto:models@geo.admin.ch
+!!@ furtherInformation=https://www.geo.admin.ch/de/geoinformation-schweiz/geobasisdaten/geodata-models.html
+MODEL AdministrativeUnitsCH_V1 (en)
+AT "http://www.geo.admin.ch"
+VERSION "2020-04-24"  =
+  IMPORTS CHAdminCodes_V1,InternationalCodes_V1,LocalisationCH_V1,AdministrativeUnits_V1;
+
+  TOPIC CHCantons
+  EXTENDS AdministrativeUnits_V1.AdministrativeUnits =
+    DEPENDS ON AdministrativeUnits_V1.Countries;
+
+    CLASS CHCanton
+    EXTENDS AdministrativeUnits_V1.AdministrativeUnits.AdministrativeUnit =
+      Code : MANDATORY CHAdminCodes_V1.CHCantonCode;
+      Name : LocalisationCH_V1.MultilingualText;
+      Web : URI;
+      UNIQUE Code;
+    END CHCanton;
+
+    ASSOCIATION Hierarchy(EXTENDED) =
+      UpperLevelUnit (EXTENDED,EXTERNAL) -<> {1} AdministrativeUnits_V1.Countries.Country;
+      LowerLevelUnit (EXTENDED) -- {0..*} CHCanton;
+      MANDATORY CONSTRAINT UpperLevelUnit->Code == #CHE;
+    END Hierarchy;
+
+  END CHCantons;
+
+  TOPIC CHDistricts
+  EXTENDS AdministrativeUnits_V1.AdministrativeUnits =
+    DEPENDS ON AdministrativeUnitsCH_V1.CHCantons;
+
+    CLASS CHDistrict
+    EXTENDS AdministrativeUnits_V1.AdministrativeUnits.AdministrativeUnit =
+      ShortName : MANDATORY TEXT*20;
+      Name : LocalisationCH_V1.MultilingualText;
+      Web : MANDATORY URI;
+    END CHDistrict;
+
+    ASSOCIATION Hierarchy(EXTENDED) =
+      UpperLevelUnit (EXTENDED,EXTERNAL) -<> {1} AdministrativeUnitsCH_V1.CHCantons.CHCanton;
+      LowerLevelUnit (EXTENDED) -- {0..*} CHDistrict;
+      UNIQUE UpperLevelUnit->Code, LowerLevelUnit->ShortName;
+    END Hierarchy;
+
+  END CHDistricts;
+
+  TOPIC CHMunicipalities
+  EXTENDS AdministrativeUnits_V1.AdministrativeUnits =
+    DEPENDS ON AdministrativeUnitsCH_V1.CHCantons,AdministrativeUnitsCH_V1.CHDistricts;
+
+    CLASS CHMunicipality
+    EXTENDS AdministrativeUnits_V1.AdministrativeUnits.AdministrativeUnit =
+      Code : MANDATORY CHAdminCodes_V1.CHMunicipalityCode;
+      Name : LocalisationCH_V1.MultilingualText;
+      Web : URI;
+      UNIQUE Code;
+    END CHMunicipality;
+
+    ASSOCIATION Hierarchy(EXTENDED) =
+      UpperLevelUnit (EXTENDED,EXTERNAL) -<> {1} AdministrativeUnitsCH_V1.CHCantons.CHCanton
+         OR AdministrativeUnitsCH_V1.CHDistricts.CHDistrict
+      ;
+      LowerLevelUnit (EXTENDED) -- {0..*} CHMunicipality;
+    END Hierarchy;
+
+  END CHMunicipalities;
+
+  TOPIC CHAdministrativeUnions
+  EXTENDS AdministrativeUnits_V1.AdministrativeUnits =
+    DEPENDS ON AdministrativeUnits_V1.Countries,AdministrativeUnitsCH_V1.CHCantons,AdministrativeUnitsCH_V1.CHDistricts,AdministrativeUnitsCH_V1.CHMunicipalities;
+
+    CLASS AdministrativeUnion (EXTENDED) =
+      OID AS INTERLIS.UUIDOID;
+      Name : LocalisationCH_V1.MultilingualText;
+      Web : URI;
+      Description : LocalisationCH_V1.MultilingualMText;
+    END AdministrativeUnion;
+
+  END CHAdministrativeUnions;
+
+  TOPIC CHAgencies
+  EXTENDS AdministrativeUnits_V1.Agencies =
+    DEPENDS ON AdministrativeUnits_V1.Countries,AdministrativeUnitsCH_V1.CHCantons,AdministrativeUnitsCH_V1.CHDistricts,AdministrativeUnitsCH_V1.CHMunicipalities;
+
+    CLASS Agency (EXTENDED) =
+      OID AS INTERLIS.UUIDOID;
+      Name : LocalisationCH_V1.MultilingualText;
+      Web : URI;
+      Description : LocalisationCH_V1.MultilingualMText;
+    END Agency;
+
+  END CHAgencies;
+
+END AdministrativeUnitsCH_V1.
