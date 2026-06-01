@@ -117,7 +117,9 @@ SELECT
 	ebio.t_id as ersatzbiotop
 from prod_gl_ersatzbiotope.ersatzbiotope_sf as sf
 left join gl_ersatzbiotope.ersatzmassnahme_item as cat1 on trim(sf.kategorie_ersatzmassnahme) = trim(cat1.massnahmenkategorie)
-left join gl_ersatzbiotope.ersatzbiotop as ebio on sf.objekt_nummer = ebio.objekt_nummer;
+left join gl_ersatzbiotope.ersatzbiotop as ebio on sf.objekt_nummer = ebio.objekt_nummer; 
+-- ^ /!\ Da objekt_nummer in ebio nicht eindeutig, werden Teilobjekte aufgefächert !!!
+ 
 
 -- DATENTABELLE 'to_linie' FUELLEN ------------------------------------------------------------------------------------
 -- Anmerkung: Die Länge der Objekte wird neu berechnet

@@ -1,3 +1,5 @@
+
+
 with source as (
         select * from {{ source('src_prod_gl_ersatzbiotope', 'cat_kategorie_ersatzmassnahme') }}
   ),
@@ -7,4 +9,7 @@ with source as (
         {{ adapter.quote("kategorie_ersatzmassnahme") }}
       from source
   )
-  select * from renamed
+  select 
+    *,
+    {{ var('catalogues')['kategorie_catalogue']['t_id_offset'] }} + row_number() over() as future_t_id 
+  from renamed

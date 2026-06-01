@@ -71,9 +71,9 @@ This will make it so deduplication logic is consistent across artvorkommen and e
 - [x] refactor to use tags instead of variables that enable/disable models
   - makes them show up in lineage viewer and docs
   - choosing to still use variable to enable transfer models for safety
-- [ ] address issues that were observed when going through export process.
+- [ ] define proper _interfacing_
   - catalog mismatch between prod_gl_arten and wisgl
-  --> how are id_art 
+  --> how is id_art entered into WISGL?
 - [x] rename job models to be more descriptive
 - [x] add descriptions to models
   - re-deploy docs to netlify page

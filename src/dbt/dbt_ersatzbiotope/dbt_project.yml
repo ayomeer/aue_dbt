@@ -14,8 +14,10 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "target"
   - "dbt_packages"
 
-vars:
+on-run-start: 
+  - '{{ ili_utils.run_start_parsing(target_ili_schema="gl_ersatzbiotope") }}'
 
+vars:
   # Basket and Dataset Variables
   # These get inserted into the target schema's t_ili2db_basket table
   # when the macro 'write_basket()' is run.  
@@ -25,24 +27,34 @@ vars:
 
   # Dataset variables
   datasets:
-    dataset_placeholder:
+    dataset_data:
       t_id: 1
-      datasetname: dataset_placeholder
+      datasetname: main_dataset
 
   # Basket variables 
   baskets:
-    basket_placeholder:
-      t_id: 2
-      topic: topic_placeholder
+    catalogues_basket:
+      t_id: 10
+      topic: GL_Ersatzbiotope_V1.Ersatzbiotope
+      dataset_t_id: null 
+    basket_data:
+      t_id: 11
+      topic: GL_Ersatzbiotope_V1.Ersatzbiotope
       dataset_t_id: 1 
-
 
   # Classnames variables
   # Usage example:
   # '{{ var('classnames')['Quelle_intern'] }}'::character varying as t_type,
   classnames:
     classname_placeholder: classname_placeholder
-  
+
+  catalogues:
+    kategorie_catalogue:
+      t_id_offset: 10
+
+  data:
+    t_id_offset: 100
+
 models:
   dbt_ersatzbiotope:
     +grants:

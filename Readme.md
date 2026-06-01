@@ -136,6 +136,7 @@ dbt init --skip-profile-setup
 
 This sets up the project directory structure. We are skipping the interactive profile setup with `--skip-profile-setup`, since we are using our own templates.
 
+
 ### Model Directory Structure
 
 In the `models` directory, we differentiate between `transformations` and `audits`. Transformations being the models concerned with doing the main data transformation work, and audits being models that offer observability to the changes made by those transformations.
