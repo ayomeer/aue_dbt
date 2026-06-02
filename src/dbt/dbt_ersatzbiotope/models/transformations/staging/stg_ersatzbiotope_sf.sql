@@ -14,7 +14,7 @@ with source as (
         {{ adapter.quote("projekttraeger") }},
         {{ adapter.quote("dokumente") }},
         {{ adapter.quote("bemerkungen_intern") }},
-        {{ adapter.quote("geometrie") }}
+        ST_RemoveRepeatedPoints({{ adapter.quote("geometrie") }}, tolerance=>0.001) as geometrie
       from source
   )
   select * from renamed
