@@ -5,7 +5,7 @@
 select
   nextval('dbt_ersatzbiotope.t_ili2db_seq'::regclass) as t_id,
   '{{ var('baskets')['basket_data']['t_id'] }}'::bigint as t_basket,
-  14::integer as kanton,
-  objekt_nummer,
-  projekttraeger
+  'GL'::varchar as kanton,
+  objekt_nummer::integer,
+  projekttraeger::varchar
 from {{ ref('aggregate_into_ersatzbiotop') }}
