@@ -13,7 +13,7 @@ select
 	sf.ziellebensraum,
 	ebio.t_id as von_ersatzbiotop,
 	sf.geometrie as geo_obj
-from {{ ref("stg_ersatzbiotope_sf") }} as sf
+from {{ ref('stg_ersatzbiotope_sf') }} as sf
 left join {{ ref('ili_mirror_ersatzbiotop') }} as ebio
 	on sf.objekt_nummer = ebio.objekt_nummer
 left join {{ ref('stg_cat_kategorie_ersatzmassnahme') }} as cat
