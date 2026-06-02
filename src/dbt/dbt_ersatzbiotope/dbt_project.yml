@@ -34,11 +34,11 @@ vars:
   # Basket variables 
   baskets:
     catalogues_basket:
-      t_id: 10
+      t_id: 5
       topic: GL_Ersatzbiotope_V1.Ersatzbiotope
       dataset_t_id: null 
     basket_data:
-      t_id: 11
+      t_id: 6
       topic: GL_Ersatzbiotope_V1.Ersatzbiotope
       dataset_t_id: 1 
 
@@ -50,10 +50,10 @@ vars:
 
   catalogues:
     kategorie_catalogue:
-      t_id_offset: 10
+      t_id_starting_at: 10
 
   data:
-    t_id_offset: 100
+    t_id_starting_at: 100
 
 models:
   dbt_ersatzbiotope:
