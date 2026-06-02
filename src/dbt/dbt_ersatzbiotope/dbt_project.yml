@@ -36,7 +36,7 @@ vars:
     catalogues_basket:
       t_id: 5
       topic: GL_Ersatzbiotope_V1.Ersatzbiotope
-      dataset_t_id: null 
+      dataset_t_id: 1 
     basket_data:
       t_id: 6
       topic: GL_Ersatzbiotope_V1.Ersatzbiotope
