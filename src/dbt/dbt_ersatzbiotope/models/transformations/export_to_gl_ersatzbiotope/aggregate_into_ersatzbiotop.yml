@@ -1,0 +1,8 @@
+models:
+  - name: aggregate_into_ersatzbiotop
+    description: Hier werden aus den flachen Ersatzbiotop-Einträge des PROD Schemas die 'Ersatzbiotop'-Objekte des INTERLIS Zielschema's generiert. Dazu wird nach `objekt_nummer` gruppiert. Das Attribut ' Projekttraeger` muss dabei bei allen Objekten mit der gleichen `objekt_nummer` gleich sein. Die wird im Test 'test_ersatzbiotop_projekttraeger' sichergestellt.
+    columns:
+      - name: objekt_nummer
+        data_type: bigint
+      - name: projekttraeger
+        data_type: character varying

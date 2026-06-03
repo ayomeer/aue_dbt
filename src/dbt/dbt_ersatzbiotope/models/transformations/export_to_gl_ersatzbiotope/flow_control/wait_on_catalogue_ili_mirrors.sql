@@ -1,4 +1,4 @@
--- depends_on: {{ ref('ili_mirror_ersatzmassnahmen_catalogue') }}
+-- depends_on: {{ ref('ili_mirror_ersatzmassnahme_catalogue') }}
 
 {{ config(
   post_hook=[

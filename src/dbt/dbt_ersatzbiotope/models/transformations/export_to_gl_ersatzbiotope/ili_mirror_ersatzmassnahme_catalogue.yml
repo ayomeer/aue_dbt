@@ -1,0 +1,12 @@
+models:
+  - name: ili_mirror_ersatzmassnahme_catalogue
+    description: Spiegelt die Struktur der INTERLIS Zieltabelle 'gl_ersatzbiotop.ersatzmassnahme_catalogue' wieder.
+    columns:
+      - name: t_id
+        data_type: bigint
+      - name: t_basket
+        data_type: bigint
+      - name: t_ili_tid
+        data_type: uuid
+      - name: kategorie
+        data_type: character varying

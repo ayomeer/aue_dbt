@@ -42,6 +42,7 @@ Testing environment for dbt + PostgreSQL.
       - [dbt Flow Lineage Extension](#dbt-flow-lineage-extension)
   - [Docs](#docs)
   - [Importing Schemas to localhost DB](#importing-schemas-to-localhost-db)
+- [Known issues](#known-issues)
 - [Troubleshooting](#troubleshooting)
       - [There are problems highlighted (often in dbt_project.yml) that I've already solved.](#there-are-problems-highlighted-often-in-dbt_projectyml-that-ive-already-solved)
       - [PostgreSQL Permission Gotchas](#postgresql-permission-gotchas)
@@ -352,6 +353,10 @@ dbt docs serve --port 0
 2) Prepare roles referenced in plain backup file
 3) import on localhost DB by right clicking **database** (not schema) and choosing 'Restore...' or using command line (on host): `psql -h localhost -p 5432 -U postgres -d test_db -f prod_gl_biotope_20260402.sql`
 
+
+# Known issues
+
+- dbt macro log messages get printed even when models aren't run, but only parsed.
 
 
 # Troubleshooting

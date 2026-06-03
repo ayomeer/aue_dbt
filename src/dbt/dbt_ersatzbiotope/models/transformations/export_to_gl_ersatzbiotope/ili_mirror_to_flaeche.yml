@@ -1,0 +1,24 @@
+models:
+  - name: ili_mirror_to_flaeche
+    description: Spiegelt die Struktur der INTERLIS Zieltabelle 'gl_ersatzbiotop.to_flaeche' wieder.
+    columns:
+      - name: t_id
+        data_type: bigint
+      - name: t_basket
+        data_type: bigint
+      - name: t_ili_tid
+        data_type: uuid
+      - name: flaeche_m2
+        data_type: double precision
+      - name: teilobj_nr
+        data_type: bigint
+      - name: kategorie_ersatzmassnahme
+        data_type: bigint
+      - name: ersatzmassnahme
+        data_type: character varying
+      - name: ziellebensraum
+        data_type: character varying
+      - name: von_ersatzbiotop
+        data_type: bigint
+      - name: geo_obj
+        data_type: user-defined

@@ -1,0 +1,15 @@
+models:
+  - name: ili_mirror_ersatzbiotop
+    description: Spiegelt die Struktur der INTERLIS Zieltabelle 'gl_ersatzbiotop.ersatzbiotop' wieder.
+    columns:
+      - name: t_id
+        data_type: bigint
+      - name: t_basket
+        data_type: bigint
+      - name: kanton
+        description: "Modellierter INTERLIS Datentyp in Ziel-Schema: CHAdminCodes_V1.CHCantonCode -> string wie 'GL'"
+        data_type: character varying
+      - name: objekt_nummer
+        data_type: integer
+      - name: projekttraeger
+        data_type: character varying

@@ -8,4 +8,4 @@
   ]
 )}}
 
-SELECT * FROM {{ ref('ili_mirror_ersatzmassnahmen_catalogue') }}
+SELECT * FROM {{ ref('ili_mirror_ersatzmassnahme_catalogue') }}

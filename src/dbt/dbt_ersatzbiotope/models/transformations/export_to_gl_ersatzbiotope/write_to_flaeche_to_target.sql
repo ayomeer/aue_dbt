@@ -8,4 +8,4 @@
   ]
 )}}
 
-SELECT * FROM {{ ref('ili_mirror_teilobjekt') }}
+SELECT * FROM {{ ref('ili_mirror_to_flaeche') }}
