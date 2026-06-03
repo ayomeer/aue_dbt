@@ -6,7 +6,7 @@ Dies ist die Dokumentationsseite zu dem dbt Projekt `dbt_ersatzbiotope`, welches
 
 
 ## Transformationen
-Folgende Tranformations-Jobs sind in diesem Projekt definiert (Ctrl+Click für Job-Graph):
+Alle Transformations-Modelle können links im Projekt-Browser unter `dbt_ersatzbiotope > models > transformations` eingesehen werden. Es sind folgende Tranformations-Jobs definiert (Ctrl+Click für Job-Graph):
 
 - **[export_to_gl_ersatzbiotope](https://dbt-ersatzbiotope.netlify.app/#!/overview?g_v=1&g_i=%2Btransformations.export_to_gl_ersatzbiotope):**  
   Exportiert Daten aus `prod_gl_ersatzbiotope` in das INTERLIS Schema `gl_ersatzbiotope`.
