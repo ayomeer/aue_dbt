@@ -4,7 +4,7 @@
   post_hook=[
     ili_utils.reset_ili_sequence(
         schema_name=target.schema,
-        starting_value=var("data")["t_id_starting_at"]
+        starting_value=var("t_id_starting_values")["data"]
     )
   ]
 )}}

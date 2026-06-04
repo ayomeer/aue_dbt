@@ -1,3 +1,3 @@
 models:
   - name: wait_on_catalogue_ili_mirrors
-    description: Flow control model. Stellt sicher, dass Katalog-Objekte vor den Daten-Objekten erstellt werden, welche sich darauf beziehen.
+    description: Flow control model. Stellt sicher, dass Katalog-Objekte vor den Daten-Objekten erstellt werden, welche sich darauf beziehen und bereitet Transfer der Datenobjekte vor. Setzt `t_ili2db_seq` auf in dbt_project.yml definierten start Wert für Datenobjekte.

@@ -48,12 +48,9 @@ vars:
   classnames:
     classname_placeholder: classname_placeholder
 
-  catalogues:
-    kategorie_catalogue:
-      t_id_starting_at: 10
-
-  data:
-    t_id_starting_at: 100
+  t_id_starting_values:
+    kategorie_catalogue: 10
+    data: 100
 
 models:
   dbt_ersatzbiotope:
