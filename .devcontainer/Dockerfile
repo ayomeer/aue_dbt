@@ -37,5 +37,5 @@ USER $USERNAME
 
 # Install dbt and dbt-postgres extension through pip
 RUN pip install dbt-core dbt-postgres \
-    pandas psycopg2 sqlalchemy
+    pandas psycopg2 sqlalchemy matplotlib tk
 
