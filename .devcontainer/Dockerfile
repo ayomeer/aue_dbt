@@ -30,12 +30,13 @@ RUN apt-get update && apt-get install -y \
     lsof \
     git \
     build-essential libpq-dev \
-    curl gpg
+    curl gpg \
+    tk-dev
 
 # Use non-root user for rest of the setup
 USER $USERNAME
 
 # Install dbt and dbt-postgres extension through pip
 RUN pip install dbt-core dbt-postgres \
-    pandas psycopg2 sqlalchemy matplotlib tk
+    pandas psycopg2 sqlalchemy matplotlib
 

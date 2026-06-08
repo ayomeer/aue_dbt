@@ -3,11 +3,18 @@ services:
     image: dbt_image:latest
     container_name: dbt-container
     network_mode: devnet  
-    environment:
-      - DISPLAY=host.docker.internal:0.0 # set display environment to local host IP
+    
     volumes:
       - ..:/project
-      - ~/.ssh:/home/user/.ssh # forward ssh keys (linux-specific)     
+      - ~/.ssh:/home/user/.ssh # forward ssh keys (linux-specific)  
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - $XAUTHORITY:/developer/.Xauthority   
+    
+    environment:
+      - DISPLAY=$DISPLAY
+      - XAUTHORITY=/developer/.Xauthority
+      - MPLBACKEND=TkAgg
+      
     tty: true
 
   postgis-srv:
