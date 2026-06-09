@@ -80,15 +80,16 @@ ax = fig.add_subplot(111)
 p = ax.plot(
   x_values, y_values, 
   'o-',
-  markersize=2,
-  grid=True
+  markersize=4,
+  zorder=0
 )
 q = ax.quiver(
   x_values, y_values,
   d2_vect[:,0], d2_vect[:,1],
   angles='xy',
   scale_units='xy',
-  scale=quiver_scaling
+  scale=quiver_scaling,
+  zorder=1
 )
 
 for i, (x, y) in enumerate(points):
