@@ -22,8 +22,8 @@ y_values = np.array(pdf_poly["y"])#[:-1]
 
 points = np.stack((x_values, y_values), axis=1)
 
-# -- Filtering -----------------------------------------------------------
 
+# -- Filtering -----------------------------------------------------------
 def curvature_filter(points: np.ndarray):
   # computing discrete 2nd order derivative 
   filterKernel = [1, -2, 1]
@@ -43,21 +43,47 @@ def curvature_filter(points: np.ndarray):
   poly_lines_norm = np.linalg.norm(poly_lines, axis=1)
   local_line_length = poly_lines_norm + np.roll(poly_lines_norm, 1)
 
+  local_line_length += 1
+
   d2_norm_scaled = d2_norm / local_line_length**3
 
   return d2_vect, d2_norm_scaled
-
 d2_vect, d2_norm_scaled = curvature_filter(points)
+
+def dot_product_filter(points: np.ndarray):
+  """ Returns the dot product between normalized """
+  points_lead = np.roll(points, -1, axis=0)
+
+  poly_vects = points_lead - points
+  poly_vects_lengths = np.linalg.norm(poly_vects, axis=1)
+  poly_vects_normalized = poly_vects / poly_vects_lengths[:, np.newaxis]
+
+  # dot product vectorized
+  vects_lag = np.roll(poly_vects_normalized, 1, axis=0)
+  dot_product = (
+    (vects_lag * poly_vects_normalized).sum(axis=1)
+  )
+  return dot_product
+dot_product = dot_product_filter(points)
+
 
 # -- Plotting ------------------------------------------------------------
 
 quiver_scaling = 5
+dot_product_threshold = -0.995
 
-# Plot Polygon
+# Set up figure and axes
 fig = plt.figure()
 ax = fig.add_subplot(111)
-p = plt.plot(x_values, y_values, 'o-', markersize=2)
-q = plt.quiver(
+
+# Plot Polygon and curvature
+p = ax.plot(
+  x_values, y_values, 
+  'o-',
+  markersize=2,
+  grid=True
+)
+q = ax.quiver(
   x_values, y_values,
   d2_vect[:,0], d2_vect[:,1],
   angles='xy',
@@ -67,7 +93,7 @@ q = plt.quiver(
 
 for i, (x, y) in enumerate(points):
   ax.annotate(
-    "idx: " + str(i) + " " + str(np.round(local_line_length[i],2)), 
+    str(i),
     (x, y),
     xytext=(3,3),
     textcoords="offset points",
@@ -75,10 +101,17 @@ for i, (x, y) in enumerate(points):
   )
 
 
-# curvature magnitude scaled down by local line lengths plot
-plt.figure()
-plt.plot(d2_norm_scaled)
+# plot measure
+fig2 = plt.figure()
+ax2 = fig2.add_subplot(111)
+p2 = ax2.plot(dot_product)
+h2 = ax2.hlines(
+  y=dot_product_threshold,
+  xmin=0,
+  xmax=len(dot_product),
+  colors='black',
+  linestyles='dashed'
+)
+
+
 plt.show()
-
-
-dummy = 1
