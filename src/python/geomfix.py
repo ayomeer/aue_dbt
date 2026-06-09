@@ -9,14 +9,21 @@ import matplotlib.pyplot as plt
 
 # -- File Setup ----------------------------------------------------------
 
-path_test_data = Path("/project/src/python/example_data/multipolygon.csv")
+name_test_csv = "problem_multipolygons_linth2000.csv"
+path_test_data = Path("/project/src/python/example_data") / name_test_csv
 pdf_multipolygon = pd.read_csv(path_test_data)
 
 # -- Data Setup ----------------------------------------------------------
 
 # poly selection
-pdf_poly = pdf_multipolygon[pdf_multipolygon["polygon"] == 3]
+# (gids of problematic objects: 551, 523, 548, 540, 530, 551, 524, 547)
+pdf_poly = pdf_multipolygon[(
+  (pdf_multipolygon["gid"] == 548) & 
+  (pdf_multipolygon["polygon_nr"] == 1)
+)]
 
+
+# pandas to numpy
 x_values = np.array(pdf_poly["x"])#[:-1]
 y_values = np.array(pdf_poly["y"])#[:-1]
 
@@ -76,15 +83,16 @@ problem_indexes, = np.where(dot_product <= dot_product_threshold)
 
 # -- Plotting ------------------------------------------------------------
 
-quiver_scaling = 5
+quiver_scaling = 10
 
 
 # Set up figure and axes
-fig = plt.figure()
+fig = plt.figure(figsize=(10,8))
+fig.suptitle("Polygon Ring")
 ax = fig.add_subplot(111)
 
 # Plot Polygon and curvature
-p = ax.plot(
+p, = ax.plot(
   x_values, y_values, 
   'o-',
   markersize=4,
@@ -96,6 +104,8 @@ q = ax.quiver(
   angles='xy',
   scale_units='xy',
   scale=quiver_scaling,
+  width=0.002,
+  headwidth=5,
   zorder=1
 )
 s = ax.scatter(
@@ -114,11 +124,16 @@ for i, (x, y) in enumerate(points):
     fontsize=8
   )
 
+p.set_label("Polygon")
+q.set_label("2nd order derivative")
+s.set_label("Identified problematic verteces")
+fig.legend()
 
 # plot measure
-fig2 = plt.figure()
+fig2 = plt.figure(figsize=(8,5))
+fig2.suptitle("Local Vertex Angle Measure")
 ax2 = fig2.add_subplot(111)
-p2 = ax2.plot(dot_product)
+p2, = ax2.plot(dot_product)
 h2 = ax2.hlines(
   y=dot_product_threshold,
   xmin=0,
@@ -126,6 +141,11 @@ h2 = ax2.hlines(
   colors='black',
   linestyles='dashed'
 )
+
+p2.set_label("local dot product at vertex [i]")
+h2.set_label("problematic threshold")
+fig2.legend()
+
 
 
 plt.show()
