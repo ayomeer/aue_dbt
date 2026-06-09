@@ -24,25 +24,30 @@ points = np.stack((x_values, y_values), axis=1)
 
 # -- Filtering -----------------------------------------------------------
 
-# computing discrete 2nd order derivative 
-filterKernel = [1, -2, 1]
+def curvature_filter(points: np.ndarray):
+  # computing discrete 2nd order derivative 
+  filterKernel = [1, -2, 1]
 
-points_lead = np.roll(points, -1, axis=0)
-points_lag  = np.roll(points, 1, axis=0)
+  points_lead = np.roll(points, -1, axis=0)
+  points_lag  = np.roll(points, 1, axis=0)
 
-d2_vect = (
-    filterKernel[0] * points_lead
-  + filterKernel[1] * points
-  + filterKernel[2] * points_lag
-)
+  d2_vect = (
+      filterKernel[0] * points_lead
+    + filterKernel[1] * points
+    + filterKernel[2] * points_lag
+  )
 
-d2_norm = np.linalg.norm(d2_vect, axis=1)
+  d2_norm = np.linalg.norm(d2_vect, axis=1)
 
-poly_lines = points_lead - points
-poly_lines_norm = np.linalg.norm(poly_lines, axis=1)
-local_line_length = poly_lines_norm + np.roll(poly_lines_norm, 1)
+  poly_lines = points_lead - points
+  poly_lines_norm = np.linalg.norm(poly_lines, axis=1)
+  local_line_length = poly_lines_norm + np.roll(poly_lines_norm, 1)
 
-d2_norm_scaled = d2_norm / local_line_length**3
+  d2_norm_scaled = d2_norm / local_line_length**3
+
+  return d2_vect, d2_norm_scaled
+
+d2_vect, d2_norm_scaled = curvature_filter(points)
 
 # -- Plotting ------------------------------------------------------------
 
