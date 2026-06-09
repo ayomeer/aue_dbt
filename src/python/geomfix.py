@@ -15,7 +15,7 @@ pdf_multipolygon = pd.read_csv(path_test_data)
 # -- Data Setup ----------------------------------------------------------
 
 # poly selection
-pdf_poly = pdf_multipolygon[pdf_multipolygon["polygon"] == 1]
+pdf_poly = pdf_multipolygon[pdf_multipolygon["polygon"] == 3]
 
 x_values = np.array(pdf_poly["x"])#[:-1]
 y_values = np.array(pdf_poly["y"])#[:-1]
@@ -67,10 +67,17 @@ def dot_product_filter(points: np.ndarray):
 dot_product = dot_product_filter(points)
 
 
+# -- Identify Verteces to Remove -----------------------------------------
+dot_product_threshold = -0.995
+
+problem_indexes, = np.where(dot_product <= dot_product_threshold) 
+
+
+
 # -- Plotting ------------------------------------------------------------
 
 quiver_scaling = 5
-dot_product_threshold = -0.995
+
 
 # Set up figure and axes
 fig = plt.figure()
@@ -90,6 +97,12 @@ q = ax.quiver(
   scale_units='xy',
   scale=quiver_scaling,
   zorder=1
+)
+s = ax.scatter(
+  x_values[problem_indexes], y_values[problem_indexes],
+  c='red',
+  s=6,
+  zorder=2
 )
 
 for i, (x, y) in enumerate(points):
