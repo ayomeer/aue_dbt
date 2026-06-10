@@ -23,7 +23,7 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "dbt_packages"
 
 on-run-start: 
-  - '{{ ili_utils.run_start_parsing() }}' # function defined in macros/ili_utils.sql
+  - '{{ ili_utils.run_start_parsing(target_ili_schema="dbu_aue_quellkataster") }}' # function defined in macros/ili_utils.sql
 
 vars:
   target_ili_schema: dbu_aue_quellkataster
