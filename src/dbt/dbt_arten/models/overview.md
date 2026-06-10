@@ -6,13 +6,13 @@ Dies ist die Dokumentationsseite zu dem dbt Projekt `dbt_arten`, welches Transfo
 
 
 ## Transformationen
-Folgende Tranformations-Jobs sind in diesem Projekt definiert:
+Alle Transformations-Modelle können links im Projekt-Browser unter `dbt_ersatzbiotope > models > transformations` eingesehen werden. Es sind folgende Tranformations-Jobs definiert (Ctrl+Click für Job-Graph):
 
-- **[wisgl_import](https://dbt-arten-docs.netlify.app/#!/overview?g_v=1&g_i=%2Btag:wisgl_import):**  
+- **[transformations.wisgl_import](https://dbt-arten.netlify.app/#!/overview?g_v=1&g_i=%2Btag:wisgl_import):**  
   Integriert Daten aus einem WISGL-Export in `prod_gl_arten.artvorkommen_gl_pt`. Der Import muss unter `dbt_arten.imp_wisgl_besonderearten` zur Verfügung stehen.
-- **[wisgl_export](https://dbt-arten-docs.netlify.app/#!/overview?g_v=1&g_i=%2Btag:wisgl_export):**   
+- **[transformations.wisgl_export](https://dbt-arten.netlify.app/#!/overview?g_v=1&g_i=%2Btag:wisgl_export):**   
   Exportiert die für WISGL relevanten besonderen Waldarten aus `prod_gl_arten.artvorkommen_gl_pt` in die Ziel INTERLIS Tabelle `gl_besonderewaldarten.besonderearten`.
-- **[update_artvorkommen_id_art](https://dbt-arten-docs.netlify.app/#!/overview?g_v=1&g_i=%2Btag:update_artvorkommen_id_art):**   
+- **[transformations.update_artvorkommen_id_art](https://dbt-arten.netlify.app/#!/overview?g_v=1&g_i=%2Btag:update_artvorkommen_id_art):**   
   Verknüpft `artvorkommen_gl_pt`-Objekte mit `cat_art`-Art, wo lateinischer name übereinstimmt mit lateinischem name der Art in `cat_art`.
 
 

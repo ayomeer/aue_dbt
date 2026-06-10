@@ -41,6 +41,8 @@ Testing environment for dbt + PostgreSQL.
       - [Power User for dbt Extension](#power-user-for-dbt-extension)
       - [dbt Flow Lineage Extension](#dbt-flow-lineage-extension)
   - [Docs](#docs)
+    - [Customizing Docs Overview Page](#customizing-docs-overview-page)
+    - [Hosting dbt Docs](#hosting-dbt-docs)
   - [Importing Schemas to localhost DB](#importing-schemas-to-localhost-db)
 - [Known issues](#known-issues)
 - [Troubleshooting](#troubleshooting)
@@ -344,6 +346,18 @@ dbt docs serve --port 0
 > ⚠️ **_Important:_** The default port, 8080, is used by vscode devcontainer!
 `--port 0` ensures, that a free port is used. 
 
+### Customizing Docs Overview Page
+
+To customize the dbt docs landing page, simply add a file called `Overview.md` to the dbt project models directory. 
+
+<!-- TODO Add template -->
+
+
+### Hosting dbt Docs
+
+Once GitLab is available, dbt docs can be hosted there. For now, we're using [Netlify](https://app.netlify.com/teams/ayomeer/projects) to host the static dbt docs pages.
+
+The entry-point for the user to get an overview of 
 
 ## Importing Schemas to localhost DB
 
