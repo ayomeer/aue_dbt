@@ -24,6 +24,6 @@
       source('src_prod_gl_arten', 'artvorkommen_gl_pt'),
       except=['gid', 'last_modified']
     ),
-    sample_limit=20
+    sample_limit=0
   )
 }}
