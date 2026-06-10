@@ -33,5 +33,5 @@ SELECT
   w.geometrie
 FROM {{ ref('stg_imp_wisgl_besonderearten') }} as w
 LEFT JOIN {{ ref('stg_cat_art') }} as cat
-  ON cat.id_art = w.id_from_cat_arten
+  ON cat.id_art = w.id_art
 
