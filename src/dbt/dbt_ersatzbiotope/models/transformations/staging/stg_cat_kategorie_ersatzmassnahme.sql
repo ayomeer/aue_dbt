@@ -11,5 +11,5 @@ with source as (
   )
   select 
     *,
-    {{ var('t_id_starting_values')['kategorie_catalogue'] }} + row_number()-1 over() as future_t_id 
+    {{ var('t_id_starting_values')['kategorie_catalogue'] }} - 1 + row_number() over()  as future_t_id 
   from renamed
