@@ -31,7 +31,8 @@ RUN apt-get update && apt-get install -y \
     git \
     build-essential libpq-dev \
     curl gpg \
-    tk-dev
+    tk-dev \
+    x11-apps --fix-missing
 
 # Use non-root user for rest of the setup
 USER $USERNAME

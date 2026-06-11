@@ -8,11 +8,9 @@ services:
       - ..:/project
       - ~/.ssh:/home/user/.ssh # forward ssh keys (linux-specific)  
       - /tmp/.X11-unix:/tmp/.X11-unix
-      - $XAUTHORITY:/developer/.Xauthority   
-    
+
     environment:
       - DISPLAY=$DISPLAY
-      - XAUTHORITY=/developer/.Xauthority
       - MPLBACKEND=TkAgg
       
     tty: true
