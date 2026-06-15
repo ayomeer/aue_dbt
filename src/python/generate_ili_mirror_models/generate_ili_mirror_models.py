@@ -128,6 +128,8 @@ for table_name in data_table_names:
   # create dbt model stump
   output_file = Path(args.output_path) / f"ili_mirror_{table_name}.sql"
   with output_file.open('w', encoding='utf-8') as f:
+    f.write("{{ config(materialized='table') }} \n\n")
+
     f.write("SELECT \n")
     f.writelines(str_column_list)
     f.write(f"FROM {{ ref('placeholder') }}")
