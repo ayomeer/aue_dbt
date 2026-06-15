@@ -14,7 +14,7 @@ TOP_N = 3
 # --- DB Connection Setup ------------------------------------------------------------
 
 conn = psycopg2.connect(
-    host="localhost",
+    host="postgis-container",
     port="5432",
     dbname="test_db",
     user="postgres",
