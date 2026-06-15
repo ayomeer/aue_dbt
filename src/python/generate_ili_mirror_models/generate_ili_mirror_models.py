@@ -80,18 +80,6 @@ WHERE n.nspname = :schema
 ORDER BY a.attnum;
 """)
 
-with engine.connect() as conn:
-  result = conn.execute(
-    sql_get_column_info,
-    {
-      "schema": args.target_schema,
-      "table": "to_flaeche",
-    },
-  )
-  column_info = [(row.column_name, row.data_type) for row in result]
-
-print("to_flaeche columns:", column_info)
-
 # --- Querying -----------------------------------------------------------------------
 
 # get list of tables in target schema
@@ -128,8 +116,12 @@ for table_name in data_table_names:
     column_info = [(row.column_name, row.data_type) for row in result]
 
   str_column_list = []
+  
+  # add ili columns
+
+
   for column_name, data_type in column_info:
-    str_column_list.append(f"  {column_name}: {data_type},\n")
+    str_column_list.append(f"  {column_name}::{data_type},\n")
  
   str_column_list[-1] = str_column_list[-1].replace(",", "") # get rid of comma in last column string
   
