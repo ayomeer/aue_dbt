@@ -33,6 +33,7 @@ vars:
 
   # Basket variables 
   baskets:
+    # export_to_gl_ersatzbiotope
     catalogues_basket:
       t_id: 5
       topic: GL_Ersatzbiotope_V1.Ersatzbiotope
