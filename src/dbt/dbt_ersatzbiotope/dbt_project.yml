@@ -14,8 +14,7 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "target"
   - "dbt_packages"
 
-on-run-start: 
-  - '{{ ili_utils.run_start_parsing(target_ili_schema="gl_ersatzbiotope") }}'
+
 
 vars:
   # Basket and Dataset Variables
