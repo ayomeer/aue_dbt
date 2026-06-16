@@ -132,6 +132,6 @@ for table_name in data_table_names:
 
     f.write("SELECT \n")
     f.writelines(str_column_list)
-    f.write(f"FROM {{ ref('placeholder') }}")
+    f.write(f"FROM {{{{ ref('placeholder') }}}}") # {{ -> {
 
 
