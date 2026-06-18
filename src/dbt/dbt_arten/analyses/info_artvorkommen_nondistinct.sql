@@ -1,40 +1,22 @@
--- This query returns artvorkommen_gl_pt objects, which are not distinct from
--- every other one based on the composite key (geometrie, funddatum, 
--- id_from_cat_arten). This is primarily a result of id_from_cat_arten being 
--- null instead of containing the id corresponding to the species described in
--- the columns art_deutsch and art_wiss.
+DROP VIEW orig_prod_gl_arten.duplicates;
+CREATE VIEW orig_prod_gl_arten.duplicates AS (
+	WITH ranked AS (
+	    SELECT
+	        MAX(gid) OVER w AS representative_gid,
+	        COUNT(*)        OVER w AS duplicate_count,
+			a.*
+	    FROM orig_prod_gl_arten.artvorkommen_gl_pt a
+	    WINDOW w AS (
+	        PARTITION BY geometrie, funddatum, art_wiss
+	    )
+	)
 
-WITH nondistinct as (
-  SELECT 
-    row_number() over() as dup_id,
-    array_agg(gid) as gids,
-    geometrie,
-    funddatum,
-    id_from_cat_arten as id_art,
-    COUNT(*) as cnt
-  FROM {{ ref('stg_artvorkommen') }}
-  GROUP BY geometrie, funddatum, id_from_cat_arten
-  HAVING COUNT(*) > 1
-),
-unnested_gids as (
-  SELECT 
-    unnest(gids) as gid,
-    dup_id
-  FROM nondistinct
-)
-SELECT 
-  n.dup_id,
-  id_from_cat_arten as id_art,
-  funddatum,
-  geometrie,
-  art_deutsch,
-  art_wiss
-FROM {{ ref('stg_artvorkommen') }} as a 
-JOIN unnested_gids as n 
-  ON n.gid = a.gid 
-
-ORDER BY 
-  dup_id,
-  id_from_cat_arten,
-  funddatum,
-  geometrie
+	SELECT 
+	*
+	FROM ranked
+	WHERE duplicate_count > 1
+	ORDER BY
+		duplicate_count DESC,
+		representative_gid,
+		gid
+)	

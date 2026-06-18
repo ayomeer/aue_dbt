@@ -15,7 +15,6 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "dbt_packages"
 
 
-
 vars:
   # Basket and Dataset Variables
   # These get inserted into the target schema's t_ili2db_basket table

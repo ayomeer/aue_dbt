@@ -11,8 +11,8 @@ Alle Transformations-Modelle können links im Projekt-Browser unter `dbt_ersatzb
 - **[export_to_gl_ersatzbiotope](https://dbt-ersatzbiotope.netlify.app/#!/overview?g_v=1&g_i=%2Btransformations.export_to_gl_ersatzbiotope):**  
   Exportiert Daten aus `prod_gl_ersatzbiotope` in das INTERLIS Schema `gl_ersatzbiotope`.
 
-- **TODO: [export_to_pub]():**
-  Exportiert Daten aus `prod_gl_ersatzbiotope` in das pub Schema `pub_ersatzbiotope`.
+- **[export_to_pub_gl_ersatzbiotope](https://dbt-ersatzbiotope.netlify.app/#!/overview?g_v=1&g_i=%2Btransformations.export_to_pub_gl_ersatzbiotope):**
+  Exportiert Daten aus `prod_gl_ersatzbiotope` in das pub Schema `pub_gl_ersatzbiotope`.
 
 ## Audits
 Es sind zur Zeit noch keine Audits definiert

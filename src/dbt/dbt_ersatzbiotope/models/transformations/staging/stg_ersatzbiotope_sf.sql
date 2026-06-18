@@ -14,9 +14,11 @@ with source as (
         {{ adapter.quote("projekttraeger") }},
         {{ adapter.quote("dokumente") }},
         {{ adapter.quote("bemerkungen_intern") }},
-        ST_RemoveRepeatedPoints("geometrie", tolerance=>0.01) as geometrie,
-        ST_IsValidReason("geometrie")
+        ST_RemoveRepeatedPoints("geometrie", tolerance=>0.01) as geometrie
       from source
   )
-  select * from renamed
+  select 
+  *,
+  ST_IsValidReason("geometrie") as isvalid 
+  from renamed
     

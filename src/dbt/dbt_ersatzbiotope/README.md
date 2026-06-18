@@ -14,4 +14,4 @@ To be able to add elements to datasets, baskets and catalogues, it can be nice t
 | 10..99 | catalogue values |
 | 100..* | data |
 
-These spacings are defined in dbt_project.yml. For datasets and baskets manually in the variables `datasets` and `baskets` and for the catalogues,
+These spacings are configured in dbt_project.yml using the project variables `datasets` and `baskets` and `t_id_starting_values`. In the former two, `t_id`s are set manuall for each entry and in the latter, starting values for catalogues and data can be configured.
