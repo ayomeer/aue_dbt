@@ -33,9 +33,9 @@ parser = argparse.ArgumentParser(
     add_help=True,
 )
 parser.add_argument(
-    "--target_schema",
+    "--schema_name",
     "-t",
-    dest="target_schema",
+    dest="schema_name",
     type=str,
     required=True,
     help="Name of the target schema to create boundary models for.",
@@ -55,28 +55,26 @@ parser.add_argument(
     type=str,
     required=False,
     help="""Optional: Name of table to generate model for. 
-            If omitted, models are build for ALL tables in the schema"""
+            If omitted, models are build for ALL tables in the schema."""
 )
 parser.add_argument(
-    "--output-prefix",
-    "-p",
-    dest="output_prefix",
-    type=str,
-    required=False,
-    help="""Optional: Override default prefix. 
-            Use when generating models for a source rather than a target."""
+    "--source-mode",
+    "-s",
+    action="store_true",
+    dest="source_mode",
+    help="""Optional: Generate a source model instead of a target model."""
 )
 args = parser.parse_args()
 
 # debugging args
 # class DebuggingArgs:
-#   def __init__(self, target_schema, output_path, table_list):
-#     self.target_schema = target_schema
+#   def __init__(self, schema_name, output_path, table_list):
+#     self.schema_name = schema_name
 #     self.output_path = output_path
 #     self.table_list = table_list
     
 # args = DebuggingArgs(
-#   target_schema='prod_gl_biotope', 
+#   schema_name='prod_gl_biotope', 
 #   output_path='/project/src/python/generate_ili_mirror_models/output',
 #   table_list=['biotope_to_sf']
 # )
@@ -130,7 +128,7 @@ def get_table_names_for_schema(schema_name):
 # --- Build Boundary Models ---------------------------------------------------
 
 if args.table_name is None:
-  data_table_names = get_table_names_for_schema(args.target_schema)  
+  data_table_names = get_table_names_for_schema(args.schema_name)  
 
 else:
   data_table_names = [args.table_name]
@@ -141,7 +139,7 @@ for table_name in data_table_names:
   with engine.connect() as conn:
     result = conn.execute(
       sql_get_column_info,
-      {"schema": args.target_schema, "table": table_name,}
+      {"schema": args.schema_name, "table": table_name,}
     )
     column_info = [(row.column_name, row.data_type) for row in result]
 
@@ -154,10 +152,10 @@ for table_name in data_table_names:
   
   # create dbt model stump
 
-  if args.output_prefix is None:
-    filename = f"ili_mirror_{table_name}.sql"
+  if args.source_mode:
+    filename = f"stg_{table_name}.sql"
   else:
-    filename = args.output_prefix + f"_{table_name}.sql"
+    filename = f"ili_mirror_{table_name}.sql"
 
   output_file = Path(args.output_path) / filename
   with output_file.open('w', encoding='utf-8') as f:
@@ -165,6 +163,9 @@ for table_name in data_table_names:
 
     f.write("SELECT \n")
     f.writelines(str_column_list)
-    f.write(f"FROM {{{{ ref('placeholder') }}}}") # {{ -> {
+    if args.source_mode:
+      f.write(f"FROM {{{{ source('{args.schema_name}', '{table_name}') }}}}") # {{ -> {
+    else:
+      f.write(f"FROM {{{{ ref('placeholder') }}}}") # {{ -> {
 
 
