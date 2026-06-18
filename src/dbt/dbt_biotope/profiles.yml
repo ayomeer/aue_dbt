@@ -7,7 +7,7 @@ dbt_biotope_profile:
       dbname: test_db
       pass: "{{ env_var('DB_PASSWORD') }}" # export DB_PASSWORD='...' in bashrc
       port: 5432
-      schema: dbt_
+      schema: dbt_biotope
       threads: 1
       type: postgres
       user: postgres
@@ -18,7 +18,7 @@ dbt_biotope_profile:
       dbname: glarus
       pass: "{{ env_var('DB_PASSWORD') }}" # export DB_PASSWORD='...' in bashrc
       port: 5432
-      schema: __schema_name__
+      schema: dbt_biotope
       threads: 1
       type: postgres
       user: gisuploadmanager

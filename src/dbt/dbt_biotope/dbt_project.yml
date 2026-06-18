@@ -33,17 +33,38 @@ vars:
 
   # Dataset variables
   datasets:
-    main_dataset:
+    biotope:
       t_id: 1
-      datasetname: main_dataset
+      datasetname: biotope
+
+    biotope_auengebiet:
+      t_id: 1
+      datasetname: biotope_auengebiet
+
+    biotope_hochmoore:
+      t_id: 3
+      datasetname: biotope_hochmoore
 
 
   # Basket variables 
   baskets:
-    basket_1:
-      t_id: 5
-      topic: topic_1
+    catalogues:
+      t_id: 10
+      topic: Codelisten
       dataset_t_id: 1 
+
+    biotope_auengebiete:
+      t_id: 11
+      topic: kt_Auengebiet
+      dataset_t_id: 2
+
+    biotope_hochmoore:
+      t_id: 12
+      topic: kt_Hochmoore
+      dataset_t_id: 3
+
+
+
 
   t_id_starting_values:
     starting_value_1: 10
@@ -56,3 +77,12 @@ models:
     +post-hook: 
     - 'ALTER {{model.config.materialized}} {{this}} OWNER TO "prod_gl_biotope_write"'
 
+  transformations:
+    export_to_ch_kt_schemas:
+      auengebiete:
+        +meta:
+
+
+seeds:
+  dbt_biotope:
+    +delimiter: ";"
