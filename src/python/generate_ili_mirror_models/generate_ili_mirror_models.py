@@ -48,33 +48,35 @@ parser.add_argument(
     required=True,
     help="Path to output directory for generated files.",
 )
+parser.add_argument(
+    "--table-list",
+    "-l",
+    dest="table_list",
+    type=list[str],
+    required=False,
+    help="""Optional: List of tables to generate models for. 
+            If omitted, models are build for ALL tables in the schema"""
+)
 args = parser.parse_args()
 
-# # debugging args
+# debugging args
 # class DebuggingArgs:
-#   def __init__(self, target_schema, output_path):
+#   def __init__(self, target_schema, output_path, table_list):
 #     self.target_schema = target_schema
 #     self.output_path = output_path
+#     self.table_list = table_list
     
 # args = DebuggingArgs(
-#   target_schema='ch_kt_auengebiete', 
-#   output_path='/project/src/dbt/dbt_biotope/models/transformations'
+#   target_schema='prod_gl_biotope', 
+#   output_path='/project/src/python/generate_ili_mirror_models/output',
+#   table_list=['biotope_to_sf']
 # )
 
 
-dummy = 1
 # --- DB Connection Setup ------------------------------------------------------------
 
 metadata_obj = MetaData()
 engine = create_engine(conn_url)
-
-# prepare general use table definitions
-# tbl_info_column_names = Table(
-#   name="columns",  
-#   metadata=metadata_obj,
-#   schema="information_schema",
-#   autoload_with=engine
-# )
 
 # execute the selected query using the existing engine
 sql_get_column_info = text("""
@@ -93,28 +95,36 @@ ORDER BY a.attnum;
 
 # --- Querying -----------------------------------------------------------------------
 
-# get list of tables in target schema
-tbl_info_table_names = Table(
-  "tables",  
-  metadata_obj,
-  schema="information_schema",
-  autoload_with=engine
-)
-sql_get_table_names = (
-  select(tbl_info_table_names.c.table_name)
-  .where(tbl_info_table_names.c.table_schema == args.target_schema)
-)
-with engine.connect() as conn:
-  result = conn.execute(sql_get_table_names)
-  table_names = [row.table_name for row in result]
+def get_table_names_for_schema(schema_name):
+  # get list of tables in schema
+  tbl_info_table_names = Table(
+    "tables",  
+    metadata_obj,
+    schema="information_schema",
+    autoload_with=engine
+  )
+  sql_get_table_names = (
+    select(tbl_info_table_names.c.table_name)
+    .where(tbl_info_table_names.c.table_schema == schema_name )
+  )
+  with engine.connect() as conn:
+    result = conn.execute(sql_get_table_names)
+    table_names = [row.table_name for row in result]
 
-# filter out tables managed by interlis
-data_table_names = [
-  name for name in table_names 
-  if not any(pattern in name for pattern in INTERLIS_TABLE_NAME_PATTERNS)
-]
+  # filter out tables managed by interlis
+  data_table_names = [
+    name for name in table_names 
+    if not any(pattern in name for pattern in INTERLIS_TABLE_NAME_PATTERNS)
+  ]
+  return data_table_names
 
 # --- Build Boundary Models ---------------------------------------------------
+
+if args.table_list is None:
+  data_table_names = get_table_names_for_schema(args.target_schema)  
+
+else:
+  data_table_names = args.table_list
 
 # for each target table, get column list
 for table_name in data_table_names:
