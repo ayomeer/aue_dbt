@@ -113,7 +113,7 @@ data_table_names = [
   name for name in table_names 
   if not any(pattern in name for pattern in INTERLIS_TABLE_NAME_PATTERNS)
 ]
-data_table_names += ['t_ili2db_dataset', 't_ili2db_basket'] 
+
 # --- Build Boundary Models ---------------------------------------------------
 
 # for each target table, get column list

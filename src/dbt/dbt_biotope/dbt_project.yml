@@ -33,35 +33,24 @@ vars:
 
   # Dataset variables
   datasets:
-    biotope:
-      t_id: 1
-      datasetname: biotope
-
-    biotope_auengebiet:
-      t_id: 1
-      datasetname: biotope_auengebiet
-
-    biotope_hochmoore:
-      t_id: 3
-      datasetname: biotope_hochmoore
+    kt_auengebiete:
+      biotope:
+        t_id: 1
+        datasetname: biotope
 
 
   # Basket variables 
   baskets:
-    catalogues:
-      t_id: 10
-      topic: Codelisten
-      dataset_t_id: 1 
+    kt_auengebiete:
+      catalogues:
+        t_id: 10
+        topic: kt_Auengebiete_V1_1.Codelisten
+        dataset_t_id: 1 
 
-    biotope_auengebiete:
-      t_id: 11
-      topic: kt_Auengebiet
-      dataset_t_id: 2
-
-    biotope_hochmoore:
-      t_id: 12
-      topic: kt_Hochmoore
-      dataset_t_id: 3
+      biotope:
+        t_id: 11
+        topic: kt_Auengebiete_V1_1.kt_Auengebiet
+        dataset_t_id: 1
 
 
 

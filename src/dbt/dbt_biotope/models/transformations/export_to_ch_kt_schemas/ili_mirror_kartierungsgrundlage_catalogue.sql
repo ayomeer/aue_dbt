@@ -2,7 +2,7 @@
 
 SELECT 
   nextval('dbt_ersatzbiotope.t_ili2db_seq'::regclass) as t_id,
-  {{ var('baskets')['catalogues']['t_id'] }}::bigint as t_basket,
+  {{ var('baskets')['kt_auengebiete']['catalogues']['t_id'] }}::bigint as t_basket,
   uuid_generate_v4()::character varying(200) as t_ili_tid,
   acode::character varying(3),
   adescription::text,
