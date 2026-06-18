@@ -25,19 +25,27 @@ INTERLIS_TABLE_NAME_PATTERNS = [
 
 # --- parse input arguments -------------------------------------------------------------
 
-# parser = argparse.ArgumentParser(
-#     description="Create sources.yaml from a source schema.",
-#     add_help=True,
-# )
-# parser.add_argument(
-#     "--target_schema",
-#     "-t",
-#     dest="target_schema",
-#     type=str,
-#     required=True,
-#     help="Name of the target schema to create boundary models for.",
-# )
-# args = parser.parse_args()
+parser = argparse.ArgumentParser(
+    description="Create sources.yaml from a source schema.",
+    add_help=True,
+)
+parser.add_argument(
+    "--target_schema",
+    "-t",
+    dest="target_schema",
+    type=str,
+    required=True,
+    help="Name of the target schema to create boundary models for.",
+)
+parser.add_argument(
+    "--output-path",
+    "-p",
+    dest="output_path",
+    type=str,
+    required=True,
+    help="Path to output directory for generated files.",
+)
+args = parser.parse_args()
 
 # debugging args
 class DebuggingArgs:

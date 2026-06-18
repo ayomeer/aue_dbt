@@ -21,7 +21,8 @@ Testing environment for dbt + PostgreSQL.
       - [Using the image in development/testing](#using-the-image-in-developmenttesting)
   - [Connecting pgAdmin to postgres Server](#connecting-pgadmin-to-postgres-server)
 - [dbt](#dbt)
-  - [Setting up dbt Core Project](#setting-up-dbt-core-project)
+  - [Setting up dbt Project](#setting-up-dbt-project)
+    - [Copy Config Template files](#copy-config-template-files)
     - [Model Directory Structure](#model-directory-structure)
     - [Setting up dbt schema](#setting-up-dbt-schema)
   - [dbt Workflow](#dbt-workflow)
@@ -130,7 +131,8 @@ pw: postgres
 
 
 # dbt
-## Setting up dbt Core Project
+## Setting up dbt Project
+
 
 Open the /src/dbt directory within the dbt devcontainer and run
 ```
@@ -138,6 +140,15 @@ dbt init --skip-profile-setup
 ```
 
 This sets up the project directory structure. We are skipping the interactive profile setup with `--skip-profile-setup`, since we are using our own templates.
+
+### Copy Config Template files
+
+There's templates in the dbt/_templates directory for:
+- dbt_project.yaml
+- profiles.yaml
+- packages.yaml
+
+Copy all of them to the root of the new dbt project and  
 
 
 ### Model Directory Structure
@@ -164,7 +175,7 @@ models
 2) retore backups of schemas we want to develop for
 3) set up dbt_schema
   - create `dbt_<topic>` schema
-  - run `dbt run-operation ili_utils.setup_roles_for_schema --args 'schema: dbt_<topic>'`
+  - add `t_ili2db_seq` to schema
 
 Some utility macros have been written to speed up setting up local test environments:
 (Currently part of the `ili_utils` package. Should maybe be split off)
@@ -172,6 +183,7 @@ Some utility macros have been written to speed up setting up local test environm
 | Macro | Usage |
 | ----- | ----- |
 | setup_roles_for_schema | set up read and write roles to mirror 
+| create_ili_sequence | set up t_ili2db_seq for given schema |
 
 
 ## dbt Workflow

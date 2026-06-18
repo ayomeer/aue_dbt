@@ -1,0 +1,62 @@
+Info: ilivalidator-1.12.1-8d9b922cd26b01147d77a23d300d952d29359a30
+Info: ili2c-5.3.0-90a8da73b8eb7696cb50ce8ae0ee5b422d33fba7
+Info: iox-ili-1.21.13-0ca3feb59eff9c381b29139d8f808b4de2464d49
+Info: User <PeterStaub>
+Info: Start date 2022-12-15 16:24
+Info: maxMemory 4118528 KB
+Info: dataFile <ilidata:ch.admin.geo.models.kt_Amphibien_Wanderobjekte_Catalogues_V1_1>
+Info: dataFile <C:\Users\PeterStaub\Desktop\amphwander.xtf>
+Info: pluginFolder <C:\Program Files\ILI-Tools\ilivalidator\.\plugins>
+Info: modeldir <%ITF_DIR;http://models.interlis.ch/;%JAR_DIR/ilimodels>
+Info: search in repository <C:\Program Files\ILI-Tools\ilivalidator/> for BID <ch.admin.geo.models.kt_Amphibien_Wanderobjekte_Catalogues_V1_1>
+Info: search in repository <http://models.interlis.ch/> for BID <ch.admin.geo.models.kt_Amphibien_Wanderobjekte_Catalogues_V1_1>
+Info: search in repository <C:\Program Files\ILI-Tools\ilivalidator\./ilimodels/> for BID <ch.admin.geo.models.kt_Amphibien_Wanderobjekte_Catalogues_V1_1>
+Info: search in repository <http://models.geo.admin.ch/> for BID <ch.admin.geo.models.kt_Amphibien_Wanderobjekte_Catalogues_V1_1>
+Info: lookup model <CoordSys> 2.3 in repository <C:\Program Files\ILI-Tools\ilivalidator/>
+Info: lookup model <CoordSys> 2.3 in repository <http://models.interlis.ch/>
+Info: lookup model <Units> 2.3 in repository <C:\Program Files\ILI-Tools\ilivalidator/>
+Info: lookup model <Units> 2.3 in repository <http://models.interlis.ch/>
+Info: lookup model <LocalisationCH_V1> 2.3 in repository <C:\Program Files\ILI-Tools\ilivalidator/>
+Info: lookup model <LocalisationCH_V1> 2.3 in repository <http://models.interlis.ch/>
+Info: lookup model <LocalisationCH_V1> 2.3 in repository <C:\Program Files\ILI-Tools\ilivalidator\./ilimodels/>
+Warning: Folder C:\Program Files\ILI-Tools\ilivalidator\.\ilimodels doesn't exist; ignored
+Info: lookup model <LocalisationCH_V1> 2.3 in repository <http://models.geo.admin.ch/>
+Info: lookup model <CatalogueObjects_V1> 2.3 in repository <C:\Program Files\ILI-Tools\ilivalidator/>
+Info: lookup model <CatalogueObjects_V1> 2.3 in repository <http://models.interlis.ch/>
+Info: lookup model <CatalogueObjects_V1> 2.3 in repository <C:\Program Files\ILI-Tools\ilivalidator\./ilimodels/>
+Info: lookup model <CatalogueObjects_V1> 2.3 in repository <http://models.geo.admin.ch/>
+Info: lookup model <CHAdminCodes_V1> 2.3 in repository <C:\Program Files\ILI-Tools\ilivalidator/>
+Info: lookup model <CHAdminCodes_V1> 2.3 in repository <http://models.interlis.ch/>
+Info: lookup model <CHAdminCodes_V1> 2.3 in repository <C:\Program Files\ILI-Tools\ilivalidator\./ilimodels/>
+Info: lookup model <CHAdminCodes_V1> 2.3 in repository <http://models.geo.admin.ch/>
+Info: lookup model <GeometryCHLV03_V1> 2.3 in repository <C:\Program Files\ILI-Tools\ilivalidator/>
+Info: lookup model <GeometryCHLV03_V1> 2.3 in repository <http://models.interlis.ch/>
+Info: lookup model <GeometryCHLV03_V1> 2.3 in repository <C:\Program Files\ILI-Tools\ilivalidator\./ilimodels/>
+Info: lookup model <GeometryCHLV03_V1> 2.3 in repository <http://models.geo.admin.ch/>
+Info: lookup model <kt_Amphibien_Wanderobjekte_Codelisten_V1_1> 2.3 in repository <C:\Program Files\ILI-Tools\ilivalidator/>
+Info: lookup model <kt_Amphibien_Wanderobjekte_Codelisten_V1_1> 2.3 in repository <http://models.interlis.ch/>
+Info: lookup model <kt_Amphibien_Wanderobjekte_Codelisten_V1_1> 2.3 in repository <C:\Program Files\ILI-Tools\ilivalidator\./ilimodels/>
+Info: lookup model <kt_Amphibien_Wanderobjekte_Codelisten_V1_1> 2.3 in repository <http://models.geo.admin.ch/>
+Info: ilifile <C:\Users\PeterStaub\.ilicache\models.interlis.ch\refhb23\CoordSys-20151124.ili>
+Info: ilifile <C:\Users\PeterStaub\.ilicache\models.interlis.ch\refhb23\Units-20120220.ili>
+Info: ilifile <C:\Users\PeterStaub\.ilicache\models.geo.admin.ch\CH\CHBase_Part3_CATALOGUEOBJECTS_V1.ili>
+Info: ilifile <C:\Users\PeterStaub\.ilicache\models.geo.admin.ch\CH\CHBase_Part2_LOCALISATION_V1.ili>
+Info: ilifile <C:\Users\PeterStaub\.ilicache\models.geo.admin.ch\CH\CHBase_Part1_GEOMETRY_V1.ili>
+Info: ilifile <C:\Users\PeterStaub\.ilicache\models.geo.admin.ch\CH\CHBase_Part4_ADMINISTRATIVEUNITS_V1.ili>
+Info: ilifile <C:\Users\PeterStaub\.ilicache\models.geo.admin.ch\BAFU\kt_Amphibien_Wanderobjekte_V1_1.ili>
+Info: validate data...
+Info: first validation pass...
+Info: first validation pass...
+Info: second validation pass...
+Info: validate reference attr kt_Amphibien_Wanderobjekte_Codelisten_V1_1.Codelisten.Kartierungsgrundlage_CatRef.Reference...
+Info: validate reference attr kt_Amphibien_Wanderobjekte_Codelisten_V1_1.Codelisten.Bedeutung_CatRef.Reference...
+Info: validate unique constraint Localisation_V1.MultilingualText.Constraint1...
+Info: validate mandatory constraint LocalisationCH_V1.LocalisedText.Constraint1...
+Info: object count 15 (structured elements 48)
+Info: C:\Users\PeterStaub\.ilicache\models.geo.admin.ch\BAFU\kt_Amphibien_Wanderobjekte_Catalogues_V1_1.xml: kt_Amphibien_Wanderobjekte_Codelisten_V1_1.Codelisten BID=ch.admin.bafu.kt_amphibien_wanderobjekte_catalogues_v1_1
+Info:       3 objects in CLASS kt_Amphibien_Wanderobjekte_Codelisten_V1_1.Codelisten.Bedeutung_Catalogue
+Info:       6 objects in CLASS kt_Amphibien_Wanderobjekte_Codelisten_V1_1.Codelisten.Kartierungsgrundlage_Catalogue
+Info: C:\Users\PeterStaub\Desktop\amphwander.xtf: kt_Amphibien_Wanderobjekte_LV95_V1_1.kt_Wanderobjekt BID=1000
+Info:       6 objects in CLASS kt_Amphibien_Wanderobjekte_LV95_V1_1.kt_Wanderobjekt.kt_Wanderobjekt
+Info: ...validation done
+Info: End date 2022-12-15 16:24 validation took 00h:00m:00s.0845ms

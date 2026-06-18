@@ -1,0 +1,867 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- File kt_Hochmoore_Catalogues_V1_1_20220208.xml VERSION="2022-02-08" (https://models.geo.admin.ch/BAFU/) -->
+<TRANSFER xmlns="http://www.interlis.ch/INTERLIS2.3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://models.geo.admin.ch/BAFU/kt_Hochmoore_V1.xsd">
+  <HEADERSECTION VERSION="2.3" SENDER="BAFU">
+    <MODELS>
+      <MODEL NAME="CoordSys" URI="http://www.interlis.ch/models" VERSION="2015-11-24"/>
+      <MODEL NAME="Units" URI="http://www.interlis.ch/models" VERSION="2012-02-20"/>
+      <MODEL NAME="LocalisationCH_V1" URI="http://www.geo.admin.ch" VERSION="2011-08-30"/>
+      <MODEL NAME="CatalogueObjects_V1" URI="http://www.geo.admin.ch" VERSION="2011-08-30"/>
+      <MODEL NAME="CHAdminCodes_V1" URI="http://www.geo.admin.ch" VERSION="2018-02-19"/>
+      <MODEL NAME="GeometryCHLV95_V1" URI="http://www.geo.admin.ch" VERSION="2017-12-04"/>
+      <MODEL NAME="kt_Hochmoore_V1_1" URI="https://models.geo.admin.ch/BAFU/" VERSION="2022-02-08"/>
+    </MODELS>
+  </HEADERSECTION>
+
+  <DATASECTION>
+
+    <kt_Hochmoore_V1_1.Codelisten BID="ch.admin.bafu.kt_hochmoore_catalogues_v1_1">
+
+      <kt_Hochmoore_V1_1.Codelisten.HM_Bedeutung_Catalogue TID="1001">
+        <Code>B1</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>National</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>National</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Nazionale</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </kt_Hochmoore_V1_1.Codelisten.HM_Bedeutung_Catalogue>
+      <kt_Hochmoore_V1_1.Codelisten.HM_Bedeutung_Catalogue TID="1002">
+        <Code>B2</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Regional</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Régional</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Regionale</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </kt_Hochmoore_V1_1.Codelisten.HM_Bedeutung_Catalogue>
+      <kt_Hochmoore_V1_1.Codelisten.HM_Bedeutung_Catalogue TID="1003">
+        <Code>B3</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Lokal</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Local</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Locale</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </kt_Hochmoore_V1_1.Codelisten.HM_Bedeutung_Catalogue>
+
+      <kt_Hochmoore_V1_1.Codelisten.HM_KE_Catalogue TID="2001">
+        <Code>HM_KE1</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Bultgesellschaften</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Végétation des buttes</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Vegetazione dei cumuli torbosi</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </kt_Hochmoore_V1_1.Codelisten.HM_KE_Catalogue>
+      <kt_Hochmoore_V1_1.Codelisten.HM_KE_Catalogue TID="2002">
+        <Code>HM_KE2</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Schlenkengesellschaften</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Végétation de gouilles</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Vegetazione delle depressioni</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </kt_Hochmoore_V1_1.Codelisten.HM_KE_Catalogue>
+      <kt_Hochmoore_V1_1.Codelisten.HM_KE_Catalogue TID="2003">
+        <Code>HM_KE3</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Bergföhrenhochmoor</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Pinède de tourbière</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Pineta di torbiera</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </kt_Hochmoore_V1_1.Codelisten.HM_KE_Catalogue>
+      <kt_Hochmoore_V1_1.Codelisten.HM_KE_Catalogue TID="2004">
+        <Code>HM_KE4</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Rüllengesellschaft</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Végétation de combe d'écoulement</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Vegetazione delle vallecoli di drenaggio nat.</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </kt_Hochmoore_V1_1.Codelisten.HM_KE_Catalogue>
+      <kt_Hochmoore_V1_1.Codelisten.HM_KE_Catalogue TID="2005">
+        <Code>HM_KE5</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Birken- und Fichtenmoore</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Boulaie et pessière de tourbière</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Betulleti, peccete di torbiera</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </kt_Hochmoore_V1_1.Codelisten.HM_KE_Catalogue>
+      <kt_Hochmoore_V1_1.Codelisten.HM_KE_Catalogue TID="2006">
+        <Code>HM_KE6</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Hochmoormischvegetation</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Végétation mixte de tourbière</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Vegetazione mista di torbiera</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </kt_Hochmoore_V1_1.Codelisten.HM_KE_Catalogue>
+      <kt_Hochmoore_V1_1.Codelisten.HM_KE_Catalogue TID="2007">
+        <Code>HM_KE7</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Wald</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Forêt</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Bosco</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </kt_Hochmoore_V1_1.Codelisten.HM_KE_Catalogue>
+      <kt_Hochmoore_V1_1.Codelisten.HM_KE_Catalogue TID="2008">
+        <Code>HM_KE8</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Waldweide</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Pâturages boisés</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Bosco pascolato</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </kt_Hochmoore_V1_1.Codelisten.HM_KE_Catalogue>
+      <kt_Hochmoore_V1_1.Codelisten.HM_KE_Catalogue TID="2009">
+        <Code>HM_KE9</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Weide</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Pâturages</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Pascolo</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </kt_Hochmoore_V1_1.Codelisten.HM_KE_Catalogue>
+      <kt_Hochmoore_V1_1.Codelisten.HM_KE_Catalogue TID="2010">
+        <Code>HM_KE10</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Gebüsch, Aufforstung</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Buissons, reboisements</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Cespugli, rimboschimento</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </kt_Hochmoore_V1_1.Codelisten.HM_KE_Catalogue>
+      <kt_Hochmoore_V1_1.Codelisten.HM_KE_Catalogue TID="2011">
+        <Code>HM_KE11</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Niedermoor, Verlandung</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Bas-marais, atterrissement</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Palude bassa, interramento</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </kt_Hochmoore_V1_1.Codelisten.HM_KE_Catalogue>
+      <kt_Hochmoore_V1_1.Codelisten.HM_KE_Catalogue TID="2012">
+        <Code>HM_KE12</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Wasserflächen</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Plans d'eau (bleu)</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Acque libre (blue)</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </kt_Hochmoore_V1_1.Codelisten.HM_KE_Catalogue>
+      <kt_Hochmoore_V1_1.Codelisten.HM_KE_Catalogue TID="2013">
+        <Code>HM_KE13</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Torffelder</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Surfaces raclées (brun)</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Campi di torba nuda (bruno)</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </kt_Hochmoore_V1_1.Codelisten.HM_KE_Catalogue>
+      <kt_Hochmoore_V1_1.Codelisten.HM_KE_Catalogue TID="2014">
+        <Code>HM_KE14</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Dauerwiese, Matte</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Prairies, herbages</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Prati permanenti</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </kt_Hochmoore_V1_1.Codelisten.HM_KE_Catalogue>
+      <kt_Hochmoore_V1_1.Codelisten.HM_KE_Catalogue TID="2015">
+        <Code>HM_KE15</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Acker, Kunstwiese</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Cultures, prairies artificielles</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Campi arati, prati artificiali</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </kt_Hochmoore_V1_1.Codelisten.HM_KE_Catalogue>
+      <kt_Hochmoore_V1_1.Codelisten.HM_KE_Catalogue TID="2016">
+        <Code>HM_KE16</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Siedlung, Garten</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Bâtiments, jardins</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Insediamanti, giardini</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </kt_Hochmoore_V1_1.Codelisten.HM_KE_Catalogue>
+      <kt_Hochmoore_V1_1.Codelisten.HM_KE_Catalogue TID="2017">
+        <Code>HM_KE17</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Dolinen</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Emposieux</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Doline</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </kt_Hochmoore_V1_1.Codelisten.HM_KE_Catalogue>
+      <kt_Hochmoore_V1_1.Codelisten.HM_KE_Catalogue TID="2018">
+        <Code>HM_KE18</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Mischvegetation</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Végétation mixte</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Vegetazione mista</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </kt_Hochmoore_V1_1.Codelisten.HM_KE_Catalogue>
+      <kt_Hochmoore_V1_1.Codelisten.HM_KE_Catalogue TID="2019">
+        <Code>HM_KE19</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Hochstaudenfluren</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Mégaphorbiaies</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Megaforbie (erbe alta)</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </kt_Hochmoore_V1_1.Codelisten.HM_KE_Catalogue>
+      <kt_Hochmoore_V1_1.Codelisten.HM_KE_Catalogue TID="2020">
+        <Code>HM_KE20</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Deponie, Aufschüttung</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Remblaies, décharge</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Depositi, ripiene</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </kt_Hochmoore_V1_1.Codelisten.HM_KE_Catalogue>
+      <kt_Hochmoore_V1_1.Codelisten.HM_KE_Catalogue TID="2021">
+        <Code>HM_KE21</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Bultgesellschaften</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Végétation des buttes</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Vegetazione dei cumuli torbosi</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </kt_Hochmoore_V1_1.Codelisten.HM_KE_Catalogue>
+      <kt_Hochmoore_V1_1.Codelisten.HM_KE_Catalogue TID="2022">
+        <Code>HM_KE22</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Schlenkengesellschaften</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Végétation de gouilles</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Vegetazione delle depressioni</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </kt_Hochmoore_V1_1.Codelisten.HM_KE_Catalogue>
+      <kt_Hochmoore_V1_1.Codelisten.HM_KE_Catalogue TID="2023">
+        <Code>HM_KE23</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Bergföhrenhochmoor</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Pinède de tourbière</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Pineta di torbiera</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </kt_Hochmoore_V1_1.Codelisten.HM_KE_Catalogue>
+      <kt_Hochmoore_V1_1.Codelisten.HM_KE_Catalogue TID="2024">
+        <Code>HM_KE24</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Rüllengesellschaften</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Végétation de combe d'écoulement</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Vegetazione delle vallecolli die drenaggio nat.</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </kt_Hochmoore_V1_1.Codelisten.HM_KE_Catalogue>
+      <kt_Hochmoore_V1_1.Codelisten.HM_KE_Catalogue TID="2025">
+        <Code>HM_KE25</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Birken- und Fichtenmoore</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Boulaie et pessière de tourbière</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Betulleti, peccete di torbiera</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </kt_Hochmoore_V1_1.Codelisten.HM_KE_Catalogue>
+      <kt_Hochmoore_V1_1.Codelisten.HM_KE_Catalogue TID="2026">
+        <Code>HM_KE26</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Hochmoormischvegetation</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Végétation mixte de tourbière</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Vegetazione mista di torbiera</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </kt_Hochmoore_V1_1.Codelisten.HM_KE_Catalogue>
+
+      <kt_Hochmoore_V1_1.Codelisten.HM_Typ_Catalogue TID="3001">
+        <Code>HM_TYP1</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Primäre Hochmoorfläche</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Tourbières primaires</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Torbiere primarie</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </kt_Hochmoore_V1_1.Codelisten.HM_Typ_Catalogue>
+      <kt_Hochmoore_V1_1.Codelisten.HM_Typ_Catalogue TID="3002">
+        <Code>HM_TYP2</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Sekundäre Hochmoorfläche</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Tourbière secondaires</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Torbiere secondarie</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </kt_Hochmoore_V1_1.Codelisten.HM_Typ_Catalogue>
+      <kt_Hochmoore_V1_1.Codelisten.HM_Typ_Catalogue TID="3003">
+        <Code>HM_TYP3</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Hochmoorumfeld</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Zone de contact</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Area adiacente</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </kt_Hochmoore_V1_1.Codelisten.HM_Typ_Catalogue>
+      <kt_Hochmoore_V1_1.Codelisten.HM_Typ_Catalogue TID="3004">
+        <Code>HM_TYP4</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Offene Wasserfläche</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Plan d'eau</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Superficie d'acqua</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </kt_Hochmoore_V1_1.Codelisten.HM_Typ_Catalogue>
+      <kt_Hochmoore_V1_1.Codelisten.HM_Typ_Catalogue TID="3005">
+        <Code>HM_TYP5</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Vegetationslose Torffelder</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Tourbes nues exploitées</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Torba scoperchiata</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </kt_Hochmoore_V1_1.Codelisten.HM_Typ_Catalogue>
+
+      <kt_Hochmoore_V1_1.Codelisten.HM_Kartierungsgrundlage_Catalogue TID="4001">
+        <Code>K1</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Landeskarte 1:25000</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Carte nationale 1:25’000</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Carta nazionale 1:25’000</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </kt_Hochmoore_V1_1.Codelisten.HM_Kartierungsgrundlage_Catalogue>
+      <kt_Hochmoore_V1_1.Codelisten.HM_Kartierungsgrundlage_Catalogue TID="4002">
+        <Code>K2</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Andere Landeskarte</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Autre carte nationale</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Altra carta nazionale</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </kt_Hochmoore_V1_1.Codelisten.HM_Kartierungsgrundlage_Catalogue>
+      <kt_Hochmoore_V1_1.Codelisten.HM_Kartierungsgrundlage_Catalogue TID="4003">
+        <Code>K3</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Kantonale Plangrundlage</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Base cantonale de planification</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Base cartografica cantonale</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </kt_Hochmoore_V1_1.Codelisten.HM_Kartierungsgrundlage_Catalogue>
+      <kt_Hochmoore_V1_1.Codelisten.HM_Kartierungsgrundlage_Catalogue TID="4004">
+        <Code>K4</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Luftbild</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Photographie arienne</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Immagine aerea</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </kt_Hochmoore_V1_1.Codelisten.HM_Kartierungsgrundlage_Catalogue>
+      <kt_Hochmoore_V1_1.Codelisten.HM_Kartierungsgrundlage_Catalogue TID="4005">
+        <Code>K5</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>andere</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Autres</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Altri/e</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </kt_Hochmoore_V1_1.Codelisten.HM_Kartierungsgrundlage_Catalogue>
+      <kt_Hochmoore_V1_1.Codelisten.HM_Kartierungsgrundlage_Catalogue TID="4006">
+        <Code>K6</Code>
+        <Description>
+          <LocalisationCH_V1.MultilingualText>
+            <LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>de</Language>
+                <Text>Unbekannt</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>fr</Language>
+                <Text>Inconnu</Text>
+              </LocalisationCH_V1.LocalisedText>
+              <LocalisationCH_V1.LocalisedText>
+                <Language>it</Language>
+                <Text>Sconosciuto</Text>
+              </LocalisationCH_V1.LocalisedText>
+            </LocalisedText>
+          </LocalisationCH_V1.MultilingualText>
+        </Description>
+      </kt_Hochmoore_V1_1.Codelisten.HM_Kartierungsgrundlage_Catalogue>
+
+    </kt_Hochmoore_V1_1.Codelisten>
+
+  </DATASECTION>
+</TRANSFER>

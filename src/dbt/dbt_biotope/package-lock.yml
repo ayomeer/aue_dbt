@@ -1,0 +1,11 @@
+packages:
+  - name: dbt_utils
+    package: dbt-labs/dbt_utils
+    version: 1.3.3
+  - name: audit_helper
+    package: dbt-labs/audit_helper
+    version: 0.13.0
+  - git: https://github.com/ayomeer/dbt_ili_utils.git
+    name: ili_utils
+    revision: 31200672d10e684427657393569f92106271ef2b
+sha1_hash: 6d27828f3a110455c12ab59a9866833914e3d8b6

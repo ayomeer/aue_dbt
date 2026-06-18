@@ -2,11 +2,11 @@
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
-name: '__project_name__'
+name: 'dbt_biotope'
 version: '1.0.0'
 
 # This setting configures which "profile" dbt uses for this project.
-profile: '__profile_name__'
+profile: 'dbt_biotope_profile'
 
 # These configurations specify where dbt should look for different types of files.
 # The `model-paths` config, for example, states that models in this project can be
@@ -22,8 +22,6 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "target"
   - "dbt_packages"
 
-on-run-start: 
-  - '{{ run_start_parsing() }}' # function defined in macros/ili_utils.sql
 
 vars:
   # Basket and Dataset Variables
@@ -35,43 +33,26 @@ vars:
 
   # Dataset variables
   datasets:
-    dataset_access:
+    main_dataset:
       t_id: 1
-      datasetname: access-und-nachtraege-datenquelle
-    dataset_alpquellen:
-      t_id: 2
-      datasetname: alpquellen-datenquelle
-    dataset_neuerfassung:
-      t_id: 3
-      datasetname: neuerfassung
+      datasetname: main_dataset
+
 
   # Basket variables 
   baskets:
-    basket_quellkataster_access:
-      t_id: 4
-      topic: Grundwasseraustritte_intern
-      dataset_t_id: 1 
-    basket_quellkataster_alpquellen:
+    basket_1:
       t_id: 5
-      topic: Grundwasseraustritte_intern
-      dataset_t_id: 2
-    basket_quellkataster_neuerfassung:
-      t_id: 6
-      topic: Grundwasseraustritte_intern
-      dataset_t_id: 3
+      topic: topic_1
+      dataset_t_id: 1 
 
-  # Classnames variables
-  # Usage example:
-  # '{{ var('classnames')['Quelle_intern'] }}'::character varying as t_type,
-  classnames:
-    Quelle_intern: Prod_Quellkataster_V1.Quelle.Quelle_intern
-  
-  
+  t_id_starting_values:
+    starting_value_1: 10
+    data: 100
+
 models:
-  dbt_dbu_aue_quellkataster:
-    {}
+  dbt_biotope:
     +grants:
-      select: ['dbu_aue_quellkataster_read']
+      select: ['prod_gl_biotope_read']
     +post-hook: 
-    - 'ALTER {{model.config.materialized}} {{this}} OWNER TO "dbu_aue_quellkataster_write"'
+    - 'ALTER {{model.config.materialized}} {{this}} OWNER TO "prod_gl_biotope_write"'
 
