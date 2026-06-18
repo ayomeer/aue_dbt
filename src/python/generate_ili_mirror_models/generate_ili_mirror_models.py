@@ -21,6 +21,9 @@ INTERLIS_TABLE_NAME_PATTERNS = [
   'amultipoint',
   'multiline',
   'multisurface',
+  'catref',
+  'localised',
+  'multilingual'
 ]
 
 # --- parse input arguments -------------------------------------------------------------
@@ -39,7 +42,7 @@ parser.add_argument(
 )
 parser.add_argument(
     "--output-path",
-    "-p",
+    "-o",
     dest="output_path",
     type=str,
     required=True,
@@ -47,16 +50,16 @@ parser.add_argument(
 )
 args = parser.parse_args()
 
-# debugging args
-class DebuggingArgs:
-  def __init__(self, target_schema, output_path):
-    self.target_schema = target_schema
-    self.output_path = output_path
+# # debugging args
+# class DebuggingArgs:
+#   def __init__(self, target_schema, output_path):
+#     self.target_schema = target_schema
+#     self.output_path = output_path
     
-args = DebuggingArgs(
-  target_schema='pub_gl_ersatzbiotope', 
-  output_path='/project/src/python/generate_ili_mirror_models/output'
-)
+# args = DebuggingArgs(
+#   target_schema='ch_kt_auengebiete', 
+#   output_path='/project/src/dbt/dbt_biotope/models/transformations'
+# )
 
 
 dummy = 1
@@ -119,15 +122,12 @@ for table_name in data_table_names:
   with engine.connect() as conn:
     result = conn.execute(
       sql_get_column_info,
-      {"schema": args.target_schema, "table": "to_flaeche",}
+      {"schema": args.target_schema, "table": table_name,}
     )
     column_info = [(row.column_name, row.data_type) for row in result]
 
+  # create list of SQL strings corresponding to columns
   str_column_list = []
-  
-  # add ili columns
-
-
   for column_name, data_type in column_info:
     str_column_list.append(f"  {column_name}::{data_type},\n")
  
