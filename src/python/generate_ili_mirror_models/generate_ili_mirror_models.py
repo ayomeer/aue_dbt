@@ -49,13 +49,22 @@ parser.add_argument(
     help="Path to output directory for generated files.",
 )
 parser.add_argument(
-    "--table-list",
-    "-l",
-    dest="table_list",
-    type=list[str],
+    "--table-name",
+    "-n",
+    dest="table_name",
+    type=str,
     required=False,
-    help="""Optional: List of tables to generate models for. 
+    help="""Optional: Name of table to generate model for. 
             If omitted, models are build for ALL tables in the schema"""
+)
+parser.add_argument(
+    "--output-prefix",
+    "-p",
+    dest="output_prefix",
+    type=str,
+    required=False,
+    help="""Optional: Override default prefix. 
+            Use when generating models for a source rather than a target."""
 )
 args = parser.parse_args()
 
@@ -120,11 +129,11 @@ def get_table_names_for_schema(schema_name):
 
 # --- Build Boundary Models ---------------------------------------------------
 
-if args.table_list is None:
+if args.table_name is None:
   data_table_names = get_table_names_for_schema(args.target_schema)  
 
 else:
-  data_table_names = args.table_list
+  data_table_names = [args.table_name]
 
 # for each target table, get column list
 for table_name in data_table_names:
@@ -144,7 +153,13 @@ for table_name in data_table_names:
   str_column_list[-1] = str_column_list[-1].replace(",", "") # get rid of comma in last column string
   
   # create dbt model stump
-  output_file = Path(args.output_path) / f"ili_mirror_{table_name}.sql"
+
+  if args.output_prefix is None:
+    filename = f"ili_mirror_{table_name}.sql"
+  else:
+    filename = args.output_prefix + f"_{table_name}.sql"
+
+  output_file = Path(args.output_path) / filename
   with output_file.open('w', encoding='utf-8') as f:
     f.write("{{ config(materialized='table', enabled=false) }} \n\n")
 
