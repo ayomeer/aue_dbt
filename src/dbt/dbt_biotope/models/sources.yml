@@ -4,4 +4,6 @@ sources:
     schema: prod_gl_biotope
     tables:
       - name: biotope_to_sf
-
+      - name: cat_kartierungsgrundlage
+      - name: cat_herkunft
+      - name: cat_biotopart

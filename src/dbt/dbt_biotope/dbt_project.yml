@@ -66,12 +66,6 @@ models:
     +post-hook: 
     - 'ALTER {{model.config.materialized}} {{this}} OWNER TO "prod_gl_biotope_write"'
 
-  transformations:
-    export_to_ch_kt_schemas:
-      auengebiete:
-        +meta:
-
-
 seeds:
   dbt_biotope:
     +delimiter: ";"

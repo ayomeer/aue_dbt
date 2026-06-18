@@ -159,13 +159,15 @@ for table_name in data_table_names:
 
   output_file = Path(args.output_path) / filename
   with output_file.open('w', encoding='utf-8') as f:
-    f.write("{{ config(materialized='table', enabled=false) }} \n\n")
-
-    f.write("SELECT \n")
-    f.writelines(str_column_list)
     if args.source_mode:
+      f.write("SELECT \n")
+      f.writelines(str_column_list)
       f.write(f"FROM {{{{ source('{args.schema_name}', '{table_name}') }}}}") # {{ -> {
+    
     else:
+      f.write("{{ config(materialized='table', enabled=false) }} \n\n")
+      f.write("SELECT \n")
+      f.writelines(str_column_list)
       f.write(f"FROM {{{{ ref('placeholder') }}}}") # {{ -> {
 
 
