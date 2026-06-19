@@ -23,22 +23,18 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "dbt_packages"
 
 
-vars:
-  # Basket and Dataset Variables
-  # These get inserted into the target schema's t_ili2db_basket table
-  # when the macro 'write_basket()' is run.  
-  # 
-  # Note: - t_id is meant to be unique across all tables!
-  #       - dataset_t_id must match one of the t_ids defined for a dataset
+on-run-start:
+  - '{{ ili_utils.reset_ili_sequence("dbt_biotope", 101) }}'
 
-  # Dataset variables
-  t_id_starting_values:
-    data: 100
+
+vars:
+  data_basket:
+    t_id: 100
+    topic: GL_Ersatzbiotope_V1.Ersatzbiotope
+    dataset_t_id: 1 
+
 
 models:
   dbt_biotope:
     +grants:
-      select: ['prod_gl_biotope_read']
-    +post-hook: 
-    - 'ALTER {{model.config.materialized}} {{this}} OWNER TO "prod_gl_biotope_write"'
-
+      select: ['prod_gl_biotope_read']  

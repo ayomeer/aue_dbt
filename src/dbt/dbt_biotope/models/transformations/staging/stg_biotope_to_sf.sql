@@ -43,5 +43,7 @@ SELECT
   geometrie::geometry(MultiPolygon,2056),
   oid_uuid::uuid,
   id_old::integer,
-  lebensraumnummer::character varying
+  lebensraumnummer::character varying,
+  -- additional utility columns
+  row_number() over() as link_key
 FROM {{ source('prod_gl_biotope', 'biotope_to_sf') }}

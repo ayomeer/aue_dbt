@@ -1,35 +1,29 @@
-{{ config(materialized='table', enabled=false) }} 
+{{ config(materialized='table', enabled=true) }} 
 
 SELECT 
-  t_id::bigint,
-  t_basket::bigint,
-  t_ili_tid::uuid,
-  kanton::character varying(255),
-  objnummer::character varying(30),
-  aname::character varying(80),
-  obj_gisflaeche::numeric(12,3),
+  b.t_id::bigint,
+  {{ var('data_basket')['t_id'] }}::bigint as t_basket,
+  -- t_ili_tid::uuid, (letting this be auto-generated on insert)
+  b.kanton::character varying(255),
+  b.objekt_nummer::character varying(30) as objnummer,
+  b.aname::character varying(80),
+  b.obj_gisflaeche::numeric(12,3),
   -- au_typ::bigint,
-  herkunft::character varying(250),
-  kartierungsgrundlage::bigint,
-  aufnahmedatum::date,
-  mutationsdatum::date,
+  b.herkunft::character varying(250),
+  cat_kartierung.t_id::bigint as kartierungsgrundlage,
+  -- aufnahmedatum::date,
+  -- mutationsdatum::date,
   -- mutationsgrund::text,
   -- mutationsgrund_de::text,
   -- mutationsgrund_fr::text,
   -- mutationsgrund_rm::text,
   -- mutationsgrund_it::text,
   -- mutationsgrund_en::text,
-  bedeutung::bigint
-FROM {{ ref('placeholder') }}
+  cat_bedeutung.t_id::bigint as bedeutung
+FROM {{ ref('biotop') }} as b
+LEFT JOIN {{ ref('stg_kartierungsgrundlage_catalogue') }} as cat_kartierung
+  ON cat_kartierung.adescription_de = b.kartierungsgrundlage 
+LEFT JOIN {{ ref('stg_bedeutung_catalogue') }} as cat_bedeutung
+  ON cat_bedeutung.adescription_de = b.bedeutung
+WHERE b.biotopart = 'Auengebiet'
 
-      Kanton : MANDATORY CHAdminCodes_V1.CHCantonCode;
-      ObjNummer : MANDATORY TEXT*30;
-      Name : TEXT*80;
-      Obj_GISFlaeche : MANDATORY 1.000 .. 999999999.000 [Units.m2];
-      AU_TYP : kt_Auengebiete_V1_1.Codelisten.AU_TYP_CatRef;
-      Herkunft : MANDATORY TEXT*250;
-      Kartierungsgrundlage : MANDATORY kt_Auengebiete_V1_1.Codelisten.Kartierungsgrundlage_CatRef;
-      Aufnahmedatum : INTERLIS.XMLDate;
-      Mutationsdatum : INTERLIS.XMLDate;
-      Mutationsgrund : LocalisationCH_V1.MultilingualMText;
-      Bedeutung : MANDATORY kt_Auengebiete_V1_1.Codelisten.Bedeutung_CatRef;
