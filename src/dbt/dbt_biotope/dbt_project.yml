@@ -32,31 +32,7 @@ vars:
   #       - dataset_t_id must match one of the t_ids defined for a dataset
 
   # Dataset variables
-  datasets:
-    kt_auengebiete:
-      biotope:
-        t_id: 1
-        datasetname: biotope
-
-
-  # Basket variables 
-  baskets:
-    kt_auengebiete:
-      catalogues:
-        t_id: 10
-        topic: kt_Auengebiete_V1_1.Codelisten
-        dataset_t_id: 1 
-
-      biotope:
-        t_id: 11
-        topic: kt_Auengebiete_V1_1.kt_Auengebiet
-        dataset_t_id: 1
-
-
-
-
   t_id_starting_values:
-    starting_value_1: 10
     data: 100
 
 models:
@@ -66,6 +42,3 @@ models:
     +post-hook: 
     - 'ALTER {{model.config.materialized}} {{this}} OWNER TO "prod_gl_biotope_write"'
 
-seeds:
-  dbt_biotope:
-    +delimiter: ";"
