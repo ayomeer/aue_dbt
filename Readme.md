@@ -47,9 +47,10 @@ Testing environment for dbt + PostgreSQL.
   - [Importing Schemas to localhost DB](#importing-schemas-to-localhost-db)
 - [Known issues](#known-issues)
 - [Troubleshooting](#troubleshooting)
+      - [post-hook macro call fails unless defined as string](#post-hook-macro-call-fails-unless-defined-as-string)
       - [There are problems highlighted (often in dbt_project.yml) that I've already solved.](#there-are-problems-highlighted-often-in-dbt_projectyml-that-ive-already-solved)
       - [PostgreSQL Permission Gotchas](#postgresql-permission-gotchas)
-  - [TODO](#todo)
+- [TODO](#todo)
 
 <!-- /code_chunk_output -->
 
@@ -387,14 +388,53 @@ The entry-point for the user to get an overview of
 
 # Troubleshooting
 
+#### post-hook macro call fails unless defined as string
+
+Usually, we like to call macros like this
+
+```sql
+{{ config(
+  enabled=var('enable_transfer', false),
+  post_hook=
+    ili_utils.insert_into(
+      schema_name="ch_kt_auengebiete", 
+      table_name="kartierungsgrundlage_catalogue"
+    )
+)}}
+```
+
+because it looks nice and readable. This will fail however with an undescriptive error like 
+
+```
+Error at line 7 at ')'
+```
+
+This is due to `ili_utils.insert_into` using `{{this}}` in the macro. For some reason `{{this}}` does not resolve correctly when calling macros like this. It does though, when you define the macro call as a string like this:
+
+```sql
+{{ config(
+  enabled=var('enable_transfer', false),
+  post_hook=
+    '{{ ili_utils.insert_into(
+      schema_name="ch_kt_auengebiete", 
+      table_name="kartierungsgrundlage_catalogue"
+    )}}'
+)}}
+```
+
+dbt devs actually recommend and encourage you to write hook macro calls as strings in the documentation:
+https://docs.getdbt.com/best-practices/dont-nest-your-curlies?version=2.0&name=Fusion#an-exception
+
+This is also further described here:
+https://github.com/dbt-labs/dbt-core/issues/3986
+
 #### There are problems highlighted (often in dbt_project.yml) that I've already solved.
 Try running `dbt compile` + Command Palette > Reload Window 
 
 #### PostgreSQL Permission Gotchas
-
 - if a view doesn't have the same permissions as the table from which the data ultimately derives from, you get permission errors. Even if the user trying to access it is part of both roles but they don't match.
 
-## TODO
+# TODO
 
 - [ ] Python script to create boundary models including datatypes from pg information_schema
 
