@@ -1,5 +1,3 @@
--- depends_on: {{ ref('ili_mirror_kartierungsgrundlage_catalogue') }} 
-
 {{ config(
   enabled=var('enable_transfer', false),
   post_hook=[

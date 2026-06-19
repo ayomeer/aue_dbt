@@ -3,5 +3,6 @@
 			80
 		],
 		"dbt.lineage.defaultExpansion": 2,
-		"dbt.queryLimit": 90000
+		"dbt.queryLimit": 90000,
+		"dbt.perspectiveTheme": "Vintage"
 }

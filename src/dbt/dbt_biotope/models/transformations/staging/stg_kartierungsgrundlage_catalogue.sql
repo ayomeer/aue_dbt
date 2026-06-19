@@ -1,5 +1,3 @@
-{{ config(materialized='table', enabled=false) }} 
-
 SELECT 
   t_id::bigint,
   t_basket::bigint,
@@ -11,4 +9,4 @@ SELECT
   adescription_rm::text,
   adescription_it::text,
   adescription_en::text
-FROM {{ ref('placeholder') }}
+FROM {{ source('ch_kt_auengebiete', 'kartierungsgrundlage_catalogue') }}

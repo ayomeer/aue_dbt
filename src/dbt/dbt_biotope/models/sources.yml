@@ -7,3 +7,10 @@ sources:
       - name: cat_kartierungsgrundlage
       - name: cat_herkunft
       - name: cat_biotopart
+
+
+  - name: ch_kt_auengebiete
+    database: "{{ target.database }}"
+    schema: ch_kt_auengebiete
+    tables:
+      - name: kartierungsgrundlage_catalogue

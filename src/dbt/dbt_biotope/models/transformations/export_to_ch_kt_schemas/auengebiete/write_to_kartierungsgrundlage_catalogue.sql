@@ -1,3 +1,5 @@
+-- depends_on: {{ ref('prepare_target_auengebiete') }} 
+
 {{ config(
   enabled=var('enable_transfer', false),
   post_hook=
