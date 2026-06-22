@@ -1,15 +1,30 @@
-Welcome to your new dbt project!
+# dbt_biotope
 
-### Using the starter project
-
-Try running the following commands:
-- dbt run
-- dbt test
+## Biotoparten und Geometrietypen
 
 
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [chat](https://community.getdbt.com/) on Slack for live discussions and support
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+- biotope_to_li 
+  - 'Hecke'
+  - 'Trockenmauer'
+
+- biotope_to_pt
+  - Artvorkommen
+  - Biotopbäume
+  - Pilzvorkommen
+
+- biotope_to_sf
+  - 'Schützenswerte Waldgesellschaft'
+  - 'Auengebiet'
+  - 'Amphibienlaichgebiet, Kernbereich'
+  - 'Amphibienlaichgebiet'
+  - 'Hochmoor'
+  - 'Flachmoor'
+  - 'TWW-Magerheuwiese'
+  - 'TWW-Magerweide'
+  - 'Pufferzone'
+  - 'Feldgehölz'
+  - 'Stehende Gewässer'
+  - 'Artenschutzfläche'
+  - **'Hecke'**
+  - 'Andere schützenswerte Lebensräume'
+  - 'Andere'

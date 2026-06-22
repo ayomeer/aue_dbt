@@ -7,5 +7,5 @@ SELECT
   sf.geometrie as geo_obj,
   b.t_id as t_id_biotop
 FROM {{ ref('stg_biotope_to_sf') }} sf
-LEFT JOIN {{ ref('biotop') }} as b
+LEFT JOIN {{ ref('biotope_sf') }}  as b
   ON sf.link_key = ANY(b.link_key_array)

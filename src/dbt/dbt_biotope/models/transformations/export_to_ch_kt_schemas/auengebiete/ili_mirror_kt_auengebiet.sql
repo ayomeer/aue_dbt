@@ -20,7 +20,7 @@ SELECT
   -- mutationsgrund_it::text,
   -- mutationsgrund_en::text,
   cat_bedeutung.t_id::bigint as bedeutung
-FROM {{ ref('biotop') }} as b
+FROM {{ ref('biotope_sf') }}  as b
 LEFT JOIN {{ ref('stg_kartierungsgrundlage_catalogue') }} as cat_kartierung
   ON cat_kartierung.adescription_de = b.kartierungsgrundlage 
 LEFT JOIN {{ ref('stg_bedeutung_catalogue') }} as cat_bedeutung

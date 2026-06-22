@@ -7,5 +7,5 @@ SELECT
   teilobj_nr::character varying(30),
   geo_obj::geometry(MultiPolygon,2056),
   t_id_biotop::bigint as kt_auengebiet
-FROM {{ ref('teilobjekt') }}
+FROM {{ ref('teilobjekte_sf') }}
 WHERE biotopart = 'Auengebiet'
