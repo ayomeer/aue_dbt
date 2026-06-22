@@ -7,7 +7,7 @@
     'TRUNCATE TABLE ch_kt_auengebiete.kt_auengebiet, ch_kt_auengebiete.kt_auengebiet_teilobjekt',
     ili_utils.reset_ili_sequence(
       schema_name="ch_kt_auengebiete",
-      starting_value=101
+      starting_value=var('data_t_id_offset')
     )
   ]
 )}}

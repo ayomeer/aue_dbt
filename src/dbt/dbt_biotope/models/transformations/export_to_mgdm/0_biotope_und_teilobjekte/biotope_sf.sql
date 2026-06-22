@@ -25,4 +25,5 @@ having
   count(distinct objekt_name) = 1 AND
   count(distinct herkunft) = 1 AND
   count(distinct kartierungsgrundlage) = 1 AND
-  count(distinct bedeutung) = 1
+  count(distinct bedeutung) = 1 AND
+  (SUM(st_area(geometrie)) / 100) > 1.0 -- mgdm constraint: at least 1ha
