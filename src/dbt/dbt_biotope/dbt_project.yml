@@ -33,6 +33,7 @@ vars:
     topic: GL_Ersatzbiotope_V1.Ersatzbiotope
     dataset_t_id: 1 
 
+  data_t_id_offset: 101
 
 models:
   dbt_biotope:

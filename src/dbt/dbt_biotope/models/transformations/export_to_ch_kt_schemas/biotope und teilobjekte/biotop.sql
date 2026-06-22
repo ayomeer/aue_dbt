@@ -1,3 +1,4 @@
+{{ config(materialized='table') }}
 
 select
   nextval('{{target.schema}}.t_ili2db_seq'::regclass) as t_id,
