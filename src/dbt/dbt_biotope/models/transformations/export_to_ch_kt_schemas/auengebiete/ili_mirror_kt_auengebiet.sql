@@ -1,4 +1,4 @@
-{{ config(materialized='table', enabled=true) }} 
+{{ config(materialized='table') }} 
 
 SELECT 
   b.t_id::bigint,
