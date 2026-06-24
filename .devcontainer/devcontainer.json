@@ -21,7 +21,8 @@
         "tripleaceme.dbt-flow-lineage",
         "mechatroner.rainbow-csv",
         "yzhang.markdown-all-in-one",
-        "shd101wyy.markdown-preview-enhanced"
+        "shd101wyy.markdown-preview-enhanced",
+        "charliermarsh.ruff"
     ]
     }
   },

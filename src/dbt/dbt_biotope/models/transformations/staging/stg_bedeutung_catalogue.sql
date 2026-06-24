@@ -1,3 +1,6 @@
+{{ config(materialized='table', enabled=false) }} 
+
+
 SELECT 
   t_id::bigint,
   t_basket::bigint,

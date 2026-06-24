@@ -9,7 +9,7 @@ SELECT
   b.aname::character varying(80),
   b.obj_gisflaeche::numeric(12,3),
   b.herkunft::character varying(250),
-  cat_kartierung.t_id::bigint as kartierungsgrundlage,
+  kart_cat.t_id::bigint as kartierungsgrundlage,
   -- aufnahmedatum::date,
   -- mutationsdatum::date,
   -- mutationsgrund::text,
@@ -20,8 +20,10 @@ SELECT
   -- mutationsgrund_en::text,
   cat_bedeutung.t_id::bigint as bedeutung
 FROM {{ ref('biotope_sf') }}  as b
-LEFT JOIN {{ ref('stg_kartierungsgrundlage_catalogue') }} as cat_kartierung
-  ON cat_kartierung.adescription_de = b.kartierungsgrundlage 
-LEFT JOIN {{ ref('stg_bedeutung_catalogue') }} as cat_bedeutung
+LEFT JOIN {{ source('prod_gl_biotope', 'cat_kartierungsgrundlage') }} as cat_kart 
+  ON cat_kart.kartierungsgrundlage = b.kartierungsgrundlage
+LEFT JOIN {{ source('ch_kt_hochmoore', 'hm_kartierungsgrundlage_catalogue') }} as kart_cat
+  ON kart_cat.acode = cat_kart.code_bund 
+LEFT JOIN {{ source('ch_kt_hochmoore', 'hm_bedeutung_catalogue') }} as cat_bedeutung
   ON cat_bedeutung.adescription_de = b.bedeutung
 WHERE b.biotopart = 'Hochmoor'

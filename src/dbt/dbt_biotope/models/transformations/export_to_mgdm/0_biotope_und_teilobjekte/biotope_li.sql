@@ -18,7 +18,7 @@ select
   li.biotopart,
   array_agg(link_key) as link_key_array
 from {{ ref('stg_biotope_to_li') }} as li
-left join {{ ref('stg_bedeutung_catalogue') }} as c_bed
+left join {{ source('ch_kt_auengebiete', 'bedeutung_catalogue') }} as c_bed
   on c_bed.adescription_de = li.bedeutung
 group by objekt_nummer, biotopart
 having 

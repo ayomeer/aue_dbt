@@ -18,3 +18,9 @@ sources:
       - name: kartierungsgrundlage_catalogue
       - name: bedeutung_catalogue
 
+  - name: ch_kt_hochmoore
+    database: "{{ target.database }}"
+    schema: ch_kt_hochmoore
+    tables:
+      - name: hm_kartierungsgrundlage_catalogue
+      - name: hm_bedeutung_catalogue
