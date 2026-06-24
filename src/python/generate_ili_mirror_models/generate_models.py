@@ -1,11 +1,15 @@
 import os
 from pathlib import Path
 import argparse
-import pandas as pd
-import psycopg2
-from sqlalchemy import Table, Column, select, create_engine, MetaData, text
+
+from jinja2 import Environment, FileSystemLoader
+
+from sqlalchemy import Table, select, create_engine, MetaData, text
 from sqlalchemy.dialects import postgresql
 # --- Constants -----------------------------------------------------------------------------------
+
+path_dbt_templates = Path("/project/src/python/generate_ili_mirror_models/templates")
+default_output_path = Path("/project/src/python/generate_ili_mirror_models/output")
 
 conn_url = (
     "postgresql+psycopg2://postgres:"
@@ -21,6 +25,7 @@ INTERLIS_TABLE_NAME_PATTERNS = [
     "amultipoint",
     "multiline",
     "multisurface",
+    "catalogue",
     "catref",
     "localised",
     "multilingual",
@@ -33,7 +38,7 @@ parser = argparse.ArgumentParser(
     add_help=True,
 )
 parser.add_argument(
-    "--schema_name",
+    "--schema-name",
     "-t",
     dest="schema_name",
     type=str,
@@ -45,7 +50,7 @@ parser.add_argument(
     "-o",
     dest="output_path",
     type=str,
-    required=True,
+    default=default_output_path, # required=True,
     help="Path to output directory for generated files.",
 )
 parser.add_argument(
@@ -125,7 +130,7 @@ def get_table_names_for_schema(schema_name):
     return data_table_names
 
 
-# --- Build Boundary Models -----------------------------------------------------------------------
+# --- Build ili_mirror / staging Models -----------------------------------------------------------------------
 
 if args.table_name is None:
     data_table_names = get_table_names_for_schema(args.schema_name)
@@ -180,3 +185,39 @@ for table_name in data_table_names:
             f.write("SELECT \n")
             f.writelines(str_column_list)
             f.write("FROM {{ ref('placeholder') }}")  # {{ -> {
+
+
+# -- Build dbt models ----------------------------------------------------------------------------
+if args.source_mode is False:
+    env = Environment(
+        loader=FileSystemLoader(path_dbt_templates),
+        variable_start_string="<",
+        variable_end_string=">"
+    )
+
+    # --- Build 'prepare_target_<schema_name>' model ---
+    template = env.get_template("t_prepare_target.sql.j2")
+
+    prepare_target_model = {
+        "target_schema": args.schema_name,
+        "data_table_list": data_table_names,
+        "t_id_starting_value": "var('data_t_id_offset')",
+    }
+
+    sql = template.render(**prepare_target_model)
+    output_file = Path(args.output_path) / f"prepare_target_{args.schema_name}.sql"
+    output_file.write_text(sql)
+
+
+    # --- Build 'write_to_<table_name>' models ---
+    template = env.get_template("t_write_to.sql.j2")
+
+    for table_name in data_table_names:
+        write_to_model = {
+            "target_schema": args.schema_name,
+            "target_table": table_name,
+        }
+
+        sql = template.render(**write_to_model)
+        output_file = Path(args.output_path) / f"write_to_{table_name}.sql"
+        output_file.write_text(sql)
