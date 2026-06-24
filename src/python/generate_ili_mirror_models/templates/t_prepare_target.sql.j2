@@ -1,0 +1,13 @@
+
+{{ config(
+  enabled=var('enable_transfer', false),
+  post_hook=[
+    'TRUNCATE TABLE <data_table_list | join(', ')>',
+    ili_utils.reset_ili_sequence(
+      schema_name="<target_schema>",
+      starting_value=<t_id_starting_value>
+    )
+  ]
+)}}
+
+SELECT 1
