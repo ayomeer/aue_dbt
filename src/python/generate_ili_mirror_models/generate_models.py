@@ -198,9 +198,11 @@ if args.source_mode is False:
     # --- Build 'prepare_target_<schema_name>' model ---
     template = env.get_template("t_prepare_target.sql.j2")
 
+    full_table_names = [f"{args.schema_name}.{table_name}" for table_name in data_table_names]
+
     prepare_target_model = {
         "target_schema": args.schema_name,
-        "data_table_list": data_table_names,
+        "data_table_list": full_table_names,
         "t_id_starting_value": "var('data_t_id_offset')",
     }
 
