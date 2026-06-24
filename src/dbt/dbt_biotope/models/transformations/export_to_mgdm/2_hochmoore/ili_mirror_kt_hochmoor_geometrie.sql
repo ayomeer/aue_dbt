@@ -1,7 +1,7 @@
 {{ config(materialized='table') }} 
 
 SELECT 
-  nextval('{{target.schema}}.t_ili2db_seq'::regclass) as t_id,
+  nextval('{{target.schema}}.t_ili2db_seq'::regclass)::bigint as t_id,
   {{ var('data_basket')['t_id'] }}::bigint as t_basket,
   -- t_ili_tid::character varying(200),
   -- hm_typ::bigint, --optional

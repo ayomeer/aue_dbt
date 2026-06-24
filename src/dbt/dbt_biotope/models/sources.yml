@@ -32,3 +32,10 @@ sources:
       - name: kartierungsgrundlage_catalogue
       - name: bedeutung_catalogue
 
+  - name: ch_kt_trockenwiesen
+    database: "{{ target.database }}"
+    schema: ch_kt_trockenwiesen
+    tables:
+      - name: kartierungsgrundlage_catalogue
+      - name: bedeutung_catalogue
+
