@@ -10,4 +10,4 @@ SELECT
   ST_Force3D((ST_Dump(geo_obj)).geom)::geometry(PolygonZ,2056) as geo_obj,
   t_id_biotop::bigint as kt_trockenwiese -- NOT NULL
 FROM {{ ref('teilobjekte_sf') }}
-WHERE biotopart = 'TWW-Magerheuwiese'
+WHERE biotopart IN ('TWW-Magerheuwiese', 'TWW-Magerweide')

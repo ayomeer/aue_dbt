@@ -26,4 +26,4 @@ LEFT JOIN {{ source('ch_kt_trockenwiesen', 'kartierungsgrundlage_catalogue') }} 
   ON kart_cat.acode = cat_kart.code_bund 
 LEFT JOIN {{ source('ch_kt_trockenwiesen', 'bedeutung_catalogue') }} as cat_bedeutung
   ON cat_bedeutung.adescription_de = b.bedeutung
-WHERE b.biotopart = 'TWW-Magerheuwiese'
+WHERE b.biotopart IN ('TWW-Magerheuwiese', 'TWW-Magerweide')
