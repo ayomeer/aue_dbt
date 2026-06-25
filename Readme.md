@@ -383,7 +383,7 @@ The entry-point for the user to get an overview of
 
 # Known issues
 
-- dbt macro log messages get printed even when models aren't run, but only parsed.
+- dbt macro log messages get printed even when models aren't run, but only parsed. This also means, when building or running jobs, log messages appear 
 
 
 # Troubleshooting

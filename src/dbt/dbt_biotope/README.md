@@ -19,7 +19,7 @@
 ## Biotoparten und Geometrietypen
 
 - biotope_to_li 
-  - 'Hecke'
+  - **'Hecke'**
   - 'Trockenmauer'
 
 - biotope_to_pt
@@ -56,4 +56,4 @@ Schemas erzeugen und dbt trafo job definieren:
 - [ ] kt_biotope_punkte
 - [x] kt_flachmoore
 - [x] kt_hochmoore
-- [ ] kt_trockenwiesen
+- [x] kt_trockenwiesen

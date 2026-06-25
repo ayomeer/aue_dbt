@@ -39,3 +39,10 @@ sources:
       - name: kartierungsgrundlage_catalogue
       - name: bedeutung_catalogue
 
+  - name: ch_kt_biotope_punkte
+    database: "{{ target.database }}"
+    schema: ch_kt_biotope_punkte
+    tables:
+      - name: bio_kartierungsgrundlage_catalogue
+      - name: bio_bedeutung_catalogue
+      - name: bio_typ_catalogue
