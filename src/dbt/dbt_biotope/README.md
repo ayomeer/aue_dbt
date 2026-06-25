@@ -16,33 +16,58 @@
 
 6) write_to Reihenfolge mit `-- depends_on: ` festlegen 
 
+
+
 ## Biotoparten und Geometrietypen
 
-- biotope_to_li 
-  - **'Hecke'**
-  - 'Trockenmauer'
+### Biotoparten mit Spezifischem Zielschema
 
-- biotope_to_pt
-  - Artvorkommen
-  - Biotopbäume
-  - Pilzvorkommen
+| source table  | biotopart                         | target schema                 |
+| ------------- | --------------------------------- | ----------------------------- |
+| biotope_to_sf | Auengebiet                        | ch_kt_auengebiete             |  
+| biotope_to_sf | Amphibienlaichgebiet, Kernbereich | ch_kt_amphibien_laichgebiete  | 
+| biotope_to_sf | Amphibienlaichgebiet              | ch_kt_amphibien_wanderobjekte | 
+| biotope_to_sf | Hochmoor                          | ch_kt_hochmoore               | 
+| biotope_to_sf | Flachmoor                         | ch_kt_flachmoore              | 
+| biotope_to_sf | TWW-Magerheuwiese                 | ch_kt_trockenwiesen           | 
+| biotope_to_sf | TWW-Magerweide                    | ch_kt_trockenwiesen           | 
 
-- biotope_to_sf
-  - 'Schützenswerte Waldgesellschaft'
-  - 'Auengebiet'
-  - 'Amphibienlaichgebiet, Kernbereich'
-  - 'Amphibienlaichgebiet'
-  - 'Hochmoor'
-  - 'Flachmoor'
-  - 'TWW-Magerheuwiese'
-  - 'TWW-Magerweide'
-  - 'Pufferzone'
-  - 'Feldgehölz'
-  - 'Stehende Gewässer'
-  - 'Artenschutzfläche'
-  - **'Hecke'**
-  - 'Andere schützenswerte Lebensräume'
-  - 'Andere'
+### Übrige Biotoparten
+
+#### Flächen
+
+target schema: `ch_kt_biotope_flaechen`
+
+| source table  | biotopart                         | bio_typ  |
+| ------------- | --------------------------------- | -------- |
+| biotope_to_sf | Feldgehölz                        | BIO_TYP3 |
+| biotope_to_sf | Stehende Gewässer                 | BIO_TYP1 |
+| biotope_to_sf | Hecke                             | BIO_TYP6 |
+| biotope_to_sf | Schützenswerte Waldgesellschaft   | BIO_TYP3 |
+| biotope_to_sf | Artenschutzfläche                 | BIO_TYP7 |
+| biotope_to_sf | Andere schützenswerte Lebensräume | BIO_TYP7 |
+| biotope_to_sf | Andere                            | BIO_TYP7 |
+| biotope_to_sf | Pufferzone                        | BIO_TYP7 |
+
+#### Linen
+
+target schema: `ch_kt_biotope_linien`
+
+| source table  | biotopart                         | bio_typ  |
+| ------------- | --------------------------------- | -------- |
+| biotope_to_li | Hecke                             | BIO_TYP6 |
+| biotope_to_li | Trockenmauer                      | BIO_TYP6 |
+
+#### Punkte
+
+target schema: `ch_kt_biotope_punkte`
+
+| source table  | biotopart                         | bio_typ  |
+| ------------- | --------------------------------- | -------- |
+| biotope_to_pt | Artvorkommen                      | BIO_TYP7 |
+| biotope_to_pt | Biotopbäume                       | BIO_TYP7 |
+| biotope_to_pt | Pilzvorkommen                     | BIO_TYP7 |
+
 
 ## TODO
 
@@ -53,7 +78,7 @@ Schemas erzeugen und dbt trafo job definieren:
 - [x] kt_auengebiete
 - [ ] kt_biotope_flaechen
 - [ ] kt_biotope_linien
-- [ ] kt_biotope_punkte
+- [x] kt_biotope_punkte
 - [x] kt_flachmoore
 - [x] kt_hochmoore
 - [x] kt_trockenwiesen
