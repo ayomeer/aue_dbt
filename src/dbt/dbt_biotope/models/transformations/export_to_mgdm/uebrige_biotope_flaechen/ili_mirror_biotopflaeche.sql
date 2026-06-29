@@ -27,9 +27,6 @@ LEFT JOIN {{ source('ch_kt_biotope_flaechen', 'bio_kartierungsgrundlage_catalogu
   ON kart_cat.acode = cat_kart.code_bund 
 LEFT JOIN {{ source('ch_kt_biotope_flaechen', 'bio_bedeutung_catalogue') }} as cat_bedeutung
   ON cat_bedeutung.adescription_de = sf.bedeutung
-LEFT JOIN {{ source('ch_kt_biotope_flaechen', 'bio_typ_catalogue') }} as cat_bio_typ
-  ON cat_bio_typ.adescription_de = 'Anderer Biotosfyp'
-
 
 WHERE biotopart NOT IN (
   'Auengebiet',
