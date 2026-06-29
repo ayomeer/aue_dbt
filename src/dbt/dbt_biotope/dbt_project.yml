@@ -39,3 +39,7 @@ models:
   dbt_biotope:
     +grants:
       select: ['prod_gl_biotope_read']  
+
+seeds:
+  dbt_biotope:
+     +delimiter: ";" # default project delimiter for seeds will be "|"

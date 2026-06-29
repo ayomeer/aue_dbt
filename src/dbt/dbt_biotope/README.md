@@ -34,15 +34,17 @@
 
 ### Übrige Biotoparten
 
+Zuweisungsliste nach Lebensraumnummern benutzen!
+
 #### Flächen
 
 target schema: `ch_kt_biotope_flaechen`
 
 | source table  | biotopart                         | bio_typ  |
 | ------------- | --------------------------------- | -------- |
-| biotope_to_sf | Feldgehölz                        | BIO_TYP3 |
+| biotope_to_sf | Feldgehölz                        | BIO_TYP7 |
 | biotope_to_sf | Stehende Gewässer                 | BIO_TYP1 |
-| biotope_to_sf | Hecke                             | BIO_TYP6 |
+| biotope_to_sf | Hecke                             | BIO_TYP7 |
 | biotope_to_sf | Schützenswerte Waldgesellschaft   | BIO_TYP3 |
 | biotope_to_sf | Artenschutzfläche                 | BIO_TYP7 |
 | biotope_to_sf | Andere schützenswerte Lebensräume | BIO_TYP7 |

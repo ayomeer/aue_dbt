@@ -45,5 +45,6 @@ SELECT
   id_old::integer,
   lebensraumnummer::character varying,
   -- additional utility columns
-  row_number() over() as link_key
+  row_number() over() as link_key,
+  lrn_aus_beschreibung
 FROM {{ source('prod_gl_biotope', 'biotope_to_sf') }}
