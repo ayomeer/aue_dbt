@@ -3,7 +3,7 @@
 SELECT 
   sf.t_id::bigint, -- NOT NULL
   {{ var('data_basket')['t_id'] }}::bigint as t_basket, -- NOT NULL
-  -- t_ili_tid::character varying(200), 
+  oid_uuid::character varying(200) as t_ili_tid, 
   sf.kanton::character varying(255), -- NOT NULL
   sf.objekt_nummer::character varying(30) as objnummer, -- NOT NULL
   sf.aname::character varying(80), 

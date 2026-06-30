@@ -1,0 +1,43 @@
+models:
+  - name: ili_mirror_kt_auengebiet
+    description: Spiegelt die Struktur der INTERLIS Zieltabelle 'ch_kt_auengebiete.kt_auengebiet' wieder.
+    columns:
+      - name: t_id
+        data_type: bigint
+      - name: t_basket
+        data_type: bigint
+      - name: t_ili_tid
+        data_type: uuid
+        data_tests:
+          - not_null
+      - name: kanton
+        data_type: character varying
+      - name: objnummer
+        data_type: character varying
+      - name: aname
+        data_type: character varying
+      - name: obj_gisflaeche
+        data_type: numeric
+      - name: herkunft
+        data_type: character varying
+      - name: kartierungsgrundlage
+        data_type: bigint
+      - name: bedeutung
+        data_type: bigint
+  - name: ili_mirror_kt_auengebiet_teilobjekt
+    description: Spiegelt die Struktur der INTERLIS Zieltabelle 'ch_kt_auengebiete.kt_auengebiet_teilobjekt' wieder.
+    columns:
+      - name: t_id
+        data_type: bigint
+      - name: t_basket
+        data_type: bigint
+      - name: t_ili_tid
+        data_type: uuid
+        data_tests:
+          - not_null
+      - name: teilobj_nr
+        data_type: character varying
+      - name: geo_obj
+        data_type: user-defined
+      - name: kt_auengebiet
+        data_type: bigint
