@@ -1,9 +1,9 @@
 {{ config(materialized='table') }} 
 
 SELECT 
-  nextval('{{target.schema}}.t_ili2db_seq'::regclass)::bigint as t_id,
+  nextval('{{target.schema}}.t_ili2db_seq'::regclass)::bigint as t_id, -- re-assign, because of geom dump
   {{ var('data_basket')['t_id'] }}::bigint as t_basket, -- NOT NULL
-  -- t_ili_tid::character varying(200), 
+  oid_uuid::character varying(200) as t_ili_tid, 
   teilobj_nr::character varying(30), -- NOT NULL
   -- bewertungseinheit::integer, (optional) "analog Bundesinventar, falls vorhanden"
   -- tww_tobj::integer, (optional) "analog Bundesinventar, falls vorhanden"

@@ -2,6 +2,7 @@
 
 SELECT
   nextval('{{target.schema}}.t_ili2db_seq'::regclass) as t_id,
+  pt.oid_uuid,
   pt.teilobj_nr::varchar(30),
   pt.biotopart,
   pt.geometrie as geo_obj,

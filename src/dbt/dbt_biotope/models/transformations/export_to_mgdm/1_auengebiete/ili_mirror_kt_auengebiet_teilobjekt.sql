@@ -1,9 +1,9 @@
 {{ config(materialized='table') }} 
 
 SELECT 
-  nextval('{{target.schema}}.t_ili2db_seq'::regclass)::bigint as t_id,
+  t_id::bigint, -- NOT NULL
   {{ var('data_basket')['t_id'] }}::bigint as t_basket,
-  uuid_generate_v4()::character varying(200) as t_ili_tid, , (letting this be auto-generated on insert)
+  oid_uuid::uuid as t_ili_tid, 
   teilobj_nr::character varying(30),
   geo_obj::geometry(MultiPolygon,2056),
   t_id_biotop::bigint as kt_auengebiet

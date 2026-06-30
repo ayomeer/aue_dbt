@@ -90,4 +90,4 @@ Schemas erzeugen und dbt trafo job definieren:
 - [x] kt_hochmoore
 - [x] kt_trockenwiesen
 
-- [ ] add t_ili_tid uuids to all objects so ili validators doesn't complain
+- [x] add t_ili_tid uuids to all objects so ili validators doesn't complain

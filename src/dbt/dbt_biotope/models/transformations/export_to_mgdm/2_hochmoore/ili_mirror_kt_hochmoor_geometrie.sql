@@ -3,7 +3,7 @@
 SELECT 
   nextval('{{target.schema}}.t_ili2db_seq'::regclass)::bigint as t_id,
   {{ var('data_basket')['t_id'] }}::bigint as t_basket,
-  -- t_ili_tid::character varying(200),
+  oid_uuid::character varying(200) as t_ili_tid, 
   -- hm_typ::bigint, --optional
   -- hm_ke::bigint, --optional
   geo_obj::geometry(MultiPolygon,2056),

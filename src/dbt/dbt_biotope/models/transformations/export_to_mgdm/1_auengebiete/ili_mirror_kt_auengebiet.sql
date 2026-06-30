@@ -3,7 +3,7 @@
 SELECT 
   b.t_id::bigint,
   {{ var('data_basket')['t_id'] }}::bigint as t_basket,
-  -- t_ili_tid::uuid, (letting this be auto-generated on insert)
+  uuid_generate_v4()::uuid as t_ili_tid,
   b.kanton::character varying(255),
   b.objekt_nummer::character varying(30) as objnummer,
   b.aname::character varying(80),

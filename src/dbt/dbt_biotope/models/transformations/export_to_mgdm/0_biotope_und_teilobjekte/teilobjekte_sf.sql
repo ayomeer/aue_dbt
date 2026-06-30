@@ -1,6 +1,8 @@
 {{ config(materialized='table') }}
 
 SELECT
+  nextval('{{target.schema}}.t_ili2db_seq'::regclass)::bigint as t_id,
+  sf.oid_uuid,
   sf.objekt_nummer,
   sf.teilobj_nr::varchar(30),
   sf.biotopart,
