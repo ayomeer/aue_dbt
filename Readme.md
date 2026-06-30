@@ -34,6 +34,7 @@ Testing environment for dbt + PostgreSQL.
     - [The dbt-INTERLIS Boundary](#the-dbt-interlis-boundary)
       - [Boundary Model Generation](#boundary-model-generation)
       - [Boundary Models](#boundary-models)
+    - [Basket Management for Non-INTERLIS Targets (pub)](#basket-management-for-non-interlis-targets-pub)
       - [Transfer Models](#transfer-models)
     - [Macros](#macros)
       - [Available Macros](#available-macros)
@@ -270,17 +271,8 @@ For dbt to work smoothly, make sure of the following:
 
 ### The dbt-INTERLIS Boundary
 
-Since dbt models can only be _SELECT_ statements, writing to the target INTERLIS models is done using [macros](#macros). 
-
-Basket definitions can be defined either in `dbt_project.yml` or a dedicated yaml file (e.g. `baskets.yml`) using variables following the structure:
-```yaml
-# Example from dbt_dbu_aue_quellkataster > dbt_project.yml
-baskets:
-  basket_quellkataster_access:
-    t_id: 1
-    topic: ProdQuellkataster
-    dataset_t_id: NULL 
-```
+> Note:
+> For MGDM targets with baskets pre-defined by an XML file, this isn't necessary.
 
 #### Boundary Model Generation
 
@@ -303,6 +295,38 @@ options:
   --source-mode, -s     Optional: Generate a source model instead of a target model.
 ```
 
+Example usage:
+```
+python3 generate_models.py --schema-name ch_kt_biotope_linien -o /project/src/dbt/dbt_biotope/models/transformations/export_to_mgdm/uebrige_biotope_linien
+```
+
+The generated `ili_mirror` models give you a clear end-point for building your transformatin towards:
+
+```sql
+{{ config(materialized='table', enabled=false) }} 
+
+SELECT 
+  t_id::bigint, -- NOT NULL
+  t_basket::bigint, -- NOT NULL
+  t_ili_tid::character varying(200), 
+  kanton::character varying(255), -- NOT NULL
+  objnummer::character varying(30), -- NOT NULL
+  aname::character varying(80), 
+  bio_typ::bigint, 
+  bio_typ_kt::character varying(80), 
+  herkunft::character varying(250), -- NOT NULL
+  kartierungsgrundlage::bigint, 
+  aufnahmedatum::date, 
+  mutationsdatum::date, 
+  mutationsgrund::text, 
+  mutationsgrund_de::text, 
+  mutationsgrund_fr::text, 
+  mutationsgrund_rm::text, 
+  mutationsgrund_it::text, 
+  mutationsgrund_en::text, 
+  bedeutung::bigint 
+FROM {{ ref('placeholder') }}
+```
 
 #### Boundary Models
 Boundary models (prefix `b_`) are the final transformation model managed by dbt. They serve as a dbt-side mirror of their respective corresponding INTERLIS table. The following implicit assumptions are made about these tables:
@@ -310,6 +334,21 @@ Boundary models (prefix `b_`) are the final transformation model managed by dbt.
   - the same exact name
   - the same data type (use explicit casting)
 - The column are in the same order ⚠️
+
+
+### Basket Management for Non-INTERLIS Targets (pub)
+
+Basket definitions can be defined either in `dbt_project.yml` or a dedicated yaml file (e.g. `baskets.yml`) using variables following the structure:
+```yaml
+# Example from dbt_dbu_aue_quellkataster > dbt_project.yml
+baskets:
+  basket_quellkataster_access:
+    t_id: 1
+    topic: ProdQuellkataster
+    dataset_t_id: NULL 
+```
+
+Macros defined in the `ili_utils` package can then be used to set up the datasets and baskets on export.
 
 
 #### Transfer Models
@@ -336,10 +375,7 @@ Eventually, these macros should be split off into a seperate repo, so that they 
 
 #### Available Macros
 
-| Macro | Usage |
-|--- | --- |
-| `create_ili_sequence` | Add `t_ili2db_seq` to given schema. Used to set up dbt schema with this sequence, such that this sequence is available to prepare data for export to INTERLIS schemas.
-<!-- TODO: document all the macros -->
+<!-- TODO: document all the macros in ili_utils project and link to dbt docs here -->
 
 #### Debugging Macros
 
@@ -347,9 +383,14 @@ Eventually, these macros should be split off into a seperate repo, so that they 
 
 #### run-operations
 
+Some one-time utilities are written to be used with `dbt run-operation`:
+
 ```bash
 dbt run-operation create_ili_sequence --args 'schema: dbt_quellkataster'
 ```
+
+<!-- List run-operation macros -->
+
 
 ### Extensions
 #### Power User for dbt Extension

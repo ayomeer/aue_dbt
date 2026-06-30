@@ -1,0 +1,35 @@
+models:
+  - name: ili_mirror_biotoplinie
+    description: Spiegelt die Struktur der INTERLIS Zieltabelle 'ch_kt_biotope_linien.biotoplinie' wieder.
+    columns:
+      - name: t_id
+        data_type: bigint
+      - name: t_basket
+        data_type: bigint
+      - name: t_ili_tid
+        data_type: character varying
+        data_tests:
+          - not_null
+      - name: teilobj_nr
+        data_type: character varying
+      - name: geo_obj
+        data_type: user-defined
+      - name: biotop
+        data_type: bigint
+  - name: ili_mirror_biotoplinie_teilobjekt
+    description: Spiegelt die Struktur der INTERLIS Zieltabelle 'ch_kt_biotope_linien.biotoplinie_teilobjekt' wieder.
+    columns:
+      - name: t_id
+        data_type: bigint
+      - name: t_basket
+        data_type: bigint
+      - name: t_ili_tid
+        data_type: character varying
+        data_tests:
+          - not_null
+      - name: teilobj_nr
+        data_type: character varying
+      - name: geo_obj
+        data_type: user-defined
+      - name: biotop
+        data_type: bigint

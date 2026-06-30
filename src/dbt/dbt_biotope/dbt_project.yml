@@ -28,6 +28,11 @@ on-run-start:
 
 
 vars:
+  data_basket:
+    t_id: 100
+    topic: placeholder_topic
+    dataset_tid: 1
+
   data_t_id_offset: 101
 
 models:
