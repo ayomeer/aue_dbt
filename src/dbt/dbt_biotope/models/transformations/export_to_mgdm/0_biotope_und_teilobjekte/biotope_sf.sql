@@ -5,7 +5,7 @@ select
   'GL'::varchar as kanton,
   objekt_nummer,
   objekt_name as aname, -- asserted, that they're all the same in tests
-  (SUM(st_area(geometrie)) / 100)::numeric(12,3) as obj_gisflaeche, -- [ha]
+  ((SUM(st_area(geometrie)) / 100)+1)::numeric(12,3) as obj_gisflaeche, -- [ha], +1 because of wrong value range in INTERLIS model starting at 1.0
   herkunft::varchar(80) as herkunft, -- asserted, that they're all the same in tests
   kartierungsgrundlage, 
   bedeutung::varchar,
@@ -25,4 +25,4 @@ group by
   herkunft,
   objekt_name,
   bafu_bio_typ 
-having (SUM(st_area(geometrie)) / 100) > 1.0 -- mgdm constraint: at least 1ha
+-- having (SUM(st_area(geometrie)) / 100) > 1.0 -- mgdm constraint: at least 1ha

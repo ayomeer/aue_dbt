@@ -71,6 +71,11 @@ target schema: `ch_kt_biotope_punkte`
 | biotope_to_pt | Pilzvorkommen                     | BIO_TYP7 |
 
 
+## Andere Notizen
+
+- `obj_gisflaeche` in INTERLIS Modell lower boundary 1.0 definiert. Damit alle Objekte in das MGDM exportiert werden können, wird die Fläche vorübergehend um 1.0 erhöht. Modelländerung pendent.
+
+
 ## TODO
 
 Schemas erzeugen und dbt trafo job definieren:
@@ -78,9 +83,11 @@ Schemas erzeugen und dbt trafo job definieren:
 - [ ] kt_amphibien_laichgebiete
 - [ ] kt_amphibien_wanderobjekte
 - [x] kt_auengebiete
-- [ ] kt_biotope_flaechen
+- [x] kt_biotope_flaechen
 - [ ] kt_biotope_linien
 - [x] kt_biotope_punkte
 - [x] kt_flachmoore
 - [x] kt_hochmoore
 - [x] kt_trockenwiesen
+
+- [ ] add t_ili_tid uuids to all objects so ili validators doesn't complain

@@ -8,4 +8,4 @@ SELECT
   b.t_id as t_id_biotop
 FROM {{ ref('stg_biotope_to_pt') }} pt
 LEFT JOIN {{ ref('biotope_pt') }}  as b
-  ON pt.link_key = ANY(b.link_key_array)
+  ON pt.gid = ANY(b.link_key_array)
