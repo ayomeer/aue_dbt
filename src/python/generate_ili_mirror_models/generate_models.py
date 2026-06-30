@@ -34,7 +34,9 @@ INTERLIS_TABLE_NAME_PATTERNS = [
 # --- parse input arguments -----------------------------------------------------------------------
 
 parser = argparse.ArgumentParser(
-    description="Create sources.yaml from a source schema.",
+    description="""
+        Create dbt models that make up boundary layer to INTERLIS target schema. 
+        Can also create staging models using the --source-mode flag.""",
     add_help=True,
 )
 parser.add_argument(

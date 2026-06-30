@@ -32,6 +32,7 @@ Testing environment for dbt + PostgreSQL.
       - [Run Variables](#run-variables)
     - [Data Sources](#data-sources)
     - [The dbt-INTERLIS Boundary](#the-dbt-interlis-boundary)
+      - [Boundary Model Generation](#boundary-model-generation)
       - [Boundary Models](#boundary-models)
       - [Transfer Models](#transfer-models)
     - [Macros](#macros)
@@ -196,10 +197,10 @@ The dbt models are structured into layers.
 
 | Layer | Usage |
 | ----- | ----- |
-| info  | Queries you want to save (e.g. for data instrospection) but aren't part of the transformation pipeline. |
-| staging | Entry into dbt pipeline. Rename columns, clean data, transform to suitable datatypes |
+| info_*  | Queries you want to save (e.g. for data instrospection) but aren't part of the transformation pipeline. |
+| stg_* | Entry into dbt pipeline. Rename columns, clean data, transform to suitable datatypes |
 | intermediate | Here, models have columns from internal models as well as target models. Important for transferring object relations from internal database model as well as target INTERLIS model. More complex data transformations also live here. |
-| interlis_boundary | Objects are in the format of the target INTERLIS model and act as mirrors for their targets.  |
+| ili_mirror_* | Objects are in the format of the target INTERLIS model and act as mirrors for their targets.  |
 
 <!-- TODO: example DAG with layers superimposed -->
 
@@ -279,6 +280,27 @@ baskets:
     t_id: 1
     topic: ProdQuellkataster
     dataset_t_id: NULL 
+```
+
+#### Boundary Model Generation
+
+At `src/python/generate_ili_mirror_models`, the Python script `generate_models.py` can be used to generate the whole boundary layer including writing to the target schema.
+
+```
+$ python3 generate_models.py -h
+usage: generate_models.py [-h] --schema-name SCHEMA_NAME [--output-path OUTPUT_PATH] [--table-name TABLE_NAME] [--source-mode]
+
+Create dbt models that make up boundary layer to INTERLIS target schema. Can also create staging models using the --source-mode flag.
+
+options:
+  -h, --help            show this help message and exit
+  --schema-name SCHEMA_NAME, -t SCHEMA_NAME
+                        Name of the target schema to create boundary models for.
+  --output-path OUTPUT_PATH, -o OUTPUT_PATH
+                        Path to output directory for generated files.
+  --table-name TABLE_NAME, -n TABLE_NAME
+                        Optional: Name of table to generate model for. If omitted, models are build for ALL tables in the schema.
+  --source-mode, -s     Optional: Generate a source model instead of a target model.
 ```
 
 
@@ -436,12 +458,19 @@ Try running `dbt compile` + Command Palette > Reload Window
 
 # TODO
 
-- [ ] Python script to create boundary models including datatypes from pg information_schema
+- [v] Python script to create boundary models including datatypes from pg information_schema
+- [ ] Add generation of schema.yml files that document ili_mirror models and add NOT NULL tests to `t_ili_tid`, since it's not necessarily enforced by the target schema but Model Baker Data Validator _does_ expect it to be NOT NULL.
 
 - [ ] Custom version of dbt init -> when starting next project
   - generate dbt_project.yml template with
     - templates for datasets and baskets
+    - run_start sequence reset
+    - seed delimiter
+    - data_t_id_offset
+    - select grants
+  
   - generate profiles.yml in dbt project root
     - profile name matching profile set in dbt_project.yml
+    
   - Custom `models/overview.md` template for docs
 
