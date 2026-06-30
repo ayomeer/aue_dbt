@@ -82,12 +82,14 @@ Schemas erzeugen und dbt trafo job definieren:
 
 - [ ] kt_amphibien_laichgebiete
 - [ ] kt_amphibien_wanderobjekte
-- [x] kt_auengebiete
-- [x] kt_biotope_flaechen
-- [ ] kt_biotope_linien
-- [x] kt_biotope_punkte
-- [x] kt_flachmoore
-- [x] kt_hochmoore
-- [x] kt_trockenwiesen
+- [x] kt_auengebiete              Data Validation successful
+- [x] kt_biotope_flaechen         Data Validation failed: bedeutung National issue
+- [x] kt_biotope_linien           Data Validation successful
+- [x] kt_biotope_punkte           Data Validation successful
+- [x] kt_flachmoore               Data Validation successful
+- [x] kt_hochmoore                Data Validation failed: Handful of geometry errors to fix
+- [x] kt_trockenwiesen            Data Validation failed: oid_uuid non-uniqueness issue
+
+
 
 - [x] add t_ili_tid uuids to all objects so ili validators doesn't complain

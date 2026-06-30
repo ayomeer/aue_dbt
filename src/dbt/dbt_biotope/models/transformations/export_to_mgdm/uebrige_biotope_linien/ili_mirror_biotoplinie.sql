@@ -28,8 +28,8 @@ LEFT JOIN {{ source('ch_kt_biotope_punkte', 'bio_kartierungsgrundlage_catalogue'
 LEFT JOIN {{ source('ch_kt_biotope_punkte', 'bio_bedeutung_catalogue') }} as cat_bedeutung
   ON cat_bedeutung.adescription_de = li.bedeutung
 LEFT JOIN {{ source('ch_kt_biotope_punkte', 'bio_typ_catalogue') }} as cat_bio_typ
-  ON cat_bio_typ.acode = li.bafu_bio_typ
-  
+  ON cat_bio_typ.acode = 'BIO_TYP7' --> Anderer Biotoptyp
+
 WHERE biotopart NOT IN (
   'Auengebiet',
   'Hochmoor',

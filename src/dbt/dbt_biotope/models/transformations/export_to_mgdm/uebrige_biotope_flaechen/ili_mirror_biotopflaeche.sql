@@ -1,5 +1,11 @@
 {{ config(materialized='table') }} 
 
+WITH bio_typ_default AS (
+  SELECT t_id
+  FROM {{ source('ch_kt_biotope_flaechen', 'bio_typ_catalogue') }}
+  WHERE acode = 'BIO_TYP7'
+)
+
 SELECT 
   sf.t_id::bigint, -- NOT NULL
   {{ var('data_basket')['t_id'] }}::bigint as t_basket, -- NOT NULL
@@ -7,7 +13,7 @@ SELECT
   sf.kanton::character varying(255), -- NOT NULL
   sf.objekt_nummer::character varying(30) as objnummer, -- NOT NULL
   sf.aname::character varying(80), 
-  cat_bio_typ.t_id::bigint as bio_typ, -- MANDATORY 
+  COALESCE(cat_bio_typ.t_id, bio_typ_default.t_id)::bigint as bio_typ, -- MANDATORY 
   sf.biotopart::character varying(80) as bio_typ_kt, 
   sf.herkunft::character varying(250), -- NOT NULL
   kart_cat.t_id::bigint as kartierungsgrundlage, 
@@ -29,6 +35,7 @@ LEFT JOIN {{ source('ch_kt_biotope_flaechen', 'bio_bedeutung_catalogue') }} as c
   ON cat_bedeutung.adescription_de = sf.bedeutung
 LEFT JOIN {{ source('ch_kt_biotope_flaechen', 'bio_typ_catalogue') }} as cat_bio_typ
   ON cat_bio_typ.acode = sf.bafu_bio_typ
+CROSS JOIN bio_typ_default
 
 WHERE biotopart NOT IN (
   'Auengebiet',
@@ -38,4 +45,5 @@ WHERE biotopart NOT IN (
   'Amphibienlaichgebiet',
   'TWW-Magerheuwiese',
   'TWW-Magerweide'
-)
+) 
+-- and sf.bedeutung = 'National' --> rows that cause problems with ili data validation
