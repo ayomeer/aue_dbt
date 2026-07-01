@@ -34,41 +34,10 @@
 
 ### Übrige Biotoparten
 
-Zuweisungsliste nach Lebensraumnummern benutzen!
+Für Biotopflächen Zuweisungsliste nach Lebensraumnummern benutzt -> `seeds/assignment_table_bio_typ.csv`.
+Biotoplinien und Punkte werden alle als `"BIO_TYP7; Anderer Biotoptyp"` exportiert.
 
-#### Flächen
 
-target schema: `ch_kt_biotope_flaechen`
-
-| source table  | biotopart                         | bio_typ  |
-| ------------- | --------------------------------- | -------- |
-| biotope_to_sf | Feldgehölz                        | BIO_TYP7 |
-| biotope_to_sf | Stehende Gewässer                 | BIO_TYP1 |
-| biotope_to_sf | Hecke                             | BIO_TYP7 |
-| biotope_to_sf | Schützenswerte Waldgesellschaft   | BIO_TYP3 |
-| biotope_to_sf | Artenschutzfläche                 | BIO_TYP7 |
-| biotope_to_sf | Andere schützenswerte Lebensräume | BIO_TYP7 |
-| biotope_to_sf | Andere                            | BIO_TYP7 |
-| biotope_to_sf | Pufferzone                        | BIO_TYP7 |
-
-#### Linen
-
-target schema: `ch_kt_biotope_linien`
-
-| source table  | biotopart                         | bio_typ  |
-| ------------- | --------------------------------- | -------- |
-| biotope_to_li | Hecke                             | BIO_TYP6 |
-| biotope_to_li | Trockenmauer                      | BIO_TYP6 |
-
-#### Punkte
-
-target schema: `ch_kt_biotope_punkte`
-
-| source table  | biotopart                         | bio_typ  |
-| ------------- | --------------------------------- | -------- |
-| biotope_to_pt | Artvorkommen                      | BIO_TYP7 |
-| biotope_to_pt | Biotopbäume                       | BIO_TYP7 |
-| biotope_to_pt | Pilzvorkommen                     | BIO_TYP7 |
 
 
 ## Andere Notizen
@@ -82,11 +51,11 @@ Schemas erzeugen und dbt trafo job definieren:
 
 - [ ] kt_amphibien_laichgebiete
 - [ ] kt_amphibien_wanderobjekte
-- [x] kt_auengebiete              Data Validation successful
-- [x] kt_biotope_flaechen         Data Validation failed: bedeutung National issue
-- [x] kt_biotope_linien           Data Validation successful
-- [x] kt_biotope_punkte           Data Validation successful
-- [x] kt_flachmoore               Data Validation successful
+- [x] kt_auengebiete              Data Validation successful ✅
+- [x] kt_biotope_flaechen         Data Validation failed: bedeutung National issue -> Anahita is looking at data
+- [x] kt_biotope_linien           Data Validation successful ✅
+- [x] kt_biotope_punkte           Data Validation successful ✅
+- [x] kt_flachmoore               Data Validation successful ✅
 - [x] kt_hochmoore                Data Validation failed: Handful of geometry errors to fix
 - [x] kt_trockenwiesen            Data Validation failed: oid_uuid non-uniqueness issue
 

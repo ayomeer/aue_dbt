@@ -46,4 +46,3 @@ WHERE biotopart NOT IN (
   'TWW-Magerheuwiese',
   'TWW-Magerweide'
 ) 
--- and sf.bedeutung = 'National' --> rows that cause problems with ili data validation
