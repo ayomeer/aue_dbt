@@ -62,3 +62,12 @@ sources:
       - name: bio_kartierungsgrundlage_catalogue
       - name: bio_bedeutung_catalogue
       - name: bio_typ_catalogue
+
+
+  - name: _tmp_copy_prod_gl_biotope
+    database: "{{ target.database }}"
+    schema: _tmp_copy_prod_gl_biotope
+    tables:
+      - name: biotope_to_sf
+      - name: biotope_to_li
+      - name: biotope_to_pt
