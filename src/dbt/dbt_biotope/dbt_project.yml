@@ -28,6 +28,9 @@ on-run-start:
 
 
 vars:
+  data_dataset:
+    datasetname: data
+
   data_basket:
     t_id: 100
     topic: placeholder_topic

@@ -22,6 +22,8 @@ INTERLIS_TABLE_NAME_PATTERNS = [
     "pointstructure",
     "linestructure",
     "surfacestructure",
+    "polygonstructure",
+    "amultipolygon",
     "amultipoint",
     "multiline",
     "multisurface",

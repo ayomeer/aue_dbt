@@ -11,6 +11,14 @@ sources:
       - name: cat_biotopart
 
 
+  - name: ch_kt_amphibien_laichgebiete
+    database: "{{ target.database }}"
+    schema: ch_kt_amphibien_laichgebiete
+    tables:
+      - name: kartierungsgrundlage_catalogue
+      - name: bedeutung_catalogue
+      - name: AM_L_Bereich_Catalogue
+
   - name: ch_kt_auengebiete
     database: "{{ target.database }}"
     schema: ch_kt_auengebiete

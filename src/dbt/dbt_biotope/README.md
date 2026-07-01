@@ -26,7 +26,7 @@
 | ------------- | --------------------------------- | ----------------------------- |
 | biotope_to_sf | Auengebiet                        | ch_kt_auengebiete             |  
 | biotope_to_sf | Amphibienlaichgebiet, Kernbereich | ch_kt_amphibien_laichgebiete  | 
-| biotope_to_sf | Amphibienlaichgebiet              | ch_kt_amphibien_wanderobjekte | 
+| biotope_to_sf | Amphibienlaichgebiet              | ch_kt_amphibien_laichgebiete  | 
 | biotope_to_sf | Hochmoor                          | ch_kt_hochmoore               | 
 | biotope_to_sf | Flachmoor                         | ch_kt_flachmoore              | 
 | biotope_to_sf | TWW-Magerheuwiese                 | ch_kt_trockenwiesen           | 
@@ -49,7 +49,7 @@ Biotoplinien und Punkte werden alle als `"BIO_TYP7; Anderer Biotoptyp"` exportie
 
 Schemas erzeugen und dbt trafo job definieren:
 
-- [ ] kt_amphibien_laichgebiete
+- [x] kt_amphibien_laichgebiete   Data Validation successful ✅
 - [ ] kt_amphibien_wanderobjekte
 - [x] kt_auengebiete              Data Validation successful ✅
 - [x] kt_biotope_flaechen         Data Validation failed: bedeutung National issue -> Anahita is looking at data
@@ -62,3 +62,11 @@ Schemas erzeugen und dbt trafo job definieren:
 
 
 - [x] add t_ili_tid uuids to all objects so ili validators doesn't complain
+- [ ] re-import non-amphibien schemas with updated script that has `--createDatasetCol` option enabled and add column to export scripts
+  - [ ] kt_auengebiete              
+  - [ ] kt_biotope_flaechen         
+  - [ ] kt_biotope_linien           
+  - [ ] kt_biotope_punkte           
+  - [ ] kt_flachmoore               
+  - [ ] kt_hochmoore                
+  - [ ] kt_trockenwiesen            
