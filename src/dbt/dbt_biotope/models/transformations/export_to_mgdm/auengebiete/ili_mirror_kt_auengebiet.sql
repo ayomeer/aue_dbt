@@ -3,6 +3,7 @@
 SELECT 
   b.t_id::bigint,
   {{ var('data_basket')['t_id'] }}::bigint as t_basket,
+  '{{ var('data_dataset')['datasetname'] }}'::character varying(200) as t_datasetname, -- NOT NULL
   uuid_generate_v4()::uuid as t_ili_tid,
   b.kanton::character varying(255),
   b.objekt_nummer::character varying(30) as objnummer,

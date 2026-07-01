@@ -9,6 +9,7 @@ WITH bio_typ_default AS (
 SELECT 
   sf.t_id::bigint, -- NOT NULL
   {{ var('data_basket')['t_id'] }}::bigint as t_basket, -- NOT NULL
+  '{{ var('data_dataset')['datasetname'] }}'::character varying(200) as t_datasetname, -- NOT NULL
   uuid_generate_v4()::character varying(200) as t_ili_tid,
   sf.kanton::character varying(255), -- NOT NULL
   sf.objekt_nummer::character varying(30) as objnummer, -- NOT NULL

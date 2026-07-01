@@ -62,11 +62,4 @@ Schemas erzeugen und dbt trafo job definieren:
 
 
 - [x] add t_ili_tid uuids to all objects so ili validators doesn't complain
-- [ ] re-import non-amphibien schemas with updated script that has `--createDatasetCol` option enabled and add column to export scripts
-  - [ ] kt_auengebiete              
-  - [ ] kt_biotope_flaechen         
-  - [ ] kt_biotope_linien           
-  - [ ] kt_biotope_punkte           
-  - [ ] kt_flachmoore               
-  - [ ] kt_hochmoore                
-  - [ ] kt_trockenwiesen            
+- [x] re-import non-amphibien schemas with updated script that has `--createDatasetCol` option enabled and add column to export scripts

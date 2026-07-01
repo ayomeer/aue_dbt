@@ -3,6 +3,7 @@
 SELECT 
   nextval('{{target.schema}}.t_ili2db_seq'::regclass)::bigint as t_id,
   {{ var('data_basket')['t_id'] }}::bigint as t_basket,
+  '{{ var('data_dataset')['datasetname'] }}'::character varying(200) as t_datasetname, -- NOT NULL
   uuid_generate_v4()::character varying(200) as t_ili_tid, 
   -- hm_typ::bigint, --optional
   -- hm_ke::bigint, --optional
