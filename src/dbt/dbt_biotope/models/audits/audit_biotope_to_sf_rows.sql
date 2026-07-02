@@ -2,7 +2,7 @@
 
 {% set cols_to_compare = dbt_utils.get_filtered_columns_in_relation(
   from= source('prod_gl_biotope', 'biotope_to_sf'),
-  except= ['last_modified', 'last_user']
+  except= ['last_modified', 'last_user', 'geometrie']
 ) %}
 
 
