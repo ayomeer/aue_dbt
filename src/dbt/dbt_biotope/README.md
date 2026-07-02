@@ -50,15 +50,14 @@ Biotoplinien und Punkte werden alle als `"BIO_TYP7; Anderer Biotoptyp"` exportie
 Schemas erzeugen und dbt trafo job definieren:
 
 - [x] kt_amphibien_laichgebiete   Data Validation successful ✅
-- [ ] kt_amphibien_wanderobjekte
+- [x] kt_amphibien_wanderobjekte  No data
 - [x] kt_auengebiete              Data Validation successful ✅
 - [x] kt_biotope_flaechen         Data Validation failed: bedeutung National issue -> Anahita is looking at data
 - [x] kt_biotope_linien           Data Validation successful ✅
 - [x] kt_biotope_punkte           Data Validation successful ✅
 - [x] kt_flachmoore               Data Validation successful ✅
 - [x] kt_hochmoore                Data Validation failed: Handful of geometry errors to fix
-- [x] kt_trockenwiesen            Data Validation failed: oid_uuid non-uniqueness issue
-
+- [x] kt_trockenwiesen            Data Validation failed: one intersection issue
 
 
 - [x] add t_ili_tid uuids to all objects so ili validators doesn't complain
