@@ -10,7 +10,7 @@
       schema_name="gl_besonderewaldarten", 
       table_name="besonderearten",
       truncate_target=true
-    ))}}'
+    )}}'
   ]
 )}}
 

@@ -9,3 +9,7 @@ packages:
   - git: https://github.com/ayomeer/dbt_ili_utils.git
     revision: main
     # depends on dbt_utils
+
+  - git: https://github.com/ayomeer/dbt_audit_utils.git
+    revision: main
+    # depends on dbt_utils

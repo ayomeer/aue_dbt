@@ -21,7 +21,7 @@
 'fotos'
 ]%}
 
-{{ audit_rows_with_col_mismatched(
+{{ audit_utils.audit_rows_with_col_mismatched(
 	cols_to_compare, 
 	ref('audit_wisgl_export_rows')
 ) }}
