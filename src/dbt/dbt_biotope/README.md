@@ -58,7 +58,7 @@ Schemas erzeugen und dbt trafo job definieren:
 - [x] kt_flachmoore               Data Validation successful ✅
 - [x] kt_hochmoore                Data Validation failed: Handful of geometry errors to fix
 - [x] kt_trockenwiesen            Data Validation failed: one intersection issue
-
+=> We get new data anyways
 
 - [x] add t_ili_tid uuids to all objects so ili validators doesn't complain
 - [x] re-import non-amphibien schemas with updated script that has `--createDatasetCol` option enabled and add column to export scripts
