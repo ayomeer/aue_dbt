@@ -8,6 +8,6 @@
 {{ audit_helper.compare_all_columns(
     a_relation = old,
     b_relation = new,
-    exclude_columns = None
+    exclude_columns = None,
     primary_key = "gid"
 ) }}
