@@ -24,11 +24,11 @@ SELECT
 FROM {{ ref('biotope_li') }} as li
 LEFT JOIN {{ source('prod_gl_biotope', 'cat_kartierungsgrundlage') }} as cat_kart 
   ON cat_kart.kartierungsgrundlage = li.kartierungsgrundlage
-LEFT JOIN {{ source('ch_kt_biotope_punkte', 'bio_kartierungsgrundlage_catalogue') }} as kart_cat
+LEFT JOIN {{ source('ch_kt_biotope_linien', 'bio_kartierungsgrundlage_catalogue') }} as kart_cat
   ON kart_cat.acode = cat_kart.code_bund 
-LEFT JOIN {{ source('ch_kt_biotope_punkte', 'bio_bedeutung_catalogue') }} as cat_bedeutung
+LEFT JOIN {{ source('ch_kt_biotope_linien', 'bio_bedeutung_catalogue') }} as cat_bedeutung
   ON cat_bedeutung.adescription_de = li.bedeutung
-LEFT JOIN {{ source('ch_kt_biotope_punkte', 'bio_typ_catalogue') }} as cat_bio_typ
+LEFT JOIN {{ source('ch_kt_biotope_linien', 'bio_typ_catalogue') }} as cat_bio_typ
   ON cat_bio_typ.acode = 'BIO_TYP7' --> Anderer Biotoptyp
 
 WHERE biotopart NOT IN (
