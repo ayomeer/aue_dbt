@@ -55,6 +55,14 @@ sources:
       - name: bio_bedeutung_catalogue
       - name: bio_typ_catalogue
 
+  - name: ch_kt_biotope_linien
+    database: "{{ target.database }}"
+    schema: ch_kt_biotope_linien
+    tables:
+      - name: bio_kartierungsgrundlage_catalogue
+      - name: bio_bedeutung_catalogue
+      - name: bio_typ_catalogue
+
   - name: ch_kt_biotope_flaechen
     database: "{{ target.database }}"
     schema: ch_kt_biotope_flaechen
