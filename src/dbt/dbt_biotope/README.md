@@ -62,3 +62,5 @@ Schemas erzeugen und dbt trafo job definieren:
 
 - [x] add t_ili_tid uuids to all objects so ili validators doesn't complain
 - [x] re-import non-amphibien schemas with updated script that has `--createDatasetCol` option enabled and add column to export scripts
+
+- [ ] Check catalogues line objects

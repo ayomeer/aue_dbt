@@ -38,6 +38,6 @@ RUN apt-get update && apt-get install -y \
 USER $USERNAME
 
 # Install dbt and dbt-postgres extension through pip
-RUN pip install dbt-core dbt-postgres \
+RUN pip install dbt-core dbt-postgres dbt-colibri\
     pandas psycopg2 sqlalchemy matplotlib
 

@@ -9,7 +9,7 @@ Dies ist die Dokumentationsseite zu dem dbt Projekt `dbt_biotope`, welches Trans
 Alle Transformations-Modelle können links im Projekt-Browser unter `dbt_biotope > models > transformations` eingesehen werden. Es sind folgende Tranformations-Jobs definiert (Ctrl+Click für Job-Graph):
 
 ### Exports
-- **[export_kantonales_inventar](https://dbt-biotope.netlify.app/#!/overview?g_v=1&g_i=transformations.staging%20transformations.export_kantonales_inventar):**  
+- **[export_kantonales_inventar](https://dbt-biotope.netlify.app/#!/overview?g_v=1&g_i=%2Btransformations.staging%20transformations.export_kantonales_inventar):**  
   Exportiert Daten aus `prod_gl_biotope` in die jeweiligen Bundesmodelle für das kantonale Inventar der Biotope:
   - ch_kt_amphibien_laichgebiete
   - ch_kt_amphibien_wanderobjekte (noch keine Daten vorhanden)
