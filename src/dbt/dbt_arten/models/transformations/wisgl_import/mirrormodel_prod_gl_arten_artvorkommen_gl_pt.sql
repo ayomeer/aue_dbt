@@ -16,7 +16,8 @@ SELECT
   w.fotos,
   w.genau as genauigkeit_ausreichend,
   w.status as biotopstatus,
-  NULL::numeric as id_gl_aus_import,
+  NULL::numeric as import_naturzentrum_id,
+  NULL::bigint as import_vdc_id
   now()::date as last_modified,
   '{{target.user}}'::varchar as last_user,
   --oid_uuid generated automatically on insert (DEFAULT value)

@@ -22,7 +22,10 @@ with source as (
         {{ adapter.quote("fotos") }},
         {{ adapter.quote("genauigkeit_ausreichend") }},
         {{ adapter.quote("biotopstatus") }},
-        {{ adapter.quote("id_gl_aus_import") }},
+        
+        {{ adapter.quote("import_naturzentrum_id") }},
+        {{ adapter.quote("import_vdc_id") }},
+        {{ adapter.quote("import_wisgl_id") }},
         
         {{ adapter.quote("last_modified") }},       -- automatically set by trigger function
         {{ adapter.quote("last_user") }},           -- automatically set by trigger function
@@ -30,8 +33,6 @@ with source as (
         {{ adapter.quote("e") }}, -- automatically set by trigger function from geom
         {{ adapter.quote("n") }}, -- automatically set by trigger function from geom
         {{ adapter.quote("geometrie") }},
-        {{ adapter.quote("wisgl_id") }},
-
 
         -- other columns
         {{ adapter.quote("neobiot") }},
