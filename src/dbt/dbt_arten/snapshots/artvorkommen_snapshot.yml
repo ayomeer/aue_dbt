@@ -1,0 +1,9 @@
+snapshots:
+  - name: artvorkommen_snapshot
+    relation: source('src_prod_gl_arten', 'artvorkommen_gl_pt') 
+    description: Artvorkommen snapshots.
+    config:
+      strategy: timestamp
+      unique_key: gid
+      updated_at: last_modified
+      hard_deletes: ignore
