@@ -25,7 +25,7 @@ with source as (
 
         {{ adapter.quote("ext_naturzentrum_id") }},
         {{ adapter.quote("ext_vdc_id") }},
-        {{ adapter.quote("ext_naturzentrum_id") }},
+        {{ adapter.quote("ext_wisgl_id") }},
         
         {{ adapter.quote("last_modified") }},       -- automatically set by trigger function
         {{ adapter.quote("last_user") }},           -- automatically set by trigger function

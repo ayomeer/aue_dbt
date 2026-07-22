@@ -5,7 +5,7 @@
       schema_name="prod_gl_arten", 
       table_name="artvorkommen_gl_pt", 
       conflict_target=["geometrie", "funddatum", "art_wiss"],
-      update_except_cols=["copyright", "ext_herkunft", "ext_label", "ext_naturzentrum_id"]
+      update_except_cols=["copyright", "ext_herkunft", "ext_label", "ext_naturzentrum_id", "ext_vdc_id"]
     )}}'
 ) }}
 
