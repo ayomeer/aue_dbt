@@ -2,14 +2,9 @@
 
 SELECT
   COALESCE(
-    wisgl_id,
-    MAX(wisgl_id) OVER () + row_number() OVER (partition by wisgl_id is null ORDER BY gid)  
+    import_wisgl_id,
+    MAX(import_wisgl_id) OVER () + row_number() OVER (partition by import_wisgl_id is null ORDER BY gid)  
   ) as t_id,
-  {# COALESCE(
-    wisgl_id,
-    MAX(wisgl_id) OVER () 
-    + COUNT(*) FILTER (WHERE wisgl_id IS NULL) OVER ()
-  ) as t_id_alt, #}
 	{{ var('baskets')['default_basket']['t_id'] }} as t_basket,
 	-- t_ili_tid generated automatically on insert
     id_art,
@@ -33,4 +28,3 @@ SELECT
 	fotos, 
 	geometrie
 FROM {{ ref('deduplicate') }}
-ORDER BY wisgl_id, t_id
