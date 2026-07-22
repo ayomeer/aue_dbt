@@ -1,4 +1,5 @@
 SELECT 
+  f.gid,
   CASE 
     WHEN w.name_lateinisch = 'Formica cf lugubris' THEN 'Formica lugubris'
     WHEN w.name_lateinisch = 'Formica cf. lugubris' THEN 'Formica lugubris'
@@ -63,7 +64,8 @@ SELECT
   f.funddatum,
   COALESCE(f.substrat, 'keine Angabe') as substrat,
   f.ext_herkunft,
-  f.last_modified
+  f.last_modified,
+  f.wisgl_id
 
 FROM {{ ref('stg_artvorkommen') }}  as f 
 join {{ ref('stg_besondere_waldarten') }} as w 

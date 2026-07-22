@@ -30,7 +30,8 @@ with source as (
         {{ adapter.quote("e") }}, -- automatically set by trigger function from geom
         {{ adapter.quote("n") }}, -- automatically set by trigger function from geom
         {{ adapter.quote("geometrie") }},
-        -- 19 cols
+        {{ adapter.quote("wisgl_id") }},
+
 
         -- other columns
         {{ adapter.quote("neobiot") }},

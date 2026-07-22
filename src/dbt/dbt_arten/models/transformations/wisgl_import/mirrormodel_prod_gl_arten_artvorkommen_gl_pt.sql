@@ -30,7 +30,8 @@ SELECT
   NULL::integer ext_hoehe,
   NULL::varchar as gemeinde_kt_glarus,
   NULL::boolean as loeschmarkierung,
-  w.geometrie
+  w.geometrie,
+  w.id::bigint as wisgl_id
 FROM {{ ref('stg_imp_wisgl_besonderearten') }} as w
 LEFT JOIN {{ ref('stg_cat_art') }} as cat
   ON cat.id_art = w.id_art

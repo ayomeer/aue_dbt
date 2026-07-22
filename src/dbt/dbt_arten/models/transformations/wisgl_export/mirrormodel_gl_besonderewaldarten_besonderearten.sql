@@ -1,9 +1,18 @@
+{{ config(materialized='table') }}
 
-SELECT   
-  -- t_id generated automatically on insert
+SELECT
+  COALESCE(
+    wisgl_id,
+    MAX(wisgl_id) OVER () + row_number() OVER (partition by wisgl_id is null ORDER BY gid)  
+  ) as t_id,
+  {# COALESCE(
+    wisgl_id,
+    MAX(wisgl_id) OVER () 
+    + COUNT(*) FILTER (WHERE wisgl_id IS NULL) OVER ()
+  ) as t_id_alt, #}
 	{{ var('baskets')['default_basket']['t_id'] }} as t_basket,
 	-- t_ili_tid generated automatically on insert
-  id_art,
+    id_art,
 	name_deutsch as name_d,
 	name_lateinisch name_lat,
 	organismengruppe,
@@ -24,3 +33,4 @@ SELECT
 	fotos, 
 	geometrie
 FROM {{ ref('deduplicate') }}
+ORDER BY wisgl_id, t_id
