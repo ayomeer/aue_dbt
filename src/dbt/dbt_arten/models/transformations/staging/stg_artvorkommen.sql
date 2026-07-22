@@ -22,10 +22,10 @@ with source as (
         {{ adapter.quote("fotos") }},
         {{ adapter.quote("genauigkeit_ausreichend") }},
         {{ adapter.quote("biotopstatus") }},
-        
-        {{ adapter.quote("import_naturzentrum_id") }},
-        {{ adapter.quote("import_vdc_id") }},
-        {{ adapter.quote("import_wisgl_id") }},
+
+        {{ adapter.quote("ext_naturzentrum_id") }},
+        {{ adapter.quote("ext_vdc_id") }},
+        {{ adapter.quote("ext_naturzentrum_id") }},
         
         {{ adapter.quote("last_modified") }},       -- automatically set by trigger function
         {{ adapter.quote("last_user") }},           -- automatically set by trigger function

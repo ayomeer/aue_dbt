@@ -36,7 +36,7 @@ SELECT
   COALESCE(f.substrat, 'keine Angabe') as substrat,
   f.ext_herkunft,
   f.last_modified,
-  f.import_wisgl_id
+  f.ext_naturzentrum_id
 
 FROM {{ ref('stg_artvorkommen') }}  as f 
 join {{ ref('stg_besondere_waldarten') }} as w 

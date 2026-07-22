@@ -16,8 +16,8 @@ SELECT
   w.fotos,
   w.genau as genauigkeit_ausreichend,
   w.status as biotopstatus,
-  NULL::numeric as import_naturzentrum_id,
-  NULL::bigint as import_vdc_id
+  NULL::numeric as ext_naturzentrum_id,
+  NULL::bigint as ext_vdc_id,
   now()::date as last_modified,
   '{{target.user}}'::varchar as last_user,
   --oid_uuid generated automatically on insert (DEFAULT value)
@@ -32,7 +32,7 @@ SELECT
   NULL::varchar as gemeinde_kt_glarus,
   NULL::boolean as loeschmarkierung,
   w.geometrie,
-  w.id::bigint as wisgl_id
+  w.id::bigint as ext_naturzentrum_id
 FROM {{ ref('stg_imp_wisgl_besonderearten') }} as w
 LEFT JOIN {{ ref('stg_cat_art') }} as cat
   ON cat.id_art = w.id_art

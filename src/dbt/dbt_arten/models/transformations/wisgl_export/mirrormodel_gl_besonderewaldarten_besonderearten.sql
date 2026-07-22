@@ -2,8 +2,8 @@
 
 SELECT
   COALESCE(
-    import_wisgl_id,
-    MAX(import_wisgl_id) OVER () + row_number() OVER (partition by import_wisgl_id is null ORDER BY gid)  
+    ext_naturzentrum_id,
+    MAX(ext_naturzentrum_id) OVER () + row_number() OVER (partition by ext_naturzentrum_id is null ORDER BY gid)  
   ) as t_id,
 	{{ var('baskets')['default_basket']['t_id'] }} as t_basket,
 	-- t_ili_tid generated automatically on insert
