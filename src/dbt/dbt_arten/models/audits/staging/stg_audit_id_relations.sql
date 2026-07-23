@@ -1,3 +1,4 @@
+{{ config(enabled=false) }}
 
 SELECT 
   old.id as old_id,

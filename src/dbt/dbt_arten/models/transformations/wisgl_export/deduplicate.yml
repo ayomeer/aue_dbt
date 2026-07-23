@@ -1,6 +1,6 @@
 models:
   - name: deduplicate
-    description: Entfernt redundante Objekte. Redundant heisst, dass sie die gleiche Wertekombination in den Spalten [geometrie, funddatum und id_art] aufweisen wie ein anderes Objekt mit einer höheren id. Dies kann auch nach deduplizierter Grundlagedaten in prod_gl_arten.artvorkommen_gl_pt vorkommen, da Ameisenarten teils für den Export neu zugewiesen werden.
+    description: Entfernt redundante Objekte. Redundant heisst, dass sie die gleiche Wertekombination in den Spalten [geometrie, funddatum und id_art] aufweisen wie ein anderes Objekt mit einer höheren id. Dies kann auch nach deduplizierter Grundlagedaten in prod_gl_arten.artvorkommen_gl_pt vorkommen, da Ameisenarten teils für den Export neu zugewiesen werden. Objekte welche aus einem WISGL import stammen (`ext_wisgl_id is not NULL`), werden bei der Deduplikation mit Priorität beibehalten.
     columns:
       - name: id
         data_type: bigint

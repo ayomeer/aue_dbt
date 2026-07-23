@@ -1,6 +1,6 @@
 
 SELECT 
-  id,
+  t_id,
   id_art,
   name_deutsch,
   name_lateinisch,
@@ -20,8 +20,6 @@ SELECT
   status,
   bemerkungen,
   fotos,
-  ST_AsEWKB(geometrie)::varchar as geometrie,
-  i.audit_link_id
-FROM {{ ref('stg_imp_wisgl_besonderearten') }} as old
-LEFT JOIN {{ ref('stg_audit_id_relations') }} as i
-  ON old.id = i.old_id
+  ST_AsEWKB(geometrie)::varchar as geometrie
+FROM {{ ref('stg_imp_wisgl_besonderearten') }}
+

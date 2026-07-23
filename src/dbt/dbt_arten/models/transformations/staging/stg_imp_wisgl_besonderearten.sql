@@ -3,7 +3,7 @@ with source as (
   ),
   staging as (
       select
-        {{ adapter.quote("id") }},
+        {{ adapter.quote("id") }} as t_id,
         {{ adapter.quote("t_ili_tid") }},
         -- info related to cat_art
         {{ adapter.quote("name_d") }} as name_deutsch,

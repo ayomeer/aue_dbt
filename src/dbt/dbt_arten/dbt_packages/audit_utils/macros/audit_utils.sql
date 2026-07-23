@@ -28,7 +28,7 @@ SELECT
 FROM {{ ref_audit_rows }} as a
 LEFT JOIN mismatched_cols_cte as m
   ON m.dbt_audit_surrogate_fkey = a.dbt_audit_surrogate_key
-WHERE dbt_audit_row_status <> 'identical'
+--WHERE dbt_audit_row_status <> 'identical'
 ORDER BY 
 	dbt_audit_row_status,
 	dbt_audit_surrogate_key,

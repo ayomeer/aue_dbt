@@ -4,4 +4,4 @@
 SELECT DISTINCT ON (geometrie, funddatum, id_art)
 	*
 FROM {{ ref('union_besondere_arten') }}
-ORDER BY geometrie, funddatum, id_art, id DESC 
+ORDER BY geometrie, funddatum, id_art, (ext_wisgl_id is not NULL) DESC 

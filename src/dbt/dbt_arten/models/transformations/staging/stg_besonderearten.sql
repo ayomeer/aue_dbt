@@ -3,7 +3,7 @@ with source as (
   ),
   renamed as (
       select
-        {{ adapter.quote("t_id") }} as id,
+        {{ adapter.quote("t_id") }},
         {{ adapter.quote("t_basket") }},
         {{ adapter.quote("t_ili_tid") }},
         {{ adapter.quote("id_art") }},
