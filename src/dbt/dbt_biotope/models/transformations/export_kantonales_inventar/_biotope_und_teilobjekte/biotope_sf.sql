@@ -14,7 +14,7 @@ select
   -- added info for splitting and joining biotope into MGDM objects
   sf.biotopart,
   array_agg(gid) as link_key_array
-from {{ ref('stg_biotope_to_sf') }} as sf
+from {{ ref('stg_biotope_to_sf_neu') }} as sf
 left join {{ source('ch_kt_auengebiete', 'bedeutung_catalogue') }} as c_bed
   on c_bed.adescription_de = sf.bedeutung
 group by 

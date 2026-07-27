@@ -1,6 +1,7 @@
+WITH source AS (
 SELECT 
-  fid::bigint, -- NOT NULL
-  geom::geometry(MultiPolygon,2056), 
+  gid::bigint, -- NOT NULL
+  geometrie::geometry(MultiPolygon,2056), 
   kanton::character varying, 
   objekt_nummer::character varying, 
   objekt_name::character varying, 
@@ -84,5 +85,22 @@ SELECT
   ml_nat_ha::double precision, 
   ml_nat_name::character varying, 
   flaeche_ha_gewichtet::double precision, 
-  obj_flaeche_ha_gewichtet::double precision 
-FROM {{ source('prod_gl_biotope', 'biotope_to_sf_neu') }}
+  obj_flaeche_ha_gewichtet::double precision,
+  oid_uuid::uuid
+  FROM {{ source('prod_gl_biotope', 'biotope_to_sf_neu') }}
+),
+with_derived_columns AS (
+SELECT 
+  *,
+  (length(split_part(beschreibung_de, ';Lebensraumnummer:', 2)) > 5)::boolean as non_unique_lebenraumnummer,
+  (regexp_split_to_array(split_part(beschreibung_de, ';Lebensraumnummer:', 2), '[,;]'))[1] as first_lebensraumnummer
+  -- TODO: Split this information apart in Database, rather than here for robustness sake!
+  FROM source
+)
+SELECT 
+  d.*,
+  a_bio_typ.bio_typ as bafu_bio_typ
+
+FROM with_derived_columns as d
+LEFT JOIN {{ ref('assignment_table_bio_typ') }} as a_bio_typ
+  ON a_bio_typ.lebensraumnummer = d.first_lebensraumnummer

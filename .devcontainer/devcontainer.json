@@ -22,7 +22,8 @@
         "mechatroner.rainbow-csv",
         "yzhang.markdown-all-in-one",
         "shd101wyy.markdown-preview-enhanced",
-        "charliermarsh.ruff"
+        "charliermarsh.ruff",
+        "FanaticPythoner.better-todo-tree"
     ]
     }
   },

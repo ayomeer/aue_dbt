@@ -41,5 +41,9 @@ models:
         data_type: character varying
       - name: kartierungsgrundlage
         data_type: bigint
+        data_tests:
+          - not_null
       - name: bedeutung
         data_type: bigint
+        data_tests:
+          - not_null
