@@ -16,5 +16,6 @@ WHERE biotopart NOT IN (
   'Amphibienlaichgebiet, Kernbereich',
   'Amphibienlaichgebiet',
   'TWW-Magerheuwiese',
-  'TWW-Magerweide'
-)
+  'TWW-Magerweide',
+  'Pufferzone'
+) 
