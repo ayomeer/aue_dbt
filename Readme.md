@@ -33,13 +33,10 @@ Testing environment for dbt + PostgreSQL.
     - [Data Sources](#data-sources)
     - [The dbt-INTERLIS Boundary](#the-dbt-interlis-boundary)
       - [Boundary Model Generation](#boundary-model-generation)
-      - [Boundary Models](#boundary-models)
-    - [Basket Management for Non-INTERLIS Targets (pub)](#basket-management-for-non-interlis-targets-pub)
       - [Transfer Models](#transfer-models)
     - [Macros](#macros)
       - [Available Macros](#available-macros)
       - [Debugging Macros](#debugging-macros)
-      - [run-operations](#run-operations)
     - [Extensions](#extensions)
       - [Power User for dbt Extension](#power-user-for-dbt-extension)
       - [dbt Flow Lineage Extension](#dbt-flow-lineage-extension)
@@ -328,68 +325,49 @@ SELECT
 FROM {{ ref('placeholder') }}
 ```
 
-#### Boundary Models
-Boundary models (prefix `b_`) are the final transformation model managed by dbt. They serve as a dbt-side mirror of their respective corresponding INTERLIS table. The following implicit assumptions are made about these tables:
-- For each column of the target table, the boudary model has a corresponding column with
-  - the same exact name
-  - the same data type (use explicit casting)
-- The column are in the same order ⚠️
-
-
-### Basket Management for Non-INTERLIS Targets (pub)
-
-Basket definitions can be defined either in `dbt_project.yml` or a dedicated yaml file (e.g. `baskets.yml`) using variables following the structure:
-```yaml
-# Example from dbt_dbu_aue_quellkataster > dbt_project.yml
-baskets:
-  basket_quellkataster_access:
-    t_id: 1
-    topic: ProdQuellkataster
-    dataset_t_id: NULL 
-```
-
-Macros defined in the `ili_utils` package can then be used to set up the datasets and baskets on export.
-
 
 #### Transfer Models
-dbt Models called `transfer`, select everything from a boundary model and call the `write_to_interlis` macro to insert the data into the target INTERLIS schema as a [post-hook](https://docs.getdbt.com/reference/resource-configs/pre-hook-post-hook). 
+The boundary model generation also creates transfer models. These models handle the transfer of the dbt-owned mirror model to the INTERLIS-owned target schema. Since dbt models can only be `SELECT`-statments, these models just call the `ili_utils` macros as [post-hooks](https://docs.getdbt.com/reference/resource-configs/pre-hook-post-hook):
 
 ```SQL
-{{ config(
-  enable=var('enable_transfer', false),
-  post_hook='{{ write_to_interlis("dbu_aue_quellkataster", "quelle") }}'
-)}}
--- depends_on: {{ ref('upstream_parent_model') }}
+-- depends_on: {{ ref('prepare_target_ch_kt_trockenwiesen') }}
+-- depends_on: {{ ref('write_to_kt_trockenwiese') }}
 
-SELECT * FROM {{ ref('b_transfer_model') }}
+{{ config(
+  enabled=var('enable_transfer', false),
+  post_hook=[
+    '{{ ili_utils.insert_into(
+      schema_name="ch_kt_trockenwiesen", 
+      table_name="kt_trockenwiese_teilobjekt"
+    )}}'
+  ]
+)}}
+
+SELECT * FROM {{ ref('ili_mirror_kt_trockenwiese_teilobjekt') }}
 ```
+
 The `depends_on` comment is a comment, but actually is parsed by dbt and ensures correct order of transfers (e.g. parent table before child table) by stating the dependency.
 
 Transfer models are their own seperate models, so they can be configured to be disabled by default for safety and enabled explicitly using a variable.
 
 
 ### Macros
-Macros are basically templated SQL-scripts. This is perfect for abstracting INTERLIS-specific tasks like populating basket tables <!-- TODO: more examples -->.
+Macros are basically templated SQL-scripts to make common tasks reusable. Two dbt packages have been created to package together such tasks:
 
-Eventually, these macros should be split off into a seperate repo, so that they can be shared across dbt projects as a package.
+- **ili_utils**: Helper macros for handling the boundary between dbt models and INTERLIS Schemas.
+- **audit_utils**: Companion package to the `audit_helper` package, adding on some functionality for specific use-cases. 
 
 #### Available Macros
 
-<!-- TODO: document all the macros in ili_utils project and link to dbt docs here -->
+See `ili_utils` and `audit_utils` in documentation. It is embedded into the hosted docs of any project that uses it.
+
 
 #### Debugging Macros
 
-<!-- TODO: Describe how to see what's going on with macros (make model or analysis + compile) -->
+The most reliable way to see what macros actually compile to is to look at `logs/dbt.log`. This is the only place, where even post-hook statements get fully expanded.
 
-#### run-operations
+Simple macros that don't rely on being called in post-hooks can be debugged by calling them in an analysis model and compiling it. 
 
-Some one-time utilities are written to be used with `dbt run-operation`:
-
-```bash
-dbt run-operation create_ili_sequence --args 'schema: dbt_quellkataster'
-```
-
-<!-- List run-operation macros -->
 
 
 ### Extensions
