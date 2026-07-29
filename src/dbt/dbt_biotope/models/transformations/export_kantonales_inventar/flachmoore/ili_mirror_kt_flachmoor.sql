@@ -26,5 +26,5 @@ LEFT JOIN {{ source('prod_gl_biotope', 'cat_kartierungsgrundlage') }} as cat_kar
 LEFT JOIN {{ source('ch_kt_flachmoore', 'kartierungsgrundlage_catalogue') }} as kart_cat
   ON kart_cat.acode = cat_kart.code_bund 
 LEFT JOIN {{ source('ch_kt_flachmoore', 'bedeutung_catalogue') }} as cat_bedeutung
-  ON cat_bedeutung.adescription_de = b.bedeutung
+  ON lower(cat_bedeutung.adescription_de) = lower(b.bedeutung)
 WHERE b.biotopart = 'Flachmoor'
