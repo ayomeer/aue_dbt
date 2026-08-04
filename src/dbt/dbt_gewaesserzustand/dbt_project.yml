@@ -1,0 +1,23 @@
+name: 'dbt_gewaesserzustand'
+version: '1.0.0'
+
+profile: 'default_profile'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+# directories to be removed by `dbt clean`
+clean-targets:         
+  - "target"
+  - "dbt_packages"
+
+models:
+  dbt_gewaesserzustand:
+    +grants:
+      select: ['prod_gl_gewaesserzustand_read']
+    +post-hook: 
+    - 'ALTER {{model.config.materialized}} {{this}} OWNER TO prod_gl_gewaesserzustand_write'
