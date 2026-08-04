@@ -148,7 +148,11 @@ There's templates in the dbt/_templates directory for:
 - profiles.yaml
 - packages.yaml
 
-Copy all of them to the root of the new dbt project and  
+Copy all of them to the root of the new dbt project and replace the template variables with what applies to the new project.
+
+<!-- TODO: write a little python script that takes arguments and templates and spits out rendered yaml files (+copy packages.yml as is) -->
+
+Next, define the data sources in `models/sources.yml`
 
 
 ### Model Directory Structure

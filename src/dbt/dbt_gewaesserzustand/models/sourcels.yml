@@ -1,0 +1,17 @@
+sources:
+  # schema to build transformations around
+  - name: prod_gl_gewaesserzustand
+    database: "{{ target.database }}"
+    schema: prod_gl_gewaesserzustand
+    tables:
+      - name: messgruppierung
+      - name: werterhebung
+      - name: messnetz
+      - name: verantwortlichkeit
+      - name: adresse
+      - name: telefon
+      - name: art_gruppierung_catalogue
+      - name: erhebung_catalogue
+      - name: parameter_catalogue
+      - name: periodizitaet_catalogue
+      - name: tel_typ_catalogue
