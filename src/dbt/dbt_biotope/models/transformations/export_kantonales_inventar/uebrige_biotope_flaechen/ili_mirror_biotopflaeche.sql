@@ -4,6 +4,11 @@ WITH bio_typ_default AS (
   SELECT t_id
   FROM {{ source('ch_kt_biotope_flaechen', 'bio_typ_catalogue') }}
   WHERE acode = 'BIO_TYP7'
+),
+bio_bedeutung_default AS (
+  SELECT t_id
+  FROM {{ source('ch_kt_biotope_flaechen', 'bio_bedeutung_catalogue') }}
+  WHERE adescription_de = 'Regional'
 )
 
 SELECT 
@@ -14,7 +19,10 @@ SELECT
   sf.kanton::character varying(255), -- NOT NULL
   sf.objekt_nummer::character varying(30) as objnummer, -- NOT NULL
   sf.aname::character varying(80), 
-  COALESCE(cat_bio_typ.t_id, bio_typ_default.t_id)::bigint as bio_typ, -- MANDATORY 
+  COALESCE(
+    cat_bio_typ.t_id, 
+    bio_typ_default.t_id
+  )::bigint as bio_typ, -- MANDATORY 
   sf.biotopart::character varying(80) as bio_typ_kt, 
   sf.herkunft::character varying(250), -- NOT NULL
   kart_cat.t_id::bigint as kartierungsgrundlage, 
@@ -26,7 +34,10 @@ SELECT
   -- mutationsgrund_rm::text, 
   -- mutationsgrund_it::text, 
   -- mutationsgrund_en::text, 
-  cat_bedeutung.t_id::bigint as bedeutung
+  COALESCE(
+    cat_bedeutung.t_id,
+    bio_bedeutung_default.t_id
+  )::bigint as bedeutung
 FROM {{ ref('biotope_sf') }} as sf
 LEFT JOIN {{ source('prod_gl_biotope', 'cat_kartierungsgrundlage') }} as cat_kart 
   ON cat_kart.kartierungsgrundlage = sf.kartierungsgrundlage
@@ -37,6 +48,7 @@ LEFT JOIN {{ source('ch_kt_biotope_flaechen', 'bio_bedeutung_catalogue') }} as c
 LEFT JOIN {{ source('ch_kt_biotope_flaechen', 'bio_typ_catalogue') }} as cat_bio_typ
   ON cat_bio_typ.acode = sf.bafu_bio_typ
 CROSS JOIN bio_typ_default
+CROSS JOIN bio_bedeutung_default
 
 WHERE biotopart NOT IN (
   'Auengebiet',
@@ -48,4 +60,4 @@ WHERE biotopart NOT IN (
   'TWW-Magerweide',
   'Pufferzone',
   'Eventuell schutzwürdiger Lebensraum'
-) 
+)
