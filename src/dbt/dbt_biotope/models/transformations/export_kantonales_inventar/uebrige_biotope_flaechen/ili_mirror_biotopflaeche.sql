@@ -1,5 +1,6 @@
 {{ config(materialized='table') }} 
 
+
 WITH bio_typ_default AS (
   SELECT t_id
   FROM {{ source('ch_kt_biotope_flaechen', 'bio_typ_catalogue') }}
@@ -25,7 +26,7 @@ SELECT
   )::bigint as bio_typ, -- MANDATORY 
   sf.biotopart::character varying(80) as bio_typ_kt, 
   sf.herkunft::character varying(250), -- NOT NULL
-  kart_cat.t_id::bigint as kartierungsgrundlage, 
+  cat_kart.t_id::bigint as kartierungsgrundlage, 
   -- aufnahmedatum::date, 
   -- mutationsdatum::date, 
   -- mutationsgrund::text, 
@@ -39,10 +40,8 @@ SELECT
     bio_bedeutung_default.t_id
   )::bigint as bedeutung
 FROM {{ ref('biotope_sf') }} as sf
-LEFT JOIN {{ source('prod_gl_biotope', 'cat_kartierungsgrundlage') }} as cat_kart 
-  ON cat_kart.kartierungsgrundlage = sf.kartierungsgrundlage
-LEFT JOIN {{ source('ch_kt_biotope_flaechen', 'bio_kartierungsgrundlage_catalogue') }} as kart_cat
-  ON kart_cat.acode = cat_kart.code_bund 
+LEFT JOIN {{ source('ch_kt_biotope_flaechen', 'bio_kartierungsgrundlage_catalogue') }} as cat_kart
+  ON lower(cat_kart.adescription_de) = lower(sf.kartierungsgrundlage)
 LEFT JOIN {{ source('ch_kt_biotope_flaechen', 'bio_bedeutung_catalogue') }} as cat_bedeutung
   ON lower(cat_bedeutung.adescription_de) = lower(sf.bedeutung)
 LEFT JOIN {{ source('ch_kt_biotope_flaechen', 'bio_typ_catalogue') }} as cat_bio_typ
