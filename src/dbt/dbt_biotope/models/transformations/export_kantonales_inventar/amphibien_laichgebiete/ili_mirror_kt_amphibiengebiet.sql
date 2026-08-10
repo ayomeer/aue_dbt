@@ -22,7 +22,7 @@ SELECT
   -- mutationsgrund_en::text,
   cat_bedeutung.t_id::bigint as bedeutung
 FROM {{ ref('biotope_sf') }}  as sf
-LEFT JOIN {{ source('ch_kt_trockenwiesen', 'kartierungsgrundlage_catalogue') }} as cat_kart
+LEFT JOIN {{ source('ch_kt_amphibien_laichgebiete', 'kartierungsgrundlage_catalogue') }} as cat_kart
   ON lower(cat_kart.adescription_de) = lower(split_part(sf.kartierungsgrundlage, ',', 1))
 LEFT JOIN {{ source('ch_kt_amphibien_laichgebiete', 'bedeutung_catalogue') }} as cat_bedeutung
   ON lower(cat_bedeutung.adescription_de) = lower(sf.bedeutung)
