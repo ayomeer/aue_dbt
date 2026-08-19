@@ -14,42 +14,10 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "target"
   - "dbt_packages"
 
-
 vars:
-  # Basket and Dataset Variables
-  # These get inserted into the target schema's t_ili2db_basket table
-  # when the macro 'write_basket()' is run.  
-  # 
-  # Note: - t_id is meant to be unique across all tables!
-  #       - dataset_t_id must match one of the t_ids defined for a dataset
-
-  # Dataset variables
-  datasets:
-    dataset_data:
-      t_id: 1
-      datasetname: main_dataset
-
-  # Basket variables 
-  baskets:
-    # export_to_gl_ersatzbiotope
-    catalogues_basket:
-      t_id: 5
-      topic: GL_Ersatzbiotope_V1.Ersatzbiotope
-      dataset_t_id: 1 
-    basket_data:
-      t_id: 6
-      topic: GL_Ersatzbiotope_V1.Ersatzbiotope
-      dataset_t_id: 1 
-
-  # Classnames variables
-  # Usage example:
-  # '{{ var('classnames')['Quelle_intern'] }}'::character varying as t_type,
-  classnames:
-    classname_placeholder: classname_placeholder
-
-  t_id_starting_values:
-    kategorie_catalogue: 10
-    data: 100
+  export_config:
+    gl_ersatzbiotope_data_basket_tid: 15
+    pub_gl_ersatzbiotope_data_basket_tid: 6
 
 models:
   dbt_ersatzbiotope:

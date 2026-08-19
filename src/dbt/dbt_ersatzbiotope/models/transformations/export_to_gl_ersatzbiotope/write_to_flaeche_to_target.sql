@@ -1,3 +1,7 @@
+
+-- depends_on: {{ ref('prepare_target_schema') }}
+-- depends_on: {{ ref("write_ersatzbiotop_to_target") }}
+
 {{ config(
   enabled=var('enable_transfer', false),
   post_hook=[

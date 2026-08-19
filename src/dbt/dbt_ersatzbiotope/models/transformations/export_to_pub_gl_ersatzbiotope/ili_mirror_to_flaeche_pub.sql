@@ -2,7 +2,7 @@
 
 SELECT 
   nextval('dbt_ersatzbiotope.t_ili2db_seq'::regclass) as t_id,
-  '{{ var('baskets')['basket_data']['t_id'] }}'::bigint as t_basket,
+  '{{ var('export_config')['pub_gl_ersatzbiotope_data_basket_tid'] }}'::bigint as t_basket,
   uuid_generate_v4() as t_ili_tid,
   st_area(geometrie)::numeric(12,3) as flaeche_m2,
   geometrie::geometry(MultiPolygon,2056) as geo_obj,

@@ -5,3 +5,9 @@ sources:
     tables:
       - name: ersatzbiotope_sf
       - name: cat_kategorie_ersatzmassnahme
+
+  - name: src_gl_ersatzbiotope
+    database: "{{ target.database }}"
+    schema: gl_ersatzbiotope
+    tables:
+      - name: ersatzmassnahme_catalogue
