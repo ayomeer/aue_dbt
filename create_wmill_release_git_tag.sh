@@ -1,7 +1,16 @@
 #!/bin/bash
 
 # -- argument parsing -----------------------------------------------------
-while getopts "p:n:" opt; do
+usage() {
+    echo "Usage: $0 -p project_path -n release_name"
+    echo ""
+    echo "Options:"
+    echo "  -p project_path   Path to dbt project root"
+    echo "  -n release_name   Name to give the git release"
+    echo "  -h                Show this help message"
+}
+
+while getopts "p:n:h" opt; do
   case "$opt" in
     p)
       project_path="$OPTARG"
@@ -9,8 +18,12 @@ while getopts "p:n:" opt; do
     n)
       release_name="$OPTARG"
       ;;
+    h)
+      usage
+      exit 0
+      ;;
     \?)
-      echo "Usage: $0 -p project_path -n release_name"
+      usage >&2
       exit 1
       ;;
     :)
