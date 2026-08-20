@@ -22,18 +22,14 @@ Testing environment for dbt + PostgreSQL.
   - [Connecting pgAdmin to postgres Server](#connecting-pgadmin-to-postgres-server)
 - [dbt](#dbt)
   - [Setting up dbt Project](#setting-up-dbt-project)
-    - [Copy Config Template files](#copy-config-template-files)
     - [Model Directory Structure](#model-directory-structure)
     - [Setting up dbt schema](#setting-up-dbt-schema)
   - [dbt Workflow](#dbt-workflow)
-    - [Transformation Layers](#transformation-layers)
+    - [Boundary Model Generation](#boundary-model-generation)
+      - [Transfer Models](#transfer-models)
     - [Deployment](#deployment)
       - [Windmill](#windmill)
-      - [Run Variables](#run-variables)
-    - [Data Sources](#data-sources)
     - [The dbt-INTERLIS Boundary](#the-dbt-interlis-boundary)
-      - [Boundary Model Generation](#boundary-model-generation)
-      - [Transfer Models](#transfer-models)
     - [Macros](#macros)
       - [Available Macros](#available-macros)
       - [Debugging Macros](#debugging-macros)
@@ -84,14 +80,12 @@ Load dbt packages. While in the dbt project directory, run:
 dbt deps
 ```
 
-
 ### PostGIS Container
 
 Using image: `postgis/postgis:16-3.5-alpine`
 - PostgreSQL version 16.13: Higher than version 16.10 that is used in production (backwards compatible)
   - pg_dump version 16.13 
 - PostGIS version 3.5, same as production version 
-
 
 
 #### First Time Setup
@@ -105,7 +99,6 @@ docker stop postgis-container
 docker commit postgis-container postgis:dev
 docker rm postgis-container
 ```
-
 
 After running it with those flags that set up the user and setting up test and prod databases including target schemas, commit the container to the image used by vscode devcontainer setup: `postgres:dev`.
 
@@ -121,8 +114,6 @@ Careful about using the VsCode command _'Rebuild and reopen in container'_ witho
 
 
 
-
-
 ## Connecting pgAdmin to postgres Server
 
 hostname / address: localhost
@@ -131,6 +122,9 @@ pw: postgres
 
 
 # dbt
+
+
+
 ## Setting up dbt Project
 
 
@@ -140,20 +134,6 @@ dbt init --skip-profile-setup
 ```
 
 This sets up the project directory structure. We are skipping the interactive profile setup with `--skip-profile-setup`, since we are using our own templates.
-
-### Copy Config Template files
-
-There's templates in the dbt/_templates directory for:
-- dbt_project.yaml
-- profiles.yaml
-- packages.yaml
-
-Copy all of them to the root of the new dbt project and replace the template variables with what applies to the new project.
-
-<!-- TODO: write a little python script that takes arguments and templates and spits out rendered yaml files (+copy packages.yml as is) -->
-
-Next, define the data sources in `models/sources.yml`
-
 
 ### Model Directory Structure
 
@@ -191,20 +171,94 @@ Some utility macros have been written to speed up setting up local test environm
 
 
 ## dbt Workflow
-- Ground up, data-first philosophy, Models = Select Queries
+dbt (data build tool) is a data first transformation framework. What I mean by 'data first', is that dbt is set up to build up transformation layers from the ground up. Transformation models are just `SELECT` queries, so a model is valid only if you can actually run this query. As opposed to something like `CREATE TABLE`, where you would create an abstract container for data you don't have in the required form yet.\
+Since we do have a very clear endpoint for our transformations in our use-case - the target INTERLIS Schema - it is helpful to have your start and end points set up, i.e. the staging models of the source schema and the models that define the structure we have to get the data into. The latter is what we refer to as 'ili_mirrors'. 
 
-### Transformation Layers
+![dbt boundary graphic](doc/img/dbt_boundaries.drawio.png)
 
-The dbt models are structured into layers.
+<!-- TODO: Document the fact that you need to add sources.yml somewhere -->
+<!-- TODO: Document tests somewhere -->
 
-| Layer | Usage |
-| ----- | ----- |
-| info_*  | Queries you want to save (e.g. for data instrospection) but aren't part of the transformation pipeline. |
-| stg_* | Entry into dbt pipeline. Rename columns, clean data, transform to suitable datatypes |
-| intermediate | Here, models have columns from internal models as well as target models. Important for transferring object relations from internal database model as well as target INTERLIS model. More complex data transformations also live here. |
-| ili_mirror_* | Objects are in the format of the target INTERLIS model and act as mirrors for their targets.  |
 
-<!-- TODO: example DAG with layers superimposed -->
+### Boundary Model Generation
+
+To save ourselves writing out a bunch of boilerplate dbt models, a [python script](src/python/generate_ili_mirror_models/generate_models.py) was written, that can be used to set up both ends of the dbt boundary to existing schemas it doesn't own:
+
+```
+$ python3 generate_models.py -h
+usage: generate_models.py [-h] --schema-name SCHEMA_NAME [--output-path OUTPUT_PATH] [--table-name TABLE_NAME] [--source-mode]
+
+Create dbt models that make up boundary layer to INTERLIS target schema. Can also create staging models using the --source-mode flag.
+
+options:
+  -h, --help            show this help message and exit
+  --schema-name SCHEMA_NAME, -t SCHEMA_NAME
+                        Name of the target schema to create boundary models for.
+  --output-path OUTPUT_PATH, -o OUTPUT_PATH
+                        Path to output directory for generated files.
+  --table-name TABLE_NAME, -n TABLE_NAME
+                        Optional: Name of table to generate model for. If omitted, models are build for ALL tables in the schema.
+  --source-mode, -s     Optional: Generate a source model instead of a target model.
+```
+
+Example usage:
+```
+python3 generate_models.py --schema-name ch_kt_biotope_linien -o /project/src/dbt/dbt_biotope/models/transformations/export_to_mgdm/uebrige_biotope_linien
+```
+
+The generated `ili_mirror` models give you a clear end-point for building your transformatin towards including what data types the columns must have by that point as well as whether there is a `NOT NULL` constraint:
+
+```sql
+{{ config(materialized='table', enabled=false) }} 
+
+SELECT 
+  t_id::bigint, -- NOT NULL
+  t_basket::bigint, -- NOT NULL
+  t_ili_tid::character varying(200), 
+  kanton::character varying(255), -- NOT NULL
+  objnummer::character varying(30), -- NOT NULL
+  aname::character varying(80), 
+  bio_typ::bigint, 
+  bio_typ_kt::character varying(80), 
+  herkunft::character varying(250), -- NOT NULL
+  kartierungsgrundlage::bigint, 
+  aufnahmedatum::date, 
+  mutationsdatum::date, 
+  mutationsgrund::text, 
+  mutationsgrund_de::text, 
+  mutationsgrund_fr::text, 
+  mutationsgrund_rm::text, 
+  mutationsgrund_it::text, 
+  mutationsgrund_en::text, 
+  bedeutung::bigint 
+FROM {{ ref('placeholder') }}
+```
+
+The models start out as disabled (`enabled=false`), to avoid the dbt compiler tripping over the currently invalid model on account of not having a real data source (`FROM {{ ref('placeholder') }}`).
+
+#### Transfer Models
+The boundary model generation also includes transfer models. These models handle the transfer of the dbt-owned mirror model to the INTERLIS-owned target schema. Since dbt models can only be `SELECT`-statments, the actual transfer logic runs as [post-hooks](https://docs.getdbt.com/reference/resource-configs/pre-hook-post-hook). Macros from the custom dbt package [ili_utils](https://github.com/ayomeer/dbt_ili_utils/tree/main/macros) are used:
+
+```SQL
+-- depends_on: {{ ref('prepare_target_ch_kt_trockenwiesen') }}
+-- depends_on: {{ ref('write_to_kt_trockenwiese') }}
+
+{{ config(
+  enabled=var('enable_transfer', false),
+  post_hook=[
+    '{{ ili_utils.insert_into(
+      schema_name="ch_kt_trockenwiesen", 
+      table_name="kt_trockenwiese_teilobjekt"
+    )}}'
+  ]
+)}}
+
+SELECT * FROM {{ ref('ili_mirror_kt_trockenwiese_teilobjekt') }}
+```
+
+The `depends_on` comment, is actually is parsed by dbt and explicitly forces a dependency in the DAG, even when there is none it can infer from the data. It is used here to ensure the correct order of transfers, e.g. parent table before child table.
+
+Transfer models are their own seperate models, so they can be configured to be disabled by default for safety. `var('enable_transfer', false)` enables them if `--vars 'enable_transfer: true'` is used when running the transformation job. 
 
 
 ### Deployment
@@ -249,111 +303,16 @@ git push origin wmill_release_v0.0.2
 git rm -rf src/dbt/dbt_arten/dbt_packages 
 ```
 
-
-#### Run Variables
-
-| Variable | Effect |
-| -------- | ------ |
-| reset_target | Reset and re-initialize target ili schema (datasets and baskets)
-| enable_transfer | Triggers final dbt models to be transferred to their respective targets defined in the their model configuration.
+> ℹ️ Note:
+> These steps are now packaged into [the script](create_wmill_release_git_tag.sh) `create_wmill_release_git_tag.sh` at the project's root for convenience.
 
 
-### Data Sources
 
-For dbt to work smoothly, make sure of the following:
-- source tables only use SQL-safe naming
-  - no umlauts
-  - no spaces
-  - no capital characters
-
-- the role that dbt is accessing the DB through has been granted
-  - `USAGE` priviledges on the schema
-  - `SELECT` priviledges on the source tables
 
 ### The dbt-INTERLIS Boundary
 
 > Note:
 > For MGDM targets with baskets pre-defined by an XML file, this isn't necessary.
-
-#### Boundary Model Generation
-
-At `src/python/generate_ili_mirror_models`, the Python script `generate_models.py` can be used to generate the whole boundary layer including writing to the target schema.
-
-```
-$ python3 generate_models.py -h
-usage: generate_models.py [-h] --schema-name SCHEMA_NAME [--output-path OUTPUT_PATH] [--table-name TABLE_NAME] [--source-mode]
-
-Create dbt models that make up boundary layer to INTERLIS target schema. Can also create staging models using the --source-mode flag.
-
-options:
-  -h, --help            show this help message and exit
-  --schema-name SCHEMA_NAME, -t SCHEMA_NAME
-                        Name of the target schema to create boundary models for.
-  --output-path OUTPUT_PATH, -o OUTPUT_PATH
-                        Path to output directory for generated files.
-  --table-name TABLE_NAME, -n TABLE_NAME
-                        Optional: Name of table to generate model for. If omitted, models are build for ALL tables in the schema.
-  --source-mode, -s     Optional: Generate a source model instead of a target model.
-```
-
-Example usage:
-```
-python3 generate_models.py --schema-name ch_kt_biotope_linien -o /project/src/dbt/dbt_biotope/models/transformations/export_to_mgdm/uebrige_biotope_linien
-```
-
-The generated `ili_mirror` models give you a clear end-point for building your transformatin towards:
-
-```sql
-{{ config(materialized='table', enabled=false) }} 
-
-SELECT 
-  t_id::bigint, -- NOT NULL
-  t_basket::bigint, -- NOT NULL
-  t_ili_tid::character varying(200), 
-  kanton::character varying(255), -- NOT NULL
-  objnummer::character varying(30), -- NOT NULL
-  aname::character varying(80), 
-  bio_typ::bigint, 
-  bio_typ_kt::character varying(80), 
-  herkunft::character varying(250), -- NOT NULL
-  kartierungsgrundlage::bigint, 
-  aufnahmedatum::date, 
-  mutationsdatum::date, 
-  mutationsgrund::text, 
-  mutationsgrund_de::text, 
-  mutationsgrund_fr::text, 
-  mutationsgrund_rm::text, 
-  mutationsgrund_it::text, 
-  mutationsgrund_en::text, 
-  bedeutung::bigint 
-FROM {{ ref('placeholder') }}
-```
-
-
-#### Transfer Models
-The boundary model generation also creates transfer models. These models handle the transfer of the dbt-owned mirror model to the INTERLIS-owned target schema. Since dbt models can only be `SELECT`-statments, these models just call the `ili_utils` macros as [post-hooks](https://docs.getdbt.com/reference/resource-configs/pre-hook-post-hook):
-
-```SQL
--- depends_on: {{ ref('prepare_target_ch_kt_trockenwiesen') }}
--- depends_on: {{ ref('write_to_kt_trockenwiese') }}
-
-{{ config(
-  enabled=var('enable_transfer', false),
-  post_hook=[
-    '{{ ili_utils.insert_into(
-      schema_name="ch_kt_trockenwiesen", 
-      table_name="kt_trockenwiese_teilobjekt"
-    )}}'
-  ]
-)}}
-
-SELECT * FROM {{ ref('ili_mirror_kt_trockenwiese_teilobjekt') }}
-```
-
-The `depends_on` comment is a comment, but actually is parsed by dbt and ensures correct order of transfers (e.g. parent table before child table) by stating the dependency.
-
-Transfer models are their own seperate models, so they can be configured to be disabled by default for safety and enabled explicitly using a variable.
-
 
 ### Macros
 Macros are basically templated SQL-scripts to make common tasks reusable. Two dbt packages have been created to package together such tasks:
