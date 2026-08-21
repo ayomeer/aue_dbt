@@ -55,7 +55,8 @@ parser.add_argument(
     dest="output_path",
     type=str,
     default=default_output_path, # required=True,
-    help="Path to output directory for generated files.",
+    help="""Optional: Path to output directory for generated files.
+            If omitted, files are written to 'output' directory at script's file location.""",
 )
 parser.add_argument(
     "--table-name",
