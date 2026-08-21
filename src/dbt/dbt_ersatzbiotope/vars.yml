@@ -1,0 +1,5 @@
+vars:
+  export_config:
+    starting_data_tid: 100
+    gl_ersatzbiotope_data_basket_tid: 32
+    pub_gl_ersatzbiotope_data_basket_tid: 6
