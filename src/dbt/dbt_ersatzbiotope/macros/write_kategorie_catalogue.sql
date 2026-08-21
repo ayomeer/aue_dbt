@@ -1,4 +1,7 @@
 -- use with run-operation
+-- Writes catalogue values into interlis target model based on values in prod ersatzbiotope_sf table.
+-- From there the catalogue can be exported to XML using Model Baker for reusability.
+
 {%- macro write_kategorie_catalogue(catalogues_basket_t_id) -%}
 
 {% set sql %}

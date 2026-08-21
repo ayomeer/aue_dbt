@@ -1,4 +1,4 @@
--- depends_on: {{ ref('prepare_target_schema') }}
+-- depends_on: {{ ref('_prepare_target_gl_ersatzbiotope') }}
 
 {{ config(
   enabled=var('enable_transfer', false),
