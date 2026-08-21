@@ -16,8 +16,9 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 vars:
   export_config:
+    catalogue_basket_t_id: 2 # used in run-operation macro 'write_kategorie_catalogue()'
     starting_data_tid: 100
-    gl_ersatzbiotope_data_basket_tid: 32
+    gl_ersatzbiotope_data_basket_tid: 36
     pub_gl_ersatzbiotope_data_basket_tid: 6
 
 on-run-start:

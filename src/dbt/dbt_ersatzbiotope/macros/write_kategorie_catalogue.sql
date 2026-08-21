@@ -1,8 +1,10 @@
 -- use with run-operation
 -- Writes catalogue values into interlis target model based on values in prod ersatzbiotope_sf table.
 -- From there the catalogue can be exported to XML using Model Baker for reusability.
-
-{%- macro write_kategorie_catalogue(catalogues_basket_t_id) -%}
+--
+-- Usage:
+-- dbt run-operation write_kategorie_catalogue
+{%- macro write_kategorie_catalogue() -%}
 
 {% set sql %}
 TRUNCATE TABLE gl_ersatzbiotope.ersatzmassnahme_catalogue CASCADE;
@@ -13,10 +15,10 @@ INSERT INTO gl_ersatzbiotope.ersatzmassnahme_catalogue (
 	kategorie
 )
 SELECT
-	{{ catalogues_basket_t_id }},
-	uuid_generate_v4(), -- t_ili_tid
+	{{ var('export_config')['catalogue_basket_t_id'] }} as t_basket,
+	uuid_generate_v4() as t_ili_tid, 
 	kategorie_ersatzmassnahme
-FROM prod_gl_ersatzbiotope.ersatzbiotope_sf
+FROM {{ ref('stg_union_all') }}
 GROUP BY kategorie_ersatzmassnahme
 ORDER BY kategorie_ersatzmassnahme
 {% endset %}
