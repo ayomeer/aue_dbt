@@ -166,10 +166,9 @@ for table_name in data_table_names:
             str_column_list.append(f"  {column_name}::{data_type}, \n")
 
     # get rid of comma in last column string
-    str_column_list[-1] = str_column_list[-1].replace(",", "")  
+    str_column_list[-1] = str_column_list[-1].strip(",")  
 
     # create dbt model stump
-
     if args.source_mode:
         filename = f"stg_{table_name}.sql"
     else:
@@ -191,7 +190,7 @@ for table_name in data_table_names:
             f.write("FROM {{ ref('placeholder') }}")  # {{ -> {
 
 
-# -- Build dbt models ----------------------------------------------------------------------------
+# -- Build dbt transfer models ----------------------------------------------------------------------------
 if args.source_mode is False:
     env = Environment(
         loader=FileSystemLoader(path_dbt_templates),
