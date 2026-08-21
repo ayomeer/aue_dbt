@@ -1,13 +1,13 @@
 with source as (
-        select * from {{ source('src_prod_gl_ersatzbiotope', 'ersatzbiotope_sf') }}
+        select * from {{ source('prod_gl_ersatzbiotope', 'ersatzbiotope_sf') }}
   ),
   renamed as (
       select
         {{ adapter.quote("gid") }},
         {{ adapter.quote("objekt_nummer") }},
         {{ adapter.quote("teilobjekt_nummer") }},
-        {{ adapter.quote("ersatzmassnahme") }},
-        {{ adapter.quote("kategorie_ersatzmassnahme") }},
+        trim(REPLACE(ersatzmassnahme, E'\t', '  ')) as ersatzmassnahme,
+        trim(REPLACE(kategorie_ersatzmassnahme, E'\t', '  ')) as kategorie_ersatzmassnahme,
         {{ adapter.quote("ziellebensraum") }},
         {{ adapter.quote("flaeche_m2") }},
         {{ adapter.quote("entscheide") }},

@@ -1,0 +1,29 @@
+models:
+  - name: stg_ersatzbiotope_sf
+    columns:
+      - name: gid
+        data_type: bigint
+      - name: objekt_nummer
+        data_type: bigint
+      - name: teilobjekt_nummer
+        data_type: bigint
+      - name: ersatzmassnahme
+        data_type: character varying
+      - name: kategorie_ersatzmassnahme
+        data_type: character varying
+      - name: ziellebensraum
+        data_type: character varying
+      - name: flaeche_m2
+        data_type: bigint
+      - name: entscheide
+        data_type: character varying
+      - name: projekttraeger
+        data_type: character varying
+      - name: dokumente
+        data_type: character varying
+      - name: bemerkungen_intern
+        data_type: character varying
+      - name: geometrie
+        data_type: user-defined
+      - name: isvalid
+        data_type: text

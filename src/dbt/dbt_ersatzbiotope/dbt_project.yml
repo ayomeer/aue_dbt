@@ -14,9 +14,14 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "target"
   - "dbt_packages"
 
+vars:
+  export_config:
+    starting_data_tid: 100
+    gl_ersatzbiotope_data_basket_tid: 32
+    pub_gl_ersatzbiotope_data_basket_tid: 6
+
 on-run-start:
   - ALTER SEQUENCE dbt_ersatzbiotope.t_ili2db_seq RESTART WITH {{ var('export_config')['starting_data_tid'] }}
-
 
 models:
   dbt_ersatzbiotope:

@@ -1,7 +1,7 @@
 
 
 with source as (
-  select * from {{ source('src_prod_gl_ersatzbiotope', 'cat_kategorie_ersatzmassnahme') }}
+  select * from {{ source('prod_gl_ersatzbiotope', 'cat_kategorie_ersatzmassnahme') }}
 )
 select
   {{ adapter.quote("id") }},

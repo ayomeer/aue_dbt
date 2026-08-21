@@ -1,0 +1,1516 @@
+{
+  "metadata": {
+    "colibri_version": "0.3.6",
+    "generated_at": "2026-08-21T07:56:50Z",
+    "adapter_type": "postgres",
+    "dbt_version": "1.11.11",
+    "dbt_schema_version": "https://schemas.getdbt.com/dbt/manifest/v12.json",
+    "dbt_invocation_id": "777c759e-7117-4faa-bb97-c15c50b5e17f",
+    "dbt_project_name": "dbt_ersatzbiotope",
+    "dbt_project_id": "89535ff1f949cd98",
+    "total_model_count": 6,
+    "unmaterialized_model_count": 0
+  },
+  "nodes": {
+    "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf": {
+      "id": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf",
+      "name": "stg_ersatzbiotope_sf",
+      "fullName": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf",
+      "nodeType": "model",
+      "materialized": "view",
+      "modelType": "staging",
+      "database": "test_db",
+      "schema": "dbt_ersatzbiotope",
+      "path": "models/transformations/staging/stg_ersatzbiotope_sf.sql",
+      "description": "",
+      "contractEnforced": false,
+      "rawCode": "with source as (\n        select * from {{ source('src_prod_gl_ersatzbiotope', 'ersatzbiotope_sf') }}\n  ),\n  renamed as (\n      select\n        {{ adapter.quote(\"gid\") }},\n        {{ adapter.quote(\"objekt_nummer\") }},\n        {{ adapter.quote(\"teilobjekt_nummer\") }},\n        {{ adapter.quote(\"ersatzmassnahme\") }},\n        {{ adapter.quote(\"kategorie_ersatzmassnahme\") }},\n        {{ adapter.quote(\"ziellebensraum\") }},\n        {{ adapter.quote(\"flaeche_m2\") }},\n        {{ adapter.quote(\"entscheide\") }},\n        {{ adapter.quote(\"projekttraeger\") }},\n        {{ adapter.quote(\"dokumente\") }},\n        {{ adapter.quote(\"bemerkungen_intern\") }},\n        ST_RemoveRepeatedPoints(\"geometrie\", tolerance=>0.01) as geometrie\n      from source\n  )\n  select \n  *,\n  ST_IsValidReason(\"geometrie\") as isvalid \n  from renamed",
+      "compiledCode": "with source as (\n        select * from \"test_db\".\"prod_gl_ersatzbiotope\".\"ersatzbiotope_sf\"\n  ),\n  renamed as (\n      select\n        \"gid\",\n        \"objekt_nummer\",\n        \"teilobjekt_nummer\",\n        \"ersatzmassnahme\",\n        \"kategorie_ersatzmassnahme\",\n        \"ziellebensraum\",\n        \"flaeche_m2\",\n        \"entscheide\",\n        \"projekttraeger\",\n        \"dokumente\",\n        \"bemerkungen_intern\",\n        ST_RemoveRepeatedPoints(\"geometrie\", tolerance=>0.01) as geometrie\n      from source\n  )\n  select \n  *,\n  ST_IsValidReason(\"geometrie\") as isvalid \n  from renamed",
+      "refs": [],
+      "tags": [],
+      "columns": {
+        "gid": {
+          "columnName": "gid",
+          "hasLineage": true,
+          "dataType": "bigint",
+          "contractType": "bigint",
+          "description": "",
+          "lineageType": "pass-through"
+        },
+        "objekt_nummer": {
+          "columnName": "objekt_nummer",
+          "hasLineage": true,
+          "dataType": "bigint",
+          "contractType": "bigint",
+          "description": "",
+          "lineageType": "pass-through"
+        },
+        "teilobjekt_nummer": {
+          "columnName": "teilobjekt_nummer",
+          "hasLineage": true,
+          "dataType": "bigint",
+          "contractType": "bigint",
+          "description": "",
+          "lineageType": "pass-through"
+        },
+        "ersatzmassnahme": {
+          "columnName": "ersatzmassnahme",
+          "hasLineage": true,
+          "dataType": "character varying",
+          "contractType": "character varying",
+          "description": "",
+          "lineageType": "pass-through"
+        },
+        "kategorie_ersatzmassnahme": {
+          "columnName": "kategorie_ersatzmassnahme",
+          "hasLineage": true,
+          "dataType": "character varying",
+          "contractType": "character varying",
+          "description": "",
+          "lineageType": "pass-through"
+        },
+        "ziellebensraum": {
+          "columnName": "ziellebensraum",
+          "hasLineage": true,
+          "dataType": "character varying",
+          "contractType": "character varying",
+          "description": "",
+          "lineageType": "pass-through"
+        },
+        "flaeche_m2": {
+          "columnName": "flaeche_m2",
+          "hasLineage": true,
+          "dataType": "bigint",
+          "contractType": "bigint",
+          "description": "",
+          "lineageType": "pass-through"
+        },
+        "entscheide": {
+          "columnName": "entscheide",
+          "hasLineage": true,
+          "dataType": "character varying",
+          "contractType": "character varying",
+          "description": "",
+          "lineageType": "pass-through"
+        },
+        "projekttraeger": {
+          "columnName": "projekttraeger",
+          "hasLineage": true,
+          "dataType": "character varying",
+          "contractType": "character varying",
+          "description": "",
+          "lineageType": "pass-through"
+        },
+        "dokumente": {
+          "columnName": "dokumente",
+          "hasLineage": true,
+          "dataType": "character varying",
+          "contractType": "character varying",
+          "description": "",
+          "lineageType": "pass-through"
+        },
+        "bemerkungen_intern": {
+          "columnName": "bemerkungen_intern",
+          "hasLineage": true,
+          "dataType": "character varying",
+          "contractType": "character varying",
+          "description": "",
+          "lineageType": "pass-through"
+        },
+        "geometrie": {
+          "columnName": "geometrie",
+          "hasLineage": true,
+          "dataType": "geometry",
+          "contractType": "user-defined",
+          "description": "",
+          "lineageType": "transformation"
+        },
+        "isvalid": {
+          "columnName": "isvalid",
+          "hasLineage": true,
+          "dataType": "text",
+          "contractType": "text",
+          "description": "",
+          "lineageType": "transformation"
+        }
+      },
+      "relationName": "\"test_db\".\"dbt_ersatzbiotope\".\"stg_ersatzbiotope_sf\""
+    },
+    "source.dbt_ersatzbiotope.src_prod_gl_ersatzbiotope.ersatzbiotope_sf": {
+      "id": "source.dbt_ersatzbiotope.src_prod_gl_ersatzbiotope.ersatzbiotope_sf",
+      "name": "ersatzbiotope_sf",
+      "fullName": "source.dbt_ersatzbiotope.src_prod_gl_ersatzbiotope.ersatzbiotope_sf",
+      "nodeType": "source",
+      "materialized": "unknown",
+      "modelType": "unknown",
+      "database": "test_db",
+      "schema": "prod_gl_ersatzbiotope",
+      "path": "models/sources.yml",
+      "description": "",
+      "contractEnforced": null,
+      "rawCode": null,
+      "compiledCode": null,
+      "refs": [],
+      "tags": [],
+      "columns": {
+        "gid": {
+          "columnName": "gid",
+          "hasLineage": true,
+          "dataType": "bigint"
+        },
+        "objekt_nummer": {
+          "columnName": "objekt_nummer",
+          "hasLineage": true,
+          "dataType": "bigint"
+        },
+        "teilobjekt_nummer": {
+          "columnName": "teilobjekt_nummer",
+          "hasLineage": true,
+          "dataType": "bigint"
+        },
+        "ersatzmassnahme": {
+          "columnName": "ersatzmassnahme",
+          "hasLineage": true,
+          "dataType": "character varying"
+        },
+        "kategorie_ersatzmassnahme": {
+          "columnName": "kategorie_ersatzmassnahme",
+          "hasLineage": true,
+          "dataType": "character varying"
+        },
+        "ziellebensraum": {
+          "columnName": "ziellebensraum",
+          "hasLineage": true,
+          "dataType": "character varying"
+        },
+        "flaeche_m2": {
+          "columnName": "flaeche_m2",
+          "hasLineage": true,
+          "dataType": "bigint"
+        },
+        "entscheide": {
+          "columnName": "entscheide",
+          "hasLineage": true,
+          "dataType": "character varying"
+        },
+        "projekttraeger": {
+          "columnName": "projekttraeger",
+          "hasLineage": true,
+          "dataType": "character varying"
+        },
+        "dokumente": {
+          "columnName": "dokumente",
+          "hasLineage": true,
+          "dataType": "character varying"
+        },
+        "bemerkungen_intern": {
+          "columnName": "bemerkungen_intern",
+          "hasLineage": true,
+          "dataType": "character varying"
+        },
+        "geometrie": {
+          "columnName": "geometrie",
+          "hasLineage": true,
+          "dataType": "geometry(MultiPolygon,2056)"
+        }
+      },
+      "relationName": "\"test_db\".\"prod_gl_ersatzbiotope\".\"ersatzbiotope_sf\""
+    },
+    "model.dbt_ersatzbiotope.stg_cat_kategorie_ersatzmassnahme": {
+      "id": "model.dbt_ersatzbiotope.stg_cat_kategorie_ersatzmassnahme",
+      "name": "stg_cat_kategorie_ersatzmassnahme",
+      "fullName": "model.dbt_ersatzbiotope.stg_cat_kategorie_ersatzmassnahme",
+      "nodeType": "model",
+      "materialized": "view",
+      "modelType": "staging",
+      "database": "test_db",
+      "schema": "dbt_ersatzbiotope",
+      "path": "models/transformations/staging/stg_cat_kategorie_ersatzmassnahme.sql",
+      "description": "",
+      "contractEnforced": false,
+      "rawCode": "with source as (\n  select * from {{ source('src_prod_gl_ersatzbiotope', 'cat_kategorie_ersatzmassnahme') }}\n)\nselect\n  {{ adapter.quote(\"id\") }},\n  {{ adapter.quote(\"kategorie_ersatzmassnahme\") }}\nfrom source",
+      "compiledCode": "with source as (\n  select * from \"test_db\".\"prod_gl_ersatzbiotope\".\"cat_kategorie_ersatzmassnahme\"\n)\nselect\n  \"id\",\n  \"kategorie_ersatzmassnahme\"\nfrom source",
+      "refs": [],
+      "tags": [],
+      "columns": {
+        "id": {
+          "columnName": "id",
+          "hasLineage": true,
+          "dataType": "integer",
+          "lineageType": "pass-through"
+        },
+        "kategorie_ersatzmassnahme": {
+          "columnName": "kategorie_ersatzmassnahme",
+          "hasLineage": true,
+          "dataType": "character varying",
+          "lineageType": "pass-through"
+        },
+        "future_t_id": {
+          "columnName": "future_t_id",
+          "hasLineage": false,
+          "dataType": "bigint",
+          "lineageType": "unknown"
+        }
+      },
+      "relationName": "\"test_db\".\"dbt_ersatzbiotope\".\"stg_cat_kategorie_ersatzmassnahme\""
+    },
+    "source.dbt_ersatzbiotope.src_prod_gl_ersatzbiotope.cat_kategorie_ersatzmassnahme": {
+      "id": "source.dbt_ersatzbiotope.src_prod_gl_ersatzbiotope.cat_kategorie_ersatzmassnahme",
+      "name": "cat_kategorie_ersatzmassnahme",
+      "fullName": "source.dbt_ersatzbiotope.src_prod_gl_ersatzbiotope.cat_kategorie_ersatzmassnahme",
+      "nodeType": "source",
+      "materialized": "unknown",
+      "modelType": "unknown",
+      "database": "test_db",
+      "schema": "prod_gl_ersatzbiotope",
+      "path": "models/sources.yml",
+      "description": "",
+      "contractEnforced": null,
+      "rawCode": null,
+      "compiledCode": null,
+      "refs": [],
+      "tags": [],
+      "columns": {
+        "id": {
+          "columnName": "id",
+          "hasLineage": true,
+          "dataType": "integer"
+        },
+        "kategorie_ersatzmassnahme": {
+          "columnName": "kategorie_ersatzmassnahme",
+          "hasLineage": true,
+          "dataType": "character varying"
+        }
+      },
+      "relationName": "\"test_db\".\"prod_gl_ersatzbiotope\".\"cat_kategorie_ersatzmassnahme\""
+    },
+    "model.dbt_ersatzbiotope.ili_mirror_to_flaeche_pub": {
+      "id": "model.dbt_ersatzbiotope.ili_mirror_to_flaeche_pub",
+      "name": "ili_mirror_to_flaeche_pub",
+      "fullName": "model.dbt_ersatzbiotope.ili_mirror_to_flaeche_pub",
+      "nodeType": "model",
+      "materialized": "table",
+      "modelType": "unknown",
+      "database": "test_db",
+      "schema": "dbt_ersatzbiotope",
+      "path": "models/transformations/export_to_pub_gl_ersatzbiotope/ili_mirror_to_flaeche_pub.sql",
+      "description": "",
+      "contractEnforced": false,
+      "rawCode": "{{ config(materialized='table') }}\n\nSELECT \n  nextval('dbt_ersatzbiotope.t_ili2db_seq'::regclass) as t_id,\n  '{{ var('export_config')['pub_gl_ersatzbiotope_data_basket_tid'] }}'::bigint as t_basket,\n  uuid_generate_v4() as t_ili_tid,\n  st_area(geometrie)::numeric(12,3) as flaeche_m2,\n  geometrie::geometry(MultiPolygon,2056) as geo_obj,\n  objekt_nummer::integer,\n  teilobjekt_nummer::integer as teilobj_nr,\n  kategorie_ersatzmassnahme::character varying(255),\n  ersatzmassnahme::character varying(255),\n  ziellebensraum::character varying(255),\n  entscheide::text\nFROM {{ ref('stg_ersatzbiotope_sf') }}",
+      "compiledCode": "\n\nSELECT \n  nextval('dbt_ersatzbiotope.t_ili2db_seq'::regclass) as t_id,\n  '6'::bigint as t_basket,\n  uuid_generate_v4() as t_ili_tid,\n  st_area(geometrie)::numeric(12,3) as flaeche_m2,\n  geometrie::geometry(MultiPolygon,2056) as geo_obj,\n  objekt_nummer::integer,\n  teilobjekt_nummer::integer as teilobj_nr,\n  kategorie_ersatzmassnahme::character varying(255),\n  ersatzmassnahme::character varying(255),\n  ziellebensraum::character varying(255),\n  entscheide::text\nFROM \"test_db\".\"dbt_ersatzbiotope\".\"stg_ersatzbiotope_sf\"",
+      "refs": [
+        {
+          "name": "stg_ersatzbiotope_sf",
+          "package": null,
+          "version": null
+        }
+      ],
+      "tags": [],
+      "columns": {
+        "t_id": {
+          "columnName": "t_id",
+          "hasLineage": false,
+          "dataType": "bigint",
+          "lineageType": "unknown"
+        },
+        "t_basket": {
+          "columnName": "t_basket",
+          "hasLineage": false,
+          "dataType": "bigint",
+          "lineageType": "unknown"
+        },
+        "t_ili_tid": {
+          "columnName": "t_ili_tid",
+          "hasLineage": false,
+          "dataType": "uuid",
+          "lineageType": "unknown"
+        },
+        "flaeche_m2": {
+          "columnName": "flaeche_m2",
+          "hasLineage": true,
+          "dataType": "numeric(12,3)",
+          "lineageType": "transformation"
+        },
+        "geo_obj": {
+          "columnName": "geo_obj",
+          "hasLineage": true,
+          "dataType": "geometry(MultiPolygon,2056)",
+          "lineageType": "transformation"
+        },
+        "objekt_nummer": {
+          "columnName": "objekt_nummer",
+          "hasLineage": true,
+          "dataType": "integer",
+          "lineageType": "transformation"
+        },
+        "teilobj_nr": {
+          "columnName": "teilobj_nr",
+          "hasLineage": true,
+          "dataType": "integer",
+          "lineageType": "transformation"
+        },
+        "kategorie_ersatzmassnahme": {
+          "columnName": "kategorie_ersatzmassnahme",
+          "hasLineage": true,
+          "dataType": "character varying(255)",
+          "lineageType": "transformation"
+        },
+        "ersatzmassnahme": {
+          "columnName": "ersatzmassnahme",
+          "hasLineage": true,
+          "dataType": "character varying(255)",
+          "lineageType": "transformation"
+        },
+        "ziellebensraum": {
+          "columnName": "ziellebensraum",
+          "hasLineage": true,
+          "dataType": "character varying(255)",
+          "lineageType": "transformation"
+        },
+        "entscheide": {
+          "columnName": "entscheide",
+          "hasLineage": true,
+          "dataType": "text",
+          "lineageType": "transformation"
+        }
+      },
+      "relationName": "\"test_db\".\"dbt_ersatzbiotope\".\"ili_mirror_to_flaeche_pub\""
+    },
+    "model.dbt_ersatzbiotope.ili_mirror_to_flaeche": {
+      "id": "model.dbt_ersatzbiotope.ili_mirror_to_flaeche",
+      "name": "ili_mirror_to_flaeche",
+      "fullName": "model.dbt_ersatzbiotope.ili_mirror_to_flaeche",
+      "nodeType": "model",
+      "materialized": "table",
+      "modelType": "unknown",
+      "database": "test_db",
+      "schema": "dbt_ersatzbiotope",
+      "path": "models/transformations/export_to_gl_ersatzbiotope/ili_mirror_to_flaeche.sql",
+      "description": "Spiegelt die Struktur der INTERLIS Zieltabelle 'gl_ersatzbiotop.to_flaeche' wieder.",
+      "contractEnforced": false,
+      "rawCode": "{{ config(materialized='table') }}\n\nselect\n  nextval('dbt_ersatzbiotope.t_ili2db_seq'::regclass) as t_id,\n  '{{ var('export_config')['gl_ersatzbiotope_data_basket_tid'] }}'::bigint as t_basket,\n\tuuid_generate_v4() as t_ili_tid,\n\tst_area(geometrie) as flaeche_m2,\n\tsf.teilobjekt_nummer as teilobj_nr,\n\tcat_kategorie.t_id as kategorie_ersatzmassnahme,\n\tsf.ersatzmassnahme,\n\tsf.ziellebensraum,\n\tebio.t_id as von_ersatzbiotop,\n\tsf.geometrie as geo_obj\nfrom {{ ref('stg_ersatzbiotope_sf') }} as sf\nleft join {{ ref('ili_mirror_ersatzbiotop') }} as ebio\n\ton sf.objekt_nummer = ebio.objekt_nummer\nleft join {{ source('src_gl_ersatzbiotope', 'ersatzmassnahme_catalogue') }} as cat_kategorie\n\ton cat_kategorie.kategorie = sf.kategorie_ersatzmassnahme",
+      "compiledCode": "\n\nselect\n  nextval('dbt_ersatzbiotope.t_ili2db_seq'::regclass) as t_id,\n  '15'::bigint as t_basket,\n\tuuid_generate_v4() as t_ili_tid,\n\tst_area(geometrie) as flaeche_m2,\n\tsf.teilobjekt_nummer as teilobj_nr,\n\tcat_kategorie.t_id as kategorie_ersatzmassnahme,\n\tsf.ersatzmassnahme,\n\tsf.ziellebensraum,\n\tebio.t_id as von_ersatzbiotop,\n\tsf.geometrie as geo_obj\nfrom \"test_db\".\"dbt_ersatzbiotope\".\"stg_ersatzbiotope_sf\" as sf\nleft join \"test_db\".\"dbt_ersatzbiotope\".\"ili_mirror_ersatzbiotop\" as ebio\n\ton sf.objekt_nummer = ebio.objekt_nummer\nleft join \"test_db\".\"gl_ersatzbiotope\".\"ersatzmassnahme_catalogue\" as cat_kategorie\n\ton cat_kategorie.kategorie = sf.kategorie_ersatzmassnahme",
+      "refs": [
+        {
+          "name": "stg_ersatzbiotope_sf",
+          "package": null,
+          "version": null
+        },
+        {
+          "name": "ili_mirror_ersatzbiotop",
+          "package": null,
+          "version": null
+        }
+      ],
+      "tags": [],
+      "columns": {
+        "t_id": {
+          "columnName": "t_id",
+          "hasLineage": false,
+          "dataType": "bigint",
+          "contractType": "bigint",
+          "description": "",
+          "lineageType": "unknown"
+        },
+        "t_basket": {
+          "columnName": "t_basket",
+          "hasLineage": false,
+          "dataType": "bigint",
+          "contractType": "bigint",
+          "description": "",
+          "lineageType": "unknown"
+        },
+        "t_ili_tid": {
+          "columnName": "t_ili_tid",
+          "hasLineage": false,
+          "dataType": "uuid",
+          "contractType": "uuid",
+          "description": "",
+          "lineageType": "unknown"
+        },
+        "flaeche_m2": {
+          "columnName": "flaeche_m2",
+          "hasLineage": true,
+          "dataType": "double precision",
+          "contractType": "double precision",
+          "description": "",
+          "lineageType": "transformation"
+        },
+        "teilobj_nr": {
+          "columnName": "teilobj_nr",
+          "hasLineage": true,
+          "dataType": "bigint",
+          "contractType": "bigint",
+          "description": "",
+          "lineageType": "rename"
+        },
+        "kategorie_ersatzmassnahme": {
+          "columnName": "kategorie_ersatzmassnahme",
+          "hasLineage": true,
+          "dataType": "bigint",
+          "contractType": "bigint",
+          "description": "",
+          "lineageType": "rename"
+        },
+        "ersatzmassnahme": {
+          "columnName": "ersatzmassnahme",
+          "hasLineage": true,
+          "dataType": "character varying",
+          "contractType": "character varying",
+          "description": "",
+          "lineageType": "pass-through"
+        },
+        "ziellebensraum": {
+          "columnName": "ziellebensraum",
+          "hasLineage": true,
+          "dataType": "character varying",
+          "contractType": "character varying",
+          "description": "",
+          "lineageType": "pass-through"
+        },
+        "von_ersatzbiotop": {
+          "columnName": "von_ersatzbiotop",
+          "hasLineage": true,
+          "dataType": "bigint",
+          "contractType": "bigint",
+          "description": "",
+          "lineageType": "rename"
+        },
+        "geo_obj": {
+          "columnName": "geo_obj",
+          "hasLineage": true,
+          "dataType": "geometry",
+          "contractType": "user-defined",
+          "description": "",
+          "lineageType": "rename"
+        }
+      },
+      "relationName": "\"test_db\".\"dbt_ersatzbiotope\".\"ili_mirror_to_flaeche\""
+    },
+    "source.dbt_ersatzbiotope.src_gl_ersatzbiotope.ersatzmassnahme_catalogue": {
+      "id": "source.dbt_ersatzbiotope.src_gl_ersatzbiotope.ersatzmassnahme_catalogue",
+      "name": "ersatzmassnahme_catalogue",
+      "fullName": "source.dbt_ersatzbiotope.src_gl_ersatzbiotope.ersatzmassnahme_catalogue",
+      "nodeType": "source",
+      "materialized": "unknown",
+      "modelType": "unknown",
+      "database": "test_db",
+      "schema": "gl_ersatzbiotope",
+      "path": "models/sources.yml",
+      "description": "",
+      "contractEnforced": null,
+      "rawCode": null,
+      "compiledCode": null,
+      "refs": [],
+      "tags": [],
+      "columns": {},
+      "relationName": "\"test_db\".\"gl_ersatzbiotope\".\"ersatzmassnahme_catalogue\""
+    },
+    "model.dbt_ersatzbiotope.ili_mirror_ersatzbiotop": {
+      "id": "model.dbt_ersatzbiotope.ili_mirror_ersatzbiotop",
+      "name": "ili_mirror_ersatzbiotop",
+      "fullName": "model.dbt_ersatzbiotope.ili_mirror_ersatzbiotop",
+      "nodeType": "model",
+      "materialized": "table",
+      "modelType": "unknown",
+      "database": "test_db",
+      "schema": "dbt_ersatzbiotope",
+      "path": "models/transformations/export_to_gl_ersatzbiotope/ili_mirror_ersatzbiotop.sql",
+      "description": "Spiegelt die Struktur der INTERLIS Zieltabelle 'gl_ersatzbiotop.ersatzbiotop' wieder.",
+      "contractEnforced": false,
+      "rawCode": "{{ config(materialized='table') }}\n\nselect\n  nextval('dbt_ersatzbiotope.t_ili2db_seq'::regclass) as t_id,\n  '{{ var('export_config')['gl_ersatzbiotope_data_basket_tid'] }}'::bigint as t_basket,\n  'GL'::varchar as kanton,\n  objekt_nummer::integer,\n  projekttraeger::varchar\nfrom {{ ref('aggregate_into_ersatzbiotop') }}",
+      "compiledCode": "\n\nselect\n  nextval('dbt_ersatzbiotope.t_ili2db_seq'::regclass) as t_id,\n  '15'::bigint as t_basket,\n  'GL'::varchar as kanton,\n  objekt_nummer::integer,\n  projekttraeger::varchar\nfrom \"test_db\".\"dbt_ersatzbiotope\".\"aggregate_into_ersatzbiotop\"",
+      "refs": [
+        {
+          "name": "aggregate_into_ersatzbiotop",
+          "package": null,
+          "version": null
+        }
+      ],
+      "tags": [],
+      "columns": {
+        "t_id": {
+          "columnName": "t_id",
+          "hasLineage": true,
+          "dataType": "bigint",
+          "contractType": "bigint",
+          "description": "",
+          "lineageType": "unknown"
+        },
+        "t_basket": {
+          "columnName": "t_basket",
+          "hasLineage": false,
+          "dataType": "bigint",
+          "contractType": "bigint",
+          "description": "",
+          "lineageType": "unknown"
+        },
+        "kanton": {
+          "columnName": "kanton",
+          "hasLineage": false,
+          "dataType": "character varying",
+          "contractType": "character varying",
+          "description": "Modellierter INTERLIS Datentyp in Ziel-Schema: CHAdminCodes_V1.CHCantonCode -> string wie 'GL'",
+          "lineageType": "unknown"
+        },
+        "objekt_nummer": {
+          "columnName": "objekt_nummer",
+          "hasLineage": true,
+          "dataType": "integer",
+          "contractType": "integer",
+          "description": "",
+          "lineageType": "transformation"
+        },
+        "projekttraeger": {
+          "columnName": "projekttraeger",
+          "hasLineage": true,
+          "dataType": "character varying",
+          "contractType": "character varying",
+          "description": "",
+          "lineageType": "transformation"
+        }
+      },
+      "relationName": "\"test_db\".\"dbt_ersatzbiotope\".\"ili_mirror_ersatzbiotop\""
+    },
+    "model.dbt_ersatzbiotope.aggregate_into_ersatzbiotop": {
+      "id": "model.dbt_ersatzbiotope.aggregate_into_ersatzbiotop",
+      "name": "aggregate_into_ersatzbiotop",
+      "fullName": "model.dbt_ersatzbiotope.aggregate_into_ersatzbiotop",
+      "nodeType": "model",
+      "materialized": "view",
+      "modelType": "unknown",
+      "database": "test_db",
+      "schema": "dbt_ersatzbiotope",
+      "path": "models/transformations/export_to_gl_ersatzbiotope/aggregate_into_ersatzbiotop.sql",
+      "description": "Hier werden aus den flachen Ersatzbiotop-Eintr\u00e4ge des PROD Schemas die 'Ersatzbiotop'-Objekte des INTERLIS Zielschema's generiert. Dazu wird nach `objekt_nummer` gruppiert. Das Attribut ' Projekttraeger` muss dabei bei allen Objekten mit der gleichen `objekt_nummer` gleich sein. Die wird im Test 'test_ersatzbiotop_projekttraeger' sichergestellt.",
+      "contractEnforced": false,
+      "rawCode": "-- Here, we create what corresponds to \"Ersatzbiotop\"-Object \n-- in gl_ersatzbiotope target schema\n\nselect\n  objekt_nummer,\n  projekttraeger\nfrom {{ ref('stg_ersatzbiotope_sf') }}\ngroup by objekt_nummer, projekttraeger\norder by objekt_nummer",
+      "compiledCode": "-- Here, we create what corresponds to \"Ersatzbiotop\"-Object \n-- in gl_ersatzbiotope target schema\n\nselect\n  objekt_nummer,\n  projekttraeger\nfrom \"test_db\".\"dbt_ersatzbiotope\".\"stg_ersatzbiotope_sf\"\ngroup by objekt_nummer, projekttraeger\norder by objekt_nummer",
+      "refs": [
+        {
+          "name": "stg_ersatzbiotope_sf",
+          "package": null,
+          "version": null
+        }
+      ],
+      "tags": [],
+      "columns": {
+        "objekt_nummer": {
+          "columnName": "objekt_nummer",
+          "hasLineage": true,
+          "dataType": "bigint",
+          "contractType": "bigint",
+          "description": "",
+          "lineageType": "pass-through"
+        },
+        "projekttraeger": {
+          "columnName": "projekttraeger",
+          "hasLineage": true,
+          "dataType": "character varying",
+          "contractType": "character varying",
+          "description": "",
+          "lineageType": "pass-through"
+        }
+      },
+      "relationName": "\"test_db\".\"dbt_ersatzbiotope\".\"aggregate_into_ersatzbiotop\""
+    }
+  },
+  "lineage": {
+    "edges": [
+      {
+        "id": 1,
+        "source": "source.dbt_ersatzbiotope.src_prod_gl_ersatzbiotope.ersatzbiotope_sf",
+        "target": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf",
+        "sourceColumn": "gid",
+        "targetColumn": "gid"
+      },
+      {
+        "id": 2,
+        "source": "source.dbt_ersatzbiotope.src_prod_gl_ersatzbiotope.ersatzbiotope_sf",
+        "target": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf",
+        "sourceColumn": "objekt_nummer",
+        "targetColumn": "objekt_nummer"
+      },
+      {
+        "id": 3,
+        "source": "source.dbt_ersatzbiotope.src_prod_gl_ersatzbiotope.ersatzbiotope_sf",
+        "target": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf",
+        "sourceColumn": "teilobjekt_nummer",
+        "targetColumn": "teilobjekt_nummer"
+      },
+      {
+        "id": 4,
+        "source": "source.dbt_ersatzbiotope.src_prod_gl_ersatzbiotope.ersatzbiotope_sf",
+        "target": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf",
+        "sourceColumn": "ersatzmassnahme",
+        "targetColumn": "ersatzmassnahme"
+      },
+      {
+        "id": 5,
+        "source": "source.dbt_ersatzbiotope.src_prod_gl_ersatzbiotope.ersatzbiotope_sf",
+        "target": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf",
+        "sourceColumn": "kategorie_ersatzmassnahme",
+        "targetColumn": "kategorie_ersatzmassnahme"
+      },
+      {
+        "id": 6,
+        "source": "source.dbt_ersatzbiotope.src_prod_gl_ersatzbiotope.ersatzbiotope_sf",
+        "target": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf",
+        "sourceColumn": "ziellebensraum",
+        "targetColumn": "ziellebensraum"
+      },
+      {
+        "id": 7,
+        "source": "source.dbt_ersatzbiotope.src_prod_gl_ersatzbiotope.ersatzbiotope_sf",
+        "target": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf",
+        "sourceColumn": "flaeche_m2",
+        "targetColumn": "flaeche_m2"
+      },
+      {
+        "id": 8,
+        "source": "source.dbt_ersatzbiotope.src_prod_gl_ersatzbiotope.ersatzbiotope_sf",
+        "target": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf",
+        "sourceColumn": "entscheide",
+        "targetColumn": "entscheide"
+      },
+      {
+        "id": 9,
+        "source": "source.dbt_ersatzbiotope.src_prod_gl_ersatzbiotope.ersatzbiotope_sf",
+        "target": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf",
+        "sourceColumn": "projekttraeger",
+        "targetColumn": "projekttraeger"
+      },
+      {
+        "id": 10,
+        "source": "source.dbt_ersatzbiotope.src_prod_gl_ersatzbiotope.ersatzbiotope_sf",
+        "target": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf",
+        "sourceColumn": "dokumente",
+        "targetColumn": "dokumente"
+      },
+      {
+        "id": 11,
+        "source": "source.dbt_ersatzbiotope.src_prod_gl_ersatzbiotope.ersatzbiotope_sf",
+        "target": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf",
+        "sourceColumn": "bemerkungen_intern",
+        "targetColumn": "bemerkungen_intern"
+      },
+      {
+        "id": 12,
+        "source": "source.dbt_ersatzbiotope.src_prod_gl_ersatzbiotope.ersatzbiotope_sf",
+        "target": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf",
+        "sourceColumn": "geometrie",
+        "targetColumn": "geometrie"
+      },
+      {
+        "id": 13,
+        "source": "source.dbt_ersatzbiotope.src_prod_gl_ersatzbiotope.ersatzbiotope_sf",
+        "target": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf",
+        "sourceColumn": "geometrie",
+        "targetColumn": "isvalid"
+      },
+      {
+        "id": 14,
+        "source": "source.dbt_ersatzbiotope.src_prod_gl_ersatzbiotope.cat_kategorie_ersatzmassnahme",
+        "target": "model.dbt_ersatzbiotope.stg_cat_kategorie_ersatzmassnahme",
+        "sourceColumn": "id",
+        "targetColumn": "id"
+      },
+      {
+        "id": 15,
+        "source": "source.dbt_ersatzbiotope.src_prod_gl_ersatzbiotope.cat_kategorie_ersatzmassnahme",
+        "target": "model.dbt_ersatzbiotope.stg_cat_kategorie_ersatzmassnahme",
+        "sourceColumn": "kategorie_ersatzmassnahme",
+        "targetColumn": "kategorie_ersatzmassnahme"
+      },
+      {
+        "id": 16,
+        "source": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf",
+        "target": "model.dbt_ersatzbiotope.ili_mirror_to_flaeche_pub",
+        "sourceColumn": "geometrie",
+        "targetColumn": "flaeche_m2"
+      },
+      {
+        "id": 17,
+        "source": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf",
+        "target": "model.dbt_ersatzbiotope.ili_mirror_to_flaeche_pub",
+        "sourceColumn": "geometrie",
+        "targetColumn": "geo_obj"
+      },
+      {
+        "id": 18,
+        "source": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf",
+        "target": "model.dbt_ersatzbiotope.ili_mirror_to_flaeche_pub",
+        "sourceColumn": "objekt_nummer",
+        "targetColumn": "objekt_nummer"
+      },
+      {
+        "id": 19,
+        "source": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf",
+        "target": "model.dbt_ersatzbiotope.ili_mirror_to_flaeche_pub",
+        "sourceColumn": "teilobjekt_nummer",
+        "targetColumn": "teilobj_nr"
+      },
+      {
+        "id": 20,
+        "source": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf",
+        "target": "model.dbt_ersatzbiotope.ili_mirror_to_flaeche_pub",
+        "sourceColumn": "kategorie_ersatzmassnahme",
+        "targetColumn": "kategorie_ersatzmassnahme"
+      },
+      {
+        "id": 21,
+        "source": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf",
+        "target": "model.dbt_ersatzbiotope.ili_mirror_to_flaeche_pub",
+        "sourceColumn": "ersatzmassnahme",
+        "targetColumn": "ersatzmassnahme"
+      },
+      {
+        "id": 22,
+        "source": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf",
+        "target": "model.dbt_ersatzbiotope.ili_mirror_to_flaeche_pub",
+        "sourceColumn": "ziellebensraum",
+        "targetColumn": "ziellebensraum"
+      },
+      {
+        "id": 23,
+        "source": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf",
+        "target": "model.dbt_ersatzbiotope.ili_mirror_to_flaeche_pub",
+        "sourceColumn": "entscheide",
+        "targetColumn": "entscheide"
+      },
+      {
+        "id": 24,
+        "source": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf",
+        "target": "model.dbt_ersatzbiotope.ili_mirror_to_flaeche",
+        "sourceColumn": "geometrie",
+        "targetColumn": "flaeche_m2"
+      },
+      {
+        "id": 25,
+        "source": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf",
+        "target": "model.dbt_ersatzbiotope.ili_mirror_to_flaeche",
+        "sourceColumn": "teilobjekt_nummer",
+        "targetColumn": "teilobj_nr"
+      },
+      {
+        "id": 26,
+        "source": "source.dbt_ersatzbiotope.src_gl_ersatzbiotope.ersatzmassnahme_catalogue",
+        "target": "model.dbt_ersatzbiotope.ili_mirror_to_flaeche",
+        "sourceColumn": "t_id",
+        "targetColumn": "kategorie_ersatzmassnahme"
+      },
+      {
+        "id": 27,
+        "source": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf",
+        "target": "model.dbt_ersatzbiotope.ili_mirror_to_flaeche",
+        "sourceColumn": "ersatzmassnahme",
+        "targetColumn": "ersatzmassnahme"
+      },
+      {
+        "id": 28,
+        "source": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf",
+        "target": "model.dbt_ersatzbiotope.ili_mirror_to_flaeche",
+        "sourceColumn": "ziellebensraum",
+        "targetColumn": "ziellebensraum"
+      },
+      {
+        "id": 29,
+        "source": "model.dbt_ersatzbiotope.ili_mirror_ersatzbiotop",
+        "target": "model.dbt_ersatzbiotope.ili_mirror_to_flaeche",
+        "sourceColumn": "t_id",
+        "targetColumn": "von_ersatzbiotop"
+      },
+      {
+        "id": 30,
+        "source": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf",
+        "target": "model.dbt_ersatzbiotope.ili_mirror_to_flaeche",
+        "sourceColumn": "geometrie",
+        "targetColumn": "geo_obj"
+      },
+      {
+        "id": 31,
+        "source": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf",
+        "target": "model.dbt_ersatzbiotope.ili_mirror_to_flaeche",
+        "sourceColumn": "objekt_nummer",
+        "targetColumn": "",
+        "edgeType": "join"
+      },
+      {
+        "id": 32,
+        "source": "model.dbt_ersatzbiotope.ili_mirror_ersatzbiotop",
+        "target": "model.dbt_ersatzbiotope.ili_mirror_to_flaeche",
+        "sourceColumn": "objekt_nummer",
+        "targetColumn": "",
+        "edgeType": "join"
+      },
+      {
+        "id": 33,
+        "source": "source.dbt_ersatzbiotope.src_gl_ersatzbiotope.ersatzmassnahme_catalogue",
+        "target": "model.dbt_ersatzbiotope.ili_mirror_to_flaeche",
+        "sourceColumn": "kategorie",
+        "targetColumn": "",
+        "edgeType": "join"
+      },
+      {
+        "id": 34,
+        "source": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf",
+        "target": "model.dbt_ersatzbiotope.ili_mirror_to_flaeche",
+        "sourceColumn": "kategorie_ersatzmassnahme",
+        "targetColumn": "",
+        "edgeType": "join"
+      },
+      {
+        "id": 35,
+        "source": "model.dbt_ersatzbiotope.aggregate_into_ersatzbiotop",
+        "target": "model.dbt_ersatzbiotope.ili_mirror_ersatzbiotop",
+        "sourceColumn": "objekt_nummer",
+        "targetColumn": "objekt_nummer"
+      },
+      {
+        "id": 36,
+        "source": "model.dbt_ersatzbiotope.aggregate_into_ersatzbiotop",
+        "target": "model.dbt_ersatzbiotope.ili_mirror_ersatzbiotop",
+        "sourceColumn": "projekttraeger",
+        "targetColumn": "projekttraeger"
+      },
+      {
+        "id": 37,
+        "source": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf",
+        "target": "model.dbt_ersatzbiotope.aggregate_into_ersatzbiotop",
+        "sourceColumn": "objekt_nummer",
+        "targetColumn": "objekt_nummer"
+      },
+      {
+        "id": 38,
+        "source": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf",
+        "target": "model.dbt_ersatzbiotope.aggregate_into_ersatzbiotop",
+        "sourceColumn": "projekttraeger",
+        "targetColumn": "projekttraeger"
+      },
+      {
+        "id": 39,
+        "source": "source.dbt_ersatzbiotope.src_prod_gl_ersatzbiotope.ersatzbiotope_sf",
+        "target": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf",
+        "sourceColumn": "",
+        "targetColumn": ""
+      },
+      {
+        "id": 40,
+        "source": "source.dbt_ersatzbiotope.src_prod_gl_ersatzbiotope.cat_kategorie_ersatzmassnahme",
+        "target": "model.dbt_ersatzbiotope.stg_cat_kategorie_ersatzmassnahme",
+        "sourceColumn": "",
+        "targetColumn": ""
+      },
+      {
+        "id": 41,
+        "source": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf",
+        "target": "model.dbt_ersatzbiotope.ili_mirror_to_flaeche_pub",
+        "sourceColumn": "",
+        "targetColumn": ""
+      },
+      {
+        "id": 42,
+        "source": "source.dbt_ersatzbiotope.src_gl_ersatzbiotope.ersatzmassnahme_catalogue",
+        "target": "model.dbt_ersatzbiotope.ili_mirror_to_flaeche",
+        "sourceColumn": "",
+        "targetColumn": ""
+      },
+      {
+        "id": 43,
+        "source": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf",
+        "target": "model.dbt_ersatzbiotope.ili_mirror_to_flaeche",
+        "sourceColumn": "",
+        "targetColumn": ""
+      },
+      {
+        "id": 44,
+        "source": "model.dbt_ersatzbiotope.ili_mirror_ersatzbiotop",
+        "target": "model.dbt_ersatzbiotope.ili_mirror_to_flaeche",
+        "sourceColumn": "",
+        "targetColumn": ""
+      },
+      {
+        "id": 45,
+        "source": "model.dbt_ersatzbiotope.aggregate_into_ersatzbiotop",
+        "target": "model.dbt_ersatzbiotope.ili_mirror_ersatzbiotop",
+        "sourceColumn": "",
+        "targetColumn": ""
+      },
+      {
+        "id": 46,
+        "source": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf",
+        "target": "model.dbt_ersatzbiotope.aggregate_into_ersatzbiotop",
+        "sourceColumn": "",
+        "targetColumn": ""
+      }
+    ],
+    "parents": {
+      "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf": {
+        "gid": [
+          {
+            "column": "gid",
+            "dbt_node": "source.dbt_ersatzbiotope.src_prod_gl_ersatzbiotope.ersatzbiotope_sf",
+            "lineage_type": "pass-through"
+          }
+        ],
+        "objekt_nummer": [
+          {
+            "column": "objekt_nummer",
+            "dbt_node": "source.dbt_ersatzbiotope.src_prod_gl_ersatzbiotope.ersatzbiotope_sf",
+            "lineage_type": "pass-through"
+          }
+        ],
+        "teilobjekt_nummer": [
+          {
+            "column": "teilobjekt_nummer",
+            "dbt_node": "source.dbt_ersatzbiotope.src_prod_gl_ersatzbiotope.ersatzbiotope_sf",
+            "lineage_type": "pass-through"
+          }
+        ],
+        "ersatzmassnahme": [
+          {
+            "column": "ersatzmassnahme",
+            "dbt_node": "source.dbt_ersatzbiotope.src_prod_gl_ersatzbiotope.ersatzbiotope_sf",
+            "lineage_type": "pass-through"
+          }
+        ],
+        "kategorie_ersatzmassnahme": [
+          {
+            "column": "kategorie_ersatzmassnahme",
+            "dbt_node": "source.dbt_ersatzbiotope.src_prod_gl_ersatzbiotope.ersatzbiotope_sf",
+            "lineage_type": "pass-through"
+          }
+        ],
+        "ziellebensraum": [
+          {
+            "column": "ziellebensraum",
+            "dbt_node": "source.dbt_ersatzbiotope.src_prod_gl_ersatzbiotope.ersatzbiotope_sf",
+            "lineage_type": "pass-through"
+          }
+        ],
+        "flaeche_m2": [
+          {
+            "column": "flaeche_m2",
+            "dbt_node": "source.dbt_ersatzbiotope.src_prod_gl_ersatzbiotope.ersatzbiotope_sf",
+            "lineage_type": "pass-through"
+          }
+        ],
+        "entscheide": [
+          {
+            "column": "entscheide",
+            "dbt_node": "source.dbt_ersatzbiotope.src_prod_gl_ersatzbiotope.ersatzbiotope_sf",
+            "lineage_type": "pass-through"
+          }
+        ],
+        "projekttraeger": [
+          {
+            "column": "projekttraeger",
+            "dbt_node": "source.dbt_ersatzbiotope.src_prod_gl_ersatzbiotope.ersatzbiotope_sf",
+            "lineage_type": "pass-through"
+          }
+        ],
+        "dokumente": [
+          {
+            "column": "dokumente",
+            "dbt_node": "source.dbt_ersatzbiotope.src_prod_gl_ersatzbiotope.ersatzbiotope_sf",
+            "lineage_type": "pass-through"
+          }
+        ],
+        "bemerkungen_intern": [
+          {
+            "column": "bemerkungen_intern",
+            "dbt_node": "source.dbt_ersatzbiotope.src_prod_gl_ersatzbiotope.ersatzbiotope_sf",
+            "lineage_type": "pass-through"
+          }
+        ],
+        "geometrie": [
+          {
+            "column": "geometrie",
+            "dbt_node": "source.dbt_ersatzbiotope.src_prod_gl_ersatzbiotope.ersatzbiotope_sf",
+            "lineage_type": "transformation"
+          }
+        ],
+        "isvalid": [
+          {
+            "column": "geometrie",
+            "dbt_node": "source.dbt_ersatzbiotope.src_prod_gl_ersatzbiotope.ersatzbiotope_sf",
+            "lineage_type": "transformation"
+          }
+        ]
+      },
+      "model.dbt_ersatzbiotope.stg_cat_kategorie_ersatzmassnahme": {
+        "id": [
+          {
+            "column": "id",
+            "dbt_node": "source.dbt_ersatzbiotope.src_prod_gl_ersatzbiotope.cat_kategorie_ersatzmassnahme",
+            "lineage_type": "pass-through"
+          }
+        ],
+        "kategorie_ersatzmassnahme": [
+          {
+            "column": "kategorie_ersatzmassnahme",
+            "dbt_node": "source.dbt_ersatzbiotope.src_prod_gl_ersatzbiotope.cat_kategorie_ersatzmassnahme",
+            "lineage_type": "pass-through"
+          }
+        ],
+        "future_t_id": []
+      },
+      "model.dbt_ersatzbiotope.ili_mirror_to_flaeche_pub": {
+        "t_id": [],
+        "t_basket": [],
+        "t_ili_tid": [],
+        "flaeche_m2": [
+          {
+            "column": "geometrie",
+            "dbt_node": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf",
+            "lineage_type": "transformation"
+          }
+        ],
+        "geo_obj": [
+          {
+            "column": "geometrie",
+            "dbt_node": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf",
+            "lineage_type": "transformation"
+          }
+        ],
+        "objekt_nummer": [
+          {
+            "column": "objekt_nummer",
+            "dbt_node": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf",
+            "lineage_type": "transformation"
+          }
+        ],
+        "teilobj_nr": [
+          {
+            "column": "teilobjekt_nummer",
+            "dbt_node": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf",
+            "lineage_type": "transformation"
+          }
+        ],
+        "kategorie_ersatzmassnahme": [
+          {
+            "column": "kategorie_ersatzmassnahme",
+            "dbt_node": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf",
+            "lineage_type": "transformation"
+          }
+        ],
+        "ersatzmassnahme": [
+          {
+            "column": "ersatzmassnahme",
+            "dbt_node": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf",
+            "lineage_type": "transformation"
+          }
+        ],
+        "ziellebensraum": [
+          {
+            "column": "ziellebensraum",
+            "dbt_node": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf",
+            "lineage_type": "transformation"
+          }
+        ],
+        "entscheide": [
+          {
+            "column": "entscheide",
+            "dbt_node": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf",
+            "lineage_type": "transformation"
+          }
+        ]
+      },
+      "model.dbt_ersatzbiotope.ili_mirror_to_flaeche": {
+        "t_id": [],
+        "t_basket": [],
+        "t_ili_tid": [],
+        "flaeche_m2": [
+          {
+            "column": "geometrie",
+            "dbt_node": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf",
+            "lineage_type": "transformation"
+          }
+        ],
+        "teilobj_nr": [
+          {
+            "column": "teilobjekt_nummer",
+            "dbt_node": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf",
+            "lineage_type": "rename"
+          }
+        ],
+        "kategorie_ersatzmassnahme": [
+          {
+            "column": "t_id",
+            "dbt_node": "source.dbt_ersatzbiotope.src_gl_ersatzbiotope.ersatzmassnahme_catalogue",
+            "lineage_type": "rename"
+          }
+        ],
+        "ersatzmassnahme": [
+          {
+            "column": "ersatzmassnahme",
+            "dbt_node": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf",
+            "lineage_type": "pass-through"
+          }
+        ],
+        "ziellebensraum": [
+          {
+            "column": "ziellebensraum",
+            "dbt_node": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf",
+            "lineage_type": "pass-through"
+          }
+        ],
+        "von_ersatzbiotop": [
+          {
+            "column": "t_id",
+            "dbt_node": "model.dbt_ersatzbiotope.ili_mirror_ersatzbiotop",
+            "lineage_type": "rename"
+          }
+        ],
+        "geo_obj": [
+          {
+            "column": "geometrie",
+            "dbt_node": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf",
+            "lineage_type": "rename"
+          }
+        ],
+        "__colibri_join__": [
+          {
+            "column": "objekt_nummer",
+            "dbt_node": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf",
+            "lineage_type": "join"
+          },
+          {
+            "column": "objekt_nummer",
+            "dbt_node": "model.dbt_ersatzbiotope.ili_mirror_ersatzbiotop",
+            "lineage_type": "join"
+          },
+          {
+            "column": "kategorie",
+            "dbt_node": "source.dbt_ersatzbiotope.src_gl_ersatzbiotope.ersatzmassnahme_catalogue",
+            "lineage_type": "join"
+          },
+          {
+            "column": "kategorie_ersatzmassnahme",
+            "dbt_node": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf",
+            "lineage_type": "join"
+          }
+        ]
+      },
+      "model.dbt_ersatzbiotope.ili_mirror_ersatzbiotop": {
+        "t_id": [],
+        "t_basket": [],
+        "kanton": [],
+        "objekt_nummer": [
+          {
+            "column": "objekt_nummer",
+            "dbt_node": "model.dbt_ersatzbiotope.aggregate_into_ersatzbiotop",
+            "lineage_type": "transformation"
+          }
+        ],
+        "projekttraeger": [
+          {
+            "column": "projekttraeger",
+            "dbt_node": "model.dbt_ersatzbiotope.aggregate_into_ersatzbiotop",
+            "lineage_type": "transformation"
+          }
+        ]
+      },
+      "model.dbt_ersatzbiotope.aggregate_into_ersatzbiotop": {
+        "objekt_nummer": [
+          {
+            "column": "objekt_nummer",
+            "dbt_node": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf",
+            "lineage_type": "pass-through"
+          }
+        ],
+        "projekttraeger": [
+          {
+            "column": "projekttraeger",
+            "dbt_node": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf",
+            "lineage_type": "pass-through"
+          }
+        ]
+      }
+    },
+    "children": {
+      "source.dbt_ersatzbiotope.src_prod_gl_ersatzbiotope.ersatzbiotope_sf": {
+        "gid": [
+          {
+            "column": "gid",
+            "dbt_node": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf"
+          }
+        ],
+        "objekt_nummer": [
+          {
+            "column": "objekt_nummer",
+            "dbt_node": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf"
+          }
+        ],
+        "teilobjekt_nummer": [
+          {
+            "column": "teilobjekt_nummer",
+            "dbt_node": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf"
+          }
+        ],
+        "ersatzmassnahme": [
+          {
+            "column": "ersatzmassnahme",
+            "dbt_node": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf"
+          }
+        ],
+        "kategorie_ersatzmassnahme": [
+          {
+            "column": "kategorie_ersatzmassnahme",
+            "dbt_node": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf"
+          }
+        ],
+        "ziellebensraum": [
+          {
+            "column": "ziellebensraum",
+            "dbt_node": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf"
+          }
+        ],
+        "flaeche_m2": [
+          {
+            "column": "flaeche_m2",
+            "dbt_node": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf"
+          }
+        ],
+        "entscheide": [
+          {
+            "column": "entscheide",
+            "dbt_node": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf"
+          }
+        ],
+        "projekttraeger": [
+          {
+            "column": "projekttraeger",
+            "dbt_node": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf"
+          }
+        ],
+        "dokumente": [
+          {
+            "column": "dokumente",
+            "dbt_node": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf"
+          }
+        ],
+        "bemerkungen_intern": [
+          {
+            "column": "bemerkungen_intern",
+            "dbt_node": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf"
+          }
+        ],
+        "geometrie": [
+          {
+            "column": "geometrie",
+            "dbt_node": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf"
+          },
+          {
+            "column": "isvalid",
+            "dbt_node": "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf"
+          }
+        ]
+      },
+      "source.dbt_ersatzbiotope.src_prod_gl_ersatzbiotope.cat_kategorie_ersatzmassnahme": {
+        "id": [
+          {
+            "column": "id",
+            "dbt_node": "model.dbt_ersatzbiotope.stg_cat_kategorie_ersatzmassnahme"
+          }
+        ],
+        "kategorie_ersatzmassnahme": [
+          {
+            "column": "kategorie_ersatzmassnahme",
+            "dbt_node": "model.dbt_ersatzbiotope.stg_cat_kategorie_ersatzmassnahme"
+          }
+        ]
+      },
+      "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf": {
+        "geometrie": [
+          {
+            "column": "flaeche_m2",
+            "dbt_node": "model.dbt_ersatzbiotope.ili_mirror_to_flaeche_pub"
+          },
+          {
+            "column": "geo_obj",
+            "dbt_node": "model.dbt_ersatzbiotope.ili_mirror_to_flaeche_pub"
+          },
+          {
+            "column": "flaeche_m2",
+            "dbt_node": "model.dbt_ersatzbiotope.ili_mirror_to_flaeche"
+          },
+          {
+            "column": "geo_obj",
+            "dbt_node": "model.dbt_ersatzbiotope.ili_mirror_to_flaeche"
+          }
+        ],
+        "objekt_nummer": [
+          {
+            "column": "objekt_nummer",
+            "dbt_node": "model.dbt_ersatzbiotope.ili_mirror_to_flaeche_pub"
+          },
+          {
+            "column": "__colibri_join__",
+            "dbt_node": "model.dbt_ersatzbiotope.ili_mirror_to_flaeche"
+          },
+          {
+            "column": "objekt_nummer",
+            "dbt_node": "model.dbt_ersatzbiotope.aggregate_into_ersatzbiotop"
+          }
+        ],
+        "teilobjekt_nummer": [
+          {
+            "column": "teilobj_nr",
+            "dbt_node": "model.dbt_ersatzbiotope.ili_mirror_to_flaeche_pub"
+          },
+          {
+            "column": "teilobj_nr",
+            "dbt_node": "model.dbt_ersatzbiotope.ili_mirror_to_flaeche"
+          }
+        ],
+        "kategorie_ersatzmassnahme": [
+          {
+            "column": "kategorie_ersatzmassnahme",
+            "dbt_node": "model.dbt_ersatzbiotope.ili_mirror_to_flaeche_pub"
+          },
+          {
+            "column": "__colibri_join__",
+            "dbt_node": "model.dbt_ersatzbiotope.ili_mirror_to_flaeche"
+          }
+        ],
+        "ersatzmassnahme": [
+          {
+            "column": "ersatzmassnahme",
+            "dbt_node": "model.dbt_ersatzbiotope.ili_mirror_to_flaeche_pub"
+          },
+          {
+            "column": "ersatzmassnahme",
+            "dbt_node": "model.dbt_ersatzbiotope.ili_mirror_to_flaeche"
+          }
+        ],
+        "ziellebensraum": [
+          {
+            "column": "ziellebensraum",
+            "dbt_node": "model.dbt_ersatzbiotope.ili_mirror_to_flaeche_pub"
+          },
+          {
+            "column": "ziellebensraum",
+            "dbt_node": "model.dbt_ersatzbiotope.ili_mirror_to_flaeche"
+          }
+        ],
+        "entscheide": [
+          {
+            "column": "entscheide",
+            "dbt_node": "model.dbt_ersatzbiotope.ili_mirror_to_flaeche_pub"
+          }
+        ],
+        "projekttraeger": [
+          {
+            "column": "projekttraeger",
+            "dbt_node": "model.dbt_ersatzbiotope.aggregate_into_ersatzbiotop"
+          }
+        ]
+      },
+      "source.dbt_ersatzbiotope.src_gl_ersatzbiotope.ersatzmassnahme_catalogue": {
+        "t_id": [
+          {
+            "column": "kategorie_ersatzmassnahme",
+            "dbt_node": "model.dbt_ersatzbiotope.ili_mirror_to_flaeche"
+          }
+        ],
+        "kategorie": [
+          {
+            "column": "__colibri_join__",
+            "dbt_node": "model.dbt_ersatzbiotope.ili_mirror_to_flaeche"
+          }
+        ]
+      },
+      "model.dbt_ersatzbiotope.ili_mirror_ersatzbiotop": {
+        "t_id": [
+          {
+            "column": "von_ersatzbiotop",
+            "dbt_node": "model.dbt_ersatzbiotope.ili_mirror_to_flaeche"
+          }
+        ],
+        "objekt_nummer": [
+          {
+            "column": "__colibri_join__",
+            "dbt_node": "model.dbt_ersatzbiotope.ili_mirror_to_flaeche"
+          }
+        ]
+      },
+      "model.dbt_ersatzbiotope.aggregate_into_ersatzbiotop": {
+        "objekt_nummer": [
+          {
+            "column": "objekt_nummer",
+            "dbt_node": "model.dbt_ersatzbiotope.ili_mirror_ersatzbiotop"
+          }
+        ],
+        "projekttraeger": [
+          {
+            "column": "projekttraeger",
+            "dbt_node": "model.dbt_ersatzbiotope.ili_mirror_ersatzbiotop"
+          }
+        ]
+      }
+    }
+  },
+  "tree": {
+    "byDatabase": {
+      "test_db": {
+        "dbt_ersatzbiotope": [
+          "model.dbt_ersatzbiotope.aggregate_into_ersatzbiotop",
+          "model.dbt_ersatzbiotope.ili_mirror_ersatzbiotop",
+          "model.dbt_ersatzbiotope.ili_mirror_to_flaeche",
+          "model.dbt_ersatzbiotope.ili_mirror_to_flaeche_pub",
+          "model.dbt_ersatzbiotope.stg_cat_kategorie_ersatzmassnahme",
+          "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf"
+        ],
+        "gl_ersatzbiotope": [
+          "source.dbt_ersatzbiotope.src_gl_ersatzbiotope.ersatzmassnahme_catalogue"
+        ],
+        "prod_gl_ersatzbiotope": [
+          "source.dbt_ersatzbiotope.src_prod_gl_ersatzbiotope.cat_kategorie_ersatzmassnahme",
+          "source.dbt_ersatzbiotope.src_prod_gl_ersatzbiotope.ersatzbiotope_sf"
+        ]
+      }
+    },
+    "byPath": {
+      "dbt_ersatzbiotope": {
+        "models": {
+          "transformations": {
+            "export_to_gl_ersatzbiotope": {
+              "__items__": [
+                "model.dbt_ersatzbiotope.aggregate_into_ersatzbiotop",
+                "model.dbt_ersatzbiotope.ili_mirror_ersatzbiotop",
+                "model.dbt_ersatzbiotope.ili_mirror_to_flaeche"
+              ]
+            },
+            "export_to_pub_gl_ersatzbiotope": {
+              "__items__": [
+                "model.dbt_ersatzbiotope.ili_mirror_to_flaeche_pub"
+              ]
+            },
+            "staging": {
+              "__items__": [
+                "model.dbt_ersatzbiotope.stg_cat_kategorie_ersatzmassnahme",
+                "model.dbt_ersatzbiotope.stg_ersatzbiotope_sf"
+              ]
+            }
+          }
+        },
+        "sources": {
+          "models": {
+            "gl_ersatzbiotope": {
+              "__items__": [
+                "source.dbt_ersatzbiotope.src_gl_ersatzbiotope.ersatzmassnahme_catalogue"
+              ]
+            },
+            "prod_gl_ersatzbiotope": {
+              "__items__": [
+                "source.dbt_ersatzbiotope.src_prod_gl_ersatzbiotope.cat_kategorie_ersatzmassnahme",
+                "source.dbt_ersatzbiotope.src_prod_gl_ersatzbiotope.ersatzbiotope_sf"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}
