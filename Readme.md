@@ -40,6 +40,8 @@ Testing environment for dbt + PostgreSQL.
     - [Customizing Docs Overview Page](#customizing-docs-overview-page)
     - [Hosting dbt Docs](#hosting-dbt-docs)
   - [Importing Schemas to localhost DB](#importing-schemas-to-localhost-db)
+- [Other Tools used in this Project](#other-tools-used-in-this-project)
+  - [Colibri](#colibri)
 - [Known issues](#known-issues)
 - [Troubleshooting](#troubleshooting)
       - [post-hook macro call fails unless defined as string](#post-hook-macro-call-fails-unless-defined-as-string)
@@ -384,6 +386,15 @@ The entry-point for the user to get an overview of
 2) Prepare roles referenced in plain backup file
 3) import on localhost DB by right clicking **database** (not schema) and choosing 'Restore...' or using command line (on host): `psql -h localhost -p 5432 -U postgres -d test_db -f prod_gl_biotope_20260402.sql`
 
+
+# Other Tools used in this Project
+
+## Colibri
+Colibri is a data introspection tool with the main feature (for us) being column level lineage:
+
+<!-- TODO: Image of interesting example -->
+
+The prerequisite for column-level lineage to work is, that all models in the DAG have yml documentations. These can easily be generated through the "Documentation Editor" tab in the bottom pane of the vscode workspace once the dbt models exist on the database (i.e. `dbt run` successfully run).
 
 # Known issues
 
