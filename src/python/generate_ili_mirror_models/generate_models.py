@@ -166,7 +166,7 @@ for table_name in data_table_names:
             str_column_list.append(f"  {column_name}::{data_type}, \n")
 
     # get rid of comma in last column string
-    str_column_list[-1] = str_column_list[-1].strip(",")  
+    str_column_list[-1] = str_column_list[-1].replace(", ", "")  
 
     # create dbt model stump
     if args.source_mode:
