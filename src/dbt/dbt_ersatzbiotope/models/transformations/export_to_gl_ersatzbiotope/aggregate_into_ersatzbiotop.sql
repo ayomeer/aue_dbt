@@ -4,6 +4,6 @@
 select
   objekt_nummer,
   projekttraeger
-from {{ ref('stg_ersatzbiotope_sf') }}
+from {{ ref('stg_union_all') }}
 group by objekt_nummer, projekttraeger
 order by objekt_nummer

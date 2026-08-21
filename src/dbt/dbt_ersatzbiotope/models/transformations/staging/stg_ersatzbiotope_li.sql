@@ -10,5 +10,5 @@ SELECT
   projekttraeger::character varying, 
   dokumente::character varying, 
   bemerkungen_intern::character varying, 
-  geometrie::geometry(MultiLineString, 2056) 
+  geometrie::geometry(MultiLineString, 2056) as geometrie_li
 FROM {{ source('prod_gl_ersatzbiotope', 'ersatzbiotope_li') }}

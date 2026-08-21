@@ -8,7 +8,7 @@ sources:
       - name: ersatzbiotope_pt
       - name: cat_kategorie_ersatzmassnahme
 
-  - name: src_gl_ersatzbiotope
+  - name: gl_ersatzbiotope
     database: "{{ target.database }}"
     schema: gl_ersatzbiotope
     tables:
