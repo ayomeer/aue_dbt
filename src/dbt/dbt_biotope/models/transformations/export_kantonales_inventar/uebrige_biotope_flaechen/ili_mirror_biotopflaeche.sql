@@ -45,7 +45,7 @@ LEFT JOIN {{ source('ch_kt_biotope_flaechen', 'bio_kartierungsgrundlage_catalogu
 LEFT JOIN {{ source('ch_kt_biotope_flaechen', 'bio_bedeutung_catalogue') }} as cat_bedeutung
   ON lower(cat_bedeutung.adescription_de) = lower(sf.bedeutung)
 LEFT JOIN {{ source('ch_kt_biotope_flaechen', 'bio_typ_catalogue') }} as cat_bio_typ
-  ON cat_bio_typ.acode = sf.bafu_bio_typ
+  ON cat_bio_typ.acode = sf.bio_typ_derived
 CROSS JOIN bio_typ_default
 CROSS JOIN bio_bedeutung_default
 

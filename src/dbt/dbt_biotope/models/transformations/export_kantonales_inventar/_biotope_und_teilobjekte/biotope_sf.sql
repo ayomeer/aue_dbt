@@ -9,12 +9,12 @@ select
   herkunft::varchar(80) as herkunft, -- asserted, that they're all the same in tests
   kartierungsgrundlage, 
   bedeutung::varchar,
-  bafu_bio_typ::varchar,
+  bio_typ_derived::varchar,
 
   -- added info for splitting and joining biotope into MGDM objects
   sf.biotopart,
   array_agg(gid) as link_key_array
-from {{ ref('stg_biotope_to_sf_neu') }} as sf
+from {{ ref('stg_biotope_to_sf') }} as sf
 left join {{ source('ch_kt_auengebiete', 'bedeutung_catalogue') }} as c_bed
   on c_bed.adescription_de = sf.bedeutung
 group by 
@@ -24,5 +24,5 @@ group by
   kartierungsgrundlage,
   herkunft,
   objekt_name,
-  bafu_bio_typ 
+  bio_typ_derived 
 -- having (SUM(st_area(geometrie)) / 100) > 1.0 -- mgdm constraint: at least 1ha
