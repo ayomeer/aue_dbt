@@ -1,6 +1,6 @@
 
 {{ config(
-  enabled=var('enable_transfer', false),
+  enabled=false,
   post_hook=[
     'TRUNCATE TABLE pub_gl_biotope.biotope_linien, pub_gl_biotope.biotope_punkte, pub_gl_biotope.chcantoncode, pub_gl_biotope.biotope_flaechen, pub_gl_biotope.hochlagenbiotope',
     ili_utils.reset_ili_sequence(

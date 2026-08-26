@@ -1,0 +1,26 @@
+models:
+  - name: biotope_sf
+    description: Gesamtobjekt-Informationen zu Flächenbiotopen aller Art. Gesamtobjekt-Pool für alle Exports.
+    columns:
+      - name: t_id
+        data_type: bigint
+      - name: kanton
+        data_type: character varying
+      - name: objekt_nummer
+        data_type: character varying
+      - name: aname
+        data_type: character varying
+      - name: obj_gisflaeche
+        data_type: numeric
+      - name: herkunft
+        data_type: character varying
+      - name: kartierungsgrundlage
+        data_type: character varying
+      - name: bedeutung
+        data_type: character varying
+      - name: bio_typ_derived
+        data_type: character varying
+      - name: biotopart
+        data_type: character varying
+      - name: link_key_array
+        data_type: array

@@ -1,0 +1,24 @@
+models:
+  - name: biotope_pt
+    description: Gesamtobjekt-Informationen zu Punkt-Biotopen aller Art. Gesamtobjekt-Pool für alle Exports.
+    columns:
+      - name: t_id
+        data_type: bigint
+      - name: kanton
+        data_type: character varying
+      - name: objekt_nummer
+        data_type: character varying
+      - name: aname
+        data_type: character varying
+      - name: herkunft
+        data_type: character varying
+      - name: kartierungsgrundlage
+        data_type: character varying
+      - name: bedeutung
+        data_type: character varying
+      - name: bafu_bio_typ
+        data_type: character varying
+      - name: biotopart
+        data_type: character varying
+      - name: link_key_array
+        data_type: array

@@ -1,0 +1,18 @@
+models:
+  - name: teilobjekte_sf
+    description: Teilobjekt-Informationen zu Flaechen-Biotopen aller Art. Teilobjekt-Pool für alle Exports.
+    columns:
+      - name: t_id
+        data_type: bigint
+      - name: oid_uuid
+        data_type: uuid
+      - name: objekt_nummer
+        data_type: character varying
+      - name: teilobj_nr
+        data_type: character varying
+      - name: biotopart
+        data_type: character varying
+      - name: geo_obj
+        data_type: user-defined
+      - name: t_id_biotop
+        data_type: bigint

@@ -1,0 +1,45 @@
+models:
+  - name: ili_mirror_kt_amphibiengebiet_teilobjekt
+    description: |-
+      Mirrors INTERLIS target table ch_kt_amphibien_laichgebiete.amphibiengebiet_teilobjekt
+       with regards to column names and data types.
+    columns:
+      - name: t_id
+        data_type: bigint
+      - name: t_basket
+        data_type: bigint
+      - name: t_datasetname
+        data_type: character varying
+      - name: t_ili_tid
+        data_type: character varying
+      - name: teilobj_nr
+        data_type: character varying
+      - name: geo_obj
+        data_type: user-defined
+      - name: kt_amphibiengebiet
+        data_type: bigint
+  - name: ili_mirror_kt_amphibiengebiet
+    description: Mirrors INTERLIS target table ch_kt_amphibien_laichgebiete.kt_amphibiengebiet with regards to column names and data types.
+    columns:
+      - name: t_id
+        data_type: bigint
+      - name: t_basket
+        data_type: bigint
+      - name: t_datasetname
+        data_type: character varying
+      - name: t_ili_tid
+        data_type: uuid
+      - name: kanton
+        data_type: character varying
+      - name: objnummer
+        data_type: character varying
+      - name: aname
+        data_type: character varying
+      - name: obj_gisflaeche
+        data_type: numeric
+      - name: herkunft
+        data_type: character varying
+      - name: kartierungsgrundlage
+        data_type: bigint
+      - name: bedeutung
+        data_type: bigint

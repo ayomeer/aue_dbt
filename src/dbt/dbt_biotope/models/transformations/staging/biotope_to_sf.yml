@@ -1,0 +1,146 @@
+models:
+  - name: stg_biotope_to_sf
+    description: |-
+      Staging for prod_gl_biotope.biotope_to_sf.
+
+      Added columns:
+       - bio_typ_derived: Uses the seed table `assignment_table_bio_typ` to assign a BAFU-style 'bio_typ' as required by export target `ch_kt_biotope_flaechen` based on `lebensraumnummer`.
+    columns:
+      - name: gid
+        data_type: integer
+      - name: kanton
+        data_type: character varying
+      - name: objekt_nummer
+        data_type: character varying
+      - name: objekt_name
+        data_type: character varying
+      - name: teilobj_nr
+        data_type: character varying
+      - name: teilobj_name
+        data_type: character varying
+      - name: bedeutung
+        data_type: character varying
+      - name: biotopart
+        data_type: character varying
+      - name: lebensraumnummer
+        data_type: character varying
+      - name: beschreibung_de
+        data_type: character varying
+      - name: beschreibung_la
+        data_type: character varying
+      - name: artvorkommen
+        data_type: character varying
+      - name: artvorkommen_intern
+        data_type: character varying
+      - name: felderhebung
+        data_type: date
+      - name: bearbeitungimfeld
+        data_type: character varying
+      - name: kartierungsgrundlage
+        data_type: character varying
+      - name: kommentar
+        data_type: character varying
+      - name: typ_auenobjekt
+        data_type: character varying
+      - name: typ_amphibienlaichgebiet
+        data_type: character varying
+      - name: typ_hochmoortyp
+        data_type: character varying
+      - name: publikation_biotopverzeichnis
+        data_type: boolean
+      - name: mutationsdatum
+        data_type: date
+      - name: mutationsgrund
+        data_type: character varying
+      - name: herkunft
+        data_type: character varying
+      - name: geometrie
+        data_type: user-defined
+      - name: flaeche_m2
+        data_type: double precision
+      - name: centr_e
+        data_type: integer
+      - name: centr_n
+        data_type: integer
+      - name: schutzqualitaet
+        data_type: character varying
+      - name: schutzart
+        data_type: character varying
+      - name: schutzdauer
+        data_type: integer
+      - name: status_biotopverzeichnis
+        data_type: character varying
+      - name: dokument_biotopverzeichnis
+        data_type: character varying
+      - name: foto_bezeichnung
+        data_type: character varying
+      - name: foto_datum
+        data_type: character varying
+      - name: foto_uri
+        data_type: character varying
+      - name: bund_nr
+        data_type: character varying
+      - name: bund_name
+        data_type: character varying
+      - name: bund_teilojb_nr
+        data_type: character varying
+      - name: bund_typ
+        data_type: character varying
+      - name: hm_nat_nr
+        data_type: character varying
+      - name: hm_nat_ha
+        data_type: double precision
+      - name: hm_nat_name
+        data_type: character varying
+      - name: fm_nat_nr
+        data_type: character varying
+      - name: fm_nat_ha
+        data_type: double precision
+      - name: fm_nat_name
+        data_type: character varying
+      - name: tww_nat_nr
+        data_type: character varying
+      - name: tww_nat_ha
+        data_type: double precision
+      - name: tww_nat_name
+        data_type: character varying
+      - name: tww_nat_a2_nr
+        data_type: character varying
+      - name: tww_nat_a2_ha
+        data_type: double precision
+      - name: tww_nat_a2_name
+        data_type: character varying
+      - name: alg_nat_nr
+        data_type: character varying
+      - name: alg_nat_ha
+        data_type: double precision
+      - name: alg_nat_name
+        data_type: character varying
+      - name: aue_nat_nr
+        data_type: character varying
+      - name: aue_nat_ha
+        data_type: double precision
+      - name: aue_nat_name
+        data_type: character varying
+      - name: aue_nat_a2_nr
+        data_type: character varying
+      - name: aue_nat_a2_ha
+        data_type: double precision
+      - name: aue_nat_a2_name
+        data_type: character varying
+      - name: ml_nat_nr
+        data_type: character varying
+      - name: ml_nat_ha
+        data_type: double precision
+      - name: ml_nat_name
+        data_type: character varying
+      - name: objnr_2025
+        data_type: integer
+      - name: bemerkungen_2024
+        data_type: character varying
+      - name: oid_uuid
+        data_type: uuid
+      - name: lebensraumnummer_first
+        data_type: text
+      - name: bio_typ_derived
+        data_type: text
