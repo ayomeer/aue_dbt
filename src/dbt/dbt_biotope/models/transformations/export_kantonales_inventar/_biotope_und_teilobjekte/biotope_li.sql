@@ -6,13 +6,13 @@ select
   objekt_nummer,
   objekt_name as aname, -- asserted, that they're all the same in tests
   --NULL as au_typ,
-  herkunft::varchar(80) as herkunft, -- asserted, that they're all the same in tests
+  herkunft::varchar(250) as herkunft, -- asserted, that they're all the same in tests
   kartierungsgrundlage as kartierungsgrundlage, 
   --min(aufnahmedatum)::date as aufnahmedatum,
   --max(intern_letzte_mutation)::date as mutationsdatum,
   --min(intern_mutationsgrund)::text as mutationsgrund,
   bedeutung::varchar, 
-  bafu_bio_typ::varchar,
+  bio_typ_derived::varchar,
   
   -- added info for splitting and joining biotope into MGDM objects
   li.biotopart,
@@ -20,6 +20,6 @@ select
 from {{ ref('stg_biotope_to_li') }} as li
 left join {{ source('ch_kt_auengebiete', 'bedeutung_catalogue') }} as c_bed
   on c_bed.adescription_de = li.bedeutung
-group by objekt_nummer, biotopart, bedeutung, kartierungsgrundlage, herkunft, objekt_name, bafu_bio_typ
+group by objekt_nummer, biotopart, bedeutung, kartierungsgrundlage, herkunft, objekt_name, bio_typ_derived
 having 
   count(distinct objekt_name) = 1 

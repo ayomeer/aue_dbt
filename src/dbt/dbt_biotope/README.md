@@ -42,8 +42,11 @@ Biotoplinien und Punkte werden alle als `"BIO_TYP7; Anderer Biotoptyp"` exportie
 
 - `obj_gisflaeche` in INTERLIS Modell lower boundary 1.0 definiert. Damit alle Objekte in das MGDM exportiert werden können, wird die Fläche vorübergehend um 1.0 erhöht. Modelländerung pendent.
 
+> ℹ️ Status Daten DevEnv vs IAP: synched; IAP ahead of PROD.
 
 ## TODO
+
+- [ ] fix test fails
 
 - [ ] Transformationen für Linien- und Punktbiotope implementieren, analog zu Flächen-Biotopen
   - [ ] Neue Daten in `prod_gl_biotope` importieren

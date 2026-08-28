@@ -43,7 +43,7 @@ SELECT
   pt.oid_uuid::uuid,
   pt.lebensraumnummer::character varying,
     -- additional utility columns
-  a_bio_typ.bio_typ as bafu_bio_typ
+  a_bio_typ.bio_typ as bio_typ_derived
 FROM {{ source('prod_gl_biotope', 'biotope_to_pt') }} as pt
 LEFT JOIN {{ ref('assignment_table_bio_typ') }} as a_bio_typ
   ON a_bio_typ.lebensraumnummer = pt.lebensraumnummer

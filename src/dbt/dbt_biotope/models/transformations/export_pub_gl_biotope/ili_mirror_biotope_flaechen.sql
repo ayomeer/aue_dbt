@@ -2,7 +2,7 @@
 
 SELECT 
   nextval('{{target.schema}}.t_ili2db_seq'::regclass) as t_id, -- NOT NULL
-  {{ var('data_basket')['t_id'] }}::bigint as t_basket, -- NOT NULL
+  {{ var('pub_gl_biotope_data_basket_t_id') }}::bigint as t_basket, -- NOT NULL
   uuid_generate_v4()::uuid as t_ili_tid, -- generate on insert
 
   (ST_Area(f.geometrie) / 100)::numeric(12,3) as flaeche_ha, 
@@ -16,8 +16,8 @@ SELECT
   f.bund_teilobj_nr::text  as bund_teilobjekt_nummer, 
   f.bund_typ::text, 
   
-  f.teilobjekt_nummer::text, -- NOT NULL
-  f.teilobjekt_name::text, 
+  f.teilobj_nr::text as teilobjekt_nummer, -- NOT NULL
+  f.teilobj_name::text as teilobjekt_name, 
   
   f.biotopart::text, -- NOT NULL
   f.beschreibung_de::text as beschreibung, 

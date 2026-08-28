@@ -47,9 +47,9 @@ INSERT INTO pub_gl_biotope.biotope_flaechen
         ,array_to_string(array_agg(DISTINCT n.bund_name),', ') AS bund_name
         ,array_to_string(array_agg(DISTINCT n.bund_teilobj_nr),', ') AS bund_teilobj_nr
         ,array_to_string(array_agg(DISTINCT n.bund_typ),', ') AS bund_typ
-      FROM
-        (gl_biotope.teilobjekt t LEFT JOIN gl_biotope.ueberschneidungnatobjekte u ON u.ueberlagert_teilobjekt = t.t_id)
-          LEFT JOIN nat_c n ON u.hat_ueberlagerung = n.t_id
+      FROM gl_biotope.teilobjekt t 
+      LEFT JOIN gl_biotope.ueberschneidungnatobjekte u ON u.ueberlagert_teilobjekt = t.t_id
+      LEFT JOIN nat_c n ON u.hat_ueberlagerung = n.t_id
       WHERE
         t.publikation='TRUE'
       GROUP BY
@@ -77,14 +77,13 @@ INSERT INTO pub_gl_biotope.biotope_flaechen
     ,c7.rstatus -- Katalog "rechtsstatus_catalogue"
     ,t.spezart
     ,t.entscheid
-  FROM 
-    ((((((tonb t LEFT JOIN gl_biotope.biotop b ON t.von_biotop = b.t_id)
-      LEFT JOIN gl_biotope.biotopart_catalogue c2 ON t.biotopart = c2.t_id)
-        LEFT JOIN gl_biotope.beschreibung_catalogue c3 ON t.beschreibung = c3.t_id)
-          LEFT JOIN gl_biotope.datenherkunft_catalogue c4 ON t.herkunft = c4.t_id)
-            LEFT JOIN gl_biotope.kartierungsgrundlage_catalogue c5 ON t.kartierungsgrundlage = c5.t_id)
-              LEFT JOIN gl_biotope.bedeutung_catalogue c6 ON t.bedeutung = c6.t_id)
-                LEFT JOIN gl_biotope.rechtsstatus_catalogue c7 ON t.rechtsstatus = c7.t_id
+  FROM tonb t LEFT JOIN gl_biotope.biotop b ON t.von_biotop = b.t_id
+  LEFT JOIN gl_biotope.biotopart_catalogue c2 ON t.biotopart = c2.t_id
+  LEFT JOIN gl_biotope.beschreibung_catalogue c3 ON t.beschreibung = c3.t_id
+  LEFT JOIN gl_biotope.datenherkunft_catalogue c4 ON t.herkunft = c4.t_id
+  LEFT JOIN gl_biotope.kartierungsgrundlage_catalogue c5 ON t.kartierungsgrundlage = c5.t_id
+  LEFT JOIN gl_biotope.bedeutung_catalogue c6 ON t.bedeutung = c6.t_id
+  LEFT JOIN gl_biotope.rechtsstatus_catalogue c7 ON t.rechtsstatus = c7.t_id
   WHERE 
     t.geo_obj IS NOT NULL
 ;

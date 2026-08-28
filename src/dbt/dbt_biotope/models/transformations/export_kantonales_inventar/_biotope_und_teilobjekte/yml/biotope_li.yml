@@ -16,7 +16,7 @@ models:
         data_type: character varying
       - name: bedeutung
         data_type: character varying
-      - name: bafu_bio_typ
+      - name: bio_typ_derived
         data_type: character varying
       - name: biotopart
         data_type: character varying

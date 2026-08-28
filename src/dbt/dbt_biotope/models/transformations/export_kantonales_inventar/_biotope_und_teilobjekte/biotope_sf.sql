@@ -6,7 +6,7 @@ select
   objekt_nummer,
   objekt_name as aname, -- asserted, that they're all the same in tests
   ((SUM(st_area(geometrie)) / 100)+1)::numeric(12,3) as obj_gisflaeche, -- [ha], +1 because of wrong value range in INTERLIS model starting at 1.0
-  herkunft::varchar(80) as herkunft, -- asserted, that they're all the same in tests
+  herkunft::varchar(250) as herkunft, -- asserted, that they're all the same in tests
   kartierungsgrundlage, 
   bedeutung::varchar,
   bio_typ_derived::varchar,
