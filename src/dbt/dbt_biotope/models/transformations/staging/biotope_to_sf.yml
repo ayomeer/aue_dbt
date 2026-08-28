@@ -82,7 +82,7 @@ models:
         data_type: character varying
       - name: bund_name
         data_type: character varying
-      - name: bund_teilojb_nr
+      - name: bund_teilobj_nr
         data_type: character varying
       - name: bund_typ
         data_type: character varying

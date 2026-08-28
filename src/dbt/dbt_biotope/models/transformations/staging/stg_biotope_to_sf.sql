@@ -38,7 +38,7 @@ WITH base as (
     foto_uri::character varying, 
     bund_nr::character varying, 
     bund_name::character varying, 
-    bund_teilojb_nr::character varying, 
+    bund_teilobj_nr::character varying, 
     bund_typ::character varying, 
     hm_nat_nr::character varying, 
     hm_nat_ha::double precision, 
