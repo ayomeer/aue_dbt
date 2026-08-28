@@ -13,6 +13,6 @@ SELECT
   cat.id_art
 FROM {{ ref('stg_artvorkommen') }} as art
 LEFT JOIN {{ ref('stg_cat_art') }} as cat
-  ON cat.name_lateinisch = art.art_wiss
+  ON lower(cat.name_lateinisch) = (art.art_wiss)
 WHERE id_from_cat_arten is null and art_wiss is not null
   AND cat.id_art is not null

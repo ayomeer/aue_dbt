@@ -10,7 +10,7 @@
       art_deutsch = s.name_deutsch,
       fotos='update_flag'
     FROM {{ source_model }} as s
-    WHERE s.name_lateinisch = art.art_wiss
+    WHERE lower(s.name_lateinisch) = lower(art.art_wiss)
       AND id_from_cat_arten is null -- just to make sure we're not overwriting anythign
   {% else %}
     SELECT 1
