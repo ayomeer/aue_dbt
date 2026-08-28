@@ -38,8 +38,6 @@ Für Biotopflächen Zuweisungsliste nach Lebensraumnummern benutzt -> `seeds/ass
 Biotoplinien und Punkte werden alle als `"BIO_TYP7; Anderer Biotoptyp"` exportiert.
 
 
-
-
 ## Andere Notizen
 
 - `obj_gisflaeche` in INTERLIS Modell lower boundary 1.0 definiert. Damit alle Objekte in das MGDM exportiert werden können, wird die Fläche vorübergehend um 1.0 erhöht. Modelländerung pendent.
@@ -47,20 +45,8 @@ Biotoplinien und Punkte werden alle als `"BIO_TYP7; Anderer Biotoptyp"` exportie
 
 ## TODO
 
-Schemas erzeugen und dbt trafo job definieren:
-
-- [x] kt_amphibien_laichgebiete   Data Validation successful ✅
-- [x] kt_amphibien_wanderobjekte  No data
-- [x] kt_auengebiete              Data Validation successful ✅
-- [x] kt_biotope_flaechen         Data Validation failed: bedeutung National issue -> Anahita is looking at data
-- [x] kt_biotope_linien           Data Validation successful ✅
-- [x] kt_biotope_punkte           Data Validation successful ✅
-- [x] kt_flachmoore               Data Validation successful ✅
-- [x] kt_hochmoore                Data Validation failed: Handful of geometry errors to fix
-- [x] kt_trockenwiesen            Data Validation failed: one intersection issue
-=> We get new data anyways
-
-- [x] add t_ili_tid uuids to all objects so ili validators doesn't complain
-- [x] re-import non-amphibien schemas with updated script that has `--createDatasetCol` option enabled and add column to export scripts
-
-- [ ] Check catalogues line objects
+- [ ] Transformationen für Linien- und Punktbiotope implementieren, analog zu Flächen-Biotopen
+  - [ ] Neue Daten in `prod_gl_biotope` importieren
+  - [ ] Staging models auf neue Datenquelle umschreiben und sicherstellen, dass downstream models ihre Attributen füllen können
+  - [ ] `transformations.export_to_kantonales_inventar`
+  - [ ] `transformations.export_to_pub_gl_biotope`

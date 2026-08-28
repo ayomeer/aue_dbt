@@ -73,6 +73,13 @@ sources:
       - name: bio_typ_catalogue
 
 
+  - name: prod_gl_arten
+    database: "{{ target.database }}"
+    schema: prod_gl_arten
+    tables:
+      - name: artvorkommen_gl_pt
+
+
   - name: _tmp_copy_prod_gl_biotope
     database: "{{ target.database }}"
     schema: _tmp_copy_prod_gl_biotope
@@ -80,3 +87,5 @@ sources:
       - name: biotope_to_sf
       - name: biotope_to_li
       - name: biotope_to_pt
+
+

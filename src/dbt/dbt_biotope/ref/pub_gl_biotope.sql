@@ -37,8 +37,8 @@ INSERT INTO pub_gl_biotope.biotope_flaechen
         ,n.bund_name
         ,n.bund_teilobj_nr
         ,c.bezeichnung as bund_typ -- Katalog "biotyp_catalogue"
-      FROM
-        gl_biotope.nationales_objekt n LEFT JOIN gl_biotope.biotyp_catalogue c ON n.bund_typ = c.t_id
+      FROM gl_biotope.nationales_objekt n 
+      LEFT JOIN gl_biotope.biotyp_catalogue c ON n.bund_typ = c.t_id
     )
     ,tonb AS (
       SELECT

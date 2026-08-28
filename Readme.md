@@ -1,6 +1,5 @@
 # dbt_aue
 
-Testing environment for dbt + PostgreSQL.
 
 
 ## Table of Contents
@@ -50,7 +49,6 @@ Testing environment for dbt + PostgreSQL.
 - [TODO](#todo)
 
 <!-- /code_chunk_output -->
-
 
 ## Overall Workflow
 
