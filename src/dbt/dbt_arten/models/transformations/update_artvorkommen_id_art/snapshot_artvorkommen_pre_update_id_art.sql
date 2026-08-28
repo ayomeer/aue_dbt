@@ -3,7 +3,7 @@
 {{ config(
   materialized='table',
   tags='static',
-  post_hook="COMMENT ON TABLE {{this}} IS 'Snapshot from dbt run on {{ get_datetime_string() }}'"
+  post_hook="COMMENT ON TABLE {{this}} IS 'Snapshot from dbt run on {{ audit_utils.get_datetime_string() }}'"
 ) }}
 
 SELECT
