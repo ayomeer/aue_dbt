@@ -7,8 +7,7 @@
     UPDATE prod_gl_arten.artvorkommen_gl_pt as art
     SET 
       id_from_cat_arten = s.id_art,
-      art_deutsch = s.name_deutsch,
-      fotos='update_flag'
+      art_deutsch = s.name_deutsch
     FROM {{ source_model }} as s
     WHERE lower(s.name_lateinisch) = lower(art.art_wiss)
       AND id_from_cat_arten is null -- just to make sure we're not overwriting anythign
