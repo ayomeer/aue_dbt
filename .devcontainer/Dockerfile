@@ -37,7 +37,6 @@ RUN apt-get update && apt-get install -y \
 # Use non-root user for rest of the setup
 USER $USERNAME
 
-# Install dbt and dbt-postgres extension through pip
-RUN pip install dbt-core dbt-postgres dbt-colibri\
-    pandas psycopg2 sqlalchemy matplotlib
-
+# Install python packages
+COPY requirements.txt .
+RUN pip install -r requirements.txt
