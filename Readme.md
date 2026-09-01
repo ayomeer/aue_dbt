@@ -61,6 +61,13 @@
 Based on this guide:
 https://medium.com/@oyekanmiakande/building-a-modern-data-pipeline-with-dbt-postgresql-and-docker-a68fe2d19a3c
 
+### Building the devcontainer image
+
+In the future, the image will be hosted on GitLab. For now, note that when building the image, the `USER_UID` and `USER_GID` of the user that will be using the container need to be passed with the docker build command like this:
+
+```shell
+$ docker build --build-arg USER_UID="$(id -u)" --build-arg USER_GID="$(id -g)"  . -t dbt_image:latest
+```
 
 ### dbt devcontainer
 The dbt Core image is the development environment for this project. As such, is run by VS Code when opening the directory in the configured devcontainer.
