@@ -77,7 +77,8 @@ added_cols as (
 )
 SELECT 
   a.*,
-  a_bio_typ.bio_typ as bio_typ_derived
+  a_bio_typ.bio_typ as bio_typ_derived,
+  a_bio_typ.bio_typ_beschreibung
 FROM added_cols as a
 LEFT JOIN {{ ref('assignment_table_bio_typ') }} as a_bio_typ
   ON a_bio_typ.lebensraumnummer = a.lebensraumnummer_first
