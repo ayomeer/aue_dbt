@@ -56,6 +56,7 @@
 - develop dbt models until results satisfactory
 - deploy using [windmill target](#windmill)
 
+<!-- TODO: Explain how to access VM -->
 
 ## Docker Setup
 Based on this guide:
