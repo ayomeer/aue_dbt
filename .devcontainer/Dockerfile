@@ -5,8 +5,8 @@ FROM python:3.11-slim
 
 # Create a non-root user
 ARG USERNAME=user
-ARG USER_UID=1000
-ARG USER_GID=$USER_UID
+ARG USER_UID
+ARG USER_GID
 
 
 RUN groupadd --gid $USER_GID $USERNAME \
