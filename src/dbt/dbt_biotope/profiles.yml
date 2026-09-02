@@ -1,11 +1,11 @@
 dbt_biotope_profile:
-  target: dev
+  target: windmill-iap
   outputs:
     dev:
       # use this profile for local testing
       host: postgis-container
       dbname: test_db
-      pass: "{{ env_var('DB_PASSWORD') }}" # export DB_PASSWORD='...' in bashrc
+      pass: "{{ env_var('TEST_DB_PASSWORD') }}" # export TEST_DB_PASSWORD='...' in bashrc
       port: 5432
       schema: dbt_biotope
       threads: 1
@@ -16,7 +16,7 @@ dbt_biotope_profile:
       # use this profile when running dbt project from windmill runner
       host: srv-gisiap-02.glnet.ch
       dbname: glarus
-      pass: "{{ env_var('DB_PASSWORD') }}" # export DB_PASSWORD='...' in bashrc
+      pass: "{{ env_var('DB_PASSWORD') }}" # export DB_PASSWORD='...' in shell (don't commit to git source!)
       port: 5432
       schema: dbt_biotope
       threads: 1

@@ -40,3 +40,6 @@ USER $USERNAME
 # Install python packages
 COPY requirements.txt .
 RUN pip install -r requirements.txt
+
+# Add environment variables expected by dbt projects
+RUN echo 'export TEST_DB_PASSWORD="postgres"' >> ~/.bashrc

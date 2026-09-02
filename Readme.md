@@ -92,7 +92,7 @@ The source files are mounted onto the dev container (./src/dbt).
 
 Save DB the password for the testing DB in environment variable `DB_PASSWORD`. 
 ```bash
-echo 'export DB_PASSWORD="postgres"' >> ~/.bashrc
+echo 'export echo 'export DB_PASSWORD="postgres"' >> ~/.bashrc="postgres"' >> ~/.bashrc
 ```
 Afterwards, reload window (`Ctr` + `Shift` + `P` > `Reload Windown`)
 

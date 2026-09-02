@@ -5,7 +5,7 @@ dbu_aue_quellkataster_profile:
       # use this profile for local testing
       host: postgis-container
       dbname: test_db
-      pass: "{{ env_var('DB_PASSWORD') }}" # export DB_PASSWORD='...' in bashrc
+      pass: "{{ env_var('TEST_DB_PASSWORD') }}" # export DB_PASSWORD='...' in bashrc
       port: 5432
       schema: dbt_quellkataster
       threads: 1

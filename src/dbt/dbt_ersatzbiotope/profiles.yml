@@ -10,7 +10,7 @@ dbt_ersatzbiotope_profile:
       threads: 1
       type: postgres
       user: postgres
-      pass: "{{ env_var('DB_PASSWORD') }}" # export DB_PASSWORD='...' in bashrc
+      pass: "{{ env_var('TEST_DB_PASSWORD') }}" # export DB_PASSWORD='...' in bashrc
 
     windmill-iap:
       # use this profile when running dbt project from windmill runner
