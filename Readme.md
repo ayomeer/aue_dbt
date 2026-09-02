@@ -1,26 +1,23 @@
-# dbt_aue
 
-
-
-## Table of Contents
+# Table of Contents
 
 
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 
 <!-- code_chunk_output -->
 
-- [dbt_aue](#dbt_aue)
-  - [Table of Contents](#table-of-contents)
-  - [Overall Workflow](#overall-workflow)
-  - [Docker Setup](#docker-setup)
-    - [dbt devcontainer](#dbt-devcontainer)
-      - [First time setup](#first-time-setup)
-    - [PostGIS Container](#postgis-container)
-      - [First Time Setup](#first-time-setup-1)
+- [Table of Contents](#table-of-contents)
+- [Accessing the Development Environment](#accessing-the-development-environment)
+- [Overall Workflow](#overall-workflow)
+- [Docker Setup](#docker-setup)
+  - [Building the devcontainer image](#building-the-devcontainer-image)
+  - [dbt devcontainer](#dbt-devcontainer)
+    - [First time setup](#first-time-setup)
+  - [PostGIS Container](#postgis-container)
+    - [First Time Setup](#first-time-setup-1)
       - [Using the image in development/testing](#using-the-image-in-developmenttesting)
-  - [Connecting pgAdmin to postgres Server](#connecting-pgadmin-to-postgres-server)
 - [dbt](#dbt)
-  - [Setting up dbt Project](#setting-up-dbt-project)
+  - [Setting up a new dbt Project](#setting-up-a-new-dbt-project)
     - [Model Directory Structure](#model-directory-structure)
     - [Setting up dbt schema](#setting-up-dbt-schema)
   - [dbt Workflow](#dbt-workflow)
@@ -29,6 +26,8 @@
     - [Deployment](#deployment)
       - [Windmill](#windmill)
     - [The dbt-INTERLIS Boundary](#the-dbt-interlis-boundary)
+      - [Catalogues](#catalogues)
+      - [Baskets](#baskets)
     - [Macros](#macros)
       - [Available Macros](#available-macros)
       - [Debugging Macros](#debugging-macros)
@@ -50,65 +49,67 @@
 
 <!-- /code_chunk_output -->
 
-## Overall Workflow
+# Accessing the Development Environment
 
-- import backups from schemas we want to develop for onto locally hosted postgis server
-- develop dbt models until results satisfactory
-- deploy using [windmill target](#windmill)
+The development environment for working on dbt projects has been packaged into the docker container setup described by the files in the `.devcontainer` directory at the project's root. The containers are set up on a remote virtual machine that can be accessed via vscode and its 'remote ssh' extension:
 
-<!-- TODO: Explain how to access VM -->
+```
+Remote VM connection details:
+gisdev@172.29.41.108
+```
 
-## Docker Setup
-Based on this guide:
-https://medium.com/@oyekanmiakande/building-a-modern-data-pipeline-with-dbt-postgresql-and-docker-a68fe2d19a3c
+If there is ever a need to set the development environment up somewhere else, the section [Docker Setup](#docker-setup) has more info. 
 
-### Building the devcontainer image
+The postgis-container used for prototyping can be accessed under the same IP.
 
-In the future, the image will be hosted on GitLab. For now, note that when building the image, the `USER_UID` and `USER_GID` of the user that will be using the container need to be passed with the docker build command like this:
+
+# Overall Workflow
+
+The most common use-case is, that a new transformation has to be defined from one schema to another. I'll outline how that tends to happen. Everything described here uses the remote VM decribed in the [previous section](#accessing-the-development-environment) that's alreay set up and ready for use. For each of the steps below, you'll find more information in the later sections.
+
+1) [Create a new dbt project](#setting-up-a-new-dbt-project), if there isn't already one for the topic
+2) Generate staging and target dbt models aka [boundary models](#dbt-workflow)
+3) Write transformations to get from staging models to mirror model
+
+
+
+
+# Docker Setup
+## Building the devcontainer image
+
+note that when building the image, the `USER_UID` and `USER_GID` of the user that will be using the container need to be passed with the docker build command like this:
 
 ```shell
 $ docker build --build-arg USER_UID="$(id -u)" --build-arg USER_GID="$(id -g)"  . -t dbt_image:latest
 ```
 
-### dbt devcontainer
+## dbt devcontainer
 The dbt Core image is the development environment for this project. As such, is run by VS Code when opening the directory in the configured devcontainer.
 
 The source files are mounted onto the dev container (./src/dbt).
 
-#### First time setup
+### First time setup
 
-Save DB password in environment variable `DB_PASSWORD`. 
+Save DB the password for the testing DB in environment variable `DB_PASSWORD`. 
 ```bash
-echo 'export DB_PASSWORD="password"' >> ~/.bashrc
+echo 'export DB_PASSWORD="postgres"' >> ~/.bashrc
 ```
 Afterwards, reload window (`Ctr` + `Shift` + `P` > `Reload Windown`)
 
-Load dbt packages. While in the dbt project directory, run:
-```bash
-dbt deps
-```
 
-### PostGIS Container
+## PostGIS Container
+
+For developing and testing transformations completely off the live databases, this development environment includes a postgis server. Here, backups of schemas from the live databases can be restored onto to prototype new projects.
 
 Using image: `postgis/postgis:16-3.5-alpine`
 - PostgreSQL version 16.13: Higher than version 16.10 that is used in production (backwards compatible)
   - pg_dump version 16.13 
-- PostGIS version 3.5, same as production version 
+- PostGIS version 3.5, same as on live servers
 
 
-#### First Time Setup
+### First Time Setup
 
-To set up the server, user and default database, the container has to be run with arguments passing configuration values as options. For convenience, this process has been packaged into shell scripts in the `.devcontainer/Scripts`. For the first time setup, enter this directory and run:
-
-```
-./run_postgis_image.sh
-./check_postgis_container_versions.sh
-docker stop postgis-container
-docker commit postgis-container postgis:dev
-docker rm postgis-container
-```
-
-After running it with those flags that set up the user and setting up test and prod databases including target schemas, commit the container to the image used by vscode devcontainer setup: `postgres:dev`.
+When the project root directory is openend for the first time through vscode devcontainers, the postgis-container is automatically set up with the user `postgres` and passord `postgres`.
 
 > ℹ️ _**Note:**_ 
 For new databases created, **postgis** and **uuid-ossp** extensions need to be added: Right click on `Extensions` category in the pgAdmin browser pane.
@@ -122,20 +123,12 @@ Careful about using the VsCode command _'Rebuild and reopen in container'_ witho
 
 
 
-## Connecting pgAdmin to postgres Server
-
-hostname / address: localhost
-port: 5432
-pw: postgres
-
 
 # dbt
 
+dbt is the transformation modelling framework used in this development environment. This section talks about how it is used within the context of our use-case.
 
-
-## Setting up dbt Project
-
-
+## Setting up a new dbt Project
 Open the /src/dbt directory within the dbt devcontainer and run
 ```
 dbt init --skip-profile-setup
@@ -183,6 +176,8 @@ dbt (data build tool) is a data first transformation framework. What I mean by '
 Since we do have a very clear endpoint for our transformations in our use-case - the target INTERLIS Schema - it is helpful to have your start and end points set up, i.e. the staging models of the source schema and the models that define the structure we have to get the data into. The latter is what we refer to as 'ili_mirrors'. 
 
 ![dbt boundary graphic](doc/img/dbt_boundaries.drawio.png)
+
+The graphic above depicts the boundaries of what is managed by dbt vs ITNERLIS and the models that make up that boundary: staging (stg_) and mirror (ili_mirror_) models.
 
 <!-- TODO: Document the fact that you need to add sources.yml somewhere -->
 <!-- TODO: Document tests somewhere -->
@@ -292,7 +287,10 @@ On Windmill, the script "dbt run transform" can be used to run dbt models on the
   
 ```
 
-**git releases for windmill**
+**git tags for windmill**
+
+dbt packages used in the project are not part of the project's source tracked by git. This is so the commit history stays focused on the source of the actual project, rather than getting polluted with hundreds of files changing, when dbt package files change. These packages can simply be pulled on demand using the `dbt deps` command.\
+The windmill runner currently does not have access to the dbt package hub however, so as a workaround we're creating git tags that include the dbt package dependencies. The script[create_wmill_release_git_tag.sh](create_wmill_release_git_tag.sh) at this project's root was written to automate this process. The steps it runs are:
 
 1) Remove .git directory from any dbt_packages that are pulled directly through git
 2) Add dbt_packages to git source
@@ -302,25 +300,32 @@ On Windmill, the script "dbt run transform" can be used to run dbt models on the
 6) remove dbt_packages from tracked files again
 
 
-Commands (Example):
-```bash
-git add -f src/dbt/dbt_arten/dbt_packages 
-git commit -m "wmill release commit"
-git tag wmill_release_v0.0.2 
-git push origin wmill_release_v0.0.2
-git rm -rf src/dbt/dbt_arten/dbt_packages 
-```
-
-> ℹ️ Note:
-> These steps are now packaged into [the script](create_wmill_release_git_tag.sh) `create_wmill_release_git_tag.sh` at the project's root for convenience.
-
-
-
-
 ### The dbt-INTERLIS Boundary
 
-> Note:
-> For MGDM targets with baskets pre-defined by an XML file, this isn't necessary.
+The main objects that need managing are baskets and catalogues.
+
+#### Catalogues
+
+For Catalogues we are relying on INTERLIS' existing mechanisms to import and export catalogues as much as possible. This keeps the tranformations simpler and philosophically, catalogues are closer to static schema structure than data transformation anyways.
+
+#### Baskets
+The only thing that the dbt transformations need to know about the basket setup of the target INTERLIS schema is what `t_id` to write into the `t_basket` column of data records. This information is added to the respective dbt project's `dbt_project.yml` file as a variable under the `vars` tag. For example in the project 'dbt_ersatzbiotope' the basket t_ids corresponding to the target baskets is defined for both export jobs like this:
+
+```yaml
+vars:
+  export_config:
+    gl_ersatzbiotope_data_basket_tid: 36
+    pub_gl_ersatzbiotope_data_basket_tid: 6
+
+```
+
+and used in ili_model select statements like this:
+
+```SQL
+'{{ var('export_config')['gl_ersatzbiotope_data_basket_tid'] }}'::bigint as t_basket,
+```
+
+
 
 ### Macros
 Macros are basically templated SQL-scripts to make common tasks reusable. Two dbt packages have been created to package together such tasks:
@@ -334,6 +339,8 @@ See `ili_utils` and `audit_utils` in documentation. It is embedded into the host
 
 
 #### Debugging Macros
+
+A big drawback of the current post-hook approach to writing the ili_mirrors to their targets, is that the SQL generated by macros in post-hooks does not show up in the compiled models.
 
 The most reliable way to see what macros actually compile to is to look at `logs/dbt.log`. This is the only place, where even post-hook statements get fully expanded.
 
