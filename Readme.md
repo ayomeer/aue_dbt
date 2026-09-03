@@ -58,6 +58,8 @@ Remote VM connection details:
 gisdev@172.29.41.108
 ```
 
+Once connected to the VM, open the directory `git_repos/aue_dbt` using the 'Open Folder' button in the vscode explorer pane and accept the prompt to re-open in container popping up in the bottom right corner.
+
 If there is ever a need to set the development environment up somewhere else, the section [Docker Setup](#docker-setup) has more info. 
 
 The postgis-container used for prototyping can be accessed under the same IP.
