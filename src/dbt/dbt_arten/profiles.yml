@@ -1,5 +1,5 @@
 dbt_arten:
-  target: dev
+  target: iap
   outputs:
     dev:
       # use this profile for local development and testing
@@ -12,6 +12,17 @@ dbt_arten:
       type: postgres
       user: postgres
   
+    iap:
+      # use this profile when running dbt project from windmill runner
+      host: srv-gisiap-02.glnet.ch
+      dbname: glarus
+      pass: "{{ env_var('DB_PASSWORD') }}" 
+      port: 5432
+      schema: dbt_arten
+      threads: 1
+      type: postgres
+      user: gisuploadmanager
+
     windmill-iap:
       # use this profile when running dbt project from windmill runner
       host: srv-gisiap-02.glnet.ch

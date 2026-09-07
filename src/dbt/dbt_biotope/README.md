@@ -1,12 +1,12 @@
 # dbt_biotope
 
-## Angenwendeter Ablauf
+## Angenwendeter Ablauf für Vorbereiten der Transformationen
 
-1) INTERLIS Modell auf PostGIS Datenbank importieren (https://github.com/ayomeer/aue_interlis/blob/main/ili2pg/scripts/schemaimport.sh)
+1) INTERLIS Modelle der Zielschemas auf PostGIS Datenbank importieren (https://github.com/ayomeer/aue_interlis/blob/main/ili2pg/scripts/schemaimport.sh)
 
 2) `data` datenset hinzufügen (Model Baker Dataset Manager)
   a)  Zugehörigen Basket erstellen für das jeweilige Daten-Topic, z.B. `'kt_Trockenwiesen_V1_1.kt_Trockenwiesen'`
-  b) Basket t_id auf `100` setzen (pgAdmin)
+  b) Basket `t_id` auf `100` setzen (pgAdmin)
 
 3) Kataloge Importieren (https://github.com/ayomeer/aue_interlis/blob/main/ili2pg/scripts/catalogue_import.sh)
 
@@ -18,7 +18,9 @@
 
 
 
-## Biotoparten und Geometrietypen
+## Biotoparten
+
+Die in `prod_gl_biotope` vorhandenen Biotope werden basierend auf dem Attribut `biotoptyp` aufgeteilt in die Untermengen die in die entsprechenden Zielschemas exportiert. 
 
 ### Biotoparten mit Spezifischem Zielschema
 
@@ -34,19 +36,21 @@
 
 ### Übrige Biotoparten
 
-Für Biotopflächen Zuweisungsliste nach Lebensraumnummern benutzt -> `seeds/assignment_table_bio_typ.csv`.
-Biotoplinien und Punkte werden alle als `"BIO_TYP7; Anderer Biotoptyp"` exportiert.
+Für Biotopflächen wird eine Zuweisungsliste nach Lebensraumnummern benutzt:\
+ `seeds/assignment_table_bio_typ.csv`.
+
+Biotoplinien und -Punkte werden alle als `"BIO_TYP7; Anderer Biotoptyp"` exportiert.
 
 
 ## Andere Notizen
 
-- `obj_gisflaeche` in INTERLIS Modell lower boundary 1.0 definiert. Damit alle Objekte in das MGDM exportiert werden können, wird die Fläche vorübergehend um 1.0 erhöht. Modelländerung pendent.
+- `obj_gisflaeche`: In INTERLIS Modell wird lower boundary 1.0 definiert. Damit alle Objekte in das MGDM exportiert werden können, wird die Fläche vorübergehend um 1.0 erhöht. Modelländerung pendent.
 
 > ℹ️ Status Daten DevEnv vs IAP: synched; IAP ahead of PROD.
 
 ## TODO
 
-- [ ] fix test fails
+- [x] fix test fails
 
 - [ ] Transformationen für Linien- und Punktbiotope implementieren, analog zu Flächen-Biotopen
   - [ ] Neue Daten in `prod_gl_biotope` importieren
