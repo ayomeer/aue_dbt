@@ -11,9 +11,14 @@ from sqlalchemy.dialects import postgresql
 path_dbt_templates = Path("/project/src/python/generate_ili_mirror_models/templates")
 default_output_path = Path("/project/src/python/generate_ili_mirror_models/output")
 
-conn_url = (
+conn_url_test_db = (
     "postgresql+psycopg2://postgres:"
     f"{os.environ['DB_PASSWORD']}@postgis-container:5432/test_db"
+)
+
+conn_url_iap = (
+    "postgresql+psycopg2://gisuploadmanager:"
+    f"{os.environ['DB_PASSWORD']}@srv-gisiap-02.glnet.ch:5432/glarus"
 )
 
 INTERLIS_TABLE_NAME_PATTERNS = [
@@ -93,7 +98,7 @@ args = parser.parse_args()
 # --- DB Connection Setup -------------------------------------------------------------------------
 
 metadata_obj = MetaData()
-engine = create_engine(conn_url)
+engine = create_engine(conn_url_iap)
 
 # execute the selected query using the existing engine
 sql_get_column_info = text("""
