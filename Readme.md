@@ -92,11 +92,14 @@ The source files are mounted onto the dev container (./src/dbt).
 
 ### First time setup
 
-Save DB the password for the testing DB in environment variable `DB_PASSWORD`. 
+To avoid having passwords present in the published git source, these are saved in environment variables specific to the docker container. If you rebuild it, you'll have to re-set them by adding them to `~/.bashrc` (replace `<password>` with the actual password for the user that's configured in `profiles.yml`):
+
 ```bash
-echo 'export echo 'export DB_PASSWORD="postgres"' >> ~/.bashrc="postgres"' >> ~/.bashrc
+echo 'export echo 'export DB_PASSWORD="<password>"' >> ~/.bashrc="postgres"' >> ~/.bashrc
+echo 'export echo 'export TEST_DB_PASSWORD="postgres"' >> ~/.bashrc="postgres"' >> ~/.bashrc
 ```
 Afterwards, reload window (`Ctr` + `Shift` + `P` > `Reload Windown`)
+
 
 
 ## PostGIS Container
