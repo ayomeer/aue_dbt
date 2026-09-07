@@ -1,0 +1,87 @@
+models:
+  - name: stg_biotope_to_li
+    columns:
+      - name: gid
+        data_type: bigint
+      - name: kanton
+        data_type: character varying
+      - name: gemeinde
+        data_type: character varying
+      - name: objekt_nummer
+        data_type: character varying
+      - name: objekt_name
+        data_type: character varying
+      - name: teilobj_nr
+        data_type: character varying
+      - name: teilobj_name
+        data_type: character varying
+      - name: bedeutung
+        data_type: character varying
+      - name: biotopart
+        data_type: character varying
+      - name: beschreibung_de
+        data_type: character varying
+      - name: beschreibung_la
+        data_type: character varying
+      - name: artvorkommen
+        data_type: character varying
+      - name: artvorkommen_intern
+        data_type: character varying
+      - name: felderhebung
+        data_type: date
+      - name: bearbeitungimfeld
+        data_type: character varying
+      - name: kartierungsgrundlage
+        data_type: character varying
+      - name: bund_nr
+        data_type: character varying
+      - name: bund_name
+        data_type: character varying
+      - name: bund_teilojb_nr
+        data_type: character varying
+      - name: bund_typ
+        data_type: character varying
+      - name: kommentar
+        data_type: character varying
+      - name: schutzqualitaet
+        data_type: character varying
+      - name: schutzart
+        data_type: character varying
+      - name: schutzdauer
+        data_type: integer
+      - name: status_biotopverzeichnis
+        data_type: character varying
+      - name: dokument_biotopverzeichnis
+        data_type: character varying
+      - name: foto_bezeichnung
+        data_type: character varying
+      - name: foto_datum
+        data_type: character varying
+      - name: foto_uri
+        data_type: character varying
+      - name: publikation_biotopverzeichnis
+        data_type: boolean
+      - name: mutationsdatum
+        data_type: date
+      - name: mutationsgrund
+        data_type: character varying
+      - name: herkunft
+        data_type: character varying
+      - name: geometrie
+        data_type: user-defined
+      - name: laenge_m
+        data_type: double precision
+      - name: centr_e
+        data_type: integer
+      - name: centr_n
+        data_type: integer
+      - name: bemerkungen_2024
+        data_type: character varying
+      - name: objnr_2025
+        data_type: integer
+      - name: ml_nat_nr
+        data_type: character varying
+      - name: ml_nat_lfm
+        data_type: double precision
+      - name: ml_nat_name
+        data_type: character varying
