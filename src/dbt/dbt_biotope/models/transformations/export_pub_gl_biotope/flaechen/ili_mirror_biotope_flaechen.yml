@@ -1,0 +1,39 @@
+models:
+  - name: ili_mirror_biotope_flaechen
+    columns:
+      - name: t_id
+        data_type: bigint
+      - name: t_basket
+        data_type: bigint
+      - name: t_ili_tid
+        data_type: uuid
+      - name: flaeche_ha
+        data_type: numeric
+      - name: geometrie
+        data_type: user-defined
+      - name: kanton
+        data_type: character varying
+      - name: objekt_nummer
+        data_type: text
+      - name: objekt_name
+        data_type: text
+      - name: bund_nummer
+        data_type: text
+      - name: bund_name
+        data_type: text
+      - name: bund_teilobjekt_nummer
+        data_type: text
+      - name: bund_typ
+        data_type: text
+      - name: teilobjekt_nummer
+        data_type: text
+      - name: teilobjekt_name
+        data_type: text
+      - name: biotopart
+        data_type: text
+      - name: beschreibung
+        data_type: text
+      - name: bedeutung
+        data_type: text
+      - name: spezielle_arten
+        data_type: text

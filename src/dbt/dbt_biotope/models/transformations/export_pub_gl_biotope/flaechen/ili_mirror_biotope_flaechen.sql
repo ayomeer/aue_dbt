@@ -27,3 +27,4 @@ SELECT
 FROM {{ ref('stg_biotope_to_sf') }} as f
 LEFT JOIN {{ ref('spezielle_arten') }} as a
   ON a.sf_gid = f.gid
+WHERE f.publikation_biotopverzeichnis is true

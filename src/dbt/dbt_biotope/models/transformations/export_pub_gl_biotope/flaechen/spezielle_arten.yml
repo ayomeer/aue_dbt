@@ -1,0 +1,13 @@
+models:
+  - name: spezielle_arten
+    description: |-
+      Aggregiert die Artvorkommen aus `prod_gl_arten.artvorkommen_gl_pt` pro Biotopfläche für die Anzeige im Feld `spezialle_arten` im publizierten Biotopflächen-Layer.
+
+      Ob ein Artvorkommen in `spezielle_arten` aufgelistet ist, wird im Artenkatalog `prod_gl_arten.cat_art` bestimmt. Dessen Felder `spez_art` und `pub_in_biotopverzeichnis` müssen dazu beide `True` sein.
+    columns:
+      - name: sf_gid
+        data_type: integer
+      - name: arr_art_deutsch
+        data_type: array
+      - name: arr_art_wiss
+        data_type: array
