@@ -21,14 +21,9 @@ SELECT
   
   f.biotopart::text, -- NOT NULL
   f.beschreibung_de::text as beschreibung, 
-  f.herkunft::text, -- NOT NULL
-  f.kartierungsgrundlage::text, -- NOT NULL
+
   f.bedeutung::text, -- NOT NULL
-  f.status_biotopverzeichnis::text as rechtsstatus, -- NOT NULL 
-  array_to_string(a.arr_art_deutsch, ', ')::text as spezielle_arten, 
-  NULL::text as entscheid
+  array_to_string(a.arr_art_deutsch, ', ')::text as spezielle_arten
 FROM {{ ref('stg_biotope_to_sf') }} as f
 LEFT JOIN {{ ref('spezielle_arten') }} as a
   ON a.sf_gid = f.gid
-
--- TODO: Abklären ob Feld rechtsstatus ok so als "Stand"
