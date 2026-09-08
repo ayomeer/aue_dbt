@@ -12,7 +12,7 @@ dbt_ersatzbiotope_profile:
       user: postgres
       pass: "{{ env_var('TEST_DB_PASSWORD') }}" # export DB_PASSWORD='...' in bashrc
 
-    windmill-iap:
+    iap:
       # use this profile when running dbt project from windmill runner
       host: srv-gisiap-02.glnet.ch
       dbname: glarus
