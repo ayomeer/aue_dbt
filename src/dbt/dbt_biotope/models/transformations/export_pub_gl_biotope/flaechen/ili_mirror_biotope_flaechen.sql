@@ -21,9 +21,9 @@ SELECT
   
   f.biotopart::text, -- NOT NULL
   f.beschreibung_de::text as beschreibung, 
-
   f.bedeutung::text, -- NOT NULL
   array_to_string(a.arr_art_deutsch, ', ')::text as spezielle_arten
+  
 FROM {{ ref('stg_biotope_to_sf') }} as f
 LEFT JOIN {{ ref('spezielle_arten') }} as a
   ON a.sf_gid = f.gid

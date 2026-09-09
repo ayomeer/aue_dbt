@@ -22,7 +22,7 @@ SELECT
   herkunft::character varying, 
   bund_nr::character varying, 
   bund_name::character varying, 
-  bund_teilojb_nr::character varying, 
+  bund_teilobj_nr::character varying, 
   bund_typ::character varying, 
   schutzqualitaet::character varying, 
   schutzart::character varying, 
