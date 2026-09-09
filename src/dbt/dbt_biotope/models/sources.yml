@@ -78,6 +78,7 @@ sources:
     schema: prod_gl_arten
     tables:
       - name: artvorkommen_gl_pt
+      - name: cat_art
 
 
   - name: _tmp_copy_prod_gl_biotope

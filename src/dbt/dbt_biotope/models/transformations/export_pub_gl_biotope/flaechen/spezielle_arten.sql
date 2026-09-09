@@ -5,28 +5,24 @@
 -- field 'pub_in_biotopverzeichnis' 
 WITH base as (
   SELECT
-    p.gid as p_gid,
-    p.art_deutsch,
-    p.art_wiss,
+    a.gid as a_gid,
+    split_part(c.bez_art_deutsch, ',', 1) as bez_art_deutsch, -- use only first name given in catalogue
+    c.bez_art_latein,
     sf.gid as sf_gid,
     sf.objekt_nummer,
     sf.teilobj_nr
-  FROM (
-    SELECT * 
-    FROM {{ source('prod_gl_arten', 'artvorkommen_gl_pt') }} as a
-    LEFT JOIN prod_gl_arten.cat_art as c 
-      ON c.bez_art_latein = a.art_wiss
-    WHERE 
-      c.spez_art is true AND
-      c.pub_in_biotopverzeichnis is true
-  ) as p
+  FROM {{ source('prod_gl_arten', 'artvorkommen_gl_pt') }} as a
+  LEFT JOIN {{ source('prod_gl_arten', 'cat_art') }} as c 
+    ON c.id_art = a.id_from_cat_arten
   LEFT JOIN {{ ref('stg_biotope_to_sf') }} as sf
-    ON ST_Within(p.geometrie, sf.geometrie)
+    ON ST_Within(a.geometrie, sf.geometrie)
   WHERE sf.gid is not null
+    AND c.spez_art is true 
+    AND c.pub_in_biotopverzeichnis is true
 )
 SELECT
   sf_gid,
-  array_agg(distinct art_deutsch) as arr_art_deutsch,
-  array_agg(distinct art_wiss) as arr_art_wiss
+  array_agg(distinct bez_art_deutsch) as arr_art_deutsch,
+  array_agg(distinct bez_art_latein) as arr_art_wiss
 FROM base
 GROUP BY sf_gid
