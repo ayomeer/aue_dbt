@@ -14,6 +14,7 @@ with source as (
         {{ adapter.quote("projekttraeger") }},
         {{ adapter.quote("dokumente") }},
         {{ adapter.quote("bemerkungen_intern") }},
+        {{ adapter.quote("publikation")}},
         ST_RemoveRepeatedPoints("geometrie", tolerance=>0.01) as geometrie_sf
       from source
   )

@@ -1,5 +1,5 @@
 dbt_ersatzbiotope_profile:
-  target: dev
+  target: iap
   outputs:
     dev:
       # use this profile for local testing

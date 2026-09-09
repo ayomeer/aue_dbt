@@ -9,7 +9,7 @@ SELECT
   objekt_nummer::integer,
   teilobjekt_nummer::integer as teilobj_nr,
   kategorie_ersatzmassnahme::character varying(255),
-  ersatzmassnahme::character varying(255),
   ziellebensraum::character varying(255),
   entscheide::text
 FROM {{ ref('stg_ersatzbiotope_sf') }}
+WHERE publikation is true
