@@ -15,14 +15,21 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "dbt_packages"
 
 vars:
-  export_config:
+  starting_data_tid: 100 # value t_ili2db_seq is set to (both during data creation on dbt schema as well as on target before transferring) 
+  
+  export_config_pub:   
+    data_basket_tid: 3
+
+  export_config_gl:
+    starting_data_tid: 100 
+    data_basket_tid: 36
+    
+  macro_variables:
     catalogue_basket_t_id: 2 # used in run-operation macro 'write_kategorie_catalogue()'
-    starting_data_tid: 100
-    gl_ersatzbiotope_data_basket_tid: 36
-    pub_gl_ersatzbiotope_data_basket_tid: 3
+
 
 on-run-start:
-  - ALTER SEQUENCE dbt_ersatzbiotope.t_ili2db_seq RESTART WITH {{ var('export_config')['starting_data_tid'] }}
+  - ALTER SEQUENCE dbt_ersatzbiotope.t_ili2db_seq RESTART WITH {{ var('starting_data_tid') }}
 
 models:
   dbt_ersatzbiotope:

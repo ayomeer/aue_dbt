@@ -5,7 +5,7 @@ SELECT
   ersatzmassnahme::character varying, 
   kategorie_ersatzmassnahme::character varying, 
   ziellebensraum::character varying, 
-  flaeche_m2::bigint, 
+  laenge_m::bigint, 
   entscheide::character varying, 
   projekttraeger::character varying, 
   dokumente::character varying, 

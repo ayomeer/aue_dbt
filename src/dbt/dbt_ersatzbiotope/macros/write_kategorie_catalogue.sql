@@ -15,7 +15,7 @@ INSERT INTO gl_ersatzbiotope.ersatzmassnahme_catalogue (
 	kategorie
 )
 SELECT
-	{{ var('export_config')['catalogue_basket_t_id'] }} as t_basket,
+	{{ var('macro_variables')['catalogue_basket_t_id'] }} as t_basket,
 	uuid_generate_v4() as t_ili_tid, 
 	kategorie_ersatzmassnahme
 FROM {{ ref('stg_union_all') }}

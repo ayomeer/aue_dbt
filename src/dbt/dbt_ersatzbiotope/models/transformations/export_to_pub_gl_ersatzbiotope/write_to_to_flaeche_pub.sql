@@ -1,3 +1,4 @@
+-- depends_on: {{ ref('prepare_target_pub_gl_ersatzbiotope') }}
 
 {{ config(
   enabled=var('enable_transfer', false),

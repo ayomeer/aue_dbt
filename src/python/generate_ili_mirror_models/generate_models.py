@@ -212,7 +212,7 @@ if args.source_mode is False:
     prepare_target_model = {
         "target_schema": args.schema_name,
         "data_table_list": full_table_names,
-        "t_id_starting_value": "var('data_t_id_offset')",
+        "t_id_starting_value": "var('starting_data_tid')",
     }
 
     sql = template.render(**prepare_target_model)

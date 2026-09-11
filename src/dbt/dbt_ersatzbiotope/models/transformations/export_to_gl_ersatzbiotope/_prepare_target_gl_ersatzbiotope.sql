@@ -1,8 +1,9 @@
+
 {{ config(
   enabled=var('enable_transfer', false),
   post_hook=[
     'TRUNCATE TABLE gl_ersatzbiotope.ersatzbiotop, gl_ersatzbiotope.to_flaeche, gl_ersatzbiotope.to_linie, gl_ersatzbiotope.to_punkt',
-    'ALTER SEQUENCE dbt_ersatzbiotope.t_ili2db_seq RESTART WITH {{ var("export_config")["starting_data_tid"] }}'
+    'ALTER SEQUENCE dbt_ersatzbiotope.t_ili2db_seq RESTART WITH {{ var("starting_data_tid") }}'
   ]
 )}}
 
