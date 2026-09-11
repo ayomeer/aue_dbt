@@ -11,3 +11,4 @@ SELECT
   ziellebensraum::character varying(255), 
   entscheide::text
 FROM {{ ref('stg_ersatzbiotope_pt') }}
+WHERE publikation is true
