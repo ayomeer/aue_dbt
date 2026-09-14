@@ -20,9 +20,6 @@ vars:
   <export_variables_key>:   
     data_basket_tid: <target_data_basket_tid>
 
-
-    
-
 on-run-start:
   - ALTER SEQUENCE <project_name>.t_ili2db_seq RESTART WITH {{ var('starting_data_tid') }}
 
