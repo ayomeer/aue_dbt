@@ -6,8 +6,8 @@ from jinja2 import Environment, FileSystemLoader
 
 from sqlalchemy import Table, select, create_engine, MetaData, text
 from sqlalchemy.dialects import postgresql
-# --- Constants -----------------------------------------------------------------------------------
 
+# --- Constants -----------------------------------------------------------------------------------
 path_dbt_templates = Path("/project/src/python/generate_ili_mirror_models/templates")
 default_output_path = Path("/project/src/python/generate_ili_mirror_models/output")
 
