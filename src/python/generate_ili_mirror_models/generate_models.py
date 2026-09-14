@@ -198,14 +198,14 @@ for table_name in data_table_names:
 
 # -- Build dbt transfer models ----------------------------------------------------------------------------
 if args.source_mode is False:
-    env = Environment(
+    jinja_env = Environment(
         loader=FileSystemLoader(path_dbt_templates),
         variable_start_string="<",
         variable_end_string=">"
     )
 
     # --- Build 'prepare_target_<schema_name>' model ---
-    template = env.get_template("t_prepare_target.sql.j2")
+    template = jinja_env.get_template("t_prepare_target.sql.j2")
 
     full_table_names = [f"{args.schema_name}.{table_name}" for table_name in data_table_names]
 
@@ -221,7 +221,7 @@ if args.source_mode is False:
 
 
     # --- Build 'write_to_<table_name>' models ---
-    template = env.get_template("t_write_to.sql.j2")
+    template = jinja_env.get_template("t_write_to.sql.j2")
 
     for table_name in data_table_names:
         write_to_model = {

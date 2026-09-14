@@ -1,0 +1,35 @@
+name: '<project_name>'
+version: '1.0.0'
+
+profile: '<project_name>_profile'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:         # directories to be removed by `dbt clean`
+  - "target"
+  - "dbt_packages"
+
+vars:
+  starting_data_tid: <starting_data_tid> # value t_ili2db_seq is set to (both during data creation on dbt schema as well as on target before transferring) 
+  
+  <export_variables_key>:   
+    data_basket_tid: <target_data_basket_tid>
+
+
+    
+
+on-run-start:
+  - ALTER SEQUENCE <project_name>.t_ili2db_seq RESTART WITH {{ var('starting_data_tid') }}
+
+models:
+  <project_name>:
+    +grants:
+      select: ['<read_role>']
+    +post-hook: 
+    - 'ALTER {{model.config.materialized}} {{this}} OWNER TO "<owner_role>"'
+
