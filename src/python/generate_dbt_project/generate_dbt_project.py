@@ -116,16 +116,26 @@ except OSError:
 
 # create subdirectories
 (new_project_root / "analyses").mkdir()
+Path(new_project_root / "analyses/.gitkeep").touch()
 (new_project_root / "dbt_packages").mkdir()
+Path(new_project_root / "dbt_packages/.gitkeep").touch()
 (new_project_root / "macros").mkdir()
+Path(new_project_root / "macros/.gitkeep").touch()
 (new_project_root / "models").mkdir()
+Path(new_project_root / "models/.gitkeep").touch()
 (new_project_root / "models/staging").mkdir()
+Path(new_project_root / "models/staging/.gitkeep").touch()
 (new_project_root / "models/transformations").mkdir()
+Path(new_project_root / "models/transformations/.gitkeep").touch()
 (new_project_root / f"models/transformations/{inp.target_export_name}").mkdir()
+Path(new_project_root / f"models/transformations/{inp.target_export_name}/.gitkeep").touch()
 (new_project_root / "models/audits").mkdir()
+Path(new_project_root / "models/audits/.gitkeep").touch()
 
 (new_project_root / "ref").mkdir()
+Path(new_project_root / "ref/.gitkeep").touch()
 (new_project_root / "tests").mkdir()
+Path(new_project_root / "tests/.gitkeep").touch()
 
 # -- Create Project Configuration Files ----------------------------------------------------------
 # Render dbt_project.yml
