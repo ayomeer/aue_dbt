@@ -1,5 +1,7 @@
 import os
 import sys
+import shutil
+import subprocess
 from pathlib import Path
 
 from dataclasses import dataclass
@@ -29,7 +31,7 @@ def coalesce(value, default):
     return default if value is None else value
 
 # -- Debugging Constants -------------------------------------------------------------------------
-DEBUG_MODE = True
+DEBUG_MODE = False
 
 debugging_inputs=Inputs(
     project_name='dbt_proj',
@@ -44,7 +46,7 @@ debugging_inputs=Inputs(
 
 # -- Paths Constants------------------------------------------------------------------------------
 DBT_PROJECTS_PATH =Path('/project/src/dbt')
-JINJA_TEMPLATES_PATH = Path(__file__).parent / 'templates'
+TEMPLATES_PATH = Path(__file__).parent / 'templates'
 
 
 # -- Get Inputs ----------------------------------------------------------------------------------
@@ -76,7 +78,7 @@ if not DEBUG_MODE:
 
 
     # Target Schema
-    print("\nWhat is the target schema for the transformation to be modelled?")
+    print("\nWhat is the target schema for the transformation to be modeled?")
     inp.target_schema = input().strip()
 
     # Target Export Name
@@ -98,7 +100,7 @@ if not DEBUG_MODE:
     if (input_str := input().strip()) == '': # user hit enter to use default
         inp.starting_data_tid = 100
     else:
-        inp.dbt_schema_name = int(input_str)
+        inp.starting_data_tid = int(input_str)
 
 if DEBUG_MODE:
     inp = debugging_inputs
@@ -117,13 +119,18 @@ except OSError:
 (new_project_root / "dbt_packages").mkdir()
 (new_project_root / "macros").mkdir()
 (new_project_root / "models").mkdir()
+(new_project_root / "models/staging").mkdir()
+(new_project_root / "models/transformations").mkdir()
+(new_project_root / f"models/transformations/{inp.target_export_name}").mkdir()
+(new_project_root / "models/audits").mkdir()
+
 (new_project_root / "ref").mkdir()
 (new_project_root / "tests").mkdir()
 
 # -- Create Project Configuration Files ----------------------------------------------------------
 # Render dbt_project.yml
 jinja_env = Environment(
-    loader=FileSystemLoader(JINJA_TEMPLATES_PATH),
+    loader=FileSystemLoader(TEMPLATES_PATH),
     variable_start_string="<",
     variable_end_string=">"
 )
@@ -146,23 +153,44 @@ output_file.write_text(dbt_project_yml)
 
 # Render profiles.yml
 jinja_env = Environment(
-    loader=FileSystemLoader(JINJA_TEMPLATES_PATH),
+    loader=FileSystemLoader(TEMPLATES_PATH),
     variable_start_string="<",
     variable_end_string=">"
 )
 
 dbt_project_template = jinja_env.get_template("t_profiles.yml.j2")
 
-dbt_project_render_args = {
+dbt_profiles_render_args = {
     "project_name": inp.project_name
 }
 
-dbt_project_yml = dbt_project_template.render(**dbt_project_render_args)
-output_file = new_project_root / "dbt_project.yml"
-output_file.write_text(dbt_project_yml)
+profiles_yml = dbt_project_template.render(**dbt_profiles_render_args)
+output_file = new_project_root / "profiles.yml"
+output_file.write_text(profiles_yml)
+
+# Copy packages.yml
+shutil.copy2(TEMPLATES_PATH / "packages.yml", new_project_root)
+
+# Success Message
+print(f"Successfully created dbt project at {new_project_root}!")
 
 
-dummy = 1
+# -- Run Checks ----------------------------------------------------------------------------------
+print(f"Running checks for new project {inp.project_name}...")
+print("Loading dependencies...")
+subprocess.run(
+    ["dbt", "deps"],
+    cwd=new_project_root,
+    check=True
+)
+
+print("Running dbt debug...")
+subprocess.run(
+    ["dbt", "debug"],
+    cwd=new_project_root,
+    check=True
+)
+
 # -- Set up dbt Schema on IAP Server -------------------------------------------------------------
 # Doing this through dbt run-operation macros defined in ili_utils package
 
@@ -184,3 +212,28 @@ while True:
 
     else:
         print("Unrecognized input. Try again.")
+
+if inp.create_dbt_schema:
+    print("Creating dbt_schema...")
+    subprocess.run(
+        [
+            "dbt", "run-operation", "ili_utils.create_dbt_schema", "--args", 
+            f"{{ schema_name: {inp.project_name}, owner_role: {inp.db_owner_role}, read_role: {inp.db_read_role} }}"
+        ],
+        cwd=new_project_root,
+        check=True
+    )
+    subprocess.run(
+        [
+            "dbt", "run-operation", "ili_utils.create_ili_sequence", "--args", 
+            f"{{ schema_name: {inp.project_name} }}"
+        ],
+        cwd=new_project_root,
+        check=True
+    )
+    print(f"Succesfully created schema {inp.project_name} on IAP!")
+
+    print("""
+    Note: VsCode will show problems with the newly created project. 
+    They should go away if you reload the window (Ctr + Shift + P > Reload Window).
+    """)
