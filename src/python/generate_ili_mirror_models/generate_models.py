@@ -48,7 +48,7 @@ parser = argparse.ArgumentParser(
 )
 parser.add_argument(
     "--schema-name",
-    "-t",
+    "-s",
     dest="schema_name",
     type=str,
     required=True,
@@ -65,7 +65,7 @@ parser.add_argument(
 )
 parser.add_argument(
     "--table-name",
-    "-n",
+    "-t",
     dest="table_name",
     type=str,
     required=False,
@@ -73,8 +73,8 @@ parser.add_argument(
             If omitted, models are build for ALL tables in the schema.""",
 )
 parser.add_argument(
-    "--source-mode",
-    "-s",
+    "--staging-mode",
+    "-m",
     action="store_true",
     dest="source_mode",
     help="""Optional: Generate a source model instead of a target model.""",
