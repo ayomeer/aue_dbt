@@ -15,7 +15,7 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "dbt_packages"
 
 vars:
-  starting_data_tid: 10 # value t_ili2db_seq is set to (both during data creation on dbt schema as well as on target before transferring) 
+  starting_data_tid: 100 # value t_ili2db_seq is set to (both during data creation on dbt schema as well as on target before transferring) 
   
   export_pub_gl_bohrkataster:   
     data_basket_tid: 3

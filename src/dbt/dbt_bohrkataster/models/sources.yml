@@ -1,0 +1,8 @@
+sources:
+  - name: dbu_aue_gsbohrung
+    database: "{{ target.database }}"
+    schema: dbu_aue_gsbohrung
+    tables:
+      - name: borehole
+      - name: rueckgabe_h2o
+      - name: view_borehole_kategorie
