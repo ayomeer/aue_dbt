@@ -38,7 +38,7 @@ vars:
 
   data_t_id_offset: 101
 
-  pub_gl_biotope_data_basket_t_id: 2
+  pub_gl_biotope_data_basket_t_id: 3
 
 models:
   dbt_biotope:
