@@ -1,0 +1,27 @@
+models:
+  - name: ili_mirror_grundwasserbohrung
+    columns:
+      - name: t_id
+        data_type: bigint
+        data_tests:
+          - not_null
+      - name: t_basket
+        data_type: bigint
+        data_tests:
+          - not_null
+      - name: t_ili_tid
+        data_type: uuid
+      - name: koordinate_e
+        data_type: numeric
+      - name: koordinate_n
+        data_type: numeric
+      - name: aname
+        data_type: character varying
+      - name: typ
+        data_type: character varying
+      - name: bohrprofil_pdf
+        data_type: text
+      - name: geometrie
+        data_type: user-defined
+        data_tests:
+          - not_null
