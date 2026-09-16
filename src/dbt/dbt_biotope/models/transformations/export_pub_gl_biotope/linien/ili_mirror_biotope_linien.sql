@@ -8,7 +8,7 @@ SELECT
   l.objekt_nummer::text, -- NOT NULL
   l.teilobj_nr::text as teilobj_nummer, -- NOT NULL
   l.objekt_name::text, 
-  l.teilobj_name::text, 
+  l.teilobj_name::text as teilobjekt_name, 
 
   l.bund_nr::text as bund_nummer, 
   l.bund_teilobj_nr::text  as bund_teilobj_nr, 
