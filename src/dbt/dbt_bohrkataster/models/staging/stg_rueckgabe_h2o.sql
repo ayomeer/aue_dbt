@@ -15,6 +15,6 @@ SELECT
   publikation::boolean,
 
   -- additional derived attributes
-  'Grundwasserwärmepume Rückgabe' as kategorie,
+  'Grundwasserwärmepumpe Rückgabe' as kategorie,
   string_to_array(bohrprofil_pdf, '\') as arr_pdf
 FROM {{ source('dbu_aue_gsbohrung', 'rueckgabe_h2o') }}
