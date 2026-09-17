@@ -1,0 +1,7 @@
+[
+  {
+    "node_id": "model.dbt_biotope.audit_biotope_to_sf_cols",
+    "error_type": "ParseError",
+    "error_message": "No expression was parsed from '\n\n\n\n\n\n\n\n\n  \n\n  \n\n  \n\n  \n    \n'"
+  }
+]
