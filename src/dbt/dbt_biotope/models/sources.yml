@@ -3,10 +3,10 @@ sources:
     database: "{{ target.database }}"
     schema: prod_gl_biotope
     tables:
-      - name: biotope_to_sf_neu
       - name: biotope_to_sf
       - name: biotope_to_li
       - name: biotope_to_pt
+      - name: biotope_national
       - name: cat_kartierungsgrundlage
       - name: cat_herkunft
       - name: cat_biotopart
