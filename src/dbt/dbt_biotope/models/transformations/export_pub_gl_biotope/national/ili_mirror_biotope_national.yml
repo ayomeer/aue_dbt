@@ -1,0 +1,21 @@
+models:
+  - name: ili_mirror_biotope_national
+    columns:
+      - name: t_id
+        data_type: bigint
+      - name: t_basket
+        data_type: bigint
+      - name: t_ili_tid
+        data_type: character varying
+      - name: biotoptyp
+        data_type: character varying
+      - name: objektname
+        data_type: character varying
+      - name: objektnummer
+        data_type: character varying
+      - name: teilobjekt_nummer
+        data_type: character varying
+      - name: geometrie
+        data_type: user-defined
+      - name: flaeche_a
+        data_type: integer

@@ -1,0 +1,17 @@
+models:
+  - name: stg_biotope_national
+    columns:
+      - name: gid
+        data_type: integer
+      - name: objekt_nummer
+        data_type: character varying
+      - name: teilobjekt_nummer
+        data_type: character varying
+      - name: objekt_name
+        data_type: character varying
+      - name: biotoptyp
+        data_type: character varying
+      - name: the_geom
+        data_type: user-defined
+      - name: planart
+        data_type: character varying
