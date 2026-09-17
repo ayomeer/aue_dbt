@@ -44,7 +44,18 @@ models:
   dbt_biotope:
     +grants:
       select: ['prod_gl_biotope_read']  
+  
+    transformations:
+      export_kantonales_inventar:
+        +tags: ['export_kantonales_inventar']
+
+      export_pub_gl_biotope:
+        +tags: ['export_pub_gl_biotope']
+
+    audits:
+      +tags: ['audits']
+
 
 seeds:
   dbt_biotope:
-     +delimiter: ";" # default project delimiter for seeds will be "|"
+     +delimiter: ";" 

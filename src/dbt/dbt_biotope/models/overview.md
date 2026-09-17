@@ -10,7 +10,7 @@ Alle Transformations-Modelle können links im Projekt-Browser unter `dbt_biotope
 
 ### Exports
 - **[export_kantonales_inventar](https://dbt-biotope.netlify.app/#!/overview?g_v=1&g_i=%2Btransformations.staging%20transformations.export_kantonales_inventar):**  
-  Exportiert Daten aus `prod_gl_biotope` in die jeweiligen Bundesmodelle für das kantonale Inventar der Biotope:
+  Exportiert die Daten aus `prod_gl_biotope` in die jeweiligen Bundesmodelle für das kantonale Inventar der Biotope:
   - ch_kt_amphibien_laichgebiete
   - ch_kt_amphibien_wanderobjekte (noch keine Daten vorhanden)
   - ch_kt_auengebiete
@@ -26,6 +26,10 @@ Alle Transformations-Modelle können links im Projekt-Browser unter `dbt_biotope
   ```bash
   transformations.export_kantonales_inventar.flachmoore
   ```
+
+- **[export_pub_gl_biotope]()**
+  Exportiert die Daten aus `prod_gl_biotope` in das Geoviewer Publikations-Schema `pub_gl_biotope`.\
+
 
 ### Andere
 - **[update_lebensraumnummer_using_beschreibung](http://dbt-biotope.netlify.app/#!/overview?g_v=1&g_i=%2Btransformations.data_updates):**
