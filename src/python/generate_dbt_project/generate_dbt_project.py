@@ -28,7 +28,7 @@ class Inputs:
     create_dbt_schema: bool = None
 
     # export job
-    target_setup: bool = None
+    export_setup: bool = None
     target_schema: str = None
     target_export_name: str = None
 
@@ -37,15 +37,15 @@ def coalesce(value, default):
     return default if value is None else value
 
 # -- Debugging Constants -------------------------------------------------------------------------
-DEBUG_MODE = True
+DEBUG_MODE = False
 
 debugging_inputs=Inputs(
     project_name='dbt_proj',
     db_read_role='read_role',
     db_owner_role='owner_role',
     target_data_basket_tid=2,
-    starting_data_tid=100,
-    target_setup=False,
+    export_setup=False,
+    starting_data_tid=None,
     target_schema=None,
     target_export_name=None,
     create_dbt_schema=True
@@ -85,9 +85,9 @@ if not DEBUG_MODE:
     print("""
     Set up export transform?
     """)
-    inp.target_setup = UserInput.yes_no()
+    inp.export_setup = UserInput.yes_no()
 
-    if inp.target_setup:
+    if inp.export_setup:
         # Target Schema
         print("\nWhat is the target schema for the transformation to be modeled?")
         inp.target_schema = input().strip()
@@ -138,7 +138,7 @@ except OSError:
 (new_project_root / "ref").mkdir()
 (new_project_root / "tests").mkdir()
 
-# -- Create Project Configuration Files ----------------------------------------------------------
+# -- Create Project Configuration Files from Templates -------------------------------------------
 # Set up jinja environment
 
 jinja_renderer = JinjaRenderer(TEMPLATES_PATH)
@@ -223,9 +223,19 @@ if inp.create_dbt_schema:
     )
     print(f"Succesfully created schema {inp.project_name} on IAP!")
 
-    print("""
-    Note: VsCode will show problems with the newly created project. 
-    They should go away if you reload the window (Ctr + Shift + P > Reload Window).
-    """)
 else:
     print("Skipping dbt schema creation.")
+
+
+print("""
+dbt Project setup complete!
+
+Next steps:
+- add tables you want to work with in dbt to sources to models/sources.yml
+- generate staging and ili_mirror models using the 'generate_models.py' utility
+- define your transform!
+
+Note: 
+VsCode will show problems with the newly created project. 
+They should go away if you reload the window (Ctr + Shift + P > Reload Window).
+""")
