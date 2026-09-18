@@ -7,6 +7,10 @@ from pathlib import Path
 from dataclasses import dataclass
 from jinja2 import Environment, FileSystemLoader
 
+from generator_utility import UserInput
+
+
+
 # -- Classes -------------------------------------------------------------------------------------
 @dataclass
 class Inputs:
@@ -19,10 +23,11 @@ class Inputs:
     target_data_basket_tid: int = None
     starting_data_tid: int = None
 
-    # wizard flow control
+    # dbt schema
     create_dbt_schema: bool = None
 
     # export job
+    target_setup: bool = None
     target_schema: str = None
     target_export_name: str = None
 
@@ -75,32 +80,36 @@ if not DEBUG_MODE:
     """)
     inp.db_owner_role = input().strip()
 
-
-
-    # Target Schema
-    print("\nWhat is the target schema for the transformation to be modeled?")
-    inp.target_schema = input().strip()
-
-    # Target Export Name
-    print("\nWhat shall the transformation job be named?")
-    inp.target_export_name = input().strip()
-
-    # Target basket config
     print("""
-    What is the t_id for the basket data is written to on export?
+    Set up export transform?
     """)
-    inp.target_data_basket_tid = int(input().strip())
+    inp.target_setup = UserInput.yes_no()
 
-    # Starting data t_id
-    print("""
-    What t_id should data that gets exported start with? Press Enter to use default value of 100.
-    This value needs to be higher than the current value of 't_ili2db_seq' in the target schema after
-    all preliminary imports, such as catalogues, are done.
-    """)
-    if (input_str := input().strip()) == '': # user hit enter to use default
-        inp.starting_data_tid = 100
-    else:
-        inp.starting_data_tid = int(input_str)
+    if inp.target_setup:
+        # Target Schema
+        print("\nWhat is the target schema for the transformation to be modeled?")
+        inp.target_schema = input().strip()
+
+        # Target Export Name
+        print("\nWhat shall the transformation job be named?")
+        inp.target_export_name = input().strip()
+
+        # Target basket config
+        print("""
+        What is the t_id for the basket data is written to on export?
+        """)
+        inp.target_data_basket_tid = int(input().strip())
+
+        # Starting data t_id
+        print("""
+        What t_id should data that gets exported start with? Press Enter to use default value of 100.
+        This value needs to be higher than the current value of 't_ili2db_seq' in the target schema after
+        all preliminary imports, such as catalogues, are done.
+        """)
+        if (input_str := input().strip()) == '': # user hit enter to use default
+            inp.starting_data_tid = 100
+        else:
+            inp.starting_data_tid = int(input_str)
 
 if DEBUG_MODE:
     inp = debugging_inputs
@@ -199,19 +208,7 @@ print("""
 Create dbt schema on IAP server? [Y/n] 
 (You will have to do this manually if you select 'No')
 """)
-while True:
-    inp_str = input().strip().lower()
-    if inp_str in ['yes', 'y']:
-        inp.create_dbt_schema = True
-        break
-
-    elif inp_str in ['no', 'n']:
-        inp.create_dbt_schema = False
-        print("Skipping dbt schema creation.")
-        break
-
-    else:
-        print("Unrecognized input. Try again.")
+inp.create_dbt_schema = UserInput.yes_no()
 
 if inp.create_dbt_schema:
     print("Creating dbt_schema...")
@@ -237,3 +234,5 @@ if inp.create_dbt_schema:
     Note: VsCode will show problems with the newly created project. 
     They should go away if you reload the window (Ctr + Shift + P > Reload Window).
     """)
+else:
+    print("Skipping dbt schema creation.")
