@@ -14,8 +14,8 @@ FROM {{ ref('union') }}
 WHERE publikation is true
   AND kategorie in (
     'Grundwasserfassung',
-    'Grundwasserwärmepume Entnahme',
-    'Grundwasserwärmepume Rückgabe',
+    'Grundwasserwärmepumpe Entnahme',
+    'Grundwasserwärmepumpe Rückgabe',
     'Erdwärmenutzung',
     'Sondierung'
   )
