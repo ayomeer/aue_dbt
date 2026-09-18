@@ -8,8 +8,7 @@ from dataclasses import dataclass
 from jinja2 import Environment, FileSystemLoader
 
 # other modules in the project
-from utils.user_input import UserInput
-from utils.render_template import JinjaRenderer
+from utils import UserInput, JinjaRenderer
 
 
 # -- Classes -------------------------------------------------------------------------------------
@@ -40,7 +39,7 @@ def coalesce(value, default):
     return default if value is None else value
 
 # -- Debugging Constants -------------------------------------------------------------------------
-DEBUG_MODE = False
+DEBUG_MODE = True
 
 debugging_inputs=Inputs(
     project_name='dbt_proj',
