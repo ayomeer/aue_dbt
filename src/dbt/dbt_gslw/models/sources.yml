@@ -3,4 +3,4 @@ sources:
     database: "{{ target.database }}"
     schema: dbu_aue_gslw
     tables:
-      - name: 
+      - name: bewirtschafter

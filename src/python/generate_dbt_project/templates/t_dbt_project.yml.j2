@@ -15,9 +15,8 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "dbt_packages"
 
 vars:
+  starting_data_tid: <starting_data_tid> # value t_ili2db_seq is reset to before generating data
   {% if export_setup -%}
-  starting_data_tid: <starting_data_tid> # value t_ili2db_seq is set to (both during data creation on dbt schema as well as on target before transferring) 
-
   <export_variables_key>:   
     data_basket_tid: <target_data_basket_tid>
   {%- endif %}

@@ -8,8 +8,8 @@ from sqlalchemy import Table, select, create_engine, MetaData, text
 from sqlalchemy.dialects import postgresql
 
 # --- Constants -----------------------------------------------------------------------------------
-path_dbt_templates = Path("/project/src/python/generate_ili_mirror_models/templates")
-default_output_path = Path("/project/src/python/generate_ili_mirror_models/output")
+path_dbt_templates = Path("/project/src/python/generate_dbt_models/templates")
+default_output_path = Path("/project/src/python/generate_dbt_models/output")
 
 conn_url_test_db = (
     "postgresql+psycopg2://postgres:"

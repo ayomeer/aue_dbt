@@ -244,7 +244,7 @@ dbt Project setup complete!
 
 Next steps:
 - add tables you want to work with in dbt to sources to models/sources.yml
-- generate staging and ili_mirror models using the 'generate_models.py' utility
+- generate staging and ili_mirror models using the 'generate_dbt_models.py' utility
 - define your transform!
 
 Note: 
