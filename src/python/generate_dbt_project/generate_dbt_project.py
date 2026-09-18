@@ -8,8 +8,8 @@ from dataclasses import dataclass
 from jinja2 import Environment, FileSystemLoader
 
 # other modules in the project
-from util_user_input import UserInput
-from util_render_template import JinjaRenderer
+from utils.user_input import UserInput
+from utils.render_template import JinjaRenderer
 
 
 # -- Classes -------------------------------------------------------------------------------------
@@ -21,14 +21,17 @@ class Inputs:
     db_read_role: str = None
     db_owner_role: str = None
 
-    target_data_basket_tid: int = None
-    starting_data_tid: int = None
+    # source schema
+    source_schema: str = None
 
     # dbt schema
     create_dbt_schema: bool = None
 
     # export job
     export_setup: bool = None
+    target_data_basket_tid: int = None
+    starting_data_tid: int = None
+
     target_schema: str = None
     target_export_name: str = None
 
@@ -81,6 +84,11 @@ if not DEBUG_MODE:
     This role should match the source schema's owner role to avoid permission issues.
     """)
     inp.db_owner_role = input().strip()
+
+    print("""
+    What is the source schema for the transforms in this project?
+    """)
+    inp.source_schema = input().strip()
 
     print("""
     Set up export transform?
@@ -160,15 +168,19 @@ jinja_renderer.render_template(
 )
 
 # Render profiles.yml
-dbt_profiles_render_args = {
-    "project_name": inp.project_name
-}
-
 jinja_renderer.render_template(
     template_name="t_profiles.yml.j2",
-    render_args=dbt_profiles_render_args,
+    render_args={"project_name": inp.project_name},
     output_path=new_project_root / "profiles.yml"
 )
+
+# Render sources.yml
+jinja_renderer.render_template(
+    template_name="t_sources.yml.j2",
+    render_args={"source_schema": inp.source_schema},
+    output_path=new_project_root / "models/sources.yml"
+)
+
 
 # Copy packages.yml
 shutil.copy2(TEMPLATES_PATH / "packages.yml", new_project_root)
@@ -228,6 +240,7 @@ else:
 
 
 print("""
+--------------------------------------------------------------------------------
 dbt Project setup complete!
 
 Next steps:

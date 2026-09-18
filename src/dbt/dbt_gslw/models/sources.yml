@@ -1,0 +1,6 @@
+sources:
+  - name: dbu_aue_gslw
+    database: "{{ target.database }}"
+    schema: dbu_aue_gslw
+    tables:
+      - name: 
