@@ -7,8 +7,9 @@ from pathlib import Path
 from dataclasses import dataclass
 from jinja2 import Environment, FileSystemLoader
 
-from generator_utility import UserInput
-
+# other modules in the project
+from util_user_input import UserInput
+from util_render_template import JinjaRenderer
 
 
 # -- Classes -------------------------------------------------------------------------------------
@@ -36,7 +37,7 @@ def coalesce(value, default):
     return default if value is None else value
 
 # -- Debugging Constants -------------------------------------------------------------------------
-DEBUG_MODE = False
+DEBUG_MODE = True
 
 debugging_inputs=Inputs(
     project_name='dbt_proj',
@@ -44,8 +45,9 @@ debugging_inputs=Inputs(
     db_owner_role='owner_role',
     target_data_basket_tid=2,
     starting_data_tid=100,
-    target_schema='target_schema',
-    target_export_name='export_job',
+    target_setup=False,
+    target_schema=None,
+    target_export_name=None,
     create_dbt_schema=True
 )
 
@@ -137,15 +139,11 @@ except OSError:
 (new_project_root / "tests").mkdir()
 
 # -- Create Project Configuration Files ----------------------------------------------------------
+# Set up jinja environment
+
+jinja_renderer = JinjaRenderer(TEMPLATES_PATH)
+
 # Render dbt_project.yml
-jinja_env = Environment(
-    loader=FileSystemLoader(TEMPLATES_PATH),
-    variable_start_string="<",
-    variable_end_string=">"
-)
-
-dbt_project_template = jinja_env.get_template("t_dbt_project.yml.j2")
-
 dbt_project_render_args = {
     "project_name": inp.project_name,
     "starting_data_tid": coalesce(inp.starting_data_tid, 100),
@@ -155,27 +153,22 @@ dbt_project_render_args = {
     "owner_role": inp.db_owner_role
 }
 
-dbt_project_yml = dbt_project_template.render(**dbt_project_render_args)
-output_file = new_project_root / "dbt_project.yml"
-output_file.write_text(dbt_project_yml)
-
-
-# Render profiles.yml
-jinja_env = Environment(
-    loader=FileSystemLoader(TEMPLATES_PATH),
-    variable_start_string="<",
-    variable_end_string=">"
+jinja_renderer.render_template(
+    template_name="t_dbt_project.yml.j2",
+    render_args=dbt_project_render_args,
+    output_path=new_project_root / "dbt_project.yml"
 )
 
-dbt_project_template = jinja_env.get_template("t_profiles.yml.j2")
-
+# Render profiles.yml
 dbt_profiles_render_args = {
     "project_name": inp.project_name
 }
 
-profiles_yml = dbt_project_template.render(**dbt_profiles_render_args)
-output_file = new_project_root / "profiles.yml"
-output_file.write_text(profiles_yml)
+jinja_renderer.render_template(
+    template_name="t_profiles.yml.j2",
+    render_args=dbt_profiles_render_args,
+    output_path=new_project_root / "profiles.yml"
+)
 
 # Copy packages.yml
 shutil.copy2(TEMPLATES_PATH / "packages.yml", new_project_root)
