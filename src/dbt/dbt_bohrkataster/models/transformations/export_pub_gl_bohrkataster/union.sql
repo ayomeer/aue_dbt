@@ -20,7 +20,8 @@ SELECT
     ST_X(the_geom) as koordinate_e,
     ST_Y(the_geom) as koordinate_n,
     arr_pdf[array_upper(arr_pdf, 1)] as pdf_basename,
-    kategorie as typ,
+    typ,
+    kategorie,
     bohrprofil_pdf,
     the_geom as geometrie,
     publikation

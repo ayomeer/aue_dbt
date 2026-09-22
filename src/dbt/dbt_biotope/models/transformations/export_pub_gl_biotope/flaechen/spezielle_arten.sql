@@ -8,6 +8,7 @@ WITH base as (
     a.gid as a_gid,
     split_part(c.bez_art_deutsch, ',', 1) as bez_art_deutsch, -- use only first name given in catalogue
     c.bez_art_latein,
+    COALESCE(split_part(c.bez_art_deutsch, ',', 1), c.bez_art_latein) as bez_art_coalesced,
     sf.gid as sf_gid,
     sf.objekt_nummer,
     sf.teilobj_nr
@@ -23,6 +24,7 @@ WITH base as (
 SELECT
   sf_gid,
   array_agg(distinct bez_art_deutsch) as arr_art_deutsch,
-  array_agg(distinct bez_art_latein) as arr_art_wiss
+  array_agg(distinct bez_art_latein) as arr_art_wiss,
+  array_agg(distinct bez_art_coalesced) as arr_art_coalesced
 FROM base
 GROUP BY sf_gid

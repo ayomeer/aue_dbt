@@ -4,7 +4,7 @@ SELECT
   nextval('dbt_ersatzbiotope.t_ili2db_seq'::regclass) as t_id,
   '{{ var('export_config_pub')['data_basket_tid'] }}'::bigint as t_basket,
   uuid_generate_v4() as t_ili_tid,
-  st_area(geometrie_sf)::numeric(12,3) as flaeche_m2,
+  (st_area(geometrie_sf) / 100 )::numeric(12,3) as flaeche_a,
   geometrie_sf::geometry(MultiPolygon,2056) as geo_obj,
   objekt_nummer::integer,
   teilobjekt_nummer::integer as teilobj_nr,

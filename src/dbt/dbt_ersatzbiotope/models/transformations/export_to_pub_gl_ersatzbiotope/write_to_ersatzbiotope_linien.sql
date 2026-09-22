@@ -5,9 +5,9 @@
   post_hook=[
     '{{ ili_utils.insert_into(
       schema_name="pub_gl_ersatzbiotope", 
-      table_name="to_punkt"
+      table_name="ersatzbiotope_linien"
     )}}'
   ]
 )}}
 
-SELECT * FROM {{ ref('ili_mirror_to_punkt_pub') }}
+SELECT * FROM {{ ref('ili_mirror_ersatzbiotope_linien') }}
