@@ -6,7 +6,7 @@
 
 {% set old = ref('stg_bewirtschafter') %}
 
-{% set new = ref('preview_upserted_bewirtschafter') %}
+{% set new = ref('preview_bewirtschafter_update') %}
 
 {{ audit_helper.compare_all_columns(
     a_relation = old,

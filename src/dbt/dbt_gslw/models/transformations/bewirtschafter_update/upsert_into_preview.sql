@@ -1,11 +1,11 @@
--- depends_on: {{ ref('preview_upserted_bewirtschafter') }}
+-- depends_on: {{ ref('preview_bewirtschafter_update') }}
 
 {{ config(
   enabled= not var('enable_transfer', false), 
   post_hook= '{{
     ili_utils.upsert_into(
       schema_name="dbt_gslw", 
-      table_name="preview_upserted_bewirtschafter", 
+      table_name="preview_bewirtschafter_update", 
       conflict_target=["bewirtschafternummer"],
       update_except_cols=["t_basket"]
     )}}'

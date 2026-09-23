@@ -8,7 +8,7 @@
 {% set new %}
   select
     *
-  from {{ ref('preview_upserted_bewirtschafter') }}
+  from {{ ref('preview_bewirtschafter_update') }}
 {% endset %}
 
 {{ 
@@ -17,7 +17,7 @@
     new, 
     primary_key_columns=['bewirtschafternummer'], 
     columns=dbt_utils.get_filtered_columns_in_relation(
-      from=ref('preview_upserted_bewirtschafter'),
+      from=ref('preview_bewirtschafter_update'),
       except=[]
     ),
     sample_limit=0

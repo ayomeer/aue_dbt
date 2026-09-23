@@ -1,0 +1,18 @@
+models:
+  - name: audit_preview_cols
+    description: "Column change summary comparing the preview of what the table `bewirtschafter` will look like after running the job `transformations.bewirtschafter_update` when run with `--vars 'enable_transfer: true'` with the current `bewirtschafter` table."
+    columns:
+      - name: column_name
+        data_type: text
+      - name: perfect_match
+        data_type: bigint
+      - name: null_in_a
+        data_type: bigint
+      - name: null_in_b
+        data_type: bigint
+      - name: missing_from_a
+        data_type: bigint
+      - name: missing_from_b
+        data_type: bigint
+      - name: conflicting_values
+        data_type: bigint

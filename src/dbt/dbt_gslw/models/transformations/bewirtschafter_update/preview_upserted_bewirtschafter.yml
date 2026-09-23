@@ -1,0 +1,46 @@
+models:
+  - name: preview_bewirtschafter_update
+    description: |-
+      This model only runs if the `enable_transfer` flag is _not_ used with the dbt run. 
+      Upsert target for previewing effects of bewirtschafter_update transform job without writing to the actual table. (Preserves idempotency of the transform job)
+    columns:
+      - name: t_id
+        data_type: bigint
+      - name: t_basket
+        data_type: bigint
+      - name: t_ili_tid
+        data_type: uuid
+      - name: bewirtschafternummer
+        data_type: character varying
+      - name: banrede
+        data_type: character varying
+      - name: bansprech
+        data_type: character varying
+      - name: bname
+        data_type: character varying
+      - name: bvorname
+        data_type: character varying
+      - name: badresse
+        data_type: character varying
+      - name: bwohnort
+        data_type: character varying
+      - name: bplz
+        data_type: integer
+      - name: bemerkungen
+        data_type: text
+      - name: orgname
+        data_type: character varying
+      - name: orgtyp
+        data_type: character varying
+      - name: ablagenr
+        data_type: integer
+      - name: gws_relevant
+        data_type: boolean
+      - name: old_id
+        data_type: integer
+      - name: gws_ersterhebung_io
+        data_type: boolean
+      - name: created
+        data_type: date
+      - name: lastmodified
+        data_type: date
