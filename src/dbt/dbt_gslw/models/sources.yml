@@ -4,3 +4,9 @@ sources:
     schema: dbu_aue_gslw
     tables:
       - name: bewirtschafter
+
+  - name: dbt_gslw
+    database: "{{ target.database }}"
+    schema: dbt_gslw
+    tables: 
+      - name: imp_bew_agricola
