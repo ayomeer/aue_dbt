@@ -1,6 +1,6 @@
 # Bewirtschafter Update Job
 
-## Ablauf
+## Schritte zum Bewirtschafter-Update
 
 1) Export File auf `dbt_gslw` Schema importieren. Im Fall von AGRICOLA wars ein Excel File: 
 - Abspeichern als CSV (Datei > Exportieren > Datentyp ändern > CSV)
