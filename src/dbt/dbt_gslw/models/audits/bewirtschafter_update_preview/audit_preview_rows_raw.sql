@@ -1,4 +1,6 @@
 
+{{ config( enabled= not var('enable_transfer', false) ) }}
+
 {% set old %}
   select
     *

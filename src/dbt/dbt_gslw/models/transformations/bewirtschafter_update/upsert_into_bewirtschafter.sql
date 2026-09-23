@@ -1,10 +1,11 @@
 {{ config(
-  enabled= var('enable_transfer', false), 
+  enabled=var('enable_transfer', false), 
   post_hook= '{{
     ili_utils.upsert_into(
       schema_name="dbu_aue_gslw", 
       table_name="bewirtschafter", 
       conflict_target=["bewirtschafternummer"],
+      conflict_except_values={"bewirtschafternummer": "keine"},
       update_except_cols=["t_basket"]
     )}}'
 ) }}

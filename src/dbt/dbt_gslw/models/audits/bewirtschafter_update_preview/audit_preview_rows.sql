@@ -1,4 +1,7 @@
-{{ config(materialized='table')}}
+{{ config(
+  enabled= not var('enable_transfer', false), 
+  materialized='table'
+)}}
 
 {% set cols_to_compare = [
   'bewirtschafternummer',
