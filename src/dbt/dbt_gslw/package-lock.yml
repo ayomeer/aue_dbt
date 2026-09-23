@@ -8,4 +8,7 @@ packages:
   - git: https://github.com/ayomeer/dbt_ili_utils.git
     name: ili_utils
     revision: b95cfff01a1faac85826ea43cbd8ba7943a085d2
-sha1_hash: 6d27828f3a110455c12ab59a9866833914e3d8b6
+  - git: https://github.com/ayomeer/dbt_audit_utils.git
+    name: audit_utils
+    revision: c4f974d9950338f847c096c9cd09956867e5288f
+sha1_hash: ed3f9cb4a64505d403f2990892b165fc79dbe195

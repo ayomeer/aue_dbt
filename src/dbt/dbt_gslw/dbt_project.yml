@@ -17,6 +17,9 @@ clean-targets:         # directories to be removed by `dbt clean`
 vars:
   starting_data_tid: 100
 
+  upsert_config_bewirtschafter:
+    basket_tid: 999002
+
 on-run-start:
   - ALTER SEQUENCE dbt_gslw.t_ili2db_seq RESTART WITH {{ var('starting_data_tid') }}
 

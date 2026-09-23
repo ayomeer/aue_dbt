@@ -25,3 +25,5 @@ SELECT
   telefon_nr3::character varying, 
   dz::character varying
 FROM {{ source('dbt_gslw', 'imp_bew_agricola') }}
+WHERE kt_id LIKE '%/ 1/%'
+   OR kt_id LIKE '%/50/%'
