@@ -23,3 +23,9 @@ SELECT
 
 FROM {{ ref('stg_biotope_to_li') }} as l
 WHERE l.publikation_biotopverzeichnis is true
+  AND l.biotopart in (
+    'Hecke',
+    'Hecke oder Trockenmauer',
+    'Hecke und Trockenmauer',
+	  'Trockenmauer'
+  )
