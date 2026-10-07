@@ -21,12 +21,3 @@ SELECT
   p.geometrie::geometry(MultiPoint,2056) -- NOT NULL
 FROM {{ ref('stg_biotope_to_pt') }} as p
 WHERE p.publikation_biotopverzeichnis is true
-  AND p.biotopart in (
-    'Artenschutzobjekt',
-    'Biotopbaum',
-    'Feldgehölz',
-    'Quelllebensraum',
-    'Stehende Gewässer',
-    'Andere schützenswerte Lebensräume',
-    'nicht mehr vorhanden'
-  )
