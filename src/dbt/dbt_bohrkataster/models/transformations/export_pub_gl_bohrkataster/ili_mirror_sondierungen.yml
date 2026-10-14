@@ -1,5 +1,5 @@
 models:
-  - name: ili_mirror_grundwasserbohrung
+  - name: ili_mirror_sondierungen
     columns:
       - name: t_id
         data_type: bigint

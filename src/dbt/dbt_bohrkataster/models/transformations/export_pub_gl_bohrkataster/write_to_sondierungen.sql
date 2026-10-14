@@ -6,9 +6,9 @@
   post_hook=[
     '{{ ili_utils.insert_into(
       schema_name="pub_gl_bohrkataster", 
-      table_name="grundwasserbohrung"
+      table_name="sondierungen"
     )}}'
   ]
 )}}
 
-SELECT * FROM {{ ref('ili_mirror_grundwasserbohrung') }}
+SELECT * FROM {{ ref('ili_mirror_sondierungen') }}
