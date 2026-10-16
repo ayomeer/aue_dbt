@@ -4,6 +4,14 @@ sources:
     schema: dbu_aue_gsbohrung
     tables:
       - name: borehole
+      - name: bohrbewilligung
       - name: konzession
       - name: rueckgabe_h2o
       - name: view_borehole_kategorie
+
+
+  - name: ch_av_dm01
+    database: "{{ target.database }}"
+    schema: ch_av_dm01
+    tables:
+      - name: gemeindegrenze
