@@ -2,7 +2,7 @@
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
-name: 'dbt_prod_gl_quellkataster'
+name: 'dbt_quellkataster'
 version: '1.0.0'
 
 # This setting configures which "profile" dbt uses for this project.
@@ -27,13 +27,6 @@ on-run-start:
 
 vars:
   target_ili_schema: prod_gl_quellkataster
-
-  # Basket and Dataset Variables
-  # These get inserted into the target schema's t_ili2db_basket table
-  # when the macro 'write_basket()' is run.  
-  # 
-  # Note: - t_id is meant to be unique across all tables!
-  #       - dataset_t_id must match one of the t_ids defined for a dataset
 
   # Dataset variables
   datasets:
@@ -69,8 +62,20 @@ vars:
     Quelle_intern: Prod_Quellkataster_V1.Quelle.Quelle_intern
   
 models:
-  dbt_prod_gl_quellkataster:
+  dbt_quellkataster: 
     +grants:
       select: ['prod_gl_quellkataster_read']
     +post-hook: 
     - 'ALTER {{model.config.materialized}} {{this}} OWNER TO "prod_gl_quellkataster_write"'
+
+
+    # tags mirroring models dir structure
+    initial_data_loading:
+      0_info:
+        +tags: 0_info
+      1_staging: 
+        +tags: 1_staging
+      2_intermediate:
+        +tags: 2_intermediate
+      3_interlis_boundary:
+        +tags: 3_interlis_boundary

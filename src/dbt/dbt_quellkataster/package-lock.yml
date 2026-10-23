@@ -4,5 +4,5 @@ packages:
     version: 1.3.3
   - git: https://github.com/ayomeer/dbt_ili_utils.git
     name: ili_utils
-    revision: c779f959992a00778f59408796b18d8744398ff4
+    revision: 892df3eb9ea0f662b7fb834c531e7720482ab805
 sha1_hash: e4d8ccd7e213e86f56db519b8c9dd82e288c0bcc

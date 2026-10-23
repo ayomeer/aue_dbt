@@ -1,4 +1,4 @@
-# dbt_prod_gl_quellkataster
+# dbt_quellkataster
 
 Zugehöriges INTERLIS Modell: prod_quellkataster_simple.ili
 
@@ -16,23 +16,25 @@ Zugehöriges INTERLIS Modell: prod_quellkataster_simple.ili
 - [x] deduplizieren von objekten, welche sowohl in access- als auch in alpquellen Datensatz vorhanden sind
   - MGDM-Attributen mit Werten von Alpquellen-Objekt überschreiben
 - [ ] Identifikator-Sequenz einfügen (oder andere Lösung)
-- [ ] 'last_modified' zum Modell hinzufügen(?)
   - [ ] trigger-setup?   
-- [ ] refactoring von Modell Namen in 'staging' and 'intermediate' Layers
-
-### Manuelle Bearbeitung nach Aufschalten des Datenbankschemas (AUE)
 
 
-**Manuelle Zuordnung von Attributwerten:**
-- [ ] fassungsart [ungefasst, gefasst]
-- [ ] nutzungszustand (wenn gefasst) [genutzt, ungenutzt, aufgehoben, unbestimmt]
-- [ ] trinkwasser (wenn gefasst und genutzt)[ja, nein, unbestimmt]
-- [ ] oeffentliches interesse (wenn gefasst und genutzt) [ja, nein, unbestimmt]
+
+### Noch nicht durch dbt Prozess befüllte Informationen 
+
 - [ ] zustroembereich_erforderlich (wenn fassung im öffentlichen Interesse) [ja, nein, unbestimmt]
-- [ ] grundwasserleiter_typ [Lockergestein, Kluft, Karst, gemischt, unbestimmt]
-- [ ] quelltyp (optional)
-  - "Quellfunktionsweise oder Schüttungsverhalten beschreiben"
-- [ ] zweck (optional) [text]
+
+
+- [ ] Erhebung / Zusammenführung durch BTG:
+  - fassungsart [ungefasst, gefasst]
+  - nutzungszustand (wenn gefasst) [genutzt, ungenutzt, aufgehoben, unbestimmt]
+  - trinkwasser (wenn gefasst und genutzt)[ja, nein, unbestimmt]
+  - oeffentliches interesse (wenn gefasst und genutzt) [ja, nein, unbestimmt]
+  - grundwasserleiter_typ [Lockergestein, Kluft, Karst, gemischt, unbestimmt]
+  - quelltyp (optional)
+    - "Quellfunktionsweise oder Schüttungsverhalten beschreiben"
+  - zweck (optional) [text]
+
 
 **Manuell aus Quelldaten zu Erfassen**
 - [ ] 3 erhebungsdatum Attributwerte from csv -> DB
