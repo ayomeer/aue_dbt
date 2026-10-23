@@ -9,6 +9,7 @@ SELECT
   trim(u.pdf_basename, '.pdf')::character varying(255) as aname, 
   u.kategorie::character varying(255) as typ, 
   ('https://map.geo.gl.ch/data/gsbohrung_bohrprofile/' || u.pdf_basename)::text as bohrprofil_pdf, 
+  u.ablagenummer::integer,
   u.geometrie::geometry(Point,2056)-- NOT NULL
 FROM 
   {{ ref('union') }} as u,
@@ -18,6 +19,8 @@ WHERE publikation is true
     'Grundwasserwärmepumpe Entnahme',
     'Grundwasserwärmepumpe Rückgabe',
     'Grundwasserfassung Trinkwasser',
+    'Grundwasserfassung Kühlwasser',
+    'Grundwasserfassung Brauchwasser',
     'Erdwärmenutzung',
     'Allgemeine Sondierung'
   )

@@ -12,5 +12,6 @@ LEFT JOIN {{ ref('stg_konzession') }} as k
     ON k.id = r.id_konzession
 LEFT JOIN  {{ ref('stg_borehole') }}  as b
 	ON k.id_borehole = b.id
+    
 WHERE typ = 'Bohrung'
 
