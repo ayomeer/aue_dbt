@@ -1,5 +1,5 @@
-dbu_aue_quellkataster_profile:
-  target: dev
+prod_gl_quellkataster_profile:
+  target: iap
   outputs:
     dev:
       # use this profile for local testing

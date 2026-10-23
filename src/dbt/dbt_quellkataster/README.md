@@ -1,4 +1,4 @@
-# dbt_dbu_aue_quellkataster
+# dbt_prod_gl_quellkataster
 
 Zugehöriges INTERLIS Modell: prod_quellkataster_simple.ili
 

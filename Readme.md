@@ -161,6 +161,18 @@ models
 
 ### Setting up dbt schema
 
+In the `ili_utils` dbt package, there's a utility macro for setting up dbt schemas: `create_dbt_schema`.
+
+Usage example:
+```bash
+dbt run-operation create_dbt_schema --args {
+    schema_name: dbt_example,
+    owner_role: prod_gl_example_write,
+    read_role: prod_gl_example_read
+}
+```
+
+---
 1) create roles referenced in backup file 
 2) retore backups of schemas we want to develop for
 3) set up dbt_schema
@@ -175,6 +187,7 @@ Some utility macros have been written to speed up setting up local test environm
 | setup_roles_for_schema | set up read and write roles to mirror 
 | create_ili_sequence | set up t_ili2db_seq for given schema |
 
+---
 
 ## dbt Workflow
 dbt (data build tool) is a data first transformation framework. What I mean by 'data first', is that dbt is set up to build up transformation layers from the ground up. Transformation models are just `SELECT` queries, so a model is valid only if you can actually run this query. As opposed to something like `CREATE TABLE`, where you would create an abstract container for data you don't have in the required form yet.\
