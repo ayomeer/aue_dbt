@@ -15,6 +15,7 @@ Zugehöriges INTERLIS Modell: prod_quellkataster_simple.ili
 
 ### Noch nicht durch dbt Prozess befüllte Informationen 
 
+- [ ] Formattierung von `ordnungs_nr` ändern wie in [analysis modell ordnungs_nr_formatting.sql`](analyses/ordnungs_nr_formatting.sql)
 - [ ] Foto-Attributen übernehmen
 - [ ] zustroembereich_erforderlich (wenn fassung im öffentlichen Interesse) [ja, nein, unbestimmt]
 
