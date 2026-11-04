@@ -11,17 +11,5 @@ SELECT
   ('https://map.geo.gl.ch/data/gsbohrung_bohrprofile/' || u.pdf_basename)::text as bohrprofil_pdf, 
   u.ablagenummer::integer,
   u.geometrie::geometry(Point,2056)-- NOT NULL
-FROM 
-  {{ ref('union') }} as u,
-  {{ source('ch_av_dm01', 'gemeindegrenze') }} as g
-WHERE publikation is true
-  AND kategorie in (
-    'Grundwasserwärmepumpe Entnahme',
-    'Grundwasserwärmepumpe Rückgabe',
-    'Grundwasserfassung Trinkwasser',
-    'Grundwasserfassung Kühlwasser',
-    'Grundwasserfassung Brauchwasser',
-    'Erdwärmenutzung',
-    'Allgemeine Sondierung'
-  )
-  AND ST_Within(u.geometrie, g.geometrie)
+FROM {{ ref('union') }} as u
+  
