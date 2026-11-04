@@ -10,8 +10,10 @@ SELECT
 FROM {{ ref('stg_borehole') }} as b
 LEFT JOIN {{ ref('stg_bohrbewilligung') }} as bew
     ON bew.id = b.id_bohrbewilligung
+LEFT JOIN {{ ref('stg_konzession') }} as k
+    ON k.id_borehole = b.id
 
-WHERE bew.bohrzweck not in ('Wassernutzung', 'Erdwärmenutzung')
+WHERE k.id is null -- keine konzession vorhanden
   AND kind in (
         'Rammung',
         'Sondierschlitz',

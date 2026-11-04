@@ -14,8 +14,8 @@ LEFT JOIN {{ ref('stg_bohrbewilligung') }} as bew
 LEFT JOIN {{ ref('stg_konzession') }} as k
     ON k.id_borehole = b.id
 
-WHERE bew.bohrzweck in ('Wassernutzung', 'Erdwärmenutzung')
-  AND k.status = 'erteilt'
+WHERE k.id is not null -- konzession vorhanden
+  AND k.status = 'erteilt' -- also filters out NULL
   AND k.nutzung <> 'andere' -- also filters out NULL
   AND b.kind in (
         'Rammung',

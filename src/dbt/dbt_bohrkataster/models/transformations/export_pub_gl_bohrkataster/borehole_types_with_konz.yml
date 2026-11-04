@@ -1,0 +1,22 @@
+models:
+  - name: borehole_types_with_konz
+    description: |-
+      Menge der boreholes ohne verknüpfte Konzession.
+      Abgesplittet, da hier für die Publikation andere Filter angewendet werden, als für diejenigen boreholes _ohne_ Konzession. Nämlich, dass zusätzlich der Konzessionsstatus 'erteilt' sein muss.
+    columns:
+      - name: koordinate_e
+        data_type: double precision
+      - name: koordinate_n
+        data_type: double precision
+      - name: pdf_basename
+        data_type: text
+      - name: kategorie
+        data_type: character varying
+      - name: ablagenummer
+        data_type: integer
+      - name: bohrprofil_pdf
+        data_type: character varying
+      - name: geometrie
+        data_type: user-defined
+      - name: publikation
+        data_type: boolean
