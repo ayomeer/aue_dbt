@@ -11,8 +11,13 @@ SELECT
 FROM {{ ref('stg_rueckgabe_h2o') }}  as r
 LEFT JOIN {{ ref('stg_konzession') }} as k
     ON k.id = r.id_konzession
-LEFT JOIN {{ ref('boreholes') }} as b  
-	ON b.id = k.id_borehole
+LEFT JOIN (
+    SELECT distinct on (id)
+        id,
+        ablagenummer
+    FROM {{ ref('boreholes') }}
+) as b
+    ON b.id = k.id_borehole
     
 WHERE typ IN (
     'Bohrung',
@@ -21,5 +26,4 @@ WHERE typ IN (
 ) 
   AND b.id is not null -- only export 
   AND r.publikation is true
-
 
